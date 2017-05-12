@@ -15,6 +15,9 @@ public class ResourceFileListPage extends Page {
     @FindBy(id = "resourceListItemsContainer")
     WebElement resourceFileListContainerDiv;
 
+    @FindBy(css = "div.main-page-list-title > div > h3 > div.wrap-text > span")
+    WebElement directoryNameLabel;
+
     public void clickResourceByName(String resourceName) {
 
         List<WebElement> resourceList = resourceFileListContainerDiv.findElements(By.cssSelector("div.ResourceListItem"));
@@ -27,5 +30,11 @@ public class ResourceFileListPage extends Page {
                 element.click();    //error handle: directory is not existed
                 break;}
         }
+    }
+
+    public boolean isResourceFileExistedInList(String fileName){
+
+        return resourceFileListContainerDiv.getText().contains(fileName);
+
     }
 }

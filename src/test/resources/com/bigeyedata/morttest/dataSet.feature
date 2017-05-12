@@ -35,8 +35,8 @@ Feature: Create Dataset
     And I give the name of dataset is "测试CSV数据集"
     And I select the saved directory of dataset is "测试数据集目录"
     When I create the dataset
-    Then I should see the dataset created successfully
-    And I should see the number of dataset fields is correct
+    Then I should see the created dataset "测试CSV数据集" displayed in directory
+    And I should see the number of dataset fields is "12"
     And I should see the ailas of dataset fields displayed correctly
     And I should see the type of dataset fields displayed correctly
     And I should see the initial import record is displayed
@@ -48,35 +48,40 @@ Feature: Create Dataset
 #      | 测试xls数据集    | 测试xls数据源       |
 #      | 测试xlsx数据集   | 测试xlsx数据源      |
 
-
-  Scenario: Locate and view datasource from dataset
-    Given I select dataset as following
-      |  DirectoryName  |  ResourceFileName     |
-      |  测试数据集目录   |  测试CSV数据集         |
-    When  I click "View Datasource" item from other operation menu
-    Then  I should locate to the datasource "datasource name"
-    And   I should see the related dataset as following
-      |  数据集名称    |  创建人  |  创建时间    |
-      |  测试CSV数据集 |  ?      |  ?          |
-
-
-  Scenario Outline: Add data to an existed dataset
-    Given I select dataset as following
-      |  DirectoryName  |  ResourceFileName     |
-      |  测试数据集目录   |  测试CSV数据集         |
-    And  I click "Add Data" item from other operation menu
-    And  I input the data description ""
-    And  I select “<Type>” option
-    And  I upload data file
-    When I click the confirm button
-    And  I go to import record tab
-    Then I should see a new import record is added as following
-      |  导入说明    |  导入人  | 导入类型  |
-      |             |         |          |
-    Examples:
-      | Type       |
-      | add data   |
-      | cover data |
+#  Scenario: Delete dataset
+#    Given I select dataset as following
+#      |  DirectoryName  |  ResourceFileName     |
+#      |  测试数据集目录   |  测试CSV数据集         |
+#    When I click "Delete" item from operation menu
+#
+#  Scenario: Locate and view datasource from dataset
+#    Given I select dataset as following
+#      |  DirectoryName  |  ResourceFileName     |
+#      |  测试数据集目录   |  测试CSV数据集         |
+#    When  I click "View Datasource" item from other operation menu
+#    Then  I should locate to the datasource "datasource name"
+#    And   I should see the related dataset as following
+#      |  数据集名称    |  创建人  |  创建时间    |
+#      |  测试CSV数据集 |  ?      |  ?          |
+#
+#
+#  Scenario Outline: Add data to an existed dataset
+#    Given I select dataset as following
+#      |  DirectoryName  |  ResourceFileName     |
+#      |  测试数据集目录   |  测试CSV数据集         |
+#    And  I click "Add Data" item from other operation menu
+#    And  I input the data description ""
+#    And  I select “<Type>” option
+#    And  I upload data file
+#    When I click the confirm button
+#    And  I go to import record tab
+#    Then I should see a new import record is added as following
+#      |  导入说明    |  导入人  | 导入类型  |
+#      |             |         |          |
+#    Examples:
+#      | Type       |
+#      | add data   |
+#      | cover data |
 
 
 

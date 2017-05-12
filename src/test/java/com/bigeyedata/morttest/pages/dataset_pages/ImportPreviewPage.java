@@ -1,9 +1,11 @@
 package com.bigeyedata.morttest.pages.dataset_pages;
 
+import com.bigeyedata.morttest.pages.CommonFunctions;
 import com.bigeyedata.morttest.pages.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
 
 import java.util.List;
 import java.util.Map;
@@ -13,23 +15,53 @@ import java.util.Map;
  */
 public class ImportPreviewPage extends Page {
 
+    @FindBy(id = "addDataSetName")
+    WebElement dataSetNameInput;
+
+    @FindBy(css = "div.choose-directory > input")
+    WebElement dataSetDirectoryInput;
+
+    @FindBy(id = "chooseDirectoryDirectoriesContainer")
+    WebElement directoryContainerUl;
+
     @FindBy(xpath = "//div[@class=' ant-tabs-tab'][1]")
-    WebElement NumericFieldTab;
+    WebElement numericFieldTab;
 
     @FindBy(xpath = "//div[@role='tab'][3]")
-    WebElement DateFieldTab;
+    WebElement dateFieldTab;
 
     @FindBy(xpath = "//div[@id='addDataSetPolicyDatetimeFieldsPreview']//table")
-    WebElement DateFieldTable;
+    WebElement dateFieldTable;
+
+    @FindBy(id="saveDataSet")
+    WebElement saveDataSetButton;
+
+
+    public void createDataset(){
+
+        saveDataSetButton.click();
+    }
+
+    public void selectSavedDirectoryByName(String directoryName){
+
+        dataSetDirectoryInput.click();
+        CommonFunctions.clickDirectoryByName(directoryContainerUl,directoryName);
+    }
+
+    public void inputDatasetName(String dataSetName){
+
+        dataSetNameInput.clear();
+        dataSetNameInput.sendKeys(dataSetName);
+    }
 
     public void gotoDateFieldPreviewTab()
     {
-        DateFieldTab.click();
+        dateFieldTab.click();
     }
 
     public void setDateFormatForDateField(List<Map<String, String>> dateFormatList) {
 
-        List<WebElement> dateFieldList = DateFieldTable.findElements(By.cssSelector("tbody > tr"));
+        List<WebElement> dateFieldList = dateFieldTable.findElements(By.cssSelector("tbody > tr"));
 
         String fieldName = "";
         String formatValue = "";

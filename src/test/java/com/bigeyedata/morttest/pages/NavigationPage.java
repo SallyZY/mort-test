@@ -1,5 +1,6 @@
 package com.bigeyedata.morttest.pages;
 
+import com.bigeyedata.morttest.pages.Page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
