@@ -38,7 +38,6 @@ public class DatasetStepdefs {
     @Given("^I click create new dataset button on datasource page$")
     public void iClickCreateNewDatasetButtonOnDatasourcePage() throws Throwable {
 
-        Thread.sleep(3);
         DatasourceDetailPage datasourceDetailPage= PageFactory.initElements(webDriver,DatasourceDetailPage.class);
         datasourceDetailPage.CreateNewDatasetFromDatasource();
 
@@ -49,7 +48,6 @@ public class DatasetStepdefs {
     @Given("^I modify the alias of fields for dataset as following$")
     public void iModifyTheAliasOfFieldsForDatasetAsFollowing(List<Map<String, String>> fieldAliasList) throws Throwable {
 
-        Thread.sleep(10);
         fieldEditPage.setFieldsAlias(fieldAliasList);
         savedFieldAliasList = fieldAliasList;
     }
@@ -95,7 +93,6 @@ public class DatasetStepdefs {
     @Then("^I should see the created dataset \"([^\"]*)\" displayed in directory$")
     public void iShouldSeeTheCreatedDatasetDisplayedInDirectory(String datasetName) throws Throwable {
 
-        Thread.sleep(10);
         ResourceFileListPage resourceFileListPage = PageFactory.initElements(webDriver,ResourceFileListPage.class);
         assertThat(resourceFileListPage.isResourceFileExistedInList(datasetName),is(true));
     }
@@ -103,7 +100,6 @@ public class DatasetStepdefs {
     @And("^I should see the number of dataset fields is \"([^\"]*)\"$")
     public void iShouldSeeTheNumberOfDatasetFieldsIs(String fieldCount) throws Throwable {
 
-        Thread.sleep(5);
         assertThat(datasetDetailsPage.getFieldCountOfDataset(),is(Integer.parseInt(fieldCount)));
     }
 

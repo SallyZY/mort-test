@@ -1,5 +1,6 @@
 package com.bigeyedata.morttest.pages.dataset_pages;
 
+import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.pages.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -33,6 +34,7 @@ public class DatasetDetailsPage extends Page {
 
     public String getDescriptionOfNewestImportHistory() {
 
+        CommonFunctions.waitForElementVisible(importHistoryTab);
         importHistoryTab.click();
         List<WebElement> descriptionList = importHistoryTable.findElements(By.cssSelector("tbody > tr > td:nth-child(3) > span"));
         return descriptionList.get(0).getText();

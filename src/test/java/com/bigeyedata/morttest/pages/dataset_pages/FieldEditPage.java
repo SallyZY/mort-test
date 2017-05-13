@@ -1,5 +1,6 @@
 package com.bigeyedata.morttest.pages.dataset_pages;
 
+import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.pages.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -21,6 +22,8 @@ public class FieldEditPage extends Page {
     WebElement nextStepButton;
 
     public void setFieldsAlias(List<Map<String,String>> fieldsAliasList) {
+
+        CommonFunctions.waitForElementVisible(FieldViewTable);
 
         List<WebElement> fieldNameLabelList = FieldViewTable.findElements(By.cssSelector("div.DataSetFieldsEditorField > span"));
         List<WebElement> fieldAliasInputList = FieldViewTable.findElements(By.cssSelector("div.DataSetFieldsEditorField > div > input"));

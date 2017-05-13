@@ -1,5 +1,6 @@
 package com.bigeyedata.morttest.pages;
 
+import com.bigeyedata.morttest.CommonFunctions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,6 +21,7 @@ public class ResourceFileListPage extends Page {
 
     public void clickResourceByName(String resourceName) {
 
+        CommonFunctions.waitForElementVisible(resourceFileListContainerDiv);
         List<WebElement> resourceList = resourceFileListContainerDiv.findElements(By.cssSelector("div.ResourceListItem"));
 
         String elementText;

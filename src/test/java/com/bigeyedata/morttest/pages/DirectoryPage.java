@@ -1,10 +1,8 @@
 package com.bigeyedata.morttest.pages;
 
-import org.openqa.selenium.By;
+import com.bigeyedata.morttest.CommonFunctions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import java.util.List;
 
 /**
  * Created by yingzhang on 10/05/2017.

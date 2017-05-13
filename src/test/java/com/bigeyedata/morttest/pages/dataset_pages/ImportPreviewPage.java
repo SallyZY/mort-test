@@ -1,6 +1,6 @@
 package com.bigeyedata.morttest.pages.dataset_pages;
 
-import com.bigeyedata.morttest.pages.CommonFunctions;
+import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.pages.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

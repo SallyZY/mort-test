@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 public class Hook {
 
     private static final String MortWeb_URL = "http://localhost:3000";
+    private static final int Wait_TimeOutInSeconds = 15;
 
     @Before
     public void setup(){
@@ -25,4 +26,6 @@ public class Hook {
     }
 
     public static String getMortWebUrl(){return MortWeb_URL;}
+
+    public static int gettimeOutInSeconds(){return Wait_TimeOutInSeconds;}
 }
