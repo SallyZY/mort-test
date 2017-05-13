@@ -38,9 +38,9 @@ Feature: Create Dataset
     Then I should see the created dataset "测试CSV数据集" displayed in directory
     And I should see the number of dataset fields is "12"
     And I should see the ailas of dataset fields displayed correctly
-    And I should see the type of dataset fields displayed correctly
+#    And I should see the type of dataset fields displayed correctly
     And I should see the initial import record is displayed
-    And I should NOT see the related report displayed
+#    And I should NOT see the related report displayed
 #    And I should see the record number of dataset is ""
 #    Examples:
 #      | DatasetName     | ResourceFileName  |

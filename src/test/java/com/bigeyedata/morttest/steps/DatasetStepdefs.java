@@ -3,7 +3,7 @@ package com.bigeyedata.morttest.steps;
 import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.ResourceFileListPage;
 import com.bigeyedata.morttest.pages.dataset_pages.DatasourceSelectPage;
-import com.bigeyedata.morttest.pages.dataset_pages.FieldAttributePage;
+import com.bigeyedata.morttest.pages.dataset_pages.DatasetDetailsPage;
 import com.bigeyedata.morttest.pages.dataset_pages.FieldEditPage;
 import com.bigeyedata.morttest.pages.dataset_pages.ImportPreviewPage;
 import com.bigeyedata.morttest.pages.datasource_pages.DatasourceDetailPage;
@@ -14,7 +14,6 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import sun.jvm.hotspot.utilities.Assert;
 
 import java.util.List;
 import java.util.Map;
@@ -31,7 +30,10 @@ public class DatasetStepdefs {
     FieldEditPage fieldEditPage = PageFactory.initElements(webDriver,FieldEditPage.class);
     ImportPreviewPage importPreviewPage =  PageFactory.initElements(webDriver,ImportPreviewPage.class);
     ResourceFileListPage resourceFileListPage = PageFactory.initElements(webDriver,ResourceFileListPage.class);
-    FieldAttributePage fieldAttributePage = PageFactory.initElements(webDriver,FieldAttributePage.class);
+    DatasetDetailsPage datasetDetailsPage = PageFactory.initElements(webDriver,DatasetDetailsPage.class);
+
+    List<Map<String, String>> savedFieldAliasList;
+    List<Map<String, String>> savedFieldTypeList;
 
     @Given("^I click create new dataset button on datasource page$")
     public void iClickCreateNewDatasetButtonOnDatasourcePage() throws Throwable {
@@ -49,6 +51,7 @@ public class DatasetStepdefs {
 
         Thread.sleep(10);
         fieldEditPage.setFieldsAlias(fieldAliasList);
+        savedFieldAliasList = fieldAliasList;
     }
 
     @And("^I modify the type of fields for dataset as following$")
@@ -56,6 +59,7 @@ public class DatasetStepdefs {
 
         fieldEditPage.setFieldsType(fieldTypeList);
         fieldEditPage.gotoNextPage();
+        savedFieldTypeList =fieldTypeList;
     }
 
     @And("^I click date fields preview table$")
@@ -91,6 +95,7 @@ public class DatasetStepdefs {
     @Then("^I should see the created dataset \"([^\"]*)\" displayed in directory$")
     public void iShouldSeeTheCreatedDatasetDisplayedInDirectory(String datasetName) throws Throwable {
 
+        Thread.sleep(10);
         ResourceFileListPage resourceFileListPage = PageFactory.initElements(webDriver,ResourceFileListPage.class);
         assertThat(resourceFileListPage.isResourceFileExistedInList(datasetName),is(true));
     }
@@ -98,25 +103,26 @@ public class DatasetStepdefs {
     @And("^I should see the number of dataset fields is \"([^\"]*)\"$")
     public void iShouldSeeTheNumberOfDatasetFieldsIs(String fieldCount) throws Throwable {
 
-        assertThat(fieldAttributePage.getFieldCountOfDataset(),is(Integer.parseInt(fieldCount)));
+        Thread.sleep(5);
+        assertThat(datasetDetailsPage.getFieldCountOfDataset(),is(Integer.parseInt(fieldCount)));
     }
 
     @And("^I should see the ailas of dataset fields displayed correctly$")
     public void iShouldSeeTheAilasOfDatasetFieldsDisplayedCorrectly() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+
+        assertThat(datasetDetailsPage.compareFieldAlias(savedFieldAliasList),is(true));
     }
 
     @And("^I should see the type of dataset fields displayed correctly$")
     public void iShouldSeeTheTypeOfDatasetFieldsDisplayedCorrectly() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+
+        assertThat(datasetDetailsPage.compareFieldType(savedFieldTypeList),is(true));
     }
 
     @And("^I should see the initial import record is displayed$")
     public void iShouldSeeTheInitialImportRecordIsDisplayed() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+
+        assertThat(datasetDetailsPage.getDescriptionOfNewestImportHistory(),is("初始化导入"));
     }
 
     @And("^I should NOT see the related report displayed$")
