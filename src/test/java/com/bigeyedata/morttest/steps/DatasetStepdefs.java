@@ -31,6 +31,7 @@ public class DatasetStepdefs {
     ImportPreviewPage importPreviewPage =  PageFactory.initElements(webDriver,ImportPreviewPage.class);
     ResourceFileListPage resourceFileListPage = PageFactory.initElements(webDriver,ResourceFileListPage.class);
     DatasetDetailsPage datasetDetailsPage = PageFactory.initElements(webDriver,DatasetDetailsPage.class);
+    DatasourceDetailPage datasourceDetailPage=PageFactory.initElements(webDriver,DatasourceDetailPage.class);
 
     List<Map<String, String>> savedFieldAliasList;
     List<Map<String, String>> savedFieldTypeList;
@@ -93,7 +94,6 @@ public class DatasetStepdefs {
     @Then("^I should see the created dataset \"([^\"]*)\" displayed in directory$")
     public void iShouldSeeTheCreatedDatasetDisplayedInDirectory(String datasetName) throws Throwable {
 
-        ResourceFileListPage resourceFileListPage = PageFactory.initElements(webDriver,ResourceFileListPage.class);
         assertThat(resourceFileListPage.isResourceFileExistedInList(datasetName),is(true));
     }
 
@@ -126,6 +126,22 @@ public class DatasetStepdefs {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
+    
+    @Then("^I should locate to the datasource \"([^\"]*)\"$")
+    public void iShouldLocateToTheDatasource(String datasourceName) throws Throwable {
 
+        assertThat(resourceFileListPage.isResourceFileExistedInList(datasourceName),is(true));
+    }
 
+    @When("^I click \"([^\"]*)\" item from other operation dropdown menu$")
+    public void iClickItemFromOtherOperationDropdownMenu(String itemName) throws Throwable {
+
+        datasetDetailsPage.clickMenuItem(itemName);
+    }
+
+    @And("^I should see the related dataset as following$")
+    public void iShouldSeeTheRelatedDatasetAsFollowing(List<Map<String,String>> datasetNameList) throws Throwable {
+
+        datasourceDetailPage.isDatasetNameDisplayed(datasetNameList);
+    }
 }

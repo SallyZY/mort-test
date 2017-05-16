@@ -32,6 +32,36 @@ public class DatasetDetailsPage extends Page {
     @FindBy(xpath = "//div[@id='dataSetImportHistory']//table")
     WebElement importHistoryTable;
 
+    @FindBy(id = "dataSetOtherOperationMenu")
+    WebElement otherOperationMenu;
+
+    @FindBy(css = "ul#dataSetAllMenu > li:nth-child(1)")
+    WebElement locateToDatasourceMenuItem;
+
+    @FindBy(css = "ul#dataSetAllMenu > li:nth-child(2)")
+    WebElement appendFieldsMenuItem;
+
+    @FindBy(css = "ul#dataSetAllMenu > li:nth-child(3)")
+    WebElement appendDataMenuItem;
+
+    public void clickMenuItem(String item){
+
+        otherOperationMenu.click();
+
+        switch (item){
+            case "ViewDatasource":
+                locateToDatasourceMenuItem.click();
+                break;
+            case "AppendData":
+                appendDataMenuItem.click();
+                break;
+            case "AppendFields":
+                appendFieldsMenuItem.click();
+
+        }
+    }
+
+
     public String getDescriptionOfNewestImportHistory() {
 
         CommonFunctions.waitForElementVisible(importHistoryTab);

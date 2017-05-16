@@ -1,6 +1,5 @@
 package com.bigeyedata.morttest;
 
-import org.apache.bcel.generic.NEW;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -30,9 +29,10 @@ public class CommonFunctions {
         }
     }
 
+
     public static void waitForElementVisible(WebElement element){
 
-        new WebDriverWait(WebDriverManager.getDriver(),Hook.gettimeOutInSeconds()).until(ExpectedConditions.visibilityOf(element));
+        new WebDriverWait(WebDriverManager.getDriver(), Hooks.gettimeOutInSeconds()).until(ExpectedConditions.visibilityOf(element));
     }
 
 }

@@ -1,19 +1,23 @@
 package com.bigeyedata.morttest.steps;
 
-import com.bigeyedata.morttest.Hook;
+import com.bigeyedata.morttest.Hooks;
 import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.DirectoryPage;
 import com.bigeyedata.morttest.pages.LoginPage;
 import com.bigeyedata.morttest.pages.NavigationPage;
 import com.bigeyedata.morttest.pages.ResourceFileListPage;
-import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 import java.util.Map;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 /**
  * Created by yingzhang on 09/05/2017.
@@ -28,7 +32,7 @@ public class CommonStepdefs {
         String userName= userLoginInfoList.get(0).get("UserName").toString();
         String password=userLoginInfoList.get(0).get("Password").toString();
 
-        webDriver.navigate().to(Hook.getMortWebUrl());
+        webDriver.navigate().to(Hooks.getMortWebUrl());
         LoginPage loginPage= PageFactory.initElements(webDriver, LoginPage.class);
         loginPage.Login(userName,password);
 
@@ -53,6 +57,20 @@ public class CommonStepdefs {
         ResourceFileListPage resourceFileListPage=PageFactory.initElements(webDriver,ResourceFileListPage.class);
         resourceFileListPage.clickResourceByName(sourceFileName);
 
+    }
+
+    @When("^I click \"([^\"]*)\" item from dropdown menu of \"([^\"]*)\"$")
+    public void iClickItemFromOperationMenuOf(String menuItem, String fileName) throws Throwable {
+
+        ResourceFileListPage resourceFileListPage = PageFactory.initElements(webDriver,ResourceFileListPage.class);
+        resourceFileListPage.clickOptionMenuOfResourceFile(fileName);
+    }
+
+    @Then("^I should NOT see deleted resource file \"([^\"]*)\" in directory$")
+    public void iShouldNOTSeeDeletedResourceFileInDirectory(String fileName) throws Throwable {
+
+        ResourceFileListPage resourceFileListPage = PageFactory.initElements(webDriver,ResourceFileListPage.class);
+        assertThat(resourceFileListPage.isResourceFileExistedInList(fileName),is(false));
     }
 
 }

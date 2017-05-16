@@ -34,8 +34,28 @@ public class ResourceFileListPage extends Page {
         }
     }
 
+    public void clickOptionMenuOfResourceFile(String resourceName) {
+
+        CommonFunctions.waitForElementVisible(resourceFileListContainerDiv);
+        List<WebElement> resourceList = resourceFileListContainerDiv.findElements(By.cssSelector("div.ResourceListItem"));
+
+        WebElement datasetInfoDiv;
+        String elementText;
+        int fileIndex = -1;
+        for (int i = 0; i < resourceList.size(); i++) {
+            datasetInfoDiv = resourceList.get(i).findElement(By.cssSelector("div.head"));
+            elementText = datasetInfoDiv.findElement(By.cssSelector("span")).getText();
+
+            if (elementText.equals(resourceName)) {
+                datasetInfoDiv.findElement(By.cssSelector("i:nth-child(3)")).click(); //error handle: directory is not existed
+                break;
+            }
+        }
+    }
+
     public boolean isResourceFileExistedInList(String fileName){
 
+        CommonFunctions.waitForElementVisible(resourceFileListContainerDiv);
         return resourceFileListContainerDiv.getText().contains(fileName);
 
     }
