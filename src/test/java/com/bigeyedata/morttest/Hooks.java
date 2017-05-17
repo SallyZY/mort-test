@@ -24,8 +24,8 @@ public class Hooks {
     public static void afterScenario(){
 
         WebDriverManager.getDriver().manage().deleteAllCookies();
-//        WebDriverManager.getDriver().quit();
-//        WebDriverManager.deleteWebDriver();
+        WebDriverManager.getDriver().quit();
+        WebDriverManager.deleteWebDriver();
     }
 
     public static String getMortWebUrl(){return MortWeb_URL;}
