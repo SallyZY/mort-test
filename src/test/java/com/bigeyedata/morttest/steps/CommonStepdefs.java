@@ -7,6 +7,7 @@ import com.bigeyedata.morttest.pages.LoginPage;
 import com.bigeyedata.morttest.pages.NavigationPage;
 import com.bigeyedata.morttest.pages.ResourceFileListPage;
 import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -25,6 +26,7 @@ import static org.junit.Assert.assertThat;
 public class CommonStepdefs {
 
     WebDriver webDriver= WebDriverManager.getDriver();
+    DirectoryPage directoryPage = PageFactory.initElements(webDriver, DirectoryPage.class);
 
     @Given("^I open browser and login to Mort Web$")
     public void iOpenBrowserAndLoginToMortWeb(List<Map<String, String>> userLoginInfoList) throws Throwable {
@@ -73,4 +75,9 @@ public class CommonStepdefs {
         assertThat(resourceFileListPage.isResourceFileExistedInList(fileName),is(false));
     }
 
+    @And("^I select (?:datasource|dataset|report) directory \"([^\"]*)\"$")
+    public void iSelectDirectory(String directoryName) throws Throwable {
+
+        directoryPage.clickDirectoryByName(directoryName);
+    }
 }

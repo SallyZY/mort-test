@@ -19,6 +19,14 @@ public class ResourceFileListPage extends Page {
     @FindBy(css = "div.main-page-list-title > div > h3 > div.wrap-text > span")
     WebElement directoryNameLabel;
 
+    @FindBy(css = "div.main-page-list-title > div > h3 > a")
+    WebElement createNewResourceLink;
+
+    public void createNewResource(){
+
+        createNewResourceLink.click();
+    }
+
     public void clickResourceByName(String resourceName) {
 
         CommonFunctions.waitForElementVisible(resourceFileListContainerDiv);

@@ -1,9 +1,9 @@
 Feature: Dataset
-  
+
     Background:
     Given I open browser and login to Mort Web
-      | UserName                 | Password |
-      | zhangying@bigeyedata.com | password123    |
+      | UserName                 | Password     |
+      | zhangying@bigeyedata.com | password123  |
 
 
   Scenario: Create a new file dataset from a specified datasource

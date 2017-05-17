@@ -91,7 +91,7 @@ public class DatasetStepdefs {
         importPreviewPage.createDataset();
     }
 
-    @Then("^I should see the created dataset \"([^\"]*)\" displayed in directory$")
+    @Then("^I should see the created (?:datasource|dataset|report) \"([^\"]*)\" displayed in directory$")
     public void iShouldSeeTheCreatedDatasetDisplayedInDirectory(String datasetName) throws Throwable {
 
         assertThat(resourceFileListPage.isResourceFileExistedInList(datasetName),is(true));
