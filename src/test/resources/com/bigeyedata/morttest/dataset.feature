@@ -1,6 +1,5 @@
-Feature: Search in Baidu
-  as a user, I want to create and view RDB, CSV, Excel dataset from existed datasource
-
+Feature: Dataset
+  
     Background:
     Given I open browser and login to Mort Web
       | UserName                 | Password |
