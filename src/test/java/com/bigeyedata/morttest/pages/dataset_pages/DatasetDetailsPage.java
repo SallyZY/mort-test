@@ -98,14 +98,17 @@ public class DatasetDetailsPage extends Page {
     public boolean compareFieldType(List<Map<String, String>> comparedFieldTypeList) {
 
         List<WebElement> fieldTypeList = FieldAttributeTable.findElements(By.cssSelector("tbody > tr > td:nth-child(4) > span > span"));
+        List<WebElement> fieldNameList = FieldAttributeTable.findElements(By.cssSelector("tbody > tr > td:nth-child(2) > span"));
 
         int typeEqualToSettingCount = 0;
         String fieldType = "";
+        String fieldName="";
         for (int i = 0; i < fieldTypeList.size(); i++) {
+            fieldName = fieldNameList.get(i).getText();
             fieldType = fieldTypeList.get(i).getText();
 
             for (int j = 0; j < comparedFieldTypeList.size(); j++) {
-                if (fieldType.equals(comparedFieldTypeList.get(j).get("FieldType").toString())) {
+                if (fieldName.equals(comparedFieldTypeList.get(j).get("FieldName").toString()) && fieldType.equals(comparedFieldTypeList.get(j).get("FieldType").toString())) {
                     typeEqualToSettingCount++;
                     continue;
                 }

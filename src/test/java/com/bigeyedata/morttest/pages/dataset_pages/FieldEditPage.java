@@ -23,7 +23,8 @@ public class FieldEditPage extends Page {
 
     public void setFieldsAlias(List<Map<String,String>> fieldsAliasList) {
 
-        CommonFunctions.waitForElementVisible(FieldViewTable);
+//        CommonFunctions.waitForElementVisible(FieldViewTable);
+        CommonFunctions.waitForElementVisibleAndLocated(By.cssSelector("table"));
 
         List<WebElement> fieldNameLabelList = FieldViewTable.findElements(By.cssSelector("div.DataSetFieldsEditorField > span"));
         List<WebElement> fieldAliasInputList = FieldViewTable.findElements(By.cssSelector("div.DataSetFieldsEditorField > div > input"));

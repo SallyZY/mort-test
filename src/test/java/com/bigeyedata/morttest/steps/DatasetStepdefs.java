@@ -120,12 +120,6 @@ public class DatasetStepdefs {
 
         assertThat(datasetDetailsPage.getDescriptionOfNewestImportHistory(),is("初始化导入"));
     }
-
-    @And("^I should NOT see the related report displayed$")
-    public void iShouldNOTSeeTheRelatedReportDisplayed() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
     
     @Then("^I should locate to the datasource \"([^\"]*)\"$")
     public void iShouldLocateToTheDatasource(String datasourceName) throws Throwable {

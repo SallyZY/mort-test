@@ -35,4 +35,9 @@ public class CommonFunctions {
         new WebDriverWait(WebDriverManager.getDriver(), Hooks.gettimeOutInSeconds()).until(ExpectedConditions.visibilityOf(element));
     }
 
+    public static void waitForElementVisibleAndLocated(By by){
+
+        new WebDriverWait(WebDriverManager.getDriver(), Hooks.gettimeOutInSeconds()).until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
+
 }

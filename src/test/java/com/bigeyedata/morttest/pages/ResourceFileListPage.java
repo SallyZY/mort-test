@@ -55,7 +55,8 @@ public class ResourceFileListPage extends Page {
 
     public boolean isResourceFileExistedInList(String fileName){
 
-        CommonFunctions.waitForElementVisible(resourceFileListContainerDiv);
+//        CommonFunctions.waitForElementVisible(resourceFileListContainerDiv);
+        CommonFunctions.waitForElementVisibleAndLocated(By.id("resourceListItemsContainer"));
         return resourceFileListContainerDiv.getText().contains(fileName);
 
     }
