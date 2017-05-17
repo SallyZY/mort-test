@@ -5,7 +5,7 @@ Feature: Datasource
       | UserName                 | Password     |
       | zhangying@bigeyedata.com | password123  |
 
-  Scenario: Create a new file dataset from a specified datasource
+  Scenario: Create a new RDB datasource
     Given I access to "datasource" module
     And I select datasource directory "测试数据源目录"
     And I want to create a RDB datasource with configuration as following
