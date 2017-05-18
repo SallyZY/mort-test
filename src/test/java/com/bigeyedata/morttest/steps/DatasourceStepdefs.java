@@ -2,6 +2,8 @@ package com.bigeyedata.morttest.steps;
 
 import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.ResourceFileListPage;
+import com.bigeyedata.morttest.pages.datasource_pages.DatasourceConfigPage;
+import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
@@ -17,18 +19,24 @@ import java.util.Map;
 public class DatasourceStepdefs {
 
     WebDriver webDriver= WebDriverManager.getDriver();
+    DatasourceConfigPage datasourceConfigPage= PageFactory.initElements(webDriver,DatasourceConfigPage.class);
 
     @And("^I want to create a RDB datasource with configuration as following$")
-    public void iWantToCreateARDBDatasourceWithConfigurationAsFollowing(List<List<String>> RDBParameterList) throws Throwable {
+    public void iWantToCreateARDBDatasourceWithConfigurationAsFollowing(List<Map<String,String>> RDBConfigList) throws Throwable {
 
         ResourceFileListPage resourceFileListPage= PageFactory.initElements(webDriver,ResourceFileListPage.class);
         resourceFileListPage.createNewResource();
+        datasourceConfigPage.selectRDBType();
+        datasourceConfigPage.setRDBParameter(RDBConfigList);
+
+
 
     }
 
     @When("^I click save button on RDB datasource configuration page$")
     public void iClickSaveButtonOnRDBDatasourceConfigurationPage() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+
+        datasourceConfigPage.createRDBSource();
+
     }
 }
