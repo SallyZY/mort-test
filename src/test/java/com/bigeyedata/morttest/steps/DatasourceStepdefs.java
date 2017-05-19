@@ -29,8 +29,6 @@ public class DatasourceStepdefs {
         datasourceConfigPage.selectRDBType();
         datasourceConfigPage.setRDBParameter(RDBConfigList);
 
-
-
     }
 
     @When("^I click save button on RDB datasource configuration page$")

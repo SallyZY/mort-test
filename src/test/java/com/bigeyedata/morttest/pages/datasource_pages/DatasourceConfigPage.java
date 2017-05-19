@@ -30,11 +30,9 @@ public class DatasourceConfigPage extends Page {
     @FindBy(css = "div.AddDataSourceTypes > div > div.AddDataSourceTypesItem:nth-child(3)")
     WebElement HDFSTypeLink;
 
-//    @FindBy(css = "div.fields > dl > dd:nth-child(1) > select")
     @FindBy(xpath = "//form/div/div[2]/dl/dd[1]/select")
     WebElement datasourceTypeSelect;
 
-//    @FindBy(css = "div.fields > dl > dd:nth-child(2)")
     @FindBy(xpath = "//form/div/div[2]/dl/dd[2]/input")
     WebElement datasourceNameInput;
 
