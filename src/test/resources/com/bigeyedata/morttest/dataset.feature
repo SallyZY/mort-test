@@ -22,9 +22,12 @@ Feature: Dataset
       | 年龄          | 数值       |
       | 空日期字段     | 日期       |
       | 测试日期       | 日期       |
+      | 流失日期       | 日期       |
       | 测试数值字段    | 数值       |
       | 流失资产       | 数值       |
       | 流失股基净佣金  | 数值       |
+      | 空数值字段     | 数值       |
+      | 流失股基交易量   |数值       |
     And I click date fields preview table
     And I set the date format for date filed as following
       |FieldName      |DateFormat         |
@@ -34,7 +37,7 @@ Feature: Dataset
     And I select the saved directory of dataset is "测试数据集目录"
     When I create the dataset
     Then I should see the created dataset "测试CSV数据集" displayed in directory
-    And I should see the number of dataset fields is "12"
+    And I should see the number of dataset fields is "16"
     And I should see the ailas of dataset fields displayed correctly
     And I should see the type of dataset fields displayed correctly
     And I should see the initial import record is displayed

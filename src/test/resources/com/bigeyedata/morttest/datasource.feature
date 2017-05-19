@@ -20,7 +20,3 @@ Feature: Datasource
     When I click save button on RDB datasource configuration page
     Then I should see the created datasource "测试MySQL数据源" displayed in directory
 
-  Scenario: Create a new File Datasource
-    Given I access to "datasource" module
-    And I select datasource directory "测试数据源目录"
-
