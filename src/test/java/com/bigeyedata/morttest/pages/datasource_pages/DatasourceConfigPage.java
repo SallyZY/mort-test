@@ -5,6 +5,7 @@ import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.Page;
 import cucumber.api.DataTable;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -34,7 +35,7 @@ public class DatasourceConfigPage extends Page {
     WebElement datasourceTypeSelect;
 
     @FindBy(xpath = "//form/div/div[2]/dl/dd[2]/input")
-    WebElement datasourceNameInput;
+    WebElement rdbDatasourceNameInput;
 
     @FindBy(css = " div.fields > dl > div.nameInput > dd:nth-child(1) > input:nth-child(2)")
     WebElement hostInput;
@@ -52,13 +53,30 @@ public class DatasourceConfigPage extends Page {
     WebElement databaseInput;
 
     @FindBy(css = "div > form > div > div.buttons.clearfix > a:nth-child(4)")
-    WebElement saveLink;
+    WebElement RDBsaveLink;
 
-    @FindBy(css = "div.fiedls")
-    WebElement rdbFieldsDiv;
+    @FindBy(css = "div > div.fields > dl > dd:nth-child(1) > input")
+    WebElement hdfsDatasourceNameInput;
+
+    @FindBy(css = "div.fields > dl > dd:nth-child(2) > div > div > div > div > div")
+    WebElement hdfsTypeSelect;
+
+    @FindBy(xpath = "//div/ul[@class='ant-select-dropdown-menu ant-select-dropdown-menu-vertical  ant-select-dropdown-menu-root']/li[last()-1]")
+    WebElement hdfsParquet;
+
+
+    @FindBy(xpath = "//div/ul[@class='ant-select-dropdown-menu ant-select-dropdown-menu-vertical  ant-select-dropdown-menu-root']/li[last()]")
+    WebElement hadsOrc;
+
+    @FindBy(css = "div.fields > dl > dd:nth-child(2) > div > input")
+    WebElement hdfsPathInput;
+
+    @FindBy(css = "form > div > div.buttons.clearfix > a:nth-child(4)")
+    WebElement HDFSsaveLink;
 
 
     public void selectRDBType(){
+
         RDBTypeLink.click();
     }
 
@@ -69,7 +87,7 @@ public class DatasourceConfigPage extends Page {
 
         select.selectByVisibleText(RDBConfigList.get(0).get("DatasourceType").toString());
 
-        datasourceNameInput.sendKeys(RDBConfigList.get(0).get("DatasourceName").toString());
+        rdbDatasourceNameInput.sendKeys(RDBConfigList.get(0).get("DatasourceName").toString());
         hostInput.sendKeys(RDBConfigList.get(0).get("Host").toString());
         portInput.sendKeys(RDBConfigList.get(0).get("Port").toString());
         userInput.sendKeys(RDBConfigList.get(0).get("User").toString());
@@ -79,7 +97,28 @@ public class DatasourceConfigPage extends Page {
     }
 
     public void createRDBSource(){
-        saveLink.click();
+        RDBsaveLink.click();
+    }
+
+
+    public void selectHDFSType(){
+
+        HDFSTypeLink.click();
+    }
+
+    public  void setHDFSParameter(List<Map<String,String>> HDFSConfigList) throws InterruptedException {
+
+        hdfsDatasourceNameInput.sendKeys(HDFSConfigList.get(0).get("DatasourceName").toString());
+        hdfsTypeSelect.click();
+        hdfsParquet.click();
+        hdfsPathInput.sendKeys(HDFSConfigList.get(0).get("Path").toString());
+
+    }
+
+    public void createHDFSSource(){
+
+        HDFSsaveLink.click();
+
     }
 
 }
