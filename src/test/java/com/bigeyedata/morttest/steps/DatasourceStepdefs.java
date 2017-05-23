@@ -37,4 +37,21 @@ public class DatasourceStepdefs {
         datasourceConfigPage.createRDBSource();
 
     }
+
+    @And("^I want to create a HDFS datasource with configuration as following$")
+    public void iWantToCreateAHDFSDatasourceWithConfigurationAsFollowing(List<Map<String,String>> HDFSConfigList) throws Throwable {
+
+        ResourceFileListPage resourceFileListPage= PageFactory.initElements(webDriver,ResourceFileListPage.class);
+        resourceFileListPage.createNewResource();
+        datasourceConfigPage.selectHDFSType();
+        datasourceConfigPage.setHDFSParameter(HDFSConfigList);
+
+    }
+
+    @When("^I click save button on HDFS datasource configuration page$")
+    public void iClickSaveButtonOnHDFSDatasourceConfigurationPage() throws Throwable {
+
+        datasourceConfigPage.createHDFSSource();
+
+    }
 }
