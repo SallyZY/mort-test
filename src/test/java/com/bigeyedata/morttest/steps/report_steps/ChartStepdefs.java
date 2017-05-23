@@ -1,6 +1,7 @@
 package com.bigeyedata.morttest.steps.report_steps;
 
 import com.bigeyedata.morttest.WebDriverManager;
+import com.bigeyedata.morttest.pages.report_pages.ChartSettingPage;
 import com.bigeyedata.morttest.pages.report_pages.ReportWorkSpacePage;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
@@ -14,6 +15,7 @@ import org.openqa.selenium.support.PageFactory;
 public class ChartStepdefs {
 
     WebDriver webDriver = WebDriverManager.getDriver();
+    ChartSettingPage chartSettingPage = PageFactory.initElements(webDriver,ChartSettingPage.class);
 
     @Given("^I select the column chart$")
     public void iSelectTheColumnChart() throws Throwable {
@@ -24,8 +26,8 @@ public class ChartStepdefs {
 
     @Given("^I open style setting panel$")
     public void iOpenStyleSettingPanel() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+
+        chartSettingPage.gotoSettingPanel("style");
     }
 
     @Given("^I set the title of chart as following$")
