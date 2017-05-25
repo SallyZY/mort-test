@@ -11,13 +11,13 @@ import org.openqa.selenium.support.FindBy;
  */
 public class ReportWorkSpacePage {
 
-    @FindBy(className = "report-canvas-container")
-    WebElement chartCanvasDiv;
+    @FindBy(className = "ReportDetail")
+    WebElement reportDetailDiv;
 
     public void selectSingleChart(){
 
-        WebElement chartActionbar = chartCanvasDiv.findElement(By.cssSelector("div > div > div > div > div > div:nth-child(1)"));
+        WebElement chartActionbar = reportDetailDiv.findElement(By.cssSelector("div > div > div > div >div:nth-child(1)"));
         CommonFunctions.focusElement(chartActionbar);
-        CommonFunctions.clickElementAtCoordinates(chartActionbar,1,2);
+        CommonFunctions.clickElementAtCoordinates(chartActionbar,2,1);
     }
 }

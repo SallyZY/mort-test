@@ -1,5 +1,6 @@
 package com.bigeyedata.morttest.pages;
 
+import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.pages.Page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,7 +25,12 @@ public class NavigationPage extends Page {
     @FindBy(id = "management")
     WebElement managementModuleLink;
 
-    public void AccessToModule(String module){
+    @FindBy(className = "menu")
+    WebElement mainMenuUl;
+
+    public void AccessToModule(String module) throws InterruptedException {
+
+        CommonFunctions.waitForElementVisible(mainMenuUl);
 
         switch (module){
             case "datasource":

@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class CommonFunctions {
 
-    public static void clickDirectoryByName(WebElement directoryContainer, String directoryName){
+    public static void clickDirectoryByName(WebElement directoryContainer, String directoryName) throws InterruptedException {
 
         waitForElementVisible(directoryContainer);
 
@@ -33,19 +33,16 @@ public class CommonFunctions {
     }
 
 
-    public static void waitForElementInvisible(WebElement element){
+    public static void waitForElementVisible(WebElement element) throws InterruptedException {
 
-        new WebDriverWait(WebDriverManager.getDriver(), Hooks.gettimeOutInSeconds()).until(ExpectedConditions.invisibilityOf(element));
+        Thread.sleep(Hooks.getThreadSleepTime());
+        new WebDriverWait(WebDriverManager.getDriver(), Hooks.getTimeOutInSeconds()).until(ExpectedConditions.visibilityOf(element));
     }
 
-    public static void waitForElementVisible(WebElement element){
+    public static void waitForElementVisibleAndLocated(By by) throws InterruptedException {
 
-        new WebDriverWait(WebDriverManager.getDriver(), Hooks.gettimeOutInSeconds()).until(ExpectedConditions.visibilityOf(element));
-    }
-
-    public static void waitForElementVisibleAndLocated(By by){
-
-        new WebDriverWait(WebDriverManager.getDriver(), Hooks.gettimeOutInSeconds()).until(ExpectedConditions.visibilityOfElementLocated(by));
+        Thread.sleep(Hooks.getThreadSleepTime());
+        new WebDriverWait(WebDriverManager.getDriver(), Hooks.getTimeOutInSeconds()).until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
     public static void focusElement(WebElement element){

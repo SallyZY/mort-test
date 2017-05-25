@@ -21,7 +21,7 @@ public class DatasourceDetailPage extends Page {
     @FindBy(css = "div.related-data-sets > div > div >div > div >div > div > table")
     WebElement relatedDatasetTable;
 
-    public boolean isDatasetNameDisplayed(List<Map<String,String>> datasetNameList) {
+    public boolean isDatasetNameDisplayed(List<Map<String,String>> datasetNameList) throws InterruptedException {
 
         CommonFunctions.waitForElementVisible(relatedDatasetTable);
 

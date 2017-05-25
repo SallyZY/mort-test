@@ -27,7 +27,7 @@ public class ResourceFileListPage extends Page {
         createNewResourceLink.click();
     }
 
-    public void clickResourceByName(String resourceName) {
+    public void clickResourceByName(String resourceName) throws InterruptedException {
 
         CommonFunctions.waitForElementVisible(resourceFileListContainerDiv);
         List<WebElement> resourceList = resourceFileListContainerDiv.findElements(By.cssSelector("div.ResourceListItem"));
@@ -42,7 +42,7 @@ public class ResourceFileListPage extends Page {
         }
     }
 
-    public void clickOptionMenuOfResourceFile(String resourceName) {
+    public void clickOptionMenuOfResourceFile(String resourceName) throws InterruptedException {
 
         CommonFunctions.waitForElementVisible(resourceFileListContainerDiv);
         List<WebElement> resourceList = resourceFileListContainerDiv.findElements(By.cssSelector("div.ResourceListItem"));
@@ -61,7 +61,7 @@ public class ResourceFileListPage extends Page {
         }
     }
 
-    public boolean isResourceFileExistedInList(String fileName){
+    public boolean isResourceFileExistedInList(String fileName) throws InterruptedException {
 
         CommonFunctions.waitForElementVisibleAndLocated(By.id("resourceListItemsContainer"));
         return resourceFileListContainerDiv.getText().contains(fileName);

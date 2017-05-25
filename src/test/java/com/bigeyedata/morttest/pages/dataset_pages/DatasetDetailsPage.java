@@ -62,7 +62,7 @@ public class DatasetDetailsPage extends Page {
     }
 
 
-    public String getDescriptionOfNewestImportHistory() {
+    public String getDescriptionOfNewestImportHistory() throws InterruptedException {
 
         CommonFunctions.waitForElementVisible(importHistoryTab);
         importHistoryTab.click();

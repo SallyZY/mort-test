@@ -21,7 +21,7 @@ public class FieldEditPage extends Page {
     @FindBy(css="button.ant-btn.ant-btn-primary")
     WebElement nextStepButton;
 
-    public void setFieldsAlias(List<Map<String,String>> fieldsAliasList) {
+    public void setFieldsAlias(List<Map<String,String>> fieldsAliasList) throws InterruptedException {
 
 //        CommonFunctions.waitForElementVisible(FieldViewTable);
         CommonFunctions.waitForElementVisibleAndLocated(By.cssSelector("table"));

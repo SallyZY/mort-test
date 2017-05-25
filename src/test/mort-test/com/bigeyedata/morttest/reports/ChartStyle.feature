@@ -15,7 +15,7 @@ Feature: set the style of all kinds of chart
     And I open style setting panel
     And I set the title of chart as following
       | TitleText     | TitleAlign  | TitleSize   |
-      | 柱状图         | center      | 20         |
+      | 柱状图         | 居中         | 20         |
     And I set the title of X-axis of chart is display
     And I set Y-axis of chart as following
       | IsTitleDisplay | Alias               | Unit  | NumberOfDecimal | IsThousandSeparatorDisplay |

@@ -12,7 +12,7 @@ public class DirectoryPage extends Page {
     @FindBy(id = "mainPageDirectoriesContainer")
     WebElement directoryContainerUl;
 
-    public void clickDirectoryByName(String directoryName) {
+    public void clickDirectoryByName(String directoryName) throws InterruptedException {
 
         CommonFunctions.clickDirectoryByName(directoryContainerUl,directoryName);
     }

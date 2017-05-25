@@ -42,7 +42,7 @@ public class ImportPreviewPage extends Page {
         saveDataSetButton.click();
     }
 
-    public void selectSavedDirectoryByName(String directoryName){
+    public void selectSavedDirectoryByName(String directoryName) throws InterruptedException {
 
         dataSetDirectoryInput.click();
         CommonFunctions.clickDirectoryByName(directoryContainerUl,directoryName);

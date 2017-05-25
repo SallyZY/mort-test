@@ -11,24 +11,33 @@ import org.openqa.selenium.WebDriver;
  */
 public class Hooks {
 
-    private static final String MortWeb_URL = "http://localhost:3000";
+    private static final String MortWeb_URL = "http://192.168.0.30";
     private static final int Wait_TimeOutInSeconds = 15;
+    private static final int Thread_Sleep = 2000;
 
     @Before
-    public static void beforeScenario(){
+    public static void beforeScenario() {
 
         WebDriverManager.getDriver().manage().deleteAllCookies();
     }
 
     @After
-    public static void afterScenario(){
+    public static void afterScenario() {
 
         WebDriverManager.getDriver().manage().deleteAllCookies();
-        WebDriverManager.getDriver().quit();
-        WebDriverManager.deleteWebDriver();
+//        WebDriverManager.getDriver().quit();
+//        WebDriverManager.deleteWebDriver();
     }
 
-    public static String getMortWebUrl(){return MortWeb_URL;}
+    public static String getMortWebUrl() {
+        return MortWeb_URL;
+    }
 
-    public static int gettimeOutInSeconds(){return Wait_TimeOutInSeconds;}
+    public static int getTimeOutInSeconds() {
+        return Wait_TimeOutInSeconds;
+    }
+
+    public static int getThreadSleepTime(){
+        return Thread_Sleep;
+    }
 }
