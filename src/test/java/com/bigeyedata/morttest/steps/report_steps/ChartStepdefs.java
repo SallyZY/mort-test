@@ -20,7 +20,7 @@ public class ChartStepdefs {
     WebDriver webDriver = WebDriverManager.getDriver();
     ChartSettingPage chartSettingPage = PageFactory.initElements(webDriver,ChartSettingPage.class);
 
-    @Given("^I select the column chart$")
+    @Given("^I select the (?:column|pie) chart$")
     public void iSelectTheColumnChart() throws Throwable {
 
         ReportWorkSpacePage reportWorkSpacePage = PageFactory.initElements(webDriver,ReportWorkSpacePage.class);
@@ -52,14 +52,14 @@ public class ChartStepdefs {
     }
 
     @Given("^I set the legend of chart as following$")
-    public void iSetTheLegendOfChartAsFollowing() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    public void iSetTheLegendOfChartAsFollowing(List<Map<String, String>> legendStyleList) throws Throwable {
+
+        chartSettingPage.setChartLegendStyle(legendStyleList);
     }
 
     @Given("^I set the data label of chart as following$")
-    public void iSetTheDataLabelOfChartAsFollowing() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    public void iSetTheDataLabelOfChartAsFollowing(List<Map<String, String>> dataLabelStyleList) throws Throwable {
+
+        chartSettingPage.setChartDataLabelStyle(dataLabelStyleList);
     }
 }

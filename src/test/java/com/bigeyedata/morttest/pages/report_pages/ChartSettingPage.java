@@ -69,8 +69,34 @@ public class ChartSettingPage extends Page {
     @FindBy(id = "presentationLegend")
     WebElement legendSettingItem;
 
+    @FindBy(css = "div#presentationLegend > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)  > select")
+    WebElement legendLocationSelect;
+
+    @FindBy(css = "div#presentationLegend > div:nth-child(2) > div:nth-child(4) > span:nth-child(2)  > select")
+    WebElement legendFontSizeSelect;
+
+
     @FindBy(id = "presentationDataLabel")
     WebElement dataLabelSettingItem;
+
+    @FindBy(css = "div#presentationDataLabel > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)  > select")
+    WebElement dataLabelLocationSelect;
+
+    @FindBy(css = "div#presentationDataLabel > div:nth-child(2) > div:nth-child(3) > span:nth-child(2)  > select")
+    WebElement dataLabelFontSizeSelect;
+
+    @FindBy(css = "div#presentationDataLabel > div:nth-child(2) > div:nth-child(4) > span:nth-child(2)  > select")
+    WebElement dataLabelUnitSelect;
+
+    @FindBy(css = "div#presentationDataLabel > div:nth-child(2) > div:nth-child(6) > span:nth-child(2)  > select")
+    WebElement dataLabelDecimalSelect;
+
+    @FindBy(css = "div#presentationDataLabel > div:nth-child(2) > div:nth-child(5) > span:nth-child(2)  > input")
+    WebElement dataLabelPostfixInput;
+
+    @FindBy(css = "div#presentationDataLabel > div:nth-child(2) > div:nth-child(7) > span:nth-child(2)  > span > i")
+    WebElement dataLabelThousandSeparatorDisplay;
+
 
     @FindBy(id = "presentationDataColor")
     WebElement dataColorSettingItem;
@@ -86,7 +112,6 @@ public class ChartSettingPage extends Page {
 
 
     private WebDriver webDriver =WebDriverManager.getDriver();
-    private Select select;
 
     public void gotoSettingPanel(String panelName) throws InterruptedException {
 
@@ -104,6 +129,30 @@ public class ChartSettingPage extends Page {
         CommonFunctions.waitForElementVisible(chartSettingDiv);
     }
 
+    public void setChartDataLabelStyle(List<Map<String, String>> dataLabelStyleList){
+
+        expandSettingItem(dataLabelSettingItem);
+        openSwitchOfSettingItem(dataLabelSettingItem);
+
+        selectByVisibleText(dataLabelLocationSelect,dataLabelStyleList.get(0).get("Location").toString());
+        selectByVisibleText(dataLabelFontSizeSelect,dataLabelStyleList.get(0).get("FontSize").toString());
+        selectByVisibleText(dataLabelUnitSelect,dataLabelStyleList.get(0).get("Unit").toString());
+        selectByVisibleText(dataLabelDecimalSelect,dataLabelStyleList.get(0).get("NumberOfDecimal").toString());
+
+        dataLabelPostfixInput.clear();
+        dataLabelPostfixInput.sendKeys(dataLabelStyleList.get(0).get("PostFix").toString());
+
+        displayThousandSeparator(dataLabelThousandSeparatorDisplay,dataLabelStyleList.get(0).get("IsThousandSeparatorDisplay").toString());
+    }
+
+    public void setChartLegendStyle(List<Map<String, String>> legendStyleList){
+
+        expandSettingItem(legendSettingItem);
+
+        selectByVisibleText(legendLocationSelect,legendStyleList.get(0).get("Location").toString());
+        selectByVisibleText(legendFontSizeSelect,legendStyleList.get(0).get("FontSize").toString());
+    }
+
     public void DisplayChartDimensionTitle() {
 
         expandSettingItem(dimensionSettingItem);
@@ -115,15 +164,11 @@ public class ChartSettingPage extends Page {
         expandSettingItem(measureSettingItem);
         measureAliasInput.sendKeys(measureStyleList.get(0).get("Alias").toString());
 
-        select =new Select(measureUnitSelect);
-        select.selectByVisibleText(measureStyleList.get(0).get("Unit").toString());
-        select=new Select(measureNumberOfDecimalSelect);
-        select.selectByVisibleText(measureStyleList.get(0).get("NumberOfDecimal").toString());
+        selectByVisibleText(measureUnitSelect,measureStyleList.get(0).get("Unit").toString());
+        selectByVisibleText(measureNumberOfDecimalSelect,measureStyleList.get(0).get("NumberOfDecimal").toString());
 
-        if(measureStyleList.get(0).get("IsTitleDisplay").toString().equals("true"))
-            measureTitleSwitch.click();
-        if(measureStyleList.get(0).get("IsThousandSeparatorDisplay").toString().equals("true"))
-            measureThousandSeparatorDisplay.click();
+        displayThousandSeparator(measureTitleSwitch,measureStyleList.get(0).get("IsTitleDisplay").toString());
+        displayThousandSeparator(measureThousandSeparatorDisplay,measureStyleList.get(0).get("IsThousandSeparatorDisplay").toString());
     }
 
     public void setChartTitle(List<Map<String, String>> chartTitleList){
@@ -138,8 +183,8 @@ public class ChartSettingPage extends Page {
         chartTitle_TextInput.clear();
         chartTitle_TextInput.sendKeys(text);
         webDriver.findElement(By.xpath("//input[@name='title_align' and @value='"+ align.toLowerCase()+"']")).click();
-        select = new Select(chartTitle_TextSizeSelect);
-        select.selectByVisibleText(size);
+
+        selectByVisibleText(chartTitle_TextSizeSelect,size);
     }
 
     private void expandSettingItem(WebElement item){
@@ -150,5 +195,17 @@ public class ChartSettingPage extends Page {
     private void openSwitchOfSettingItem(WebElement item){
 
         item.findElement(By.cssSelector("div > span > span > i")).click();
+    }
+
+    private void selectByVisibleText(WebElement selectElement, String text){
+
+        Select select = new Select(selectElement);
+        select.selectByVisibleText(text);
+    }
+
+    private void displayThousandSeparator(WebElement element, String isThousandSeparatorDisplay){
+
+        if(isThousandSeparatorDisplay.toLowerCase().equals("true"))
+            element.click();
     }
 }

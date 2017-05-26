@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver;
  */
 public class Hooks {
 
-    private static final String MortWeb_URL = "http://192.168.0.30";
+    private static final String MortWeb_URL = "http://127.0.0.1:3000";
     private static final int Wait_TimeOutInSeconds = 15;
     private static final int Thread_Sleep = 2000;
 

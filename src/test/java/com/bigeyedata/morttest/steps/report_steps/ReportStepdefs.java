@@ -2,6 +2,7 @@ package com.bigeyedata.morttest.steps.report_steps;
 
 import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.report_pages.ReportPreviewPage;
+import com.bigeyedata.morttest.pages.report_pages.ReportWorkSpacePage;
 import com.google.common.annotations.GwtIncompatible;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
@@ -17,6 +18,7 @@ import org.openqa.selenium.support.PageFactory;
 public class ReportStepdefs {
 
     WebDriver webDriver= WebDriverManager.getDriver();
+    ReportWorkSpacePage reportWorkSpacePage=PageFactory.initElements(webDriver,ReportWorkSpacePage.class);
 
     @Given("^I open report edit page$")
     public void iOpenReportEditPage() throws Throwable {
@@ -27,19 +29,25 @@ public class ReportStepdefs {
 
     @When("^I save the report$")
     public void iSaveTheReport() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+
+        reportWorkSpacePage.saveReport();
     }
 
     @When("^I return to report preview page$")
     public void iReturnToReportPreviewPage() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+
+        reportWorkSpacePage.backToPreviewReport();
     }
 
     @Then("^I Should see the style setting is saved$")
     public void iShouldSeeTheStyleSettingIsSaved() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
+    }
+
+    @And("^I go to the report page \"([^\"]*)\"$")
+    public void iGoToTheReportPage(String pageName) throws Throwable {
+
+        reportWorkSpacePage.gotoReportPageByName(pageName);
     }
 }

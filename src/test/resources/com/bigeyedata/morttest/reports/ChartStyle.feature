@@ -28,4 +28,14 @@ Feature: set the style of all kinds of chart
       | 内部居中     | 14        | 万     | 元        | 2               | false                      |
     When I save the report
     And I return to report preview page
-    Then I Should see the style setting is saved
+#    Then I Should see the style setting is saved
+
+  Scenario: Set the style of Pie chart
+    Given I access to "report" module
+    And I select datasource as following
+      | DirectoryName   |ResourceFileName|
+      | 测试报表目录      |回归测试报表     |
+    And I open report edit page
+    And I go to the report page "第2页"
+    And I select the pie chart
+    And I open style setting panel
