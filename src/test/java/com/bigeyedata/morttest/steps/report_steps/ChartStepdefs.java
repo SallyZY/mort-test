@@ -20,7 +20,7 @@ public class ChartStepdefs {
     WebDriver webDriver = WebDriverManager.getDriver();
     ChartSettingPage chartSettingPage = PageFactory.initElements(webDriver,ChartSettingPage.class);
 
-    @Given("^I select the (?:column|pie) chart$")
+    @Given("^I select the (?:column|pie|mixLineBar) chart$")
     public void iSelectTheColumnChart() throws Throwable {
 
         ReportWorkSpacePage reportWorkSpacePage = PageFactory.initElements(webDriver,ReportWorkSpacePage.class);
@@ -45,10 +45,16 @@ public class ChartStepdefs {
         chartSettingPage.DisplayChartDimensionTitle();
     }
 
-    @Given("^I set Y-axis of chart as following$")
+    @Given("^I set (?:Y-axis|left-Y-axis) of chart as following$")
     public void iSetYAxisOfChartAsFollowing(List<Map<String, String>> measureStyleList) throws Throwable {
 
         chartSettingPage.setChartMeasureStyle(measureStyleList);
+    }
+
+    @And("^I set right-Y-axis of chart as following$")
+    public void iSetRightYAxisOfChartAsFollowing(List<Map<String, String>> measureStyleList) throws Throwable {
+
+        chartSettingPage.setChartRightMeasureStyle(measureStyleList);
     }
 
     @Given("^I set the legend of chart as following$")
@@ -62,4 +68,5 @@ public class ChartStepdefs {
 
         chartSettingPage.setChartDataLabelStyle(dataLabelStyleList);
     }
+
 }

@@ -52,8 +52,8 @@ public class DatasourceConfigPage extends Page {
     @FindBy(css = "div.fields > dl > div.nameInput > dd:nth-child(5) > input:nth-child(2)")
     WebElement databaseInput;
 
-    @FindBy(css = "div > form > div > div.buttons.clearfix > a:nth-child(4)")
-    WebElement RDBsaveLink;
+    @FindBy(css = "div.ant-modal-footer > button:nth-child(2)")
+    WebElement RDBSaveLink;
 
     @FindBy(css = "div > div.fields > dl > dd:nth-child(1) > input")
     WebElement hdfsDatasourceNameInput;
@@ -75,8 +75,9 @@ public class DatasourceConfigPage extends Page {
     WebElement HDFSsaveLink;
 
 
-    public void selectRDBType(){
+    public void selectRDBType() throws InterruptedException {
 
+        CommonFunctions.waitForElementClickable(RDBTypeLink);
         RDBTypeLink.click();
     }
 
@@ -97,7 +98,8 @@ public class DatasourceConfigPage extends Page {
     }
 
     public void createRDBSource(){
-        RDBsaveLink.click();
+
+        RDBSaveLink.click();
     }
 
 

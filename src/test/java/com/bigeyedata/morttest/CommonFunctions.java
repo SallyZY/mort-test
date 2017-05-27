@@ -45,6 +45,13 @@ public class CommonFunctions {
         new WebDriverWait(WebDriverManager.getDriver(), Hooks.getTimeOutInSeconds()).until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
+    public static void waitForElementClickable(WebElement element) throws InterruptedException {
+
+        Thread.sleep(Hooks.getThreadSleepTime());
+        new WebDriverWait(WebDriverManager.getDriver(), Hooks.getTimeOutInSeconds()).until(ExpectedConditions.elementToBeClickable(element));
+
+    }
+
     public static void focusElement(WebElement element){
 
         JavascriptExecutor javascriptExecutor = (JavascriptExecutor) WebDriverManager.getDriver();

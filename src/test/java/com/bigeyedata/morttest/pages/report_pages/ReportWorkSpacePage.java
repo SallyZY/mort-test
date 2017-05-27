@@ -30,7 +30,9 @@ public class ReportWorkSpacePage {
         CommonFunctions.waitForElementVisibleAndLocated(By.className("Chart"));
     }
 
-    public void backToPreviewReport(){
+    public void backToPreviewReport() throws InterruptedException {
+
+        CommonFunctions.waitForElementClickable(backToPreviewReportButton);
         backToPreviewReportButton.click();
     }
 

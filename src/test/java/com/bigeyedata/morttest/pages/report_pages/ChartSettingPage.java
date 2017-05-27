@@ -66,6 +66,25 @@ public class ChartSettingPage extends Page {
     WebElement measureThousandSeparatorDisplay;
 
 
+    @FindBy(id = "presentationMeasureAxisRight")
+    WebElement measureRightSettingItem;
+
+    @FindBy(css = "div#presentationMeasureAxisRight > div:nth-child(2) > div:nth-child(2) > span:nth-child(2)  > span > i")
+    WebElement measureRightTitleSwitch;
+
+    @FindBy(css = "div#presentationMeasureAxisRight > div:nth-child(2) > div:nth-child(3) > span:nth-child(2) > input")
+    WebElement measureRightAliasInput;
+
+    @FindBy(css = "div#presentationMeasureAxisRight > div:nth-child(2) > div:nth-child(6) > span:nth-child(2) > select")
+    WebElement measureRightUnitSelect;
+
+    @FindBy(css = "div#presentationMeasureAxisRight > div:nth-child(2) > div:nth-child(7) > span:nth-child(2) > select")
+    WebElement measureRightNumberOfDecimalSelect;
+
+    @FindBy(css = "div#presentationMeasureAxisRight > div:nth-child(2) > div:nth-child(8) > span:nth-child(2)  > span > i")
+    WebElement measureRightThousandSeparatorDisplay;
+
+
     @FindBy(id = "presentationLegend")
     WebElement legendSettingItem;
 
@@ -162,6 +181,7 @@ public class ChartSettingPage extends Page {
     public void setChartMeasureStyle(List<Map<String, String>> measureStyleList){
 
         expandSettingItem(measureSettingItem);
+        measureAliasInput.clear();
         measureAliasInput.sendKeys(measureStyleList.get(0).get("Alias").toString());
 
         selectByVisibleText(measureUnitSelect,measureStyleList.get(0).get("Unit").toString());
@@ -169,6 +189,19 @@ public class ChartSettingPage extends Page {
 
         displayThousandSeparator(measureTitleSwitch,measureStyleList.get(0).get("IsTitleDisplay").toString());
         displayThousandSeparator(measureThousandSeparatorDisplay,measureStyleList.get(0).get("IsThousandSeparatorDisplay").toString());
+    }
+
+    public void setChartRightMeasureStyle(List<Map<String, String>> measureStyleList){
+
+        expandSettingItem(measureRightSettingItem);
+        measureRightAliasInput.clear();
+        measureRightAliasInput.sendKeys(measureStyleList.get(0).get("Alias").toString());
+
+        selectByVisibleText(measureRightUnitSelect,measureStyleList.get(0).get("Unit").toString());
+        selectByVisibleText(measureRightNumberOfDecimalSelect,measureStyleList.get(0).get("NumberOfDecimal").toString());
+
+        displayThousandSeparator(measureRightTitleSwitch,measureStyleList.get(0).get("IsTitleDisplay").toString());
+        displayThousandSeparator(measureRightThousandSeparatorDisplay,measureStyleList.get(0).get("IsThousandSeparatorDisplay").toString());
     }
 
     public void setChartTitle(List<Map<String, String>> chartTitleList){
