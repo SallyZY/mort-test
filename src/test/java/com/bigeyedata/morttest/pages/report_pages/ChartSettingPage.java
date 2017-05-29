@@ -23,6 +23,9 @@ public class ChartSettingPage extends Page {
     @FindBy(id = "icon-data")
     WebElement bindingItemIconDiv;
 
+    @FindBy(id = "reportBindingsContainer")
+    WebElement bindingItemsDiv;
+
     @FindBy(id = "icon-filter")
     WebElement filterIconDiv;
 
@@ -257,7 +260,8 @@ public class ChartSettingPage extends Page {
                 break;
             }
         }
-        
+
         return index;
     }
+
 }

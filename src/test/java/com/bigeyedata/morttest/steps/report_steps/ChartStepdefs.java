@@ -20,7 +20,7 @@ public class ChartStepdefs {
     WebDriver webDriver = WebDriverManager.getDriver();
     ChartSettingPage chartSettingPage = PageFactory.initElements(webDriver,ChartSettingPage.class);
 
-    @Given("^I select the (?:column|pie|mixLineBar|Line|Doughnut|AreaStack|Funnel|KPI) chart$")
+    @Given("^I select the (?:Column|Pie|MixLineBar|Line|Doughnut|AreaStack|Funnel|KPI) chart$")
     public void iSelectTheColumnChart() throws Throwable {
 
         ReportWorkSpacePage reportWorkSpacePage = PageFactory.initElements(webDriver,ReportWorkSpacePage.class);
@@ -68,5 +68,4 @@ public class ChartStepdefs {
 
         chartSettingPage.setChartDataLabelStyle(dataLabelStyleList);
     }
-
 }

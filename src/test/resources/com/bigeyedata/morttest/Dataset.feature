@@ -52,13 +52,6 @@ Feature: DataSet
       Then  I should locate to the DataSource "测试CSV数据源"
       And   I should see the related DataSet as following
         |  DatasetName    |
-        |  测试CSV数据集    |
-
-
-    Scenario: Rename the fields of DataSet
-      Given I access to "DataSet" module
-      And I select DataSet as following
-        |  DirectoryName  |  ResourceFileName     |
-        |  测试数据集目录   |  测试CSV数据集         |
+        |  测试CSV数据集   |
 
 

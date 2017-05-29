@@ -50,4 +50,22 @@ public class ReportStepdefs {
 
         reportWorkSpacePage.gotoReportPageByName(pageName);
     }
+
+    @And("^I copy the Line chart$")
+    public void iCopyTheLineChart() throws Throwable {
+
+        reportWorkSpacePage.copyChart(1);
+    }
+
+    @And("^I move the copied chart to report page \"([^\"]*)\"$")
+    public void iMoveTheCopiedChartToReportPage(String arg0) throws Throwable {
+
+        reportWorkSpacePage.moveChart(2);
+    }
+
+    @And("^I create a new report page$")
+    public void iCreateANewReportPage() throws Throwable {
+
+        reportWorkSpacePage.addNewReportPage();
+    }
 }

@@ -12,7 +12,7 @@ Feature: set the style of all kinds of general chart
       | DirectoryName   |ResourceFileName|
       | 测试报表目录      |回归测试报表     |
     And I open report edit page
-    And I select the column chart
+    And I select the Column chart
     And I open style setting panel
     And I set the title of chart as following
       | TitleText     | TitleAlign  | TitleSize   |
@@ -39,7 +39,7 @@ Feature: set the style of all kinds of general chart
       | 测试报表目录      |回归测试报表     |
     And I open report edit page
     And I go to the report page "第2页"
-    And I select the pie chart
+    And I select the Pie chart
     And I open style setting panel
     And I set the title of chart as following
       | TitleText     | TitleAlign  | TitleSize   |
@@ -61,7 +61,7 @@ Feature: set the style of all kinds of general chart
       | 测试报表目录      |回归测试报表     |
     And I open report edit page
     And I go to the report page "第3页"
-    And I select the mixLineBar chart
+    And I select the MixLineBar chart
     And I open style setting panel
     And I set the title of chart as following
       | TitleText     | TitleAlign  | TitleSize   |

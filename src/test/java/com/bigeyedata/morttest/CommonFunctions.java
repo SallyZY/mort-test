@@ -67,10 +67,9 @@ public class CommonFunctions {
     }
 
 
+    public static void mouseOver(WebElement element){
 
-
-
-
-
-
+        Actions actions = new Actions(WebDriverManager.getDriver());
+        actions.moveToElement(element).perform();
+    }
 }
