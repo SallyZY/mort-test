@@ -36,7 +36,7 @@ public class DatasetStepdefs {
     List<Map<String, String>> savedFieldAliasList;
     List<Map<String, String>> savedFieldTypeList;
 
-    @Given("^I click create new dataset button on datasource page$")
+    @Given("^I click create new DataSet button on DataSource page$")
     public void iClickCreateNewDatasetButtonOnDatasourcePage() throws Throwable {
 
         DatasourceDetailPage datasourceDetailPage= PageFactory.initElements(webDriver,DatasourceDetailPage.class);
@@ -46,14 +46,14 @@ public class DatasetStepdefs {
         datasourceSelectPage.gotoNextStep();
     }
 
-    @Given("^I modify the alias of fields for dataset as following$")
+    @Given("^I modify the alias of fields for DataSet as following$")
     public void iModifyTheAliasOfFieldsForDatasetAsFollowing(List<Map<String, String>> fieldAliasList) throws Throwable {
 
         fieldEditPage.setFieldsAlias(fieldAliasList);
         savedFieldAliasList = fieldAliasList;
     }
 
-    @And("^I modify the type of fields for dataset as following$")
+    @And("^I modify the type of fields for DataSet as following$")
     public void iModifyTheTypeOfFieldsForDatasetAsFollowing(List<Map<String, String>> fieldTypeList) throws Throwable {
 
         fieldEditPage.setFieldsType(fieldTypeList);
@@ -73,43 +73,43 @@ public class DatasetStepdefs {
         importPreviewPage.setDateFormatForDateField(dateFormatList);
     }
 
-    @And("^I give the name of dataset is \"([^\"]*)\"$")
+    @And("^I give the name of DataSet is \"([^\"]*)\"$")
     public void iGiveTheNameOfDatasetIs(String datasetName) throws Throwable {
 
         importPreviewPage.inputDatasetName(datasetName);
     }
 
-    @And("^I select the saved directory of dataset is \"([^\"]*)\"$")
+    @And("^I select the saved directory of DataSet is \"([^\"]*)\"$")
     public void iSelectTheSavedDirectoryOfDatasetIs(String directoryName) throws Throwable {
 
         importPreviewPage.selectSavedDirectoryByName(directoryName);
     }
 
-    @When("^I create the dataset$")
+    @When("^I create the DataSet$")
     public void iCreateTheDataset() throws Throwable {
 
         importPreviewPage.createDataset();
     }
 
-    @Then("^I should see the created (?:datasource|dataset|report) \"([^\"]*)\" displayed in directory$")
+    @Then("^I should see the created (?:datasource|DataSet|report) \"([^\"]*)\" displayed in directory$")
     public void iShouldSeeTheCreatedDatasetDisplayedInDirectory(String datasetName) throws Throwable {
 
         assertThat(resourceFileListPage.isResourceFileExistedInList(datasetName),is(true));
     }
 
-    @And("^I should see the number of dataset fields is \"([^\"]*)\"$")
+    @And("^I should see the number of DataSet fields is \"([^\"]*)\"$")
     public void iShouldSeeTheNumberOfDatasetFieldsIs(String fieldCount) throws Throwable {
 
         assertThat(datasetDetailsPage.getFieldCountOfDataset(),is(Integer.parseInt(fieldCount)));
     }
 
-    @And("^I should see the ailas of dataset fields displayed correctly$")
+    @And("^I should see the ailas of DataSet fields displayed correctly$")
     public void iShouldSeeTheAilasOfDatasetFieldsDisplayedCorrectly() throws Throwable {
 
         assertThat(datasetDetailsPage.compareFieldAlias(savedFieldAliasList),is(true));
     }
 
-    @And("^I should see the type of dataset fields displayed correctly$")
+    @And("^I should see the type of DataSet fields displayed correctly$")
     public void iShouldSeeTheTypeOfDatasetFieldsDisplayedCorrectly() throws Throwable {
 
         assertThat(datasetDetailsPage.compareFieldType(savedFieldTypeList),is(true));
@@ -121,7 +121,7 @@ public class DatasetStepdefs {
         assertThat(datasetDetailsPage.getDescriptionOfNewestImportHistory(),is("初始化导入"));
     }
     
-    @Then("^I should locate to the datasource \"([^\"]*)\"$")
+    @Then("^I should locate to the DataSource \"([^\"]*)\"$")
     public void iShouldLocateToTheDatasource(String datasourceName) throws Throwable {
 
         assertThat(resourceFileListPage.isResourceFileExistedInList(datasourceName),is(true));
@@ -133,7 +133,7 @@ public class DatasetStepdefs {
         datasetDetailsPage.clickMenuItem(itemName);
     }
 
-    @And("^I should see the related dataset as following$")
+    @And("^I should see the related DataSet as following$")
     public void iShouldSeeTheRelatedDatasetAsFollowing(List<Map<String,String>> datasetNameList) throws Throwable {
 
         datasourceDetailPage.isDatasetNameDisplayed(datasetNameList);

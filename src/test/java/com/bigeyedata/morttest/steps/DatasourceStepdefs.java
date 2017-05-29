@@ -38,7 +38,7 @@ public class DatasourceStepdefs {
 
     }
 
-    @And("^I want to create a HDFS datasource with configuration as following$")
+    @And("^I want to create a HDFS DataSource with configuration as following$")
     public void iWantToCreateAHDFSDatasourceWithConfigurationAsFollowing(List<Map<String,String>> HDFSConfigList) throws Throwable {
 
         ResourceFileListPage resourceFileListPage= PageFactory.initElements(webDriver,ResourceFileListPage.class);
@@ -48,7 +48,7 @@ public class DatasourceStepdefs {
 
     }
 
-    @When("^I click save button on HDFS datasource configuration page$")
+    @When("^I click save button on HDFS DataSource configuration page$")
     public void iClickSaveButtonOnHDFSDatasourceConfigurationPage() throws Throwable {
 
         datasourceConfigPage.createHDFSSource();

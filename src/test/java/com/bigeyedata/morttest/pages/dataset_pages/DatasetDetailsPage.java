@@ -49,7 +49,7 @@ public class DatasetDetailsPage extends Page {
         otherOperationMenu.click();
 
         switch (item){
-            case "ViewDatasource":
+            case "ViewDataSource":
                 locateToDatasourceMenuItem.click();
                 break;
             case "AppendData":

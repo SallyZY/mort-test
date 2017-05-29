@@ -47,7 +47,7 @@ public class CommonStepdefs {
         navigationPage.AccessToModule(module);
     }
 
-    @Given("^I select (?:datasource|dataset|report) as following$")
+    @Given("^I select (?:DataSource|DataSet|Report) as following$")
     public void iSelectDatasourceAsFollowing(List<Map<String,String>> sourceInfoList) throws Throwable {
 
         String directoryName = sourceInfoList.get(0).get("DirectoryName").toString();
@@ -75,7 +75,7 @@ public class CommonStepdefs {
         assertThat(resourceFileListPage.isResourceFileExistedInList(fileName),is(false));
     }
 
-    @And("^I select (?:datasource|dataset|report) directory \"([^\"]*)\"$")
+    @And("^I select (?:DataSource|DataSet|Report) directory \"([^\"]*)\"$")
     public void iSelectDirectory(String directoryName) throws Throwable {
 
         directoryPage.clickDirectoryByName(directoryName);

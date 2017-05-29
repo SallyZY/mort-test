@@ -130,6 +130,12 @@ public class ChartSettingPage extends Page {
     WebElement columnChartDirectionItem;
 
 
+    @FindBy(css = "div#presentationTitle > div:nth-child(2) > div:nth-child(5) > span:nth-child(2) > select")
+    WebElement KPIChartTitle_TextSizeSelect;
+
+    @FindBy(id = "presentationKpiItemConfig")
+    List<WebElement> KPIConfigItemList;
+
     private WebDriver webDriver =WebDriverManager.getDriver();
 
     public void gotoSettingPanel(String panelName) throws InterruptedException {
@@ -240,5 +246,18 @@ public class ChartSettingPage extends Page {
 
         if(isThousandSeparatorDisplay.toLowerCase().equals("true"))
             element.click();
+    }
+
+    private int findKPIMeasureIndex(String measureName){
+
+        int index = -1;
+        for (int i=0;i<KPIConfigItemList.size();i++){
+            if(KPIConfigItemList.get(i).findElement(By.cssSelector("div:nth-child(1) > i > span.ellipsis")).getText().equals(measureName)) {
+                index = i;
+                break;
+            }
+        }
+        
+        return index;
     }
 }
