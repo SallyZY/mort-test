@@ -1,4 +1,4 @@
-Feature: The general operation of chart and report: copy,move,delete chart; rename and save as report etc...
+Feature: The general operation of chart and report
 
   Background:
     Given I open browser and login to Mort Web
@@ -6,7 +6,7 @@ Feature: The general operation of chart and report: copy,move,delete chart; rena
       | zhangying@bigeyedata.com | password123  |
 
   Scenario: Copy and move a chart from current report page to a new report page
-    Given I access to "report" module
+    Given I access to "Report" module
     And I select Report as following
       | DirectoryName   |ResourceFileName  |
       | 测试报表目录      |复制移动测试报表    |

@@ -33,19 +33,19 @@ public class NavigationPage extends Page {
         CommonFunctions.waitForElementVisible(mainMenuUl);
 
         switch (module){
-            case "datasource":
+            case "DataSource":
                 datasourcesModuleLink.click();
                 break;
-            case "dataset":
+            case "DataSet":
                 datasetsModuleLink.click();
                 break;
-            case "report":
+            case "Report":
                 reportsModuleLink.click();
                 break;
-            case "dashboard":
+            case "Dashboard":
                 dashboardsModuleLink.click();
                 break;
-            case "management":
+            case "Management":
                 managementModuleLink.click();
                 break;
         }

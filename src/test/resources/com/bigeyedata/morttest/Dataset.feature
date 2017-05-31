@@ -1,4 +1,4 @@
-Feature: DataSet
+Feature: Create,view DataSet
 
     Background:
     Given I open browser and login to Mort Web
