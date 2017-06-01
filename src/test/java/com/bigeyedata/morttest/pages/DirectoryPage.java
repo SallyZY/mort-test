@@ -17,7 +17,7 @@ public class DirectoryPage extends Page {
 
     @FindBy(css = "div.add-directory-window.show")
     WebElement directoryDialog;
-    
+
 
     public void clickDirectoryByName(String directoryName) throws InterruptedException {
 

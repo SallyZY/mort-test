@@ -51,21 +51,27 @@ public class ReportStepdefs {
         reportWorkSpacePage.gotoReportPageByName(pageName);
     }
 
-    @And("^I copy the Line chart$")
-    public void iCopyTheLineChart() throws Throwable {
+    @And("^I copy the chart with chart index is \"([^\"]*)\"$")
+    public void iCopyTheLineChart(String chartIndex) throws Throwable {
 
-        reportWorkSpacePage.copyChart(1);
+        reportWorkSpacePage.copyChart(chartIndex);
     }
 
-    @And("^I move the copied chart to report page \"([^\"]*)\"$")
-    public void iMoveTheCopiedChartToReportPage(String arg0) throws Throwable {
+    @And("^I move the chart with chart index is \"([^\"]*)\" to report page \"([^\"]*)\"$")
+    public void iMoveTheCopiedChartToReportPage(String chartIndex, String pageName) throws Throwable {
 
-        reportWorkSpacePage.moveChart(2);
+        reportWorkSpacePage.moveChart(chartIndex,pageName);
     }
 
     @And("^I create a new report page$")
     public void iCreateANewReportPage() throws Throwable {
 
         reportWorkSpacePage.addNewReportPage();
+    }
+
+    @And("^I rename the report page \"([^\"]*)\" to \"([^\"]*)\"$")
+    public void iRenameTheReportPageTo(String originName, String newName) throws Throwable {
+
+        reportWorkSpacePage.renameReportPage(originName, newName);
     }
 }

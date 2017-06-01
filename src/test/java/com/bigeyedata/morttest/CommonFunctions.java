@@ -5,6 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -70,6 +71,12 @@ public class CommonFunctions {
     public static void mouseOver(WebElement element){
 
         Actions actions = new Actions(WebDriverManager.getDriver());
-        actions.moveToElement(element).perform();
+        actions.moveToElement(element,20,20).perform();
+    }
+
+    public static void doubleClick(WebElement element){
+
+        Actions actions = new Actions(WebDriverManager.getDriver());
+        actions.doubleClick(element).clickAndHold(element).perform();
     }
 }
