@@ -30,13 +30,16 @@ public class ReportWorkSpacePage extends Page {
     WebElement pageDiv;
 
     @FindBy(className = "ant-dropdown")
-    WebElement chartDropdownMenu;
+    List<WebElement> chartDropdownMenuList;
 
     @FindBy(name = "actionBarMenu")
-    WebElement actionBarMenu;
+    List<WebElement> actionBarMenuList;
 
     @FindBy(name = "actionBar")
     List<WebElement> actionBarList;
+
+    @FindBy(xpath = "//canvas")
+    List<WebElement> chartCanvasList;
 
     @FindBy(css = "div.ReportCanvasPages > div:nth-child(2) > div:nth-child(2)")
     WebElement addReportPageIcon;
@@ -59,26 +62,34 @@ public class ReportWorkSpacePage extends Page {
 
     public void selectSingleChart(){
 
-        WebElement chartActionbar = reportDetailDiv.findElement(By.cssSelector("div > div > div > div >div:nth-child(1)"));
+        WebElement chartActionbar = reportDetailDiv.findElement(By.cssSelector("div > div > div > div > div:nth-child(1)"));
         focusElement(chartActionbar);
         clickElementAtCoordinates(chartActionbar,2,1);
     }
 
-    public void copyChart(String chartIndex) throws InterruptedException {
+    public void selectChartByIndex(int chartIndex) throws InterruptedException {
 
-        int index = Integer.parseInt(chartIndex);
-        clickActingBarMenu(index);
-        CommonFunctions.waitForElementVisible(chartDropdownMenu);
-        chartDropdownMenu.findElement(By.cssSelector("ul > li:nth-child(1)")).click();
+        chartIndex--;
+        mouseOver(chartCanvasList.get(chartIndex));
+        focusElement(actionBarList.get(chartIndex));
+        actionBarList.get(chartIndex).click();
     }
 
-    public void moveChart(String chartIndex, String PageName) throws InterruptedException {
+    public void copyChart(int chartIndex) throws InterruptedException {
 
-        int index = Integer.parseInt(chartIndex);
-        clickActingBarMenu(index);
-        clickMoveToPageName(PageName);
+        chartIndex --;
+        clickActingBarMenu(chartIndex);
+        CommonFunctions.waitForElementVisible(chartDropdownMenuList.get(chartIndex));
+        chartDropdownMenuList.get(chartIndex).findElement(By.cssSelector("ul > li:nth-child(1)")).click();
     }
 
+    public void moveChart(int chartIndex, String PageName) throws InterruptedException {
+
+        chartIndex --;
+        clickActingBarMenu(chartIndex);
+        CommonFunctions.waitForElementVisible(chartDropdownMenuList.get(chartIndex));
+        clickMoveToPageName(chartIndex,PageName);
+    }
 
     public void addNewReportPage(){
 
@@ -94,10 +105,10 @@ public class ReportWorkSpacePage extends Page {
         pageDiv.findElement(By.xpath("//input[@value='" + originName + "']")).sendKeys(newName);
     }
 
-    private void clickMoveToPageName(String pageName){
+    private void clickMoveToPageName(int index, String pageName){
 
-        chartDropdownMenu.findElement(By.cssSelector("ul > li:nth-child(3)")).click();
-        List<WebElement> pageNameList=chartDropdownMenu.findElements(By.cssSelector("ul > li:nth-child(3) > ul > li"));
+        chartDropdownMenuList.get(index).findElement(By.cssSelector("ul > li:nth-child(3)")).click();
+        List<WebElement> pageNameList=chartDropdownMenuList.get(index).findElements(By.cssSelector("ul > li:nth-child(3) > ul > li"));
 
         for (int i=0; i<pageNameList.size();i++){
             if(pageNameList.get(i).getText().equals(pageName)) {
@@ -110,8 +121,7 @@ public class ReportWorkSpacePage extends Page {
     private void clickActingBarMenu(int index) throws InterruptedException {
 
         Thread.sleep(2000);
-        mouseOver(reportDetailDiv.findElement(By.cssSelector("div > div > div > div >div:nth-child(" + index + ")")));
-        focusElement(actionBarMenu);
-        actionBarMenu.click();
+        mouseOver(chartCanvasList.get(index));
+        actionBarMenuList.get(index).click();
     }
 }
