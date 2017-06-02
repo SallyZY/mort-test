@@ -1,6 +1,7 @@
 package com.bigeyedata.morttest.steps;
 
 import com.bigeyedata.morttest.WebDriverManager;
+import com.bigeyedata.morttest.pages.DirectoryPage;
 import com.bigeyedata.morttest.pages.ResourceFileListPage;
 import com.bigeyedata.morttest.pages.dataset_pages.DatasourceSelectPage;
 import com.bigeyedata.morttest.pages.dataset_pages.DatasetDetailsPage;
@@ -82,7 +83,8 @@ public class DatasetStepdefs {
     @And("^I select the saved directory of DataSet is \"([^\"]*)\"$")
     public void iSelectTheSavedDirectoryOfDatasetIs(String directoryName) throws Throwable {
 
-        importPreviewPage.selectSavedDirectoryByName(directoryName);
+        DirectoryPage directoryPage = PageFactory.initElements(webDriver,DirectoryPage.class);
+        directoryPage.selectSavedDirectoryByName(directoryName);
     }
 
     @When("^I create the DataSet$")
@@ -91,8 +93,8 @@ public class DatasetStepdefs {
         importPreviewPage.createDataset();
     }
 
-    @Then("^I should see the created (?:datasource|DataSet|report) \"([^\"]*)\" displayed in directory$")
-    public void iShouldSeeTheCreatedDatasetDisplayedInDirectory(String datasetName) throws Throwable {
+    @Then("^I should see the (?:DataSource|DataSet|Report) \"([^\"]*)\" displayed in directory$")
+    public void iShouldSeeTheSourceFileDisplayedInDirectory(String datasetName) throws Throwable {
 
         assertThat(resourceFileListPage.isResourceFileExistedInList(datasetName),is(true));
     }

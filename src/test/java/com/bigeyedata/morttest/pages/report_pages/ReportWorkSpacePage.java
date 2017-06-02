@@ -44,6 +44,10 @@ public class ReportWorkSpacePage extends Page {
     @FindBy(css = "div.ReportCanvasPages > div:nth-child(2) > div:nth-child(2)")
     WebElement addReportPageIcon;
 
+    @FindBy(css = "div.savingReport > div:nth-child(2) > input")
+    WebElement reportSavedNameInput;
+
+
     public void gotoReportPageByName(String name) throws InterruptedException {
 
         pageDiv.findElement(By.xpath("//input[@value='" + name + "']")).click();
@@ -103,6 +107,12 @@ public class ReportWorkSpacePage extends Page {
         Thread.sleep(2000);
         pageDiv.findElement(By.xpath("//input[@value='" + originName + "']")).clear();
         pageDiv.findElement(By.xpath("//input[@value='" + originName + "']")).sendKeys(newName);
+    }
+
+    public void inputReportSavedName(String reportName){
+
+        reportSavedNameInput.clear();
+        reportSavedNameInput.sendKeys(reportName);
     }
 
     private void clickMoveToPageName(int index, String pageName){

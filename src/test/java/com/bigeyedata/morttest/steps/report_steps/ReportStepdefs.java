@@ -1,6 +1,7 @@
 package com.bigeyedata.morttest.steps.report_steps;
 
 import com.bigeyedata.morttest.WebDriverManager;
+import com.bigeyedata.morttest.pages.DirectoryPage;
 import com.bigeyedata.morttest.pages.report_pages.ReportPreviewPage;
 import com.bigeyedata.morttest.pages.report_pages.ReportWorkSpacePage;
 import com.google.common.annotations.GwtIncompatible;
@@ -9,8 +10,12 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import cucumber.api.java.it.Ma;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by yingzhang on 19/05/2017.
@@ -78,7 +83,14 @@ public class ReportStepdefs {
     @And("^I select the chart with index is \"([^\"]*)\"$")
     public void iSelectTheChartWithIndexIs(String chartIndex) throws Throwable {
 
-//        reportWorkSpacePage.selectSingleChart();
         reportWorkSpacePage.selectChartByIndex(Integer.parseInt(chartIndex));
+    }
+
+    @And("^I save as the report as following$")
+    public void iSaveAsTheReportAsFollowing(List<Map<String, String>> reportInfoList) throws Throwable {
+
+        reportWorkSpacePage.inputReportSavedName(reportInfoList.get(0).get("ReportName").toString());
+        DirectoryPage directoryPage = PageFactory.initElements(webDriver,DirectoryPage.class);
+        directoryPage.selectSavedDirectoryByName(reportInfoList.get(0).get("Directory").toString());
     }
 }

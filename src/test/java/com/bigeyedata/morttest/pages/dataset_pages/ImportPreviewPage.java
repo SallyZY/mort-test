@@ -18,11 +18,11 @@ public class ImportPreviewPage extends Page {
     @FindBy(id = "addDataSetName")
     WebElement dataSetNameInput;
 
-    @FindBy(css = "div.choose-directory > input")
-    WebElement dataSetDirectoryInput;
-
-    @FindBy(id = "chooseDirectoryDirectoriesContainer")
-    WebElement directoryContainerUl;
+//    @FindBy(css = "div.choose-directory > input")
+//    WebElement dataSetDirectoryInput;
+//
+//    @FindBy(id = "chooseDirectoryDirectoriesContainer")
+//    WebElement directoryContainerUl;
 
     @FindBy(xpath = "//div[@class=' ant-tabs-tab'][1]")
     WebElement numericFieldTab;
@@ -42,11 +42,11 @@ public class ImportPreviewPage extends Page {
         saveDataSetButton.click();
     }
 
-    public void selectSavedDirectoryByName(String directoryName) throws InterruptedException {
-
-        dataSetDirectoryInput.click();
-        CommonFunctions.clickDirectoryByName(directoryContainerUl,directoryName);
-    }
+//    public void selectSavedDirectoryByName(String directoryName) throws InterruptedException {
+//
+//        dataSetDirectoryInput.click();
+//        CommonFunctions.clickDirectoryByName(directoryContainerUl,directoryName);
+//    }
 
     public void inputDatasetName(String dataSetName){
 

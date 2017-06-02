@@ -36,7 +36,7 @@ Feature: Create,view DataSet
     And I give the name of DataSet is "测试CSV数据集"
     And I select the saved directory of DataSet is "测试数据集目录"
     When I create the DataSet
-    Then I should see the created DataSet "测试CSV数据集" displayed in directory
+    Then I should see the DataSet "测试CSV数据集" displayed in directory
     And I should see the number of DataSet fields is "16"
     And I should see the ailas of DataSet fields displayed correctly
     And I should see the type of DataSet fields displayed correctly

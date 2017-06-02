@@ -6,20 +6,6 @@ Feature: The general operation of chart and report
       | zhangying@bigeyedata.com | password123  |
 
 
-  Scenario: Delete BindingItem, chart and report page
-    Given I access to "Report" module
-    And I select Report as following
-      | DirectoryName   |ResourceFileName  |
-      | 测试报表目录      |删除视图测试报表    |
-    And I open report edit page
-    And I go to the report page "第2页"
-    And I select the chart with index is "2"
-#    And I delete the BindingItem of Dimension
-#    And I delete the BindingItem of Measure
-#    And I delete the chart with index is "2"
-#    And I delete the report page "第3页"
-
-
   Scenario: Copy and move a chart from current report page to a new report page
     Given I access to "Report" module
     And I select Report as following
@@ -53,11 +39,36 @@ Feature: The general operation of chart and report
 #    Then I Should see the style setting is saved
 
 
-  #  Scenario: Create, rename and delete report page
-#    Given I access to "Report" module
-#    And I select Report as following
-#      | DirectoryName   |ResourceFileName  |
-#      | 测试报表目录      |复制移动测试报表    |
-#    And I open report edit page
-#    And I create a new report page
-#    And I rename the report page "第2页" to "删除测试页面"
+  Scenario: Rename,save as and delete report
+    Given I access to "Report" module
+    And I select Report as following
+      | DirectoryName   |ResourceFileName  |
+      | 测试报表目录      |仪表盘报表         |
+    And I open report edit page
+    And I save as the report as following
+      |  ReportName   |  Directory        |
+      |  仪表盘报表副本 |  测试报表目录_移动  |
+    When I return to report preview page
+    And I select the directory "测试报表目录_移动"
+    Then I should see the Report "仪表盘报表副本" displayed in directory
+
+    When I select the Report "仪表盘报表副本"
+    And I open report edit page
+    And I modify the name of Report to "仪表盘报表副本_重命名"
+    And I save the report
+    And I return to report preview page
+    Then I should see the Report "仪表盘报表副本_重命名" displayed in directory
+
+
+  Scenario: Delete BindingItem, chart and report page
+    Given I access to "Report" module
+    And I select Report as following
+      | DirectoryName   |ResourceFileName  |
+      | 测试报表目录      |删除视图测试报表    |
+    And I open report edit page
+    And I go to the report page "第2页"
+    And I select the chart with index is "2"
+#    And I delete the BindingItem of Dimension
+#    And I delete the BindingItem of Measure
+#    And I delete the chart with index is "2"
+#    And I delete the report page "第3页"
