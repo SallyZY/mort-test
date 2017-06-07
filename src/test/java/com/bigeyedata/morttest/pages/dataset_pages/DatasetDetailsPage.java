@@ -9,6 +9,8 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 import java.util.Map;
 
+import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
+
 /**
  * Created by yingzhang on 12/05/2017.
  */
@@ -64,7 +66,7 @@ public class DatasetDetailsPage extends Page {
 
     public String getDescriptionOfNewestImportHistory() throws InterruptedException {
 
-        CommonFunctions.waitForElementVisible(importHistoryTab);
+        waitForElementVisible(importHistoryTab);
         importHistoryTab.click();
         List<WebElement> descriptionList = importHistoryTable.findElements(By.cssSelector("tbody > tr > td:nth-child(3) > span"));
         return descriptionList.get(0).getText();

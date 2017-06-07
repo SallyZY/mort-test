@@ -1,6 +1,5 @@
 package com.bigeyedata.morttest.pages.dataset_pages;
 
-import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.pages.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -9,6 +8,8 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 import java.util.Map;
+
+import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisibleAndLocated;
 
 /**
  * Created by yingzhang on 11/05/2017.
@@ -24,7 +25,7 @@ public class FieldEditPage extends Page {
     public void setFieldsAlias(List<Map<String,String>> fieldsAliasList) throws InterruptedException {
 
 //        CommonFunctions.waitForElementVisible(FieldViewTable);
-        CommonFunctions.waitForElementVisibleAndLocated(By.cssSelector("table"));
+        waitForElementVisibleAndLocated(By.cssSelector("table"));
 
         List<WebElement> fieldNameLabelList = FieldViewTable.findElements(By.cssSelector("div.DataSetFieldsEditorField > span"));
         List<WebElement> fieldAliasInputList = FieldViewTable.findElements(By.cssSelector("div.DataSetFieldsEditorField > div > input"));

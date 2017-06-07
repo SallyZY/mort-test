@@ -27,6 +27,7 @@ public class CommonStepdefs {
 
     WebDriver webDriver= WebDriverManager.getDriver();
     DirectoryPage directoryPage = PageFactory.initElements(webDriver, DirectoryPage.class);
+    ResourceFileListPage resourceFileListPage=PageFactory.initElements(webDriver,ResourceFileListPage.class);
 
     @Given("^I open browser and login to Mort Web$")
     public void iOpenBrowserAndLoginToMortWeb(List<Map<String, String>> userLoginInfoList) throws Throwable {
@@ -53,10 +54,7 @@ public class CommonStepdefs {
         String directoryName = sourceInfoList.get(0).get("DirectoryName").toString();
         String sourceFileName=sourceInfoList.get(0).get("ResourceFileName").toString();
 
-        DirectoryPage directoryPage = PageFactory.initElements(webDriver,DirectoryPage.class);
         directoryPage.clickDirectoryByName(directoryName);
-
-        ResourceFileListPage resourceFileListPage=PageFactory.initElements(webDriver,ResourceFileListPage.class);
         resourceFileListPage.clickResourceByName(sourceFileName);
 
     }
@@ -64,14 +62,12 @@ public class CommonStepdefs {
     @When("^I click \"([^\"]*)\" item from dropdown menu of \"([^\"]*)\"$")
     public void iClickItemFromOperationMenuOf(String menuItem, String fileName) throws Throwable {
 
-        ResourceFileListPage resourceFileListPage = PageFactory.initElements(webDriver,ResourceFileListPage.class);
         resourceFileListPage.clickOptionMenuOfResourceFile(fileName);
     }
 
     @Then("^I should NOT see deleted resource file \"([^\"]*)\" in directory$")
     public void iShouldNOTSeeDeletedResourceFileInDirectory(String fileName) throws Throwable {
 
-        ResourceFileListPage resourceFileListPage = PageFactory.initElements(webDriver,ResourceFileListPage.class);
         assertThat(resourceFileListPage.isResourceFileExistedInList(fileName),is(false));
     }
 
@@ -79,5 +75,17 @@ public class CommonStepdefs {
     public void iSelectDirectory(String directoryName) throws Throwable {
 
         directoryPage.clickDirectoryByName(directoryName);
+    }
+
+    @And("^I select the directory \"([^\"]*)\"$")
+    public void iSelectTheDirectory(String dicName) throws Throwable {
+
+        directoryPage.clickDirectoryByName(dicName);
+    }
+
+    @When("^I select the (?:DataSource|DataSet|Report) \"([^\"]*)\"$")
+    public void iSelectTheResourceFile(String fileName) throws Throwable {
+
+        resourceFileListPage.clickResourceByName(fileName);
     }
 }

@@ -59,13 +59,13 @@ public class ChartSettingPage extends Page {
     @FindBy(css = "div#presentationMeasureAxis > div:nth-child(2) > div:nth-child(3) > span:nth-child(2) > input")
     WebElement measureAliasInput;
 
-    @FindBy(css = "div#presentationMeasureAxis > div:nth-child(2) > div:nth-child(6) > span:nth-child(2) > select")
+    @FindBy(css = "div#presentationMeasureAxis > div:nth-child(2) > div:nth-child(7) > span:nth-child(2) > select")
     WebElement measureUnitSelect;
 
-    @FindBy(css = "div#presentationMeasureAxis > div:nth-child(2) > div:nth-child(7) > span:nth-child(2) > select")
+    @FindBy(css = "div#presentationMeasureAxis > div:nth-child(2) > div:nth-child(8) > span:nth-child(2) > select")
     WebElement measureNumberOfDecimalSelect;
 
-    @FindBy(css = "div#presentationMeasureAxis > div:nth-child(2) > div:nth-child(8) > span:nth-child(2)  > span > i")
+    @FindBy(css = "div#presentationMeasureAxis > div:nth-child(2) > div:nth-child(9) > span:nth-child(2)  > span > i")
     WebElement measureThousandSeparatorDisplay;
 
 
@@ -78,13 +78,13 @@ public class ChartSettingPage extends Page {
     @FindBy(css = "div#presentationMeasureAxisRight > div:nth-child(2) > div:nth-child(3) > span:nth-child(2) > input")
     WebElement measureRightAliasInput;
 
-    @FindBy(css = "div#presentationMeasureAxisRight > div:nth-child(2) > div:nth-child(6) > span:nth-child(2) > select")
+    @FindBy(css = "div#presentationMeasureAxisRight > div:nth-child(2) > div:nth-child(7) > span:nth-child(2) > select")
     WebElement measureRightUnitSelect;
 
-    @FindBy(css = "div#presentationMeasureAxisRight > div:nth-child(2) > div:nth-child(7) > span:nth-child(2) > select")
+    @FindBy(css = "div#presentationMeasureAxisRight > div:nth-child(2) > div:nth-child(8) > span:nth-child(2) > select")
     WebElement measureRightNumberOfDecimalSelect;
 
-    @FindBy(css = "div#presentationMeasureAxisRight > div:nth-child(2) > div:nth-child(8) > span:nth-child(2)  > span > i")
+    @FindBy(css = "div#presentationMeasureAxisRight > div:nth-child(2) > div:nth-child(9) > span:nth-child(2)  > span > i")
     WebElement measureRightThousandSeparatorDisplay;
 
 

@@ -5,6 +5,8 @@ import com.bigeyedata.morttest.pages.Page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
+
 /**
  * Created by yingzhang on 10/05/2017.
  */
@@ -30,7 +32,7 @@ public class NavigationPage extends Page {
 
     public void AccessToModule(String module) throws InterruptedException {
 
-        CommonFunctions.waitForElementVisible(mainMenuUl);
+        waitForElementVisible(mainMenuUl);
 
         switch (module){
             case "DataSource":

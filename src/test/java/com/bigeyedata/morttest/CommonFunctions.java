@@ -68,15 +68,21 @@ public class CommonFunctions {
     }
 
 
-    public static void mouseOver(WebElement element){
+    public static void mouseOverAtCoordinates(WebElement element, int xOffset, int yOffset){
 
         Actions actions = new Actions(WebDriverManager.getDriver());
-        actions.moveToElement(element,20,20).perform();
+        actions.moveToElement(element,xOffset,yOffset).perform();
     }
 
     public static void doubleClick(WebElement element){
 
         Actions actions = new Actions(WebDriverManager.getDriver());
         actions.doubleClick(element).clickAndHold(element).perform();
+    }
+
+    public static void executeJs(String JSString){
+
+        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) WebDriverManager.getDriver();
+        javascriptExecutor.executeScript(JSString);
     }
 }

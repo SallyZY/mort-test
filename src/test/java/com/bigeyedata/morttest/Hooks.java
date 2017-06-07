@@ -26,7 +26,7 @@ public class Hooks {
 
         WebDriverManager.getDriver().manage().deleteAllCookies();
 //        WebDriverManager.getDriver().quit();
-//        WebDriverManager.deleteWebDriver();
+        WebDriverManager.deleteWebDriver();
     }
 
     public static String getMortWebUrl() {

@@ -89,8 +89,12 @@ public class ReportStepdefs {
     @And("^I save as the report as following$")
     public void iSaveAsTheReportAsFollowing(List<Map<String, String>> reportInfoList) throws Throwable {
 
+        reportWorkSpacePage.clickSaveAsMenu();
         reportWorkSpacePage.inputReportSavedName(reportInfoList.get(0).get("ReportName").toString());
+
         DirectoryPage directoryPage = PageFactory.initElements(webDriver,DirectoryPage.class);
         directoryPage.selectSavedDirectoryByName(reportInfoList.get(0).get("Directory").toString());
+
+        reportWorkSpacePage.clickSaveReportButtonOnDialog();
     }
 }

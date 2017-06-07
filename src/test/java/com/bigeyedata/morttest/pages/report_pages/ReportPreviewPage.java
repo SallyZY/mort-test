@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
+import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisibleAndLocated;
+
 /**
  * Created by yingzhang on 19/05/2017.
  */
@@ -26,6 +28,6 @@ public class ReportPreviewPage extends Page {
 
         Thread.sleep(5000);
         reportEditButton.click();
-        CommonFunctions.waitForElementVisibleAndLocated(By.className("Chart"));
+        waitForElementVisibleAndLocated(By.className("Chart"));
     }
 }

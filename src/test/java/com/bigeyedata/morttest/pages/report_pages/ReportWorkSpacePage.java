@@ -44,9 +44,38 @@ public class ReportWorkSpacePage extends Page {
     @FindBy(css = "div.ReportCanvasPages > div:nth-child(2) > div:nth-child(2)")
     WebElement addReportPageIcon;
 
-    @FindBy(css = "div.savingReport > div:nth-child(2) > input")
+    @FindBy(css = "div.savingReport > div:nth-child(2) > div:nth-child(1) > input")
     WebElement reportSavedNameInput;
 
+    @FindBy(xpath = "//*[@id='reportActionBarMoreMenu']")
+    WebElement reportOtherOperationButton;
+
+    @FindBy(xpath = "//*[@id='reportActionBarMoreMenuList']/li[2]")
+    WebElement reportSaveAsMenuItem;
+
+    @FindBy(className = "savingReport")
+    WebElement reportSaveDialogDiv;
+
+
+    public void clickSaveAsMenu() throws InterruptedException {
+
+        Thread.sleep(60000);
+        reportOtherOperationButton.click();
+        reportSaveAsMenuItem.click();
+    }
+
+    public void inputReportSavedName(String reportName) throws InterruptedException {
+
+        waitForElementVisible(reportSaveDialogDiv);
+        reportSavedNameInput.clear();
+        reportSavedNameInput.sendKeys(reportName);
+    }
+
+    public void clickSaveReportButtonOnDialog(){
+
+        reportSaveDialogDiv.findElement(By.cssSelector("div:nth-child(1)")).click();
+        reportSaveDialogDiv.findElement(By.cssSelector("div:nth-child(4) > a:nth-child(2)")).click();
+    }
 
     public void gotoReportPageByName(String name) throws InterruptedException {
 
@@ -74,7 +103,7 @@ public class ReportWorkSpacePage extends Page {
     public void selectChartByIndex(int chartIndex) throws InterruptedException {
 
         chartIndex--;
-        mouseOver(chartCanvasList.get(chartIndex));
+        mouseOverAtCoordinates(chartCanvasList.get(chartIndex),20,20);
         focusElement(actionBarList.get(chartIndex));
         actionBarList.get(chartIndex).click();
     }
@@ -83,7 +112,7 @@ public class ReportWorkSpacePage extends Page {
 
         chartIndex --;
         clickActingBarMenu(chartIndex);
-        CommonFunctions.waitForElementVisible(chartDropdownMenuList.get(chartIndex));
+        waitForElementVisible(chartDropdownMenuList.get(chartIndex));
         chartDropdownMenuList.get(chartIndex).findElement(By.cssSelector("ul > li:nth-child(1)")).click();
     }
 
@@ -91,7 +120,7 @@ public class ReportWorkSpacePage extends Page {
 
         chartIndex --;
         clickActingBarMenu(chartIndex);
-        CommonFunctions.waitForElementVisible(chartDropdownMenuList.get(chartIndex));
+        waitForElementVisible(chartDropdownMenuList.get(chartIndex));
         clickMoveToPageName(chartIndex,PageName);
     }
 
@@ -107,12 +136,6 @@ public class ReportWorkSpacePage extends Page {
         Thread.sleep(2000);
         pageDiv.findElement(By.xpath("//input[@value='" + originName + "']")).clear();
         pageDiv.findElement(By.xpath("//input[@value='" + originName + "']")).sendKeys(newName);
-    }
-
-    public void inputReportSavedName(String reportName){
-
-        reportSavedNameInput.clear();
-        reportSavedNameInput.sendKeys(reportName);
     }
 
     private void clickMoveToPageName(int index, String pageName){
@@ -131,7 +154,7 @@ public class ReportWorkSpacePage extends Page {
     private void clickActingBarMenu(int index) throws InterruptedException {
 
         Thread.sleep(2000);
-        mouseOver(chartCanvasList.get(index));
+        mouseOverAtCoordinates(chartCanvasList.get(index),20,20);
         actionBarMenuList.get(index).click();
     }
 }

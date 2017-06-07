@@ -1,12 +1,14 @@
 package com.bigeyedata.morttest.pages;
 
-import com.bigeyedata.morttest.CommonFunctions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
+
+import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
+import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisibleAndLocated;
 
 /**
  * Created by yingzhang on 10/05/2017.
@@ -29,7 +31,7 @@ public class ResourceFileListPage extends Page {
 
     public void clickResourceByName(String resourceName) throws InterruptedException {
 
-        CommonFunctions.waitForElementVisible(resourceFileListContainerDiv);
+        waitForElementVisible(resourceFileListContainerDiv);
         List<WebElement> resourceList = resourceFileListContainerDiv.findElements(By.cssSelector("div.ResourceListItem"));
 
         String elementText;
@@ -44,7 +46,7 @@ public class ResourceFileListPage extends Page {
 
     public void clickOptionMenuOfResourceFile(String resourceName) throws InterruptedException {
 
-        CommonFunctions.waitForElementVisible(resourceFileListContainerDiv);
+        waitForElementVisible(resourceFileListContainerDiv);
         List<WebElement> resourceList = resourceFileListContainerDiv.findElements(By.cssSelector("div.ResourceListItem"));
 
         WebElement datasetInfoDiv;
@@ -63,7 +65,7 @@ public class ResourceFileListPage extends Page {
 
     public boolean isResourceFileExistedInList(String fileName) throws InterruptedException {
 
-        CommonFunctions.waitForElementVisibleAndLocated(By.id("resourceListItemsContainer"));
+        waitForElementVisibleAndLocated(By.id("resourceListItemsContainer"));
         return resourceFileListContainerDiv.getText().contains(fileName);
 
     }

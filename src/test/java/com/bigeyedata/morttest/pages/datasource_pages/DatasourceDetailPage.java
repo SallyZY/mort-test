@@ -10,6 +10,8 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 import java.util.Map;
 
+import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
+
 /**
  * Created by yingzhang on 10/05/2017.
  */
@@ -23,7 +25,7 @@ public class DatasourceDetailPage extends Page {
 
     public boolean isDatasetNameDisplayed(List<Map<String,String>> datasetNameList) throws InterruptedException {
 
-        CommonFunctions.waitForElementVisible(relatedDatasetTable);
+        waitForElementVisible(relatedDatasetTable);
 
         boolean isFindDatasetName = false;
         for (int i = 0; i < datasetNameList.size(); i++) {
