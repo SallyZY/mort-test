@@ -28,6 +28,7 @@ public class FieldEditPage extends Page {
 //        CommonFunctions.waitForElementVisible(FieldViewTable);
         waitForElementVisibleAndLocated(By.cssSelector("#addDataSetPreview > div > div > div > div > div > div > div > table"));
 
+
         List<WebElement> fieldNameLabelList = FieldViewTable.findElements(By.cssSelector("div.DataSetFieldsEditorField > span"));
         List<WebElement> fieldAliasInputList = FieldViewTable.findElements(By.cssSelector("div.DataSetFieldsEditorField > div > input"));
 

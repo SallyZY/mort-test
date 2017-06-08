@@ -75,6 +75,7 @@ public class CommonFunctions {
         actions.moveToElement(element,xOffset,yOffset).perform();
     }
 
+
     public static void doubleClick(WebElement element){
 
         Actions actions = new Actions(WebDriverManager.getDriver());
