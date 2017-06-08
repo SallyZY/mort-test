@@ -4,7 +4,9 @@ package com.bigeyedata.morttest;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 /**
  * Created by yingzhang on 06/05/2017.
@@ -24,9 +26,9 @@ public class Hooks {
     @After
     public static void afterScenario() {
 
-        WebDriverManager.getDriver().manage().deleteAllCookies();
+//        WebDriverManager.getDriver().manage().deleteAllCookies();
 //        WebDriverManager.getDriver().quit();
-        WebDriverManager.deleteWebDriver();
+//        WebDriverManager.deleteWebDriver();
     }
 
     public static String getMortWebUrl() {
@@ -40,4 +42,6 @@ public class Hooks {
     public static int getThreadSleepTime(){
         return Thread_Sleep;
     }
+
+
 }

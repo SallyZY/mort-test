@@ -16,16 +16,17 @@ import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisibleAndLo
  */
 public class FieldEditPage extends Page {
 
-    @FindBy(css = "table")
+    @FindBy(css = "#addDataSetPreview > div > div > div > div > div > div > div > table")
     WebElement FieldViewTable;
 
-    @FindBy(css="button.ant-btn.ant-btn-primary")
+//    @FindBy(css="button.ant-btn.ant-btn-primary")
+    @FindBy(id = "createDataSetNextStep")
     WebElement nextStepButton;
 
     public void setFieldsAlias(List<Map<String,String>> fieldsAliasList) throws InterruptedException {
 
 //        CommonFunctions.waitForElementVisible(FieldViewTable);
-        waitForElementVisibleAndLocated(By.cssSelector("table"));
+        waitForElementVisibleAndLocated(By.cssSelector("#addDataSetPreview > div > div > div > div > div > div > div > table"));
 
         List<WebElement> fieldNameLabelList = FieldViewTable.findElements(By.cssSelector("div.DataSetFieldsEditorField > span"));
         List<WebElement> fieldAliasInputList = FieldViewTable.findElements(By.cssSelector("div.DataSetFieldsEditorField > div > input"));

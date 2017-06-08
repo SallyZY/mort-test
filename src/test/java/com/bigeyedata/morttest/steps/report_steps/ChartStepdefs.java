@@ -7,6 +7,8 @@ import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
@@ -68,4 +70,5 @@ public class ChartStepdefs {
 
         chartSettingPage.setChartDataLabelStyle(dataLabelStyleList);
     }
+
 }
