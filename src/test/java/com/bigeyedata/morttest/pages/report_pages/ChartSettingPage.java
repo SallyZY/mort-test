@@ -12,6 +12,8 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.List;
 import java.util.Map;
 
+import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
+
 /**
  * Created by yingzhang on 20/05/2017.
  */
@@ -154,7 +156,7 @@ public class ChartSettingPage extends Page {
                 styleSettingIconDiv.click();
                 break;
         }
-        CommonFunctions.waitForElementVisible(chartSettingDiv);
+        waitForElementVisible(chartSettingDiv);
     }
 
     public void setChartDataLabelStyle(List<Map<String, String>> dataLabelStyleList){
