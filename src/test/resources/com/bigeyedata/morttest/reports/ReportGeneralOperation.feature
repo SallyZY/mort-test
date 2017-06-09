@@ -63,12 +63,17 @@ Feature: The general operation of chart and report
   Scenario: Delete BindingItem, chart and report page
     Given I access to "Report" module
     And I select Report as following
-      | DirectoryName   |ResourceFileName  |
-      | 测试报表目录      |删除视图测试报表    |
+      | DirectoryName   | ResourceFileName  |
+      | 测试报表目录      | 删除视图测试报表    |
     And I open report edit page
     And I go to the report page "第2页"
     And I select the chart with index is "2"
-    And I delete the BindingItem of Dimension
-    And I delete the BindingItem of Measure
-    And I delete the chart with index is "2"
-    And I delete the report page "第3页"
+    When I delete the "Legend" BindingItem of Pie chart
+    And I delete the "Measure" BindingItem of Pie chart
+    Then I should see the "Legend" BindingItem of Pie chart is empty
+    And I should see the "Measure" BindingItem of Pie chart is empty
+
+
+
+#    And I delete the chart with index is "2"
+#    And I delete the report page "第3页"
