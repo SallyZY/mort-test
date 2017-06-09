@@ -3,13 +3,14 @@ package com.bigeyedata.morttest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 /**
  * Created by yingzhang on 12/05/2017.
@@ -85,4 +86,23 @@ public class CommonFunctions {
         JavascriptExecutor javascriptExecutor = (JavascriptExecutor) WebDriverManager.getDriver();
         javascriptExecutor.executeScript(JSString);
     }
+
+
+    public static String customizeImportDate(){
+        String currentTime;
+        long curren = System.currentTimeMillis();
+        curren += 60 * 1000;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        currentTime = dateFormat.format(new Date(curren));
+        return currentTime;
+
+    }
+
+
+    public static void refresh(){
+
+        WebDriverManager.getDriver().navigate().refresh();
+    }
+
+
 }

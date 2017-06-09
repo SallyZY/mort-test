@@ -40,11 +40,18 @@ public class DatasetDetailsPage extends Page {
     @FindBy(css = "ul#dataSetAllMenu > li:nth-child(1)")
     WebElement locateToDatasourceMenuItem;
 
-    @FindBy(css = "ul#dataSetAllMenu > li:nth-child(2)")
+//    @FindBy(css = "ul#dataSetAllMenu > li:nth-child(2)")
+    @FindBy(id = "appendFieldsButton" )
     WebElement appendFieldsMenuItem;
 
     @FindBy(css = "ul#dataSetAllMenu > li:nth-child(3)")
     WebElement appendDataMenuItem;
+
+    @FindBy(id = "checkSqlButton")
+    WebElement checkSqlMenuItem;
+
+    @FindBy(css = "div.ant-modal-content > div.ant-modal-body > div > p")
+    WebElement sqlOfRDBDataSet;
 
     public void clickMenuItem(String item){
 
@@ -59,6 +66,9 @@ public class DatasetDetailsPage extends Page {
                 break;
             case "AppendFields":
                 appendFieldsMenuItem.click();
+            case "ViewSql":
+                checkSqlMenuItem.click();
+
 
         }
     }
@@ -71,6 +81,7 @@ public class DatasetDetailsPage extends Page {
         List<WebElement> descriptionList = importHistoryTable.findElements(By.cssSelector("tbody > tr > td:nth-child(3) > span"));
         return descriptionList.get(0).getText();
     }
+
 
     public int getFieldCountOfDataset() {
         List<WebElement> trList = FieldAttributeTable.findElements(By.cssSelector("tbody > tr"));
@@ -118,5 +129,10 @@ public class DatasetDetailsPage extends Page {
         }
 
         return typeEqualToSettingCount == comparedFieldTypeList.size() ? true : false;
+    }
+
+    public String getSqlofRDBDataSet(){
+
+        return sqlOfRDBDataSet.getText();
     }
 }

@@ -1,12 +1,10 @@
 package com.bigeyedata.morttest.steps;
 
+import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.DirectoryPage;
 import com.bigeyedata.morttest.pages.ResourceFileListPage;
-import com.bigeyedata.morttest.pages.dataset_pages.DatasourceSelectPage;
-import com.bigeyedata.morttest.pages.dataset_pages.DatasetDetailsPage;
-import com.bigeyedata.morttest.pages.dataset_pages.FieldEditPage;
-import com.bigeyedata.morttest.pages.dataset_pages.ImportPreviewPage;
+import com.bigeyedata.morttest.pages.dataset_pages.*;
 import com.bigeyedata.morttest.pages.datasource_pages.DatasourceDetailPage;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
@@ -33,6 +31,7 @@ public class DatasetStepdefs {
     ResourceFileListPage resourceFileListPage = PageFactory.initElements(webDriver,ResourceFileListPage.class);
     DatasetDetailsPage datasetDetailsPage = PageFactory.initElements(webDriver,DatasetDetailsPage.class);
     DatasourceDetailPage datasourceDetailPage=PageFactory.initElements(webDriver,DatasourceDetailPage.class);
+    RDBPreviewPage rdbPreviewPage=PageFactory.initElements(webDriver,RDBPreviewPage.class);
 
     List<Map<String, String>> savedFieldAliasList;
     List<Map<String, String>> savedFieldTypeList;
@@ -139,5 +138,95 @@ public class DatasetStepdefs {
     public void iShouldSeeTheRelatedDatasetAsFollowing(List<Map<String,String>> datasetNameList) throws Throwable {
 
         datasourceDetailPage.isDatasetNameDisplayed(datasetNameList);
+    }
+
+
+    @And("^I click preview button to preview table$")
+    public void iClickPreviewButtonToPreviewTable() throws Throwable {
+
+        rdbPreviewPage.clickPreviewButton();
+
+    }
+
+
+    @And("^I select \"([^\"]*)\" mode$")
+    public void iSelectMimportMode(String importMode) throws Throwable {
+
+        rdbPreviewPage.selectedImportMode(importMode);
+
+    }
+
+    @And("^I input a right SQL is \"([^\"]*)\"$")
+    public void iInputARightSQLIs(String sql) throws Throwable {
+
+        rdbPreviewPage.setSQLTextarea(sql);
+
+    }
+
+
+
+    @And("^I select \"([^\"]*)\"$")
+    public void iSelectimportTime(String importTime) throws Throwable {
+        rdbPreviewPage.selectImportTime(importTime);
+    }
+
+    @And("^I set import date and time$")
+    public void iSetImportDateAndTime() throws Throwable {
+
+        rdbPreviewPage.setCustomizeImportDate();
+
+    }
+
+    @And("^I should wait (\\d+) minute$")
+    public void iShouldWaitMinute(int arg0) throws Throwable {
+        Thread.sleep(60*1000);
+    }
+
+    @And("^I can't modify the type of fields for DataSet$")
+    public void iCanTModifyTheTypeOfFieldsForDataSet() throws Throwable {
+        assert rdbPreviewPage.assertTypeTagNameOfDirectConnection();
+    }
+
+    @And("^I shouldn't see number of records after the dataset name$")
+    public void iShouldnTSeeNumberOfRecordsAfterTheDatasetName() throws Throwable {
+        assert rdbPreviewPage.assertRecordNumber();
+    }
+
+    @And("^I can't modify the alias and the type of previous data$")
+    public void iCanTModifyTheAliasAndTheTypeOfPreviousData() throws Throwable {
+        assertThat(rdbPreviewPage.countDisabledFieldsAlias(),is(2));
+        assertThat(rdbPreviewPage.countDisabledFieldsType(),is(2));
+    }
+
+
+    @When("^I add field to the Dataset$")
+    public void iAddFieldToTheDataset() throws Throwable {
+        importPreviewPage.createDataset();
+        Thread.sleep(10*1000);
+        CommonFunctions.refresh();
+        Thread.sleep(10*1000);
+
+    }
+
+    @And("^I should see the add field import record is displayed$")
+    public void iShouldSeeTheAddFieldImportRecordIsDisplayed() throws Throwable {
+        assertThat(datasetDetailsPage.getDescriptionOfNewestImportHistory(),is("追加字段导入"));
+    }
+
+
+    @And("^I can't modify the dataset name and he saved directory of DataSet$")
+    public void iCanTModifyTheDatasetNameAndHeSavedDirectoryOfDataSet() throws Throwable {
+        assertThat(rdbPreviewPage.isDisabledDataSetInput(),is(false));
+        assertThat(rdbPreviewPage.isDisabledSaveDirectory(),is(false ));
+    }
+
+    @And("^I click goToNextPage button of fieldEditPage$")
+    public void iClickGoToNextPageButtonOfFieldEditPage() throws Throwable {
+        fieldEditPage.gotoNextPage();
+    }
+
+    @Then("^I should see the sql of RDBDataSet$")
+    public void iShouldSeeTheSqlOfRDBDataSet() throws Throwable {
+        assertThat(datasetDetailsPage.getSqlofRDBDataSet(),is("select * from user"));
     }
 }
