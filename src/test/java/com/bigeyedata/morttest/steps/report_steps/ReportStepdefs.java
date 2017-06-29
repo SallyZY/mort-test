@@ -80,7 +80,7 @@ public class ReportStepdefs {
         reportWorkSpacePage.renameReportPage(originName, newName);
     }
 
-    @And("^I select the chart with index is \"([^\"]*)\"$")
+    @And("^I select the (?:Pie|Line) chart with index is \"([^\"]*)\"$")
     public void iSelectTheChartWithIndexIs(String chartIndex) throws Throwable {
 
         reportWorkSpacePage.selectChartByIndex(Integer.parseInt(chartIndex));

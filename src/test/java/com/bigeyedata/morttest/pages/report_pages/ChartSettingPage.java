@@ -31,7 +31,7 @@ public class ChartSettingPage extends Page {
     @FindBy(id = "icon-filter")
     WebElement filterIconDiv;
 
-    @FindBy(id = "icon-geshishua")
+    @FindBy(id = "icon-set-up")
     WebElement styleSettingIconDiv;
 
 
@@ -48,45 +48,45 @@ public class ChartSettingPage extends Page {
     @FindBy(id = "presentationDimensionAxis")
     WebElement dimensionSettingItem;
 
-    @FindBy(css = "div#presentationDimensionAxis > div:nth-child(2) > div:nth-child(2) > span:nth-child(2) > span > i")
+    @FindBy(css = "div#presentationDimensionAxis > div:nth-child(2) > div:nth-child(5) > span:nth-child(2) > span > i")
     WebElement dimensionTitleSwitch;
 
 
     @FindBy(id = "presentationMeasureAxis")
     WebElement measureSettingItem;
 
-    @FindBy(css = "div#presentationMeasureAxis > div:nth-child(2) > div:nth-child(2) > span:nth-child(2)  > span > i")
+    @FindBy(css = "div#presentationMeasureAxis > div:nth-child(2) > div:nth-child(5) > span:nth-child(2)  > span > i")
     WebElement measureTitleSwitch;
 
-    @FindBy(css = "div#presentationMeasureAxis > div:nth-child(2) > div:nth-child(3) > span:nth-child(2) > input")
+    @FindBy(css = "div#presentationMeasureAxis > div:nth-child(2) > div:nth-child(6) > span:nth-child(2) > input")
     WebElement measureAliasInput;
 
-    @FindBy(css = "div#presentationMeasureAxis > div:nth-child(2) > div:nth-child(7) > span:nth-child(2) > select")
+    @FindBy(css = "div#presentationMeasureAxis > div:nth-child(2) > div:nth-child(10) > span:nth-child(2) > select")
     WebElement measureUnitSelect;
 
-    @FindBy(css = "div#presentationMeasureAxis > div:nth-child(2) > div:nth-child(8) > span:nth-child(2) > select")
+    @FindBy(css = "div#presentationMeasureAxis > div:nth-child(2) > div:nth-child(11) > span:nth-child(2) > select")
     WebElement measureNumberOfDecimalSelect;
 
-    @FindBy(css = "div#presentationMeasureAxis > div:nth-child(2) > div:nth-child(9) > span:nth-child(2)  > span > i")
+    @FindBy(css = "div#presentationMeasureAxis > div:nth-child(2) > div:nth-child(12) > span:nth-child(2)  > span > i")
     WebElement measureThousandSeparatorDisplay;
 
 
     @FindBy(id = "presentationMeasureAxisRight")
     WebElement measureRightSettingItem;
 
-    @FindBy(css = "div#presentationMeasureAxisRight > div:nth-child(2) > div:nth-child(2) > span:nth-child(2)  > span > i")
+    @FindBy(css = "div#presentationMeasureAxisRight > div:nth-child(2) > div:nth-child(5) > span:nth-child(2)  > span > i")
     WebElement measureRightTitleSwitch;
 
-    @FindBy(css = "div#presentationMeasureAxisRight > div:nth-child(2) > div:nth-child(3) > span:nth-child(2) > input")
+    @FindBy(css = "div#presentationMeasureAxisRight > div:nth-child(2) > div:nth-child(6) > span:nth-child(2) > input")
     WebElement measureRightAliasInput;
 
-    @FindBy(css = "div#presentationMeasureAxisRight > div:nth-child(2) > div:nth-child(7) > span:nth-child(2) > select")
+    @FindBy(css = "div#presentationMeasureAxisRight > div:nth-child(2) > div:nth-child(10) > span:nth-child(2) > select")
     WebElement measureRightUnitSelect;
 
-    @FindBy(css = "div#presentationMeasureAxisRight > div:nth-child(2) > div:nth-child(8) > span:nth-child(2) > select")
+    @FindBy(css = "div#presentationMeasureAxisRight > div:nth-child(2) > div:nth-child(11) > span:nth-child(2) > select")
     WebElement measureRightNumberOfDecimalSelect;
 
-    @FindBy(css = "div#presentationMeasureAxisRight > div:nth-child(2) > div:nth-child(9) > span:nth-child(2)  > span > i")
+    @FindBy(css = "div#presentationMeasureAxisRight > div:nth-child(2) > div:nth-child(12) > span:nth-child(2)  > span > i")
     WebElement measureRightThousandSeparatorDisplay;
 
 

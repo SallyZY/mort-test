@@ -11,6 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 import static com.bigeyedata.morttest.CommonFunctions.*;
+import static com.bigeyedata.morttest.Hooks.getThreadSleepTime;
 
 /**
  * Created by yingzhang on 19/05/2017.
@@ -89,8 +90,9 @@ public class ReportWorkSpacePage extends Page {
         backToPreviewReportButton.click();
     }
 
-    public void saveReport(){
+    public void saveReport() throws InterruptedException {
         saveReportButton.click();
+        Thread.sleep(5000);
     }
 
     public void selectSingleChart(){

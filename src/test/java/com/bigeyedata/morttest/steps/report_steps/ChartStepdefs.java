@@ -8,6 +8,7 @@ import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -77,15 +78,21 @@ public class ChartStepdefs {
         chartSettingPage.setChartDataLabelStyle(dataLabelStyleList);
     }
 
-    @And("^I delete the \"([^\"]*)\" BindingItem of (?:Pie) chart$")
+    @And("^I delete the \"([^\"]*)\" BindingItem of (?:Pie|Line) chart$")
     public void iDeleteTheBindingItemOfChart(String itemName) throws Throwable {
 
         chartBindingItemPage.deleteBindingItem(itemName);
     }
 
-    @Then("^I should see the \"([^\"]*)\" BindingItem of Pie chart is empty$")
+    @Then("^I should see the \"([^\"]*)\" BindingItem of (?:Pie|Line) chart is empty$")
     public void iShouldSeeTheBindingItemOfPieChartIsEmpty(String itemName) throws Throwable {
 
         assertThat(chartBindingItemPage.isBindingItemEmpty(itemName),is(true));
+    }
+
+    @When("^I delete the (?:Line|Pie) chart with index is \"([^\"]*)\"$")
+    public void iDeleteTheLineChartWithIndexIs(String arg0) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 }

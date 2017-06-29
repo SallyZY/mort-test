@@ -67,11 +67,24 @@ Feature: The general operation of chart and report
       | 测试报表目录      | 删除视图测试报表    |
     And I open report edit page
     And I go to the report page "第2页"
-    And I select the chart with index is "2"
-    When I delete the "Legend" BindingItem of Pie chart
+
+    When I select the Line chart with index is "1"
+    And I delete the "Dimension" BindingItem of Line chart
+    And I delete the "LeftMeasure" BindingItem of Line chart
+    And I delete the "Legend" BindingItem of Line chart
+    Then I should see the "Dimension" BindingItem of Line chart is empty
+    And I should see the "Legend" BindingItem of Line chart is empty
+    And I should see the "LeftMeasure" BindingItem of Line chart is empty
+
+    When I select the Pie chart with index is "2"
+    And I delete the "Legend" BindingItem of Pie chart
     And I delete the "Measure" BindingItem of Pie chart
     Then I should see the "Legend" BindingItem of Pie chart is empty
     And I should see the "Measure" BindingItem of Pie chart is empty
+
+    When I delete the Line chart with index is "1"
+    And I delete the Pie chart with index is "2"
+
 
 
 

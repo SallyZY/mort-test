@@ -36,7 +36,7 @@ Feature: Create,view DataSet
     And I give the name of DataSet is "测试CSV数据集"
     And I select the saved directory of DataSet is "测试数据集目录"
     When I create the DataSet
-    Then I should see the created DataSet "测试CSV数据集" displayed in directory
+    Then I should see the DataSet "测试CSV数据集" displayed in directory
     And I should see the number of DataSet fields is "16"
     And I should see the ailas of DataSet fields displayed correctly
     And I should see the type of DataSet fields displayed correctly
@@ -87,7 +87,7 @@ Feature: Create,view DataSet
     And I click goToNextPage button of fieldEditPage
     And I select "立即导入"
     When I create the DataSet
-    Then I should see the created DataSet "测试MySQL数据集" displayed in directory
+    Then I should see the DataSet "测试MySQL数据集" displayed in directory
     And I should see the number of DataSet fields is "45"
     And I should see the initial import record is displayed
 
@@ -106,7 +106,7 @@ Feature: Create,view DataSet
     And I select "自定义"
     And I set import date and time
     When I create the DataSet
-    Then I should see the created DataSet "测试MySQL数据集" displayed in directory
+    Then I should see the DataSet "测试MySQL数据集" displayed in directory
     And I should see the number of DataSet fields is "45"
     And I should wait 1 minute
     And I should see the initial import record is displayed
@@ -125,7 +125,7 @@ Feature: Create,view DataSet
     And I click goToNextPage button of fieldEditPage
     And I can't modify the type of fields for DataSet
     When I create the DataSet
-    Then I should see the created DataSet "测试MySQL数据集" displayed in directory
+    Then I should see the DataSet "测试MySQL数据集" displayed in directory
     And  I shouldn't see number of records after the dataset name
     And I should see the number of DataSet fields is "45"
 
@@ -144,11 +144,10 @@ Feature: Create,view DataSet
     And I click goToNextPage button of fieldEditPage
     And I select "立即导入"
     And I create the DataSet
-    And I should see the created DataSet "测试MySQL数据集-追加" displayed in directory
+    And I should see the DataSet "测试MySQL数据集-追加" displayed in directory
     And I should see the number of DataSet fields is "2"
     And I should see the initial import record is displayed
-#    And I should wait 30 seconds
-#    And I click "AppendFields" item from other operation dropdown menu
+    And I click "AppendFields" item from other operation dropdown menu
     And I can't modify the dataset name and he saved directory of DataSet
     And I input a right SQL is "select Host,User,plugin from user"
     And I click preview button to preview table
@@ -160,7 +159,7 @@ Feature: Create,view DataSet
       | FieldName     | FieldType |
       | plugin        | 数值       |
     When I add field to the Dataset
-    Then I should see the created DataSet "测试MySQL数据集-追加" displayed in directory
+    Then I should see the DataSet "测试MySQL数据集-追加" displayed in directory
     And I should see the number of DataSet fields is "3"
     And I should see the add field import record is displayed
 
