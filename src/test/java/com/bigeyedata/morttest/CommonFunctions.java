@@ -60,6 +60,12 @@ public class CommonFunctions {
         javascriptExecutor.executeScript("arguments[0].focus",element);
     }
 
+    public static void blurElement(WebElement element){
+
+        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) WebDriverManager.getDriver();
+        javascriptExecutor.executeScript("arguments[0].focus",element);
+    }
+
     public static void clickElementAtCoordinates(WebElement element, int xOffset, int yOffset){
 
         Actions actions = new Actions(WebDriverManager.getDriver());
