@@ -21,7 +21,7 @@ public class DatasourceStepdefs {
     WebDriver webDriver= WebDriverManager.getDriver();
     DatasourceConfigPage datasourceConfigPage= PageFactory.initElements(webDriver,DatasourceConfigPage.class);
 
-    @And("^I want to create a RDB datasource with configuration as following$")
+    @And("^I want to create a RDB dataSource with configuration as following$")
     public void iWantToCreateARDBDatasourceWithConfigurationAsFollowing(List<Map<String,String>> RDBConfigList) throws Throwable {
 
         ResourceFileListPage resourceFileListPage= PageFactory.initElements(webDriver,ResourceFileListPage.class);
@@ -31,10 +31,10 @@ public class DatasourceStepdefs {
 
     }
 
-    @When("^I click save button on RDB datasource configuration page$")
-    public void iClickSaveButtonOnRDBDatasourceConfigurationPage() throws Throwable {
+    @When("^I click save button on (?:RDB|HDFS) dataSource configuration page$")
+    public void iClickSaveButtonOnDatasourceConfigurationPage() throws Throwable {
 
-        datasourceConfigPage.createRDBSource();
+        datasourceConfigPage.createDataSource();
 
     }
 
@@ -45,13 +45,6 @@ public class DatasourceStepdefs {
         resourceFileListPage.createNewResource();
         datasourceConfigPage.selectHDFSType();
         datasourceConfigPage.setHDFSParameter(HDFSConfigList);
-
-    }
-
-    @When("^I click save button on HDFS DataSource configuration page$")
-    public void iClickSaveButtonOnHDFSDatasourceConfigurationPage() throws Throwable {
-
-        datasourceConfigPage.createHDFSSource();
 
     }
 }

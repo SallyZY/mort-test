@@ -38,7 +38,7 @@ public class DatasourceConfigPage extends Page {
     WebElement dataSourceTypeSelect;
 
     @FindBy(xpath = "//div[@id='editDataSourceModal']//input[@id='name']")
-    WebElement rdbDatasourceNameInput;
+    WebElement dataSourceNameInput;
 
     @FindBy(xpath = "//div[@id='editDataSourceModal']//input[@id='host']")
     WebElement hostInput;
@@ -56,12 +56,9 @@ public class DatasourceConfigPage extends Page {
     WebElement databaseInput;
 
     @FindBy(css = "div.ant-modal-footer > button:nth-child(2)")
-    WebElement RDBSaveLink;
+    WebElement DataSourceSaveButton;
 
-    @FindBy(css = "div > div.fields > dl > dd:nth-child(1) > input")
-    WebElement hdfsDatasourceNameInput;
-
-    @FindBy(css = "div.fields > dl > dd:nth-child(2) > div > div > div > div > div")
+    @FindBy(xpath = "//div[@class='ant-select-lg ant-select ant-select-enabled']")
     WebElement hdfsTypeSelect;
 
     @FindBy(xpath = "//div/ul[@class='ant-select-dropdown-menu ant-select-dropdown-menu-vertical  ant-select-dropdown-menu-root']/li[last()-1]")
@@ -71,11 +68,8 @@ public class DatasourceConfigPage extends Page {
     @FindBy(xpath = "//div/ul[@class='ant-select-dropdown-menu ant-select-dropdown-menu-vertical  ant-select-dropdown-menu-root']/li[last()]")
     WebElement hadsOrc;
 
-    @FindBy(css = "div.fields > dl > dd:nth-child(2) > div > input")
+    @FindBy(xpath = "//div[@id='editDataSourceModal']//input[@id='path']")
     WebElement hdfsPathInput;
-
-    @FindBy(css = "form > div > div.buttons.clearfix > a:nth-child(4)")
-    WebElement HDFSsaveLink;
 
 
     public void selectRDBType() throws InterruptedException {
@@ -87,7 +81,7 @@ public class DatasourceConfigPage extends Page {
 
     public void setRDBParameter(List<Map<String,String>> RDBConfigList) {
 
-        rdbDatasourceNameInput.sendKeys(RDBConfigList.get(0).get("DatasourceName").toString());
+        dataSourceNameInput.sendKeys(RDBConfigList.get(0).get("DatasourceName").toString());
         hostInput.sendKeys(RDBConfigList.get(0).get("Host").toString());
         portInput.sendKeys(RDBConfigList.get(0).get("Port").toString());
         userInput.sendKeys(RDBConfigList.get(0).get("User").toString());
@@ -95,9 +89,9 @@ public class DatasourceConfigPage extends Page {
         databaseInput.sendKeys(RDBConfigList.get(0).get("Database").toString());
     }
 
-    public void createRDBSource(){
+    public void createDataSource(){
 
-        RDBSaveLink.click();
+        DataSourceSaveButton.click();
     }
 
 
@@ -108,16 +102,11 @@ public class DatasourceConfigPage extends Page {
 
     public  void setHDFSParameter(List<Map<String,String>> HDFSConfigList) throws InterruptedException {
 
-        hdfsDatasourceNameInput.sendKeys(HDFSConfigList.get(0).get("DatasourceName").toString());
+        dataSourceNameInput.sendKeys(HDFSConfigList.get(0).get("DatasourceName").toString());
         hdfsTypeSelect.click();
+        CommonFunctions.waitForElementVisible(hdfsParquet);
         hdfsParquet.click();
         hdfsPathInput.sendKeys(HDFSConfigList.get(0).get("Path").toString());
-
-    }
-
-    public void createHDFSSource(){
-
-        HDFSsaveLink.click();
 
     }
 

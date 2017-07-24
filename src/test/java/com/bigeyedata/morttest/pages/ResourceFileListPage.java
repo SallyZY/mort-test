@@ -32,9 +32,10 @@ public class ResourceFileListPage extends Page {
     WebElement dataSourceTypeUl;
 
 
-    public void createNewResource(){
+    public void createNewResource() throws InterruptedException {
 
         createNewResourceLink.click();
+        CommonFunctions.waitForElementVisible(dataSourceTypeUl);
     }
 
     public void createNewDataResource() throws InterruptedException {
