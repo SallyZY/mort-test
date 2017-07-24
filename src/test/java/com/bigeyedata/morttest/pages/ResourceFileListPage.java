@@ -79,7 +79,7 @@ public class ResourceFileListPage extends Page {
 
     public boolean isResourceFileExistedInList(String fileName) throws InterruptedException {
 
-        waitForElementVisibleAndLocated(By.id("resourceListItemsContainer"));
+        waitForElementVisible(resourceFileListContainerDiv);
         return resourceFileListContainerDiv.getText().contains(fileName);
 
     }

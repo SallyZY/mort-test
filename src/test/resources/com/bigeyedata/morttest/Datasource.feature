@@ -11,8 +11,7 @@ Feature: Create DataSource
     And I select DataSource directory "测试数据源目录"
     And I want to create a RDB datasource with configuration as following
       | DatasourceType  | Host        | Port     | User      | Password  | Database         | DatasourceName  |
-#      | MySQL           |127.0.0.1    | 3306     | root      |           | customerdata_dev | 测试MySQL数据源  |
-      | MySQL           |127.0.0.1    | 3306     | root      |           | mysql            | 测试MySQL数据源  |
+      | MySQL           |127.0.0.1    | 3306     | root      |           | customerdata_dev | 测试MySQL数据源  |
     When I click save button on RDB datasource configuration page
     Then I should see the DataSource "测试MySQL数据源" displayed in directory
 

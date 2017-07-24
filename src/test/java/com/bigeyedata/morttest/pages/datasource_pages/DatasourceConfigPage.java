@@ -34,8 +34,8 @@ public class DatasourceConfigPage extends Page {
     @FindBy(css = "ul#newDataSourceDropDownMenu > li:nth-child(4)")
     WebElement ESTypeLink;
 
-    @FindBy(xpath = "//form/div/div[2]/dl/dd[1]/select")
-    WebElement datasourceTypeSelect;
+    @FindBy(xpath = "")
+    WebElement dataSourceTypeSelect;
 
     @FindBy(xpath = "//div[@id='editDataSourceModal']//input[@id='name']")
     WebElement rdbDatasourceNameInput;
@@ -85,11 +85,7 @@ public class DatasourceConfigPage extends Page {
     }
 
 
-    public void setRDBParameter(List<Map<String,String>> RDBConfigList){
-
-//        Select select = new Select(datasourceTypeSelect);
-//
-//        select.selectByVisibleText(RDBConfigList.get(0).get("DatasourceType").toString());
+    public void setRDBParameter(List<Map<String,String>> RDBConfigList) {
 
         rdbDatasourceNameInput.sendKeys(RDBConfigList.get(0).get("DatasourceName").toString());
         hostInput.sendKeys(RDBConfigList.get(0).get("Host").toString());
@@ -97,7 +93,6 @@ public class DatasourceConfigPage extends Page {
         userInput.sendKeys(RDBConfigList.get(0).get("User").toString());
         passwordInput.sendKeys(RDBConfigList.get(0).get("Password").toString());
         databaseInput.sendKeys(RDBConfigList.get(0).get("Database").toString());
-
     }
 
     public void createRDBSource(){
