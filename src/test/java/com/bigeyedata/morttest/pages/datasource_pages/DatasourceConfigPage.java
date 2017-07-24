@@ -34,9 +34,6 @@ public class DatasourceConfigPage extends Page {
     @FindBy(css = "ul#newDataSourceDropDownMenu > li:nth-child(4)")
     WebElement ESTypeLink;
 
-    @FindBy(xpath = "")
-    WebElement dataSourceTypeSelect;
-
     @FindBy(xpath = "//div[@id='editDataSourceModal']//input[@id='name']")
     WebElement dataSourceNameInput;
 
@@ -59,14 +56,7 @@ public class DatasourceConfigPage extends Page {
     WebElement DataSourceSaveButton;
 
     @FindBy(xpath = "//div[@class='ant-select-lg ant-select ant-select-enabled']")
-    WebElement hdfsTypeSelect;
-
-    @FindBy(xpath = "//div/ul[@class='ant-select-dropdown-menu ant-select-dropdown-menu-vertical  ant-select-dropdown-menu-root']/li[last()-1]")
-    WebElement hdfsParquet;
-
-
-    @FindBy(xpath = "//div/ul[@class='ant-select-dropdown-menu ant-select-dropdown-menu-vertical  ant-select-dropdown-menu-root']/li[last()]")
-    WebElement hadsOrc;
+    WebElement dataSourceTypeSelect;
 
     @FindBy(xpath = "//div[@id='editDataSourceModal']//input[@id='path']")
     WebElement hdfsPathInput;
@@ -79,14 +69,15 @@ public class DatasourceConfigPage extends Page {
     }
 
 
-    public void setRDBParameter(List<Map<String,String>> RDBConfigList) {
+    public void setRDBParameter(List<Map<String,String>> RDBConfigList) throws InterruptedException {
 
-        dataSourceNameInput.sendKeys(RDBConfigList.get(0).get("DatasourceName").toString());
+        dataSourceNameInput.sendKeys(RDBConfigList.get(0).get("DataSourceName").toString());
         hostInput.sendKeys(RDBConfigList.get(0).get("Host").toString());
         portInput.sendKeys(RDBConfigList.get(0).get("Port").toString());
         userInput.sendKeys(RDBConfigList.get(0).get("User").toString());
         passwordInput.sendKeys(RDBConfigList.get(0).get("Password").toString());
         databaseInput.sendKeys(RDBConfigList.get(0).get("Database").toString());
+        selectDataSourceType(RDBConfigList.get(0).get("DataSourceType").toString());
     }
 
     public void createDataSource(){
@@ -102,12 +93,18 @@ public class DatasourceConfigPage extends Page {
 
     public  void setHDFSParameter(List<Map<String,String>> HDFSConfigList) throws InterruptedException {
 
-        dataSourceNameInput.sendKeys(HDFSConfigList.get(0).get("DatasourceName").toString());
-        hdfsTypeSelect.click();
-        CommonFunctions.waitForElementVisible(hdfsParquet);
-        hdfsParquet.click();
+        dataSourceNameInput.sendKeys(HDFSConfigList.get(0).get("DataSourceName").toString());
         hdfsPathInput.sendKeys(HDFSConfigList.get(0).get("Path").toString());
+        selectDataSourceType(HDFSConfigList.get(0).get("DataSourceType").toString());
 
+    }
+
+    private void selectDataSourceType(String typeName) throws InterruptedException {
+
+        dataSourceTypeSelect.click();
+        WebElement dataSourceType = WebDriverManager.getDriver().findElement(By.xpath("//div/ul[@class='ant-select-dropdown-menu ant-select-dropdown-menu-vertical  ant-select-dropdown-menu-root']/li[text()='" + typeName + "']"));
+        CommonFunctions.waitForElementVisible(dataSourceType);
+        dataSourceType.click();
     }
 
 }
