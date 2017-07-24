@@ -25,7 +25,7 @@ public class DatasourceStepdefs {
     public void iWantToCreateARDBDatasourceWithConfigurationAsFollowing(List<Map<String,String>> RDBConfigList) throws Throwable {
 
         ResourceFileListPage resourceFileListPage= PageFactory.initElements(webDriver,ResourceFileListPage.class);
-        resourceFileListPage.createNewResource();
+        resourceFileListPage.createNewDataResource();
         datasourceConfigPage.selectRDBType();
         datasourceConfigPage.setRDBParameter(RDBConfigList);
 

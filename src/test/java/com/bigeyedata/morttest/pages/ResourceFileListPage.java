@@ -1,5 +1,6 @@
 package com.bigeyedata.morttest.pages;
 
+import com.bigeyedata.morttest.CommonFunctions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,18 +16,31 @@ import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisibleAndLo
  */
 public class ResourceFileListPage extends Page {
 
-    @FindBy(id = "resourceListItemsContainer")
+    @FindBy(id = "resourceListMenuContainerMenu")
     WebElement resourceFileListContainerDiv;
 
     @FindBy(css = "div.main-page-list-title > div > h3 > div.wrap-text > span")
     WebElement directoryNameLabel;
 
-    @FindBy(css = "div.main-page-list-title > div > h3 > a")
+    @FindBy(className = "add-new-link")
     WebElement createNewResourceLink;
+
+    @FindBy(id = "addNewDataSourceLink")
+    WebElement createNewDataResourceLink;
+
+    @FindBy(id = "newDataSourceDropDownMenu")
+    WebElement dataSourceTypeUl;
+
 
     public void createNewResource(){
 
         createNewResourceLink.click();
+    }
+
+    public void createNewDataResource() throws InterruptedException {
+
+        createNewDataResourceLink.click();
+        CommonFunctions.waitForElementVisible(dataSourceTypeUl);
     }
 
     public void clickResourceByName(String resourceName) throws InterruptedException {

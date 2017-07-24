@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
  */
 public class DirectoryPage extends Page {
 
-    @FindBy(id = "mainPageDirectoriesContainer")
+    @FindBy(id = "directoriesMenu")
     WebElement mainDirectoryContainerUl;
 
     @FindBy(css = "div.add-directory-btn > span:nth-child(2)")
@@ -24,6 +24,14 @@ public class DirectoryPage extends Page {
     @FindBy(id = "chooseDirectoryDirectoriesContainer")
     WebElement directoryContainerUl;
 
+    @FindBy(id="directoryContainerFolderIcon")
+    WebElement dicExpandIcon;
+
+    public void clickDicExpandIcon() throws InterruptedException {
+
+        dicExpandIcon.click();
+        CommonFunctions.waitForElementVisible(mainDirectoryContainerUl);
+    }
 
     public void clickDirectoryByName(String directoryName) throws InterruptedException {
 

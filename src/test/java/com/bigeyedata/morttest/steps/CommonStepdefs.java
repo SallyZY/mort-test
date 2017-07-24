@@ -88,4 +88,10 @@ public class CommonStepdefs {
 
         resourceFileListPage.clickResourceByName(fileName);
     }
+
+    @And("^I expand the DataSource directory$")
+    public void iExpandTheDataSourceDirectory() throws Throwable {
+
+        directoryPage.clickDicExpandIcon();
+    }
 }

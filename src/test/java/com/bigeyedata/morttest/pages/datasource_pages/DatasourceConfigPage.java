@@ -22,34 +22,37 @@ public class DatasourceConfigPage extends Page {
 
     WebDriver webDriver= WebDriverManager.getDriver();
 
-    @FindBy(css = "div.AddDataSourceTypes > div > div.AddDataSourceTypesItem:nth-child(1)")
+    @FindBy(css = "ul#newDataSourceDropDownMenu > li:nth-child(1)")
     WebElement localFileTypeLink;
 
-    @FindBy(css = "div.AddDataSourceTypes > div > div.AddDataSourceTypesItem:nth-child(2)")
+    @FindBy(css = "ul#newDataSourceDropDownMenu > li:nth-child(2)")
     WebElement RDBTypeLink;
 
-    @FindBy(css = "div.AddDataSourceTypes > div > div.AddDataSourceTypesItem:nth-child(3)")
+    @FindBy(css = "ul#newDataSourceDropDownMenu > li:nth-child(3)")
     WebElement HDFSTypeLink;
+
+    @FindBy(css = "ul#newDataSourceDropDownMenu > li:nth-child(4)")
+    WebElement ESTypeLink;
 
     @FindBy(xpath = "//form/div/div[2]/dl/dd[1]/select")
     WebElement datasourceTypeSelect;
 
-    @FindBy(xpath = "//form/div/div[2]/dl/dd[2]/input")
+    @FindBy(xpath = "//div[@id='editDataSourceModal']//input[@id='name']")
     WebElement rdbDatasourceNameInput;
 
-    @FindBy(css = " div.fields > dl > div.nameInput > dd:nth-child(1) > input:nth-child(2)")
+    @FindBy(xpath = "//div[@id='editDataSourceModal']//input[@id='host']")
     WebElement hostInput;
 
-    @FindBy(css = "div.fields > dl > div.nameInput > dd:nth-child(2) > input:nth-child(2)")
+    @FindBy(xpath = "//div[@id='editDataSourceModal']//input[@id='port']")
     WebElement portInput;
 
-    @FindBy(css = " div.fields > dl > div.nameInput > dd:nth-child(3) > input:nth-child(2)")
+    @FindBy(xpath = "//div[@id='editDataSourceModal']//input[@id='username']")
     WebElement userInput;
 
-    @FindBy(css = "div.fields > dl > div.nameInput > dd:nth-child(4) > input:nth-child(2)")
+    @FindBy(xpath = "//div[@id='editDataSourceModal']//input[@id='password']")
     WebElement passwordInput;
 
-    @FindBy(css = "div.fields > dl > div.nameInput > dd:nth-child(5) > input:nth-child(2)")
+    @FindBy(xpath = "//div[@id='editDataSourceModal']//input[@id='database']")
     WebElement databaseInput;
 
     @FindBy(css = "div.ant-modal-footer > button:nth-child(2)")
@@ -84,9 +87,9 @@ public class DatasourceConfigPage extends Page {
 
     public void setRDBParameter(List<Map<String,String>> RDBConfigList){
 
-        Select select = new Select(datasourceTypeSelect);
-
-        select.selectByVisibleText(RDBConfigList.get(0).get("DatasourceType").toString());
+//        Select select = new Select(datasourceTypeSelect);
+//
+//        select.selectByVisibleText(RDBConfigList.get(0).get("DatasourceType").toString());
 
         rdbDatasourceNameInput.sendKeys(RDBConfigList.get(0).get("DatasourceName").toString());
         hostInput.sendKeys(RDBConfigList.get(0).get("Host").toString());

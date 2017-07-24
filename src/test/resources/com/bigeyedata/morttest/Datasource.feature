@@ -7,6 +7,7 @@ Feature: Create DataSource
 
   Scenario: Create a new RDB dataSource
     Given I access to "DataSource" module
+    And I expand the DataSource directory
     And I select DataSource directory "测试数据源目录"
     And I want to create a RDB datasource with configuration as following
       | DatasourceType  | Host        | Port     | User      | Password  | Database         | DatasourceName  |

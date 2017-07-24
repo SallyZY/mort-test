@@ -25,7 +25,7 @@ public class CommonFunctions {
 
         String elementText;
         for(WebElement element:directoryList) {
-            elementText = element.findElement(By.cssSelector("a.directory-name > div > span")).getText();
+            elementText = element.findElement(By.cssSelector("span")).getText();
 
             if (elementText.equals(directoryName)) {
                 element.click();   //error handle: directory is not existed
