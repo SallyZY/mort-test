@@ -111,5 +111,9 @@ public class CommonFunctions {
         WebDriverManager.getDriver().navigate().refresh();
     }
 
+    public static void waitAShortTime() throws InterruptedException {
+        Thread.sleep(Hooks.getThreadSleepTime());
+    }
+
 
 }
