@@ -8,6 +8,7 @@ Feature: set the style of all kinds of general chart
 
   Scenario: Set the style of Column chart
     Given I access to "Report" module
+    And I expand the DataSource directory
     And I select Report as following
       | DirectoryName   |ResourceFileName|
       | 测试报表目录      |回归测试报表     |
@@ -34,6 +35,7 @@ Feature: set the style of all kinds of general chart
 
   Scenario: Set the style of Pie chart
     Given I access to "Report" module
+    And I expand the DataSource directory
     And I select Report as following
       | DirectoryName   |ResourceFileName|
       | 测试报表目录      |回归测试报表     |
@@ -43,7 +45,7 @@ Feature: set the style of all kinds of general chart
     And I open style setting panel
     And I set the title of chart as following
       | TitleText     | TitleAlign  | TitleSize   |
-      | 柱状图         | left        | 20          |
+      | 饼图         | left        | 20          |
     And I set the legend of chart as following
       | Location    | FontSize  |
       | 左部居中     | 14        |
@@ -51,11 +53,12 @@ Feature: set the style of all kinds of general chart
       | Location  | FontSize  | Unit  | PostFix   | NumberOfDecimal | IsThousandSeparatorDisplay |
       | 上        | 16         | 自动  |           | 2               | true                       |
     When I save the report
-    And I return to report preview page
+#    And I return to report preview page
 
 
   Scenario: Set the style of mixLineBar chart
     Given I access to "Report" module
+    And I expand the DataSource directory
     And I select Report as following
       | DirectoryName   |ResourceFileName|
       | 测试报表目录      |回归测试报表     |
@@ -80,11 +83,12 @@ Feature: set the style of all kinds of general chart
       | Location  | FontSize  | Unit  | PostFix   | NumberOfDecimal | IsThousandSeparatorDisplay |
       | 内部居中   | 16        | 万     | RMB       | 2               | true                       |
     When I save the report
-    And I return to report preview page
+#    And I return to report preview page
 
 
   Scenario: Set the style of Line chart
     Given I access to "Report" module
+    And I expand the DataSource directory
     And I select Report as following
       | DirectoryName   |ResourceFileName|
       | 测试报表目录      |回归测试报表     |
@@ -109,11 +113,12 @@ Feature: set the style of all kinds of general chart
       | Location  | FontSize  | Unit  | PostFix   | NumberOfDecimal | IsThousandSeparatorDisplay |
       | 上        | 16        | 万     | 元        | 2               | fasle                       |
     When I save the report
-    And I return to report preview page
+#    And I return to report preview page
 
 
   Scenario: Set the style of Doughnut chart
     Given I access to "Report" module
+    And I expand the DataSource directory
     And I select Report as following
       | DirectoryName   |ResourceFileName|
       | 测试报表目录      |回归测试报表     |
@@ -131,11 +136,12 @@ Feature: set the style of all kinds of general chart
       | Location  | FontSize  | Unit  | PostFix   | NumberOfDecimal | IsThousandSeparatorDisplay |
       | 上        | 16        | 自动   | years old | 自动             | fasle                       |
     When I save the report
-    And I return to report preview page
+ #   And I return to report preview page
 
 
   Scenario: Set the style of AreaStack chart
     Given I access to "Report" module
+    And I expand the DataSource directory
     And I select Report as following
       | DirectoryName   |ResourceFileName|
       | 测试报表目录      |回归测试报表     |
@@ -157,11 +163,12 @@ Feature: set the style of all kinds of general chart
       | Location  | FontSize  | Unit  | PostFix   | NumberOfDecimal | IsThousandSeparatorDisplay |
       | 内部居中   | 16        | 自动   |           | 自动             | true                      |
     When I save the report
-    And I return to report preview page
+#    And I return to report preview page
 
 
   Scenario: Set the style of Funnel chart
     Given I access to "Report" module
+    And I expand the DataSource directory
     And I select Report as following
       | DirectoryName   |ResourceFileName|
       | 测试报表目录      |回归测试报表     |
@@ -179,17 +186,18 @@ Feature: set the style of all kinds of general chart
       | Location  | FontSize  | Unit  | PostFix   | NumberOfDecimal | IsThousandSeparatorDisplay |
       | 上        | 16        | 万     |           | 3             | fasle                       |
     When I save the report
-    And I return to report preview page
+#    And I return to report preview page
 
 
-  Scenario: Set the style of KPI chart
-    Given I access to "Report" module
-    And I select Report as following
-      | DirectoryName   |ResourceFileName|
-      | 测试报表目录      |回归测试报表     |
-    And I open report edit page
-    And I go to the report page "第8页"
-    And I select the KPI chart
-    And I open style setting panel
+#  Scenario: Set the style of KPI chart
+#    Given I access to "Report" module
+#    And I expand the DataSource directory
+#    And I select Report as following
+#      | DirectoryName   |ResourceFileName|
+#      | 测试报表目录      |回归测试报表     |
+#    And I open report edit page
+#    And I go to the report page "第8页"
+#    And I select the KPI chart
+#    And I open style setting panel
 
 

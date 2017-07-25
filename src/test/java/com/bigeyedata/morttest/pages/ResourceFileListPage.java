@@ -47,11 +47,11 @@ public class ResourceFileListPage extends Page {
     public void clickResourceByName(String resourceName) throws InterruptedException {
 
         waitForElementVisible(resourceFileListContainerDiv);
-        List<WebElement> resourceList = resourceFileListContainerDiv.findElements(By.cssSelector("div.ResourceListItem"));
+        List<WebElement> resourceList = resourceFileListContainerDiv.findElements(By.cssSelector("li > div > span.resource-item"));
 
         String elementText;
         for (WebElement element: resourceList){
-            elementText=element.findElement(By.cssSelector("div.head > span")).getText();
+            elementText=element.findElement(By.cssSelector("span > span")).getText();
 
             if(elementText.equals(resourceName)){
                 element.click();    //error handle: directory is not existed

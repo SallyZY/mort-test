@@ -48,7 +48,7 @@ public class ChartSettingPage extends Page {
     @FindBy(id = "presentationDimensionAxis")
     WebElement dimensionSettingItem;
 
-    @FindBy(css = "div#presentationDimensionAxis > div:nth-child(2) > div:nth-child(5) > span:nth-child(2) > span > i")
+    @FindBy(css = "div#presentationDimensionAxis > div:nth-child(2) > div:nth-child(6) > span:nth-child(2) > span > i")
     WebElement dimensionTitleSwitch;
 
 

@@ -13,7 +13,7 @@ import org.openqa.selenium.WebElement;
  */
 public class Hooks {
 
-    private static final String MortWeb_URL = "http://127.0.0.1:3000";
+    private static final String MortWeb_URL = "http://127.0.0.1";
     private static final int Wait_TimeOutInSeconds = 15;
     private static final int Thread_Sleep = 2000;
 
@@ -26,9 +26,9 @@ public class Hooks {
     @After
     public static void afterScenario() {
 
-//        WebDriverManager.getDriver().manage().deleteAllCookies();
-//        WebDriverManager.getDriver().quit();
-//        WebDriverManager.deleteWebDriver();
+        WebDriverManager.getDriver().manage().deleteAllCookies();
+        WebDriverManager.getDriver().quit();
+        WebDriverManager.deleteWebDriver();
     }
 
     public static String getMortWebUrl() {

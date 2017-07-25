@@ -27,7 +27,7 @@ public class ReportWorkSpacePage extends Page {
     @FindBy(id = "backToPreviewReport")
     WebElement backToPreviewReportButton;
 
-    @FindBy(css = "div.pages")
+    @FindBy(css = "div.ReportCanvasPages")
     WebElement pageDiv;
 
     @FindBy(className = "ant-dropdown")
@@ -80,7 +80,7 @@ public class ReportWorkSpacePage extends Page {
 
     public void gotoReportPageByName(String name) throws InterruptedException {
 
-        pageDiv.findElement(By.xpath("//input[@value='" + name + "']")).click();
+        pageDiv.findElement(By.xpath("//span[text()='" + name + "']")).click();
         waitForElementVisibleAndLocated(By.className("Chart"));
     }
 
