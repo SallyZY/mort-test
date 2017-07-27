@@ -47,14 +47,15 @@ public class DatasetDetailsPage extends Page {
     @FindBy(css = "ul#dataSetAllMenu > li:nth-child(3)")
     WebElement appendDataMenuItem;
 
-    @FindBy(id = "checkSqlButton")
+    @FindBy(css = "ul#dataSetAllMenu > li:nth-child(2)")
     WebElement checkSqlMenuItem;
 
-    @FindBy(css = "div.ant-modal-content > div.ant-modal-body > div > p")
-    WebElement sqlOfRDBDataSet;
+    @FindBy(xpath = "//div[@class='ant-modal-content']//p")
+    WebElement viewSQLDiv;
 
-    public void clickMenuItem(String item){
+    public void clickOtherOptionsMenuItem(String item) throws InterruptedException {
 
+        waitForElementVisible(otherOperationMenu);
         otherOperationMenu.click();
 
         switch (item){
@@ -67,6 +68,7 @@ public class DatasetDetailsPage extends Page {
             case "AppendFields":
                 appendFieldsMenuItem.click();
             case "ViewSql":
+                waitForElementVisible(checkSqlMenuItem);
                 checkSqlMenuItem.click();
 
 
@@ -131,8 +133,9 @@ public class DatasetDetailsPage extends Page {
         return typeEqualToSettingCount == comparedFieldTypeList.size() ? true : false;
     }
 
-    public String getSqlofRDBDataSet(){
+    public String getSqlofRDBDataSet() throws InterruptedException {
 
-        return sqlOfRDBDataSet.getText();
+        waitForElementVisible(viewSQLDiv);
+        return viewSQLDiv.getText();
     }
 }

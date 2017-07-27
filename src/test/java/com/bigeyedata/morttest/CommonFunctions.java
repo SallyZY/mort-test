@@ -17,23 +17,15 @@ import java.text.SimpleDateFormat;
  */
 public class CommonFunctions {
 
-    public static void clickDirectoryByName(WebElement directoryContainer, String directoryName) throws InterruptedException {
+    public static void clickDirectoryByName(String directoryName) throws InterruptedException {
 
-        waitForElementVisible(directoryContainer);
-
-        List<WebElement> directoryList = directoryContainer.findElements(By.cssSelector("li > span"));
-
-        String elementText;
-        for(WebElement element:directoryList) {
-            elementText = element.findElement(By.cssSelector("span")).getText();
-
-            if (elementText.equals(directoryName)) {
-                element.click();   //error handle: directory is not existed
-                break;
-            }
-        }
+        WebDriverManager.getDriver().findElement(By.xpath("//ul[@id='directoriesMenu']/li/span/span[text()='"+directoryName+"']")).click();
     }
 
+    public static void clickSavedDirectoryByName(String directoryName) throws InterruptedException {
+
+        WebDriverManager.getDriver().findElement(By.xpath("//ul[@class='ant-select-tree']/li/span[2]/span[text()='" + directoryName + "']")).click();
+    }
 
     public static void waitForElementVisible(WebElement element) throws InterruptedException {
 

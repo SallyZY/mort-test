@@ -18,10 +18,10 @@ public class DirectoryPage extends Page {
     @FindBy(css = "div.add-directory-window.show")
     WebElement directoryDialog;
 
-    @FindBy(css = "div.choose-directory > input")
-    WebElement dataSetDirectoryInput;
+    @FindBy(css = "div.directory-selector")
+    WebElement dataSetDirectoryDiv;
 
-    @FindBy(id = "chooseDirectoryDirectoriesContainer")
+    @FindBy(xpath = "//ul[@class='ant-select-tree']")
     WebElement directoryContainerUl;
 
     @FindBy(id="directoryContainerFolderIcon")
@@ -35,13 +35,16 @@ public class DirectoryPage extends Page {
 
     public void clickDirectoryByName(String directoryName) throws InterruptedException {
 
-        CommonFunctions.clickDirectoryByName(mainDirectoryContainerUl,directoryName);
+        CommonFunctions.waitForElementVisible(mainDirectoryContainerUl);
+        CommonFunctions.clickDirectoryByName(directoryName);
     }
 
     public void selectSavedDirectoryByName(String directoryName) throws InterruptedException {
 
-        dataSetDirectoryInput.click();
-        CommonFunctions.clickDirectoryByName(directoryContainerUl,directoryName);
+        CommonFunctions.waitForElementVisible(dataSetDirectoryDiv);
+        dataSetDirectoryDiv.click();
+        CommonFunctions.waitForElementVisible(directoryContainerUl);
+        CommonFunctions.clickSavedDirectoryByName(directoryName);
     }
 
 }

@@ -21,10 +21,10 @@ public class RDBPreviewPage extends Page {
 //    @FindBy(xpath = "//*[@id=\"addDataSetAlive\"]/div/label[2]/span[1]/input")
     WebElement directConnectionRadio;
 
-    @FindBy(css = "div.clearfix > div:nth-child(1) > textarea")
+    @FindBy(id = "add-data-set-rdb-sql-textarea")
     WebElement sqlTextarea;
 
-    @FindBy(css = "div.clearfix > div:nth-child(1) > button")
+    @FindBy(id = "addDataSetRdbSqlBoxButton")
     WebElement sqlPreviewButton;
 
     @FindBy(css = "#addDataSetPolicyImportType > div > label:nth-child(1) > span.ant-radio > input")
@@ -64,7 +64,7 @@ public class RDBPreviewPage extends Page {
     @FindBy(css = "#addDataSetPreview > div > div > div > div > div > div > div > table")
     WebElement FieldViewTable;
 
-    public void selectedImportMode(String importMode){
+    public void setDataSetConnectionMode(String importMode){
 
         switch (importMode){
             case "导入":
@@ -77,7 +77,7 @@ public class RDBPreviewPage extends Page {
 
     }
 
-    public void setSQLTextarea(String sql){
+    public void inputPreviewSQL(String sql){
 
         sqlTextarea.clear();
         sqlTextarea.sendKeys(sql);
@@ -89,8 +89,8 @@ public class RDBPreviewPage extends Page {
         CommonFunctions.waitForElementVisibleAndLocated(By.cssSelector("#addDataSetPreview > div > div > div > div > div > div > div > table"));
     }
 
-    public void selectImportTime(String importTime){
-        switch (importTime){
+    public void setDataSetImportMode(String importMode){
+        switch (importMode){
             case"立即导入":
                 immediatelyImportRadio.click();
                 break;
@@ -117,24 +117,21 @@ public class RDBPreviewPage extends Page {
 
 
 
-    public boolean assertTypeTagNameOfDirectConnection()throws InterruptedException{
+    public boolean isFieldTypeOfDataSetEditable()throws InterruptedException {
 
         CommonFunctions.waitForElementVisibleAndLocated(By.cssSelector("table"));
+        List<WebElement> fieldTypeList = FieldAttributeTable.findElements(By.xpath("//div[@class='DataSetFieldsEditorField']//select"));
 
-        List<WebElement> fieldTypeList = FieldAttributeTable.findElements(By.cssSelector("div.DataSetFieldsEditorField > div > div > span"));
-        String typeTagName;
-        boolean flg;
-
-        if (fieldTypeList.size() > 0) {
-            flg = true;
-        }else {
-            flg = false;
-        }
-
-        return flg;
+        return fieldTypeList.size() > 0 ? true : false;
     }
 
+    public boolean isFieldTypeSelectDisplayed()throws InterruptedException {
 
+        CommonFunctions.waitForElementVisibleAndLocated(By.cssSelector("table"));
+        List<WebElement> fieldTypeList = FieldAttributeTable.findElements(By.xpath("//div[@class='DataSetFieldsEditorField']/div/div/span"));
+
+        return fieldTypeList.size() > 0 ? true : false;
+    }
 
     public boolean assertRecordNumber(){
         boolean flg = recordNumberText.getText().contains("条记录");

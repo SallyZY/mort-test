@@ -6,7 +6,6 @@ import com.bigeyedata.morttest.pages.DirectoryPage;
 import com.bigeyedata.morttest.pages.ResourceFileListPage;
 import com.bigeyedata.morttest.pages.dataset_pages.*;
 import com.bigeyedata.morttest.pages.datasource_pages.DatasourceDetailPage;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -35,6 +34,7 @@ public class DatasetStepdefs {
 
     List<Map<String, String>> savedFieldAliasList;
     List<Map<String, String>> savedFieldTypeList;
+    String rdbDataSetPreviewSQL ="";
 
     @Given("^I click create new DataSet button on DataSource page$")
     public void iClickCreateNewDatasetButtonOnDatasourcePage() throws Throwable {
@@ -57,7 +57,6 @@ public class DatasetStepdefs {
     public void iModifyTheTypeOfFieldsForDatasetAsFollowing(List<Map<String, String>> fieldTypeList) throws Throwable {
 
         fieldEditPage.setFieldsType(fieldTypeList);
-        fieldEditPage.gotoNextPage();
         savedFieldTypeList =fieldTypeList;
     }
 
@@ -86,8 +85,8 @@ public class DatasetStepdefs {
         directoryPage.selectSavedDirectoryByName(directoryName);
     }
 
-    @When("^I create the DataSet$")
-    public void iCreateTheDataset() throws Throwable {
+    @When("^I save the new DataSet$")
+    public void iSaveTheNewDataset() throws Throwable {
 
         importPreviewPage.createDataset();
     }
@@ -131,7 +130,7 @@ public class DatasetStepdefs {
     @When("^I click \"([^\"]*)\" item from other operation dropdown menu$")
     public void iClickItemFromOtherOperationDropdownMenu(String itemName) throws Throwable {
 
-        datasetDetailsPage.clickMenuItem(itemName);
+        datasetDetailsPage.clickOtherOptionsMenuItem(itemName);
     }
 
     @And("^I should see the related DataSet as following$")
@@ -141,7 +140,7 @@ public class DatasetStepdefs {
     }
 
 
-    @And("^I click preview button to preview table$")
+    @And("^I preview the query result of SQL$")
     public void iClickPreviewButtonToPreviewTable() throws Throwable {
 
         rdbPreviewPage.clickPreviewButton();
@@ -149,25 +148,25 @@ public class DatasetStepdefs {
     }
 
 
-    @And("^I select \"([^\"]*)\" mode$")
-    public void iSelectMimportMode(String importMode) throws Throwable {
+    @And("^I set the DataSet connection mode is \"([^\"]*)\"$")
+    public void iSetDataSetImportMode(String importMode) throws Throwable {
 
-        rdbPreviewPage.selectedImportMode(importMode);
-
-    }
-
-    @And("^I input a right SQL is \"([^\"]*)\"$")
-    public void iInputARightSQLIs(String sql) throws Throwable {
-
-        rdbPreviewPage.setSQLTextarea(sql);
+        rdbPreviewPage.setDataSetConnectionMode(importMode);
 
     }
 
+    @And("^I input SQL is \"([^\"]*)\"$")
+    public void iInputSQLIs(String sql) throws Throwable {
+
+        rdbPreviewPage.inputPreviewSQL(sql);
+        rdbDataSetPreviewSQL = sql;
+    }
 
 
-    @And("^I select \"([^\"]*)\"$")
-    public void iSelectimportTime(String importTime) throws Throwable {
-        rdbPreviewPage.selectImportTime(importTime);
+
+    @And("^I set the DataSet import mode is \"([^\"]*)\"$")
+    public void iSetTheDataSetImportMode(String importMode) throws Throwable {
+        rdbPreviewPage.setDataSetImportMode(importMode);
     }
 
     @And("^I set import date and time$")
@@ -182,12 +181,17 @@ public class DatasetStepdefs {
         Thread.sleep(60*1000);
     }
 
-    @And("^I can't modify the type of fields for DataSet$")
-    public void iCanTModifyTheTypeOfFieldsForDataSet() throws Throwable {
-        assert rdbPreviewPage.assertTypeTagNameOfDirectConnection();
+    @And("^I can modify the field type of DataSet$")
+    public void iCanModifyTheFieldTypeOfDataSet() throws Throwable {
+        assertThat(rdbPreviewPage.isFieldTypeOfDataSetEditable(),is(true));
     }
 
-    @And("^I shouldn't see number of records after the dataset name$")
+    @And("^I can NOT modify the field type of DataSet$")
+    public void iCanNOTModifyTheFieldTypeOfDataSet() throws Throwable {
+        assertThat(rdbPreviewPage.isFieldTypeSelectDisplayed(),is(true));
+    }
+
+    @And("^I should NOT see the amount of DataSet records$")
     public void iShouldnTSeeNumberOfRecordsAfterTheDatasetName() throws Throwable {
         assert rdbPreviewPage.assertRecordNumber();
     }
@@ -220,13 +224,13 @@ public class DatasetStepdefs {
         assertThat(rdbPreviewPage.isDisabledSaveDirectory(),is(false ));
     }
 
-    @And("^I click goToNextPage button of fieldEditPage$")
+    @And("^I go to DataSet import preview page$")
     public void iClickGoToNextPageButtonOfFieldEditPage() throws Throwable {
         fieldEditPage.gotoNextPage();
     }
 
     @Then("^I should see the sql of RDBDataSet$")
     public void iShouldSeeTheSqlOfRDBDataSet() throws Throwable {
-        assertThat(datasetDetailsPage.getSqlofRDBDataSet(),is("select * from user"));
+        assertThat(datasetDetailsPage.getSqlofRDBDataSet(),is(rdbDataSetPreviewSQL));
     }
 }

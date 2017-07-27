@@ -1,6 +1,7 @@
 package com.bigeyedata.morttest.pages;
 
 import com.bigeyedata.morttest.CommonFunctions;
+import com.bigeyedata.morttest.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -47,16 +48,7 @@ public class ResourceFileListPage extends Page {
     public void clickResourceByName(String resourceName) throws InterruptedException {
 
         waitForElementVisible(resourceFileListContainerDiv);
-        List<WebElement> resourceList = resourceFileListContainerDiv.findElements(By.cssSelector("li > div > span.resource-item"));
-
-        String elementText;
-        for (WebElement element: resourceList){
-            elementText=element.findElement(By.cssSelector("span > span")).getText();
-
-            if(elementText.equals(resourceName)){
-                element.click();    //error handle: directory is not existed
-                break;}
-        }
+        WebDriverManager.getDriver().findElement(By.xpath("//ul[@id='resourceListMenuContainerMenu']/li//span[@class='item-left']/span[text()='" + resourceName + "']")).click();
     }
 
     public void clickOptionMenuOfResourceFile(String resourceName) throws InterruptedException {

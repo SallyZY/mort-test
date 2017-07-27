@@ -8,6 +8,7 @@ Feature: Create,view DataSet
 
   Scenario: Create a new file DataSet from a specified DataSource
     Given I access to "DataSource" module
+    And I expand the DataSource directory
     And I select DataSource as following
       |  DirectoryName  |  ResourceFileName     |
       |  测试数据源目录   |  测试CSV数据源         |
@@ -28,6 +29,7 @@ Feature: Create,view DataSet
       | 流失股基净佣金  | 数值       |
       | 空数值字段     | 数值       |
       | 流失股基交易量   |数值       |
+    And I go to DataSet import preview page
     And I click date fields preview table
     And I set the date format for date filed as following
       |FieldName      |DateFormat         |
@@ -35,61 +37,61 @@ Feature: Create,view DataSet
       |空日期字段      |yyyyMMdd           |
     And I give the name of DataSet is "测试CSV数据集"
     And I select the saved directory of DataSet is "测试数据集目录"
-    When I create the DataSet
+    When I save the new DataSet
     Then I should see the DataSet "测试CSV数据集" displayed in directory
     And I should see the number of DataSet fields is "16"
     And I should see the ailas of DataSet fields displayed correctly
     And I should see the type of DataSet fields displayed correctly
     And I should see the initial import record is displayed
 
+    When  I click "ViewDataSource" item from other operation dropdown menu
+    Then  I should locate to the DataSource "测试CSV数据源"
+    And   I should see the related DataSet as following
+      |  DatasetName    |
+      |  测试CSV数据集   |
 
-    Scenario: Locate and view DataSource from DataSet
-      Given I access to "DataSet" module
-      And I select DataSet as following
-        |  DirectoryName  |  ResourceFileName     |
-        |  测试数据集目录   |  测试CSV数据集         |
-      When  I click "ViewDataSource" item from other operation dropdown menu
-      Then  I should locate to the DataSource "测试CSV数据源"
-      And   I should see the related DataSet as following
-        |  DatasetName    |
-        |  测试CSV数据集   |
 
-  Scenario: view SQL from DataSet
+  Scenario: Create RDB DataSet from a specified DataSource by import connection mode
     Given I access to "DataSource" module
+    And I expand the DataSource directory
     And I select DataSource as following
       |  DirectoryName  |  ResourceFileName     |
       |  测试数据源目录   |  测试MySQL数据源        |
     And I click create new DataSet button on DataSource page
-    And I give the name of DataSet is "测试MySQL数据集-查看sql"
+    And I give the name of DataSet is "测试MySQL数据集_导入"
     And I select the saved directory of DataSet is "测试数据集目录"
-    And I select "导入" mode
-    And I input a right SQL is "select * from user"
-    And I click preview button to preview table
-    And I click goToNextPage button of fieldEditPage
-    And I select "立即导入"
-    And I create the DataSet
+    And I set the DataSet connection mode is "导入"
+    And I input SQL is "select * from tab_production"
+    When I preview the query result of SQL
+    Then I can modify the field type of DataSet
+    And I go to DataSet import preview page
+    And I set the DataSet import mode is "立即导入"
+    When I save the new DataSet
+    Then I should see the DataSet "测试MySQL数据集_导入" displayed in directory
+
     When  I click "ViewSql" item from other operation dropdown menu
     Then  I should see the sql of RDBDataSet
 
 
-
-  Scenario: Create a new RDB DataSet from a specified DataSource with imported by default mode
+  Scenario: Create a new RDB DataSet from a specified DataSource by direct connection mode
     Given I access to "DataSource" module
+    And I expand the DataSource directory
     And I select DataSource as following
       |  DirectoryName  |  ResourceFileName     |
       |  测试数据源目录   |  测试MySQL数据源        |
     And I click create new DataSet button on DataSource page
-    And I give the name of DataSet is "测试MySQL数据集-立即导入"
+    And I give the name of DataSet is "测试MySQL数据集_直连"
     And I select the saved directory of DataSet is "测试数据集目录"
-    And I select "导入" mode
-    And I input a right SQL is "select * from user"
-    And I click preview button to preview table
-    And I click goToNextPage button of fieldEditPage
-    And I select "立即导入"
-    When I create the DataSet
-    Then I should see the DataSet "测试MySQL数据集" displayed in directory
-    And I should see the number of DataSet fields is "45"
-    And I should see the initial import record is displayed
+    And I set the DataSet connection mode is "直连"
+    And I input SQL is "select * from bank_records"
+    When I preview the query result of SQL
+    Then I can NOT modify the field type of DataSet
+    And I go to DataSet import preview page
+    When I save the new DataSet
+    Then I should see the DataSet "测试MySQL数据集_直连" displayed in directory
+    And  I should NOT see the amount of DataSet records
+    And I should see the number of DataSet fields is "7"
+
 
   Scenario: Create a new RDB DataSet from a specified DataSource imported by customize mode
     Given I access to "DataSource" module
@@ -111,23 +113,7 @@ Feature: Create,view DataSet
     And I should wait 1 minute
     And I should see the initial import record is displayed
 
-  Scenario: Create a new RDB DataSet from a specified DataSource by direct connection
-    Given I access to "DataSource" module
-    And I select DataSource as following
-      |  DirectoryName  |  ResourceFileName     |
-      |  测试数据源目录   |  测试MySQL数据源        |
-    And I click create new DataSet button on DataSource page
-    And I give the name of DataSet is "测试MySQL数据集-直连"
-    And I select the saved directory of DataSet is "测试数据集目录"
-    And I select "直连" mode
-    And I input a right SQL is "select * from user"
-    And I click preview button to preview table
-    And I click goToNextPage button of fieldEditPage
-    And I can't modify the type of fields for DataSet
-    When I create the DataSet
-    Then I should see the DataSet "测试MySQL数据集" displayed in directory
-    And  I shouldn't see number of records after the dataset name
-    And I should see the number of DataSet fields is "45"
+
 
 
   Scenario: Create a new RDB DataSet from a specified DataSource and Add field

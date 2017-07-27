@@ -39,7 +39,7 @@ public class ReportWorkSpacePage extends Page {
     @FindBy(name = "actionBar")
     List<WebElement> actionBarList;
 
-    @FindBy(xpath = "//canvas")
+    @FindBy(xpath = "//div[@class='Chart']")
     List<WebElement> chartCanvasList;
 
     @FindBy(css = "div.ReportCanvasPages > div:nth-child(2) > div:nth-child(2)")
