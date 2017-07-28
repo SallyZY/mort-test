@@ -2,9 +2,11 @@ package com.bigeyedata.morttest;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.touch.TouchActions;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -105,6 +107,30 @@ public class CommonFunctions {
 
     public static void waitAShortTime() throws InterruptedException {
         Thread.sleep(Hooks.getThreadSleepTime());
+    }
+
+    public static void waitALongTime() throws InterruptedException {
+        Thread.sleep(Hooks.getThreadSleepLongTime());
+    }
+
+
+    public static void logout() throws InterruptedException {
+
+        WebDriver driver =WebDriverManager.getDriver();
+        WebElement userIcon = driver.findElement(By.cssSelector("#app > div > div.DefaultLayout > div.header > ul.rightBar.pull-right > li.user > a > i"));
+        WebElement logoutLink = driver.findElement(By.linkText("退出"));
+
+        Actions actions = new Actions(driver);
+        CommonFunctions.waitForElementVisible(userIcon);
+        actions.moveToElement(userIcon).clickAndHold().perform();
+//        focusElement(logoutLink);
+        CommonFunctions.waitForElementVisible(logoutLink);
+        actions.moveToElement(logoutLink);
+        logoutLink.click();
+
+
+
+
     }
 
 

@@ -45,7 +45,8 @@ public class UserConfigPage extends Page{
     @FindBy(id = "passwordModifyModalOkButton")
     WebElement passwordModifyConfirmButton;
 
-    @FindBy(css = "div.ant-modal-footer > button.ant-btn.ant-btn-primary.ant-btn-lg > span")
+//    @FindBy(css = "div.ant-modal-footer > button.ant-btn.ant-btn-primary.ant-btn-lg > span")
+    @FindBy(css = "div.ant-modal-content > div.ant-modal-footer > button.ant-btn.ant-btn-primary.ant-btn-lg > span")
     WebElement editconfirmButton;
 
     @FindBy(css = "table > tbody > tr:nth-child(1) > td:nth-child(2) > span")
@@ -72,11 +73,35 @@ public class UserConfigPage extends Page{
     @FindBy(xpath = "//div/label[@title=\"角色\"]")
     WebElement roleNameLab;
 
+    @FindBy(xpath = "//div/label[@title=\"联系方式\"]")
+    WebElement phoneLab;
+
     @FindBy(id = "passwordModifyModalNewPasswordInput")
     WebElement passwordModifyModalNewPasswordInput;
 
     @FindBy(id = "passwordModifyModalConfirmNewPasswordInput")
     WebElement passwordModifyModalConfirmNewPasswordInput;
+
+    @FindBy(css = "div.ant-select-selection__placeholder")
+    WebElement userSelectorDiv;
+
+    @FindBy(xpath = "//div/ul/li[@title=\"admin support@bigeyedata.com\"]")
+    WebElement adminUser;
+
+    @FindBy(css = "div.add-user-toolbar > button > span")
+    WebElement addUserButton;
+
+    @FindBy(css = "div.clearBoth > div > div > div > div > div > div > table > tbody")
+    WebElement userOfGroupTab;
+
+    @FindBy(css = "div.ant-table-placeholder")
+    WebElement tablePlaceholderDiv;
+
+    @FindBy(css = "div.ant-modal-content > div.ant-modal-footer > button > span")
+    WebElement closeViewUserGroupButton;
+
+    @FindBy(css = "div.ant-message > span > div.ant-message-notice > div.ant-message-notice-content > div.ant-message-custom-content.ant-message-error > span")
+    WebElement messageNotice;
 
     public void setUsersBasicInformation(String userName,String email,String phone) throws InterruptedException {
         userNameInput.sendKeys(userName);
@@ -99,7 +124,8 @@ public class UserConfigPage extends Page{
 
     }
 
-    public void clickConfirmButton(){
+    public void clickConfirmButton() throws InterruptedException {
+        CommonFunctions.waitForElementVisible(confirmButton);
         confirmButton.click();
     }
 
@@ -140,7 +166,8 @@ public class UserConfigPage extends Page{
         roleSelector.click();
         CommonFunctions.waitAShortTime();
         admin.click();
-        roleNameLab.click();
+        CommonFunctions.waitAShortTime();
+        phoneLab.click();
         CommonFunctions.waitAShortTime();
     }
 
@@ -148,7 +175,7 @@ public class UserConfigPage extends Page{
         groupSelector.click();
         CommonFunctions.waitAShortTime();
         group.click();
-        roleNameLab.click();
+        phoneLab.click();
         CommonFunctions.waitAShortTime();
     }
 
@@ -163,6 +190,57 @@ public class UserConfigPage extends Page{
     public void saveNewPassword(){
         passwordModifyConfirmButton.click();
     }
+
+    public void addUserToGroup() throws InterruptedException {
+        CommonFunctions.waitForElementVisible(userSelectorDiv);
+        userSelectorDiv.click();
+        CommonFunctions.waitForElementVisible(adminUser);
+        adminUser.click();
+        addUserButton.click();
+
+    }
+
+    public String getUserOfGroup() throws InterruptedException {
+        CommonFunctions.waitForElementVisible(userOfGroupTab);
+        return userOfGroupTab.getText();
+    }
+
+    public void deleteUserFromGroup() throws InterruptedException {
+        waitForElementVisible(userOfGroupTab);
+        List<WebElement> rows = userOfGroupTab.findElements(By.tagName("tr"));
+        for (int i=0;i<rows.size();i++){
+            System.out.println(i);
+            String text = rows.get(i).getText();
+            System.out.println(text);
+            if (text.contains("support@bigeyedata.com")) {
+                int n = i + 1;
+                userOfGroupTab.findElement(By.cssSelector( "tr:nth-child("+n+") > td:nth-child(3) > a")).click();
+                break;
+            }else {
+                System.out.println("false");
+            }
+
+        }
+    }
+
+    public String getPlaceholderMessage(){
+        return tablePlaceholderDiv.getText();
+    }
+
+    public void closeViewUserGroupModalContent(){
+        closeViewUserGroupButton.click();
+    }
+
+    public String getMessageNotice(){
+        String message = messageNotice.getText();
+       return message;
+    }
+
+
+
+
+
+
 
 
 }

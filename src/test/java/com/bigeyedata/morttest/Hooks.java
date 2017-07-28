@@ -15,7 +15,8 @@ public class Hooks {
 
     private static final String MortWeb_URL = "http://127.0.0.1:3000";
     private static final int Wait_TimeOutInSeconds = 15;
-    private static final int Thread_Sleep = 2000;
+    private static final int Thread_Sleep_Short = 2000;
+    private static final int Thread_Sleep_Long =10000;
 
     @Before
     public static void beforeScenario() {
@@ -40,8 +41,13 @@ public class Hooks {
     }
 
     public static int getThreadSleepTime(){
-        return Thread_Sleep;
+        return Thread_Sleep_Short;
     }
+
+    public static int getThreadSleepLongTime(){
+        return Thread_Sleep_Long;
+    }
+
 
 
 }

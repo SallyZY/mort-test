@@ -49,13 +49,13 @@ public class UserManagementStepdefs {
         userConfigPage.setUsersBasicInformation(userName,email,phone);
     }
 
-    @And("^I set role is \"管理员\"$")
-    public void iSetRoleToUser() throws Throwable {
+    @And("^I set role is 管理员$")
+    public void iSetRoleIs() throws Throwable {
         userConfigPage.setRole();
     }
 
-    @And("^I set group is \"([^\"]*)\"$")
-    public void iSetGroupIs(String arg0) throws Throwable {
+    @And("^I set group is group$")
+    public void iSetGroupIs() throws Throwable {
         userConfigPage.setGroup();
     }
 
@@ -81,8 +81,9 @@ public class UserManagementStepdefs {
     }
 
     @Then("^I should use the new password successful login  as following$")
-    public void iShouldUseTheNewPasswordSuccessfulLoginAsFollowing() throws Throwable {
-        userDetailPage.logoutAndLogin();
+    public void iShouldUseTheNewPasswordSuccessfulLoginAsFollowing(List<Map<String, String>> userLoginInfoList) throws Throwable {
+        userDetailPage.logout();
+        userDetailPage.login(userLoginInfoList);
     }
 
     @And("^I click create new group button on group page$")
@@ -205,9 +206,59 @@ public class UserManagementStepdefs {
 
     @Then("^I should see the prompt is \"([^\"]*)\"$")
     public void iShouldSeeThePromptIs(String prompt) throws Throwable {
-
+        assertTrue(userConfigPage.getMessageNotice().equals(prompt));
     }
 
 
+    @And("^I access to add user page of group name is \"([^\"]*)\"$")
+    public void iAccessToAddUserPageOfGroupNameIs(String groupName) throws Throwable {
+       userDetailPage.goToViewUserGroupPage(groupName);
+    }
 
+    @When("^I add user to group$")
+    public void iAddUserToGroup() throws Throwable {
+        userConfigPage.addUserToGroup();
+    }
+
+    @Then("^I should see the user displayed correctly$")
+    public void iShouldSeeTheUserDisplayedCorrectly() throws Throwable {
+        assertTrue(userConfigPage.getUserOfGroup().contains("support@bigeyedata.com"));
+        userConfigPage.closeViewUserGroupModalContent();
+    }
+
+    @When("^I Delete user from group$")
+    public void iDeleteUserFromGroup() throws Throwable {
+        userConfigPage.deleteUserFromGroup();
+    }
+
+    @Then("^I should see no data in the list$")
+    public void iShouldSeeNoDataInTheList() throws Throwable {
+        assertTrue(userConfigPage.getPlaceholderMessage().contains("暂无数据"));
+        userConfigPage.closeViewUserGroupModalContent();
+    }
+
+    @And("^I input user name is \"([^\"]*)\" to searchInput$")
+    public void iInputUserNameIsToSearchInput(String userName) throws Throwable {
+       userDetailPage.searchByUserOrEmail(userName);
+    }
+
+    @When("^I click search button$")
+    public void iClickSearchButton() throws Throwable {
+       userDetailPage.search();
+    }
+
+    @Then("^I should see the user name is \"([^\"]*)\"$")
+    public void iShouldSeeTheUserNameIs(String userName) throws Throwable {
+        assertTrue(userDetailPage.getUserBaseInfo().contains(userName));
+    }
+
+    @And("^I input email is \"([^\"]*)\" to searchInput$")
+    public void iInputEmailIsToSearchInput(String email) throws Throwable {
+        userDetailPage.searchByUserOrEmail(email);
+    }
+
+    @And("^I input group name is \"([^\"]*)\" to searchInput$")
+    public void iInputGroupNameIsToSearchInput(String groupName) throws Throwable {
+        userDetailPage.searchByGroupName(groupName);
+    }
 }

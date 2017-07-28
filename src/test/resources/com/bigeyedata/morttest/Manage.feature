@@ -12,9 +12,21 @@ Feature:Create user,user group,role
     And I input users basic information as following
       | UserName | Email                 | Phone      |
       | test2    | email2@bigeyedata.com | 18292323923|
-    And I set role is "管理员"
-    And I set group is "group"
+    And I set role is 管理员
+    And I set group is group
     When I create the user
+    Then I should see the Email is "email2@bigeyedata.com"
+
+  Scenario: Search by user name
+    Given I access to "Management" module
+    And I input user name is "test2" to searchInput
+    When I click search button
+    Then I should see the user name is "test2"
+
+  Scenario: Search by email
+    Given I access to "Management" module
+    And I input email is "email2@bigeyedata.com" to searchInput
+    When I click search button
     Then I should see the Email is "email2@bigeyedata.com"
 
 
@@ -23,10 +35,9 @@ Feature:Create user,user group,role
     And I access to set password page of email is "email2@bigeyedata.com"
     And I set a new password "qwer1234"
     When I save the new password
-#    Then I should use the new password successful login  as following
-#      | Email                |  Password |
-#      | email2@bigeyedata.com|  qwer1234 |
-
+    Then I should use the new password successful login  as following
+      | UserName                 |  Password |
+      | email2@bigeyedata.com    |  qwer1234 |
 
 
 
@@ -40,11 +51,11 @@ Feature:Create user,user group,role
     Then I should see the email is "email2_rename@bigeyedata.com"
 
 
-#  Scenario: Check all fields for null
-#    Given I access to "Management" module
-#    And I click create new user button on user page
-#    When I create the user
-#    Then I should see the prompt is "名称不能为空"
+  Scenario: Check all fields for null
+    Given I access to "Management" module
+    And I click create new user button on user page
+    When I create the user
+    Then I should see the prompt is "名称不能为空"
 
 
   Scenario: Create a new group
@@ -55,6 +66,28 @@ Feature:Create user,user group,role
     When I create the group
     Then I should see the group name is "测试用户组"
 
+  Scenario: Add user to group and delete user from group
+    Given I access to "Management" module
+    And I select group menuItem
+    And I access to add user page of group name is "测试用户组"
+    When I add user to group
+    Then I should see the user displayed correctly
+
+  Scenario: Search by group name
+    Given I access to "Management" module
+    And I select group menuItem
+    And I input group name is "测试用户组" to searchInput
+    When I click search button
+    Then I should see the group name is "测试用户组"
+
+  Scenario: Delete user from group
+    Given I access to "Management" module
+    And I select group menuItem
+    And I access to add user page of group name is "测试用户组"
+    When I Delete user from group
+    Then I should see no data in the list
+
+
 
   Scenario: Edit a group information
     Given I access to "Management" module
@@ -63,9 +96,6 @@ Feature:Create user,user group,role
     And And I modify the group name to "测试用户组_重命名"
     When I save the group
     Then I should see the group name is "测试用户组_重命名"
-
-
-
 
 
   Scenario: Delete a group
