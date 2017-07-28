@@ -51,7 +51,7 @@ Feature: Create,view DataSet
       |  测试CSV数据集   |
 
 
-  Scenario: Create RDB DataSet from a specified DataSource by import connection mode
+  Scenario: Create RDB DataSet from a specified DataSource with import connection mode
     Given I access to "DataSource" module
     And I expand the DataSource directory
     And I select DataSource as following
@@ -73,7 +73,7 @@ Feature: Create,view DataSet
     Then  I should see the sql of RDBDataSet
 
 
-  Scenario: Create a new RDB DataSet from a specified DataSource by direct connection mode
+  Scenario: Create a new RDB DataSet from a specified DataSource with direct connection mode
     Given I access to "DataSource" module
     And I expand the DataSource directory
     And I select DataSource as following
@@ -93,60 +93,60 @@ Feature: Create,view DataSet
     And I should see the number of DataSet fields is "7"
 
 
-  Scenario: Create a new RDB DataSet from a specified DataSource imported by customize mode
+  Scenario: Create a new RDB DataSet from a specified DataSource with customize import mode
     Given I access to "DataSource" module
+    And I expand the DataSource directory
     And I select DataSource as following
       |  DirectoryName  |  ResourceFileName     |
       |  测试数据源目录   |  测试MySQL数据源        |
     And I click create new DataSet button on DataSource page
     And I give the name of DataSet is "测试MySQL数据集-自定义导入"
     And I select the saved directory of DataSet is "测试数据集目录"
-    And I select "导入" mode
-    And I input a right SQL is "select * from user"
-    And I click preview button to preview table
-    And I click goToNextPage button of fieldEditPage
-    And I select "自定义"
-    And I set import date and time
-    When I create the DataSet
-    Then I should see the DataSet "测试MySQL数据集" displayed in directory
-    And I should see the number of DataSet fields is "45"
+    And I set the DataSet connection mode is "导入"
+    And I input SQL is "select * from bank_records"
+    And I preview the query result of SQL
+    And I go to DataSet import preview page
+    And I set the DataSet import mode is "自定义"
+    And I set import time is 1 minute later current time
+    When I save the new DataSet
+    Then I should see the DataSet "测试MySQL数据集-自定义导入" displayed in directory
+    And I should see the number of DataSet fields is "7"
     And I should wait 1 minute
     And I should see the initial import record is displayed
 
 
-
-
   Scenario: Create a new RDB DataSet from a specified DataSource and Add field
     Given I access to "DataSource" module
+    And I expand the DataSource directory
     And I select DataSource as following
       |  DirectoryName  |  ResourceFileName     |
       |  测试数据源目录   |  测试MySQL数据源        |
     And I click create new DataSet button on DataSource page
-    And I give the name of DataSet is "测试MySQL数据集-追加"
+    And I give the name of DataSet is "测试MySQL数据集_追加字段"
     And I select the saved directory of DataSet is "测试数据集目录"
-    And I select "导入" mode
-    And I input a right SQL is "select Host,User from user"
-    And I click preview button to preview table
-    And I click goToNextPage button of fieldEditPage
-    And I select "立即导入"
-    And I create the DataSet
-    And I should see the DataSet "测试MySQL数据集-追加" displayed in directory
+    And I set the DataSet connection mode is "导入"
+    And I input SQL is "select CDate,PROVINCE from bank_records"
+    And I preview the query result of SQL
+    And I go to DataSet import preview page
+    And I set the DataSet import mode is "立即导入"
+    When I save the new DataSet
+    Then I should see the DataSet "测试MySQL数据集_追加字段" displayed in directory
     And I should see the number of DataSet fields is "2"
-    And I should see the initial import record is displayed
-    And I click "AppendFields" item from other operation dropdown menu
-    And I can't modify the dataset name and he saved directory of DataSet
-    And I input a right SQL is "select Host,User,plugin from user"
-    And I click preview button to preview table
-    And I can't modify the alias and the type of previous data
+
+    When I click "ModifySQL" item from other operation dropdown menu
+#    And I can NOT modify the DataSet name and saved directory of DataSet
+    And I input SQL is "select CDate,STATE_DATE,PROVINCE,SALES_CHANNEL_NAME,PREM from bank_records"
+    And I preview the query result of SQL
+#    And I can't modify the alias and the type of previous data
     And I modify the alias of fields for DataSet as following
-      | FieldName     | AliasName             |
-      | plugin        | plugin-modify         |
-    And I modify the type of fields for DataSet as following
-      | FieldName     | FieldType |
-      | plugin        | 数值       |
-    When I add field to the Dataset
-    Then I should see the DataSet "测试MySQL数据集-追加" displayed in directory
-    And I should see the number of DataSet fields is "3"
+      | FieldName           | AliasName   |
+      | SALES_CHANNEL_NAME  | 销售渠道      |
+      | PREM                | 保额         |
+    And I go to DataSet import preview page
+
+    When I add field to the DataSet
+    Then I should see the DataSet "测试MySQL数据集_追加字段" displayed in directory
+    And I should see the number of DataSet fields is "5"
     And I should see the add field import record is displayed
 
 

@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import java.util.List;
-import java.util.Map;
 
 
 /**
@@ -36,18 +35,18 @@ public class RDBPreviewPage extends Page {
     @FindBy(id = "createDataSetNextStep")
     WebElement nextStepbutton;
 
-    @FindBy(css = "div.inline-block.form-control > span.ant-calendar-picker > span > input")
-    WebElement selectedDateInput;
+    @FindBy(xpath = "//div[@class='import-policy-form-bar']//span[@class='ant-calendar-picker']//input")
+    WebElement triggerCalenderInput;
 
     @FindBy(css = "div.ant-calendar-input-wrap > div > input")
-    WebElement inputDateInput;
+    WebElement importDateInput;
 
 //    @FindBy(css = "div.inline-block.form-control > span.ant-time-picker > input")
     @FindBy(css = "div.inline-block.form-control > span.ant-time-picker > span")
-    WebElement selectedTimeInput;
+    WebElement triggerTimeInput;
 
     @FindBy(css = "div.ant-time-picker-panel-input-wrap > input")
-    WebElement inputTimeInput;
+    WebElement importTimeInput;
 
     @FindBy(css = "table")
     WebElement FieldAttributeTable;
@@ -77,8 +76,9 @@ public class RDBPreviewPage extends Page {
 
     }
 
-    public void inputPreviewSQL(String sql){
+    public void inputPreviewSQL(String sql) throws InterruptedException {
 
+        CommonFunctions.waitForElementVisible(sqlTextarea);
         sqlTextarea.clear();
         sqlTextarea.sendKeys(sql);
     }
@@ -102,17 +102,19 @@ public class RDBPreviewPage extends Page {
     }
 
 
-    public  void setCustomizeImportDate(){
+    public  void setCustomizeImportDate() throws InterruptedException {
 
         String[] str=CommonFunctions.customizeImportDate().split("\\s+");
 
-        selectedDateInput.click();
-        inputDateInput.click();
-        inputDateInput.sendKeys(str[0]);
+        triggerCalenderInput.click();
+        CommonFunctions.waitForElementVisible(importDateInput);
+        importDateInput.click();
+        importDateInput.sendKeys(str[0]);
 
-        selectedTimeInput.click();
-        inputTimeInput.click();
-        inputTimeInput.sendKeys(str[1]);
+        triggerTimeInput.click();
+        CommonFunctions.waitForElementVisible(importTimeInput);
+        importTimeInput.click();
+        importTimeInput.sendKeys(str[1]);
     }
 
 

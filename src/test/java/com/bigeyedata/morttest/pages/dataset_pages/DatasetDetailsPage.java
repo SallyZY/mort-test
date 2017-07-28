@@ -40,9 +40,8 @@ public class DatasetDetailsPage extends Page {
     @FindBy(css = "ul#dataSetAllMenu > li:nth-child(1)")
     WebElement locateToDatasourceMenuItem;
 
-//    @FindBy(css = "ul#dataSetAllMenu > li:nth-child(2)")
-    @FindBy(id = "appendFieldsButton" )
-    WebElement appendFieldsMenuItem;
+    @FindBy(css = "ul#dataSetAllMenu > li:nth-child(3)")
+    WebElement modifySQLMenuItem;
 
     @FindBy(css = "ul#dataSetAllMenu > li:nth-child(3)")
     WebElement appendDataMenuItem;
@@ -65,8 +64,10 @@ public class DatasetDetailsPage extends Page {
             case "AppendData":
                 appendDataMenuItem.click();
                 break;
-            case "AppendFields":
-                appendFieldsMenuItem.click();
+            case "ModifySQL":
+                waitForElementVisible(modifySQLMenuItem);
+                modifySQLMenuItem.click();
+                break;
             case "ViewSql":
                 waitForElementVisible(checkSqlMenuItem);
                 checkSqlMenuItem.click();

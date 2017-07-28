@@ -90,11 +90,10 @@ public class CommonFunctions {
 
 
     public static String customizeImportDate(){
-        String currentTime;
-        long curren = System.currentTimeMillis();
-        curren += 60 * 1000;
+        long currentTimeMillis = System.currentTimeMillis();
+        currentTimeMillis += 60 * 1000;
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        currentTime = dateFormat.format(new Date(curren));
+        String currentTime = dateFormat.format(new Date(currentTimeMillis));
         return currentTime;
 
     }

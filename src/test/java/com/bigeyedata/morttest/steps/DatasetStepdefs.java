@@ -1,6 +1,7 @@
 package com.bigeyedata.morttest.steps;
 
 import com.bigeyedata.morttest.CommonFunctions;
+import com.bigeyedata.morttest.Hooks;
 import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.DirectoryPage;
 import com.bigeyedata.morttest.pages.ResourceFileListPage;
@@ -130,6 +131,7 @@ public class DatasetStepdefs {
     @When("^I click \"([^\"]*)\" item from other operation dropdown menu$")
     public void iClickItemFromOtherOperationDropdownMenu(String itemName) throws Throwable {
 
+        CommonFunctions.refresh();
         datasetDetailsPage.clickOtherOptionsMenuItem(itemName);
     }
 
@@ -169,7 +171,7 @@ public class DatasetStepdefs {
         rdbPreviewPage.setDataSetImportMode(importMode);
     }
 
-    @And("^I set import date and time$")
+    @And("^I set import time is 1 minute later current time$")
     public void iSetImportDateAndTime() throws Throwable {
 
         rdbPreviewPage.setCustomizeImportDate();
@@ -203,22 +205,19 @@ public class DatasetStepdefs {
     }
 
 
-    @When("^I add field to the Dataset$")
+    @When("^I add field to the DataSet$")
     public void iAddFieldToTheDataset() throws Throwable {
         importPreviewPage.createDataset();
-        Thread.sleep(10*1000);
         CommonFunctions.refresh();
-        Thread.sleep(10*1000);
-
     }
 
     @And("^I should see the add field import record is displayed$")
     public void iShouldSeeTheAddFieldImportRecordIsDisplayed() throws Throwable {
-        assertThat(datasetDetailsPage.getDescriptionOfNewestImportHistory(),is("追加字段导入"));
+        assertThat(datasetDetailsPage.getDescriptionOfNewestImportHistory(),is("修改SQL信息导入"));
     }
 
 
-    @And("^I can't modify the dataset name and he saved directory of DataSet$")
+    @And("^I can NOT modify the DataSet name and saved directory of DataSet$")
     public void iCanTModifyTheDatasetNameAndHeSavedDirectoryOfDataSet() throws Throwable {
         assertThat(rdbPreviewPage.isDisabledDataSetInput(),is(false));
         assertThat(rdbPreviewPage.isDisabledSaveDirectory(),is(false ));
