@@ -57,8 +57,8 @@ public class RDBPreviewPage extends Page {
     @FindBy(id = "addDataSetName")
     WebElement dataSetNameInput;
 
-    @FindBy(css = "div.choose-directory > input")
-    WebElement dataSetDirectoryInput;
+    @FindBy(css = "div.directory-selector > span.ant-select-lg.ant-select.ant-select-disabled")
+    WebElement dataSetDirectorySpan;
 
     @FindBy(css = "#addDataSetPreview > div > div > div > div > div > div > div > table")
     WebElement FieldViewTable;
@@ -147,13 +147,13 @@ public class RDBPreviewPage extends Page {
     }
 
 
-    public boolean isDisabledDataSetInput(){
+    public boolean isDataSetNameEnabled(){
 
-        return  dataSetNameInput.isEnabled();
+        return dataSetNameInput.isEnabled();
     }
 
-    public boolean isDisabledSaveDirectory(){
-        return dataSetDirectoryInput.isEnabled();
+    public boolean isDataSetSavedDirectoryEnabled(){
+        return !dataSetDirectorySpan.isDisplayed();
     }
 
     public int countDisabledFieldsAlias()throws InterruptedException {

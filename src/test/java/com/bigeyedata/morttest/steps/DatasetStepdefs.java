@@ -1,7 +1,6 @@
 package com.bigeyedata.morttest.steps;
 
 import com.bigeyedata.morttest.CommonFunctions;
-import com.bigeyedata.morttest.Hooks;
 import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.DirectoryPage;
 import com.bigeyedata.morttest.pages.ResourceFileListPage;
@@ -217,10 +216,10 @@ public class DatasetStepdefs {
     }
 
 
-    @And("^I can NOT modify the DataSet name and saved directory of DataSet$")
+    @And("^I can NOT modify the DataSet name and saved directory$")
     public void iCanTModifyTheDatasetNameAndHeSavedDirectoryOfDataSet() throws Throwable {
-        assertThat(rdbPreviewPage.isDisabledDataSetInput(),is(false));
-        assertThat(rdbPreviewPage.isDisabledSaveDirectory(),is(false ));
+        assertThat(rdbPreviewPage.isDataSetNameEnabled(),is(false));
+        assertThat(rdbPreviewPage.isDataSetSavedDirectoryEnabled(),is(false ));
     }
 
     @And("^I go to DataSet import preview page$")

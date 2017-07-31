@@ -134,7 +134,7 @@ Feature: Create,view DataSet
     And I should see the number of DataSet fields is "2"
 
     When I click "ModifySQL" item from other operation dropdown menu
-#    And I can NOT modify the DataSet name and saved directory of DataSet
+    And I can NOT modify the DataSet name and saved directory
     And I input SQL is "select CDate,STATE_DATE,PROVINCE,SALES_CHANNEL_NAME,PREM from bank_records"
     And I preview the query result of SQL
 #    And I can't modify the alias and the type of previous data
@@ -145,8 +145,7 @@ Feature: Create,view DataSet
     And I go to DataSet import preview page
 
     When I add field to the DataSet
-    Then I should see the DataSet "测试MySQL数据集_追加字段" displayed in directory
-    And I should see the number of DataSet fields is "5"
+    Then I should see the number of DataSet fields is "5"
     And I should see the add field import record is displayed
 
 
