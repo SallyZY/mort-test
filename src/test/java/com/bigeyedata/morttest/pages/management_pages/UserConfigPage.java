@@ -2,8 +2,10 @@ package com.bigeyedata.morttest.pages.management_pages;
 
 import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.Hooks;
+import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.Page;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -39,13 +41,13 @@ public class UserConfigPage extends Page{
     WebElement groupNameInput;
 
 
+
     @FindBy(css = "div.ant-modal-content > div.ant-modal-body > div.role-name > input")
     WebElement roleNameInput;
 
     @FindBy(id = "passwordModifyModalOkButton")
     WebElement passwordModifyConfirmButton;
 
-//    @FindBy(css = "div.ant-modal-footer > button.ant-btn.ant-btn-primary.ant-btn-lg > span")
     @FindBy(css = "div.ant-modal-content > div.ant-modal-footer > button.ant-btn.ant-btn-primary.ant-btn-lg > span")
     WebElement editconfirmButton;
 
@@ -63,12 +65,6 @@ public class UserConfigPage extends Page{
 
     @FindBy(css = "table > tbody > tr:nth-child(5) > td:nth-child(2) > span")
     WebElement managementPermissions;
-
-    @FindBy(xpath = "//ul/li[@title=\"管理员\"]")
-    WebElement admin;
-
-    @FindBy(xpath = "//ul/li[@title=\"group\"]")
-    WebElement group;
 
     @FindBy(xpath = "//div/label[@title=\"角色\"]")
     WebElement roleNameLab;
@@ -137,7 +133,8 @@ public class UserConfigPage extends Page{
         confirmButton.click();
     }
 
-    public void setGroupName(String groupName) {
+    public void setGroupName(String groupName) throws InterruptedException {
+        CommonFunctions.waitForElementVisible(groupNameInput);
         groupNameInput.clear();
         groupNameInput.sendKeys(groupName);
     }
@@ -147,7 +144,7 @@ public class UserConfigPage extends Page{
     }
 
     public void renameGroupName(String groupName) throws InterruptedException {
-        CommonFunctions.waitAShortTime();
+        CommonFunctions.waitForElementVisible(groupNameInput);
         groupNameInput.clear();
         groupNameInput.sendKeys(groupName);
     }
@@ -171,26 +168,31 @@ public class UserConfigPage extends Page{
 
     }
 
-    public void setRole() throws InterruptedException {
+    public void setRole(String roleTitle) throws InterruptedException {
+        WebDriver webDriver = WebDriverManager.getDriver();
+        CommonFunctions.waitForElementVisible(roleSelector);
         roleSelector.click();
-        CommonFunctions.waitAShortTime();
-        admin.click();
-        CommonFunctions.waitAShortTime();
+        WebElement role = webDriver.findElement(By.xpath("//ul/li[@title='"+roleTitle+"']"));
+        CommonFunctions.waitForElementVisible(role);
+        role.click();
         phoneLab.click();
-        CommonFunctions.waitAShortTime();
     }
 
-    public void setGroup() throws InterruptedException {
+    public void setGroup(String groupTitle) throws InterruptedException {
+        WebDriver webDriver = WebDriverManager.getDriver();
+        CommonFunctions.waitForElementVisible(groupSelector);
         groupSelector.click();
-        CommonFunctions.waitAShortTime();
+        WebElement group = webDriver.findElement(By.xpath("//ul/li[@title='"+groupTitle+"']"));
+        CommonFunctions.waitForElementVisible(group);
         group.click();
         phoneLab.click();
         CommonFunctions.waitAShortTime();
     }
 
     public void setNewPassword(String password) throws InterruptedException {
+        CommonFunctions.waitForElementVisible(passwordModifyModalNewPasswordInput);
         passwordModifyModalNewPasswordInput.sendKeys(password);
-        CommonFunctions.waitAShortTime();
+        CommonFunctions.waitForElementVisible(passwordModifyModalConfirmNewPasswordInput);
         passwordModifyModalConfirmNewPasswordInput.sendKeys(password);
         CommonFunctions.waitAShortTime();
 

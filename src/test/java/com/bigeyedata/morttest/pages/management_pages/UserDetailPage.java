@@ -24,6 +24,9 @@ import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
  */
 public class UserDetailPage extends Page {
 
+    @FindBy(linkText = "用户")
+    WebElement userMenuItem;
+
     @FindBy(css = "#app > div > div.DefaultLayout > div.resource-page > div > div.ant-layout > div > div > div.resource-action-bar.clearfix > div.action-section.pull-right > div > button > span")
     WebElement createUserButton;
 
@@ -99,6 +102,12 @@ public class UserDetailPage extends Page {
 
 
 
+    public void selectUserMenuItem(){
+
+        userMenuItem.click();
+
+    }
+
     public void createUser(){
 
         createUserButton.click();
@@ -142,7 +151,7 @@ public class UserDetailPage extends Page {
     public String getRoleInfo() throws InterruptedException {
 
         waitForElementVisible(roleInfoTab);
-        roleInfoTab.click();
+//        roleInfoTab.click();
         return roleInfoTab.getText();
     }
 

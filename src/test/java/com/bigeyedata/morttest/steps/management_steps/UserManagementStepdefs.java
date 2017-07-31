@@ -30,9 +30,7 @@ public class UserManagementStepdefs {
     @And("^I select group menuItem$")
     public void iSelectUserMenuItemAsFollowing() throws Throwable {
 
-        Thread.sleep(10*1000);
         userDetailPage.selectGroupMenuItem();
-        Thread.sleep(10*1000);
 
     }
 
@@ -47,16 +45,6 @@ public class UserManagementStepdefs {
         String  email = userBasicInfoList.get(0).get("Email").toString();
         String phone = userBasicInfoList.get(0).get("Phone").toString();
         userConfigPage.setUsersBasicInformation(userName,email,phone);
-    }
-
-    @And("^I set role is 管理员$")
-    public void iSetRoleIs() throws Throwable {
-        userConfigPage.setRole();
-    }
-
-    @And("^I set group is group$")
-    public void iSetGroupIs() throws Throwable {
-        userConfigPage.setGroup();
     }
 
 
@@ -145,7 +133,7 @@ public class UserManagementStepdefs {
     }
 
 
-    @Then("^I should see the group name is \"([^\"]*)\"$")
+    @Then("^I should see the group name \"([^\"]*)\" in group list$")
     public void iShouldSeeTheGroupNameIs(String groupName) throws Throwable {
         assertTrue(userDetailPage.getRoleInfo().contains(groupName));
     }
@@ -167,7 +155,7 @@ public class UserManagementStepdefs {
         userDetailPage.deleteGroup(groupName);
     }
 
-    @Then("^I shouldn't see the group name is \"([^\"]*)\"$")
+    @Then("^I should NOT see the group name \"([^\"]*)\" in group list$")
     public void iShouldnTSeeTheGroupNameIs(String groupName) throws Throwable {
         assertFalse(userDetailPage.getGroupInfo().contains(groupName));
     }
@@ -199,7 +187,7 @@ public class UserManagementStepdefs {
         userConfigPage.saveEditPage();
     }
 
-    @Then("^I should see the email is \"([^\"]*)\"$")
+    @Then("^I should see the email \"([^\"]*)\" in user list$")
     public void iShouldSeeTheEmailIs(String email) throws Throwable {
         assertTrue(userDetailPage.getUserBaseInfo().contains(email));
     }
@@ -256,5 +244,25 @@ public class UserManagementStepdefs {
     @And("^I input group name is \"([^\"]*)\" to searchInput$")
     public void iInputGroupNameIsToSearchInput(String groupName) throws Throwable {
         userDetailPage.searchByGroupName(groupName);
+    }
+
+    @When("^I select user menuItem$")
+    public void iSelectUserMenuItem() throws Throwable {
+        userDetailPage.selectUserMenuItem();
+    }
+
+    @And("^I should see the user name \"([^\"]*)\" in user list$")
+    public void iShouldSeeTheUserNameInUserList(String userName) throws Throwable {
+        assertTrue(userDetailPage.getUserBaseInfo().contains(userName));
+    }
+
+    @And("^I set role is \"([^\"]*)\"$")
+    public void iSetRoleIs(String roleTitle) throws Throwable {
+        userConfigPage.setRole(roleTitle);
+    }
+
+    @And("^I set group is \"([^\"]*)\"$")
+    public void iSetGroupIs(String groupTitle) throws Throwable {
+        userConfigPage.setGroup(groupTitle);
     }
 }
