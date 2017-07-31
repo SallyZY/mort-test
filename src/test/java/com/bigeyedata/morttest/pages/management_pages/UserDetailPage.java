@@ -330,9 +330,9 @@ public class UserDetailPage extends Page {
     }
 
 
-    public void  searchByUserOrEmail(String userOrEmail){
+    public void  searchByUserOrEmail(String keyWord){
         userSearchInput.clear();
-        userSearchInput.sendKeys(userOrEmail);
+        userSearchInput.sendKeys(keyWord);
 
     }
 

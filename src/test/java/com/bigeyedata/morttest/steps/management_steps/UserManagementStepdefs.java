@@ -60,7 +60,7 @@ public class UserManagementStepdefs {
     }
 
 
-    @Then("^I should see the Email is \"([^\"]*)\"$")
+    @Then("^I should see the Email \"([^\"]*)\" in search result$")
     public void iShouldSeeTheUserDisplayedCorrectly(String email) throws Throwable {
         assertTrue(userDetailPage.getUserBaseInfo().contains(email));
     }
@@ -123,8 +123,8 @@ public class UserManagementStepdefs {
         userConfigPage.setRoleName(roleName);
     }
 
-    @And("^I allocate all resource permissions$")
-    public void iAllocateAllResourcePermissions() throws Throwable {
+    @And("^I grant all function permissions$")
+    public void iGrantAllFunctionPermissions() throws Throwable {
         userConfigPage.allocateResourcePermissions();
     }
 
@@ -134,7 +134,7 @@ public class UserManagementStepdefs {
         assertTrue(userDetailPage.getRoleInfo().contains(roleName));
     }
 
-    @And("^I access to edit page of group name is \"([^\"]*)\"$")
+    @And("^I access to edit page of group name \"([^\"]*)\"$")
     public void iAccessToEditPageOfGroupNameIs(String groupName) throws Throwable {
         userDetailPage.gotoEditGroupPage(groupName);
     }
@@ -151,7 +151,7 @@ public class UserManagementStepdefs {
     }
 
 
-    @And("^I access to edit page of role name is \"([^\"]*)\"$")
+    @And("^I access to edit page of role name \"([^\"]*)\"$")
     public void iAccessToEditPageOfRoleNameIs(String roleName) throws Throwable {
         userDetailPage.gotoEditRolePage(roleName);
     }
@@ -177,12 +177,12 @@ public class UserManagementStepdefs {
         userDetailPage.deleteRole(roleName);
     }
 
-    @Then("^I shouldn't see the role name is \"([^\"]*)\"$")
+    @Then("^I should NOT see the role name is \"([^\"]*)\"$")
     public void iShouldnTSeeTheRoleNameIs(String roleName) throws Throwable {
         assertFalse(userDetailPage.getRoleInfo().contains(roleName));
     }
 
-    @And("^I access to edit page of email is \"([^\"]*)\"$")
+    @And("^I access to edit page of email \"([^\"]*)\"$")
     public void iAccessToEditPageOfEmailIs(String email) throws Throwable {
         userDetailPage.goToEditUserPage(email);
     }
@@ -204,7 +204,7 @@ public class UserManagementStepdefs {
         assertTrue(userDetailPage.getUserBaseInfo().contains(email));
     }
 
-    @Then("^I should see the prompt is \"([^\"]*)\"$")
+    @Then("^I should see the prompt message is \"([^\"]*)\"$")
     public void iShouldSeeThePromptIs(String prompt) throws Throwable {
         assertTrue(userConfigPage.getMessageNotice().equals(prompt));
         CommonFunctions.waitAShortTime();
@@ -238,9 +238,9 @@ public class UserManagementStepdefs {
         userConfigPage.closeViewUserGroupModalContent();
     }
 
-    @And("^I input user name is \"([^\"]*)\" to searchInput$")
-    public void iInputUserNameIsToSearchInput(String userName) throws Throwable {
-       userDetailPage.searchByUserOrEmail(userName);
+    @And("^I input the keyword \"([^\"]*)\" to user search box")
+    public void iInputUserNameIsToSearchInput(String keyWord) throws Throwable {
+       userDetailPage.searchByUserOrEmail(keyWord);
     }
 
     @When("^I click search button$")
@@ -248,14 +248,9 @@ public class UserManagementStepdefs {
        userDetailPage.search();
     }
 
-    @Then("^I should see the user name is \"([^\"]*)\"$")
+    @Then("^I should see the user name \"([^\"]*)\" in search result$")
     public void iShouldSeeTheUserNameIs(String userName) throws Throwable {
         assertTrue(userDetailPage.getUserBaseInfo().contains(userName));
-    }
-
-    @And("^I input email is \"([^\"]*)\" to searchInput$")
-    public void iInputEmailIsToSearchInput(String email) throws Throwable {
-        userDetailPage.searchByUserOrEmail(email);
     }
 
     @And("^I input group name is \"([^\"]*)\" to searchInput$")
