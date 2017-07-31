@@ -35,6 +35,12 @@ public class CommonFunctions {
         new WebDriverWait(WebDriverManager.getDriver(), Hooks.getTimeOutInSeconds()).until(ExpectedConditions.visibilityOf(element));
     }
 
+    public static void waitForElementInvisible(WebElement element) throws InterruptedException {
+
+        Thread.sleep(Hooks.getThreadSleepTime());
+        new WebDriverWait(WebDriverManager.getDriver(), Hooks.getTimeOutInSeconds()).until(ExpectedConditions.invisibilityOf(element));
+    }
+
     public static void waitForElementVisibleAndLocated(By by) throws InterruptedException {
 
         Thread.sleep(Hooks.getThreadSleepTime());

@@ -6,6 +6,28 @@ Feature:Create user,user group,role
       | UserName                 | Password     |
       | zhangying@bigeyedata.com | password123  |
 
+  Scenario: Check input box
+    Given I access to "Management" module
+    And I click create new user button on user page
+    When I create the user
+    Then I should see the prompt is "名称不能为空"
+    And I input users basic information as following
+      | UserName | Email                 | Phone      |
+      |  test    |                       |            |
+    When I create the user
+    Then I should see the prompt is "邮箱不能为空"
+    And I input users basic information as following
+      | UserName                                                | Email                 | Phone      |
+      |  123456789012345678901234567890123456789012345678901    |                       |            |
+    When I create the user
+    Then I should see the prompt is "名称长度应该小于等于50"
+    And I input users basic information as following
+      | UserName | Email                 | Phone      |
+      |  test    | test                      |            |
+    When I create the user
+    Then I should see the prompt is "邮箱格式不合法"
+
+
   Scenario: Create a new user
     Given I access to "Management" module
     And I click create new user button on user page
@@ -17,14 +39,13 @@ Feature:Create user,user group,role
     When I create the user
     Then I should see the Email is "email2@bigeyedata.com"
 
-  Scenario: Search by user name
+
+
+  Scenario: Search by user name OR email
     Given I access to "Management" module
     And I input user name is "test2" to searchInput
     When I click search button
     Then I should see the user name is "test2"
-
-  Scenario: Search by email
-    Given I access to "Management" module
     And I input email is "email2@bigeyedata.com" to searchInput
     When I click search button
     Then I should see the Email is "email2@bigeyedata.com"
@@ -51,27 +72,28 @@ Feature:Create user,user group,role
     Then I should see the email is "email2_rename@bigeyedata.com"
 
 
-  Scenario: Check all fields for null
-    Given I access to "Management" module
-    And I click create new user button on user page
-    When I create the user
-    Then I should see the prompt is "名称不能为空"
-
-
-  Scenario: Create a new group
+  Scenario: Check input box AND Create a new group AND Add user to group AND Delete user from group
     Given I access to "Management" module
     And I select group menuItem
     And I click create new group button on group page
+    When I create the group
+    Then I should see the prompt is "名称不能为空"
+    And I input group name is "123456789012345678901234567890123456789012345678901"
+    When I create the group
+    Then I should see the prompt is "名称长度应该小于等于50"
     And I input group name is "测试用户组"
     When I create the group
     Then I should see the group name is "测试用户组"
-
-  Scenario: Add user to group and delete user from group
-    Given I access to "Management" module
     And I select group menuItem
     And I access to add user page of group name is "测试用户组"
     When I add user to group
     Then I should see the user displayed correctly
+    And I select group menuItem
+    And I access to add user page of group name is "测试用户组"
+    When I Delete user from group
+    Then I should see no data in the list
+
+
 
   Scenario: Search by group name
     Given I access to "Management" module
@@ -79,14 +101,6 @@ Feature:Create user,user group,role
     And I input group name is "测试用户组" to searchInput
     When I click search button
     Then I should see the group name is "测试用户组"
-
-  Scenario: Delete user from group
-    Given I access to "Management" module
-    And I select group menuItem
-    And I access to add user page of group name is "测试用户组"
-    When I Delete user from group
-    Then I should see no data in the list
-
 
 
   Scenario: Edit a group information

@@ -76,10 +76,10 @@ public class UserConfigPage extends Page{
     @FindBy(xpath = "//div/label[@title=\"联系方式\"]")
     WebElement phoneLab;
 
-    @FindBy(id = "passwordModifyModalNewPasswordInput")
+    @FindBy(id = "password")
     WebElement passwordModifyModalNewPasswordInput;
 
-    @FindBy(id = "passwordModifyModalConfirmNewPasswordInput")
+    @FindBy(id = "confirmedPassword")
     WebElement passwordModifyModalConfirmNewPasswordInput;
 
     @FindBy(css = "div.ant-select-selection__placeholder")
@@ -103,17 +103,25 @@ public class UserConfigPage extends Page{
     @FindBy(css = "div.ant-message > span > div.ant-message-notice > div.ant-message-notice-content > div.ant-message-custom-content.ant-message-error > span")
     WebElement messageNotice;
 
+    @FindBy(css = "div.ant-modal-content > div.ant-modal-body > form")
+    WebElement userFrom;
+
     public void setUsersBasicInformation(String userName,String email,String phone) throws InterruptedException {
+        CommonFunctions.waitForElementVisible(userFrom);
+        userNameInput.clear();
         userNameInput.sendKeys(userName);
         CommonFunctions.waitAShortTime();
+        emailInput.clear();
         emailInput.sendKeys(email);
         CommonFunctions.waitAShortTime();
+        phoneInput.clear();
         phoneInput.sendKeys(phone);
 
 
     }
 
     public void reSetUsersBasicInformation(String userName,String email) throws InterruptedException {
+        CommonFunctions.waitForElementVisible(userFrom);
         userNameInput.clear();
         userNameInput.sendKeys(userName);
         CommonFunctions.waitAShortTime();
@@ -130,6 +138,7 @@ public class UserConfigPage extends Page{
     }
 
     public void setGroupName(String groupName) {
+        groupNameInput.clear();
         groupNameInput.sendKeys(groupName);
     }
 
@@ -231,9 +240,14 @@ public class UserConfigPage extends Page{
         closeViewUserGroupButton.click();
     }
 
-    public String getMessageNotice(){
+    public String getMessageNotice() throws InterruptedException {
         String message = messageNotice.getText();
-       return message;
+        return message;
+
+    }
+
+    public void waitForMessageNoticeInvisible() throws InterruptedException {
+        CommonFunctions.waitForElementInvisible(messageNotice);
     }
 
 

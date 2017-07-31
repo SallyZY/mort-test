@@ -207,6 +207,7 @@ public class UserManagementStepdefs {
     @Then("^I should see the prompt is \"([^\"]*)\"$")
     public void iShouldSeeThePromptIs(String prompt) throws Throwable {
         assertTrue(userConfigPage.getMessageNotice().equals(prompt));
+        CommonFunctions.waitAShortTime();
     }
 
 

@@ -15,7 +15,7 @@ public class Hooks {
 
     private static final String MortWeb_URL = "http://127.0.0.1:3000";
     private static final int Wait_TimeOutInSeconds = 15;
-    private static final int Thread_Sleep_Short = 2000;
+    private static final int Thread_Sleep_Short = 3000;
     private static final int Thread_Sleep_Long =10000;
 
     @Before
@@ -27,9 +27,9 @@ public class Hooks {
     @After
     public static void afterScenario() {
 
-//        WebDriverManager.getDriver().manage().deleteAllCookies();
-//        WebDriverManager.getDriver().quit();
-//        WebDriverManager.deleteWebDriver();
+        WebDriverManager.getDriver().manage().deleteAllCookies();
+        WebDriverManager.getDriver().quit();
+        WebDriverManager.deleteWebDriver();
     }
 
     public static String getMortWebUrl() {
