@@ -15,7 +15,7 @@ import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
 /**
  * Created by yingzhang on 10/05/2017.
  */
-public class DatasourceDetailPage extends Page {
+public class DataSourceDetailPage extends Page {
 
     @FindBy(id = "addNewDataSet")
     WebElement createNewDatasetButton;

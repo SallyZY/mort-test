@@ -8,7 +8,7 @@ Feature: set the style of all kinds of general chart
 
   Scenario: Set the style of Column chart
     Given I access to "Report" module
-    And I expand the DataSource directory
+    And I expand the Report directory
     And I select Report as following
       | DirectoryName   |ResourceFileName|
       | 测试报表目录      |回归测试报表     |
@@ -35,7 +35,7 @@ Feature: set the style of all kinds of general chart
 
   Scenario: Set the style of Pie chart
     Given I access to "Report" module
-    And I expand the DataSource directory
+    And I expand the Report directory
     And I select Report as following
       | DirectoryName   |ResourceFileName|
       | 测试报表目录      |回归测试报表     |
@@ -58,7 +58,7 @@ Feature: set the style of all kinds of general chart
 
   Scenario: Set the style of mixLineBar chart
     Given I access to "Report" module
-    And I expand the DataSource directory
+    And I expand the Report directory
     And I select Report as following
       | DirectoryName   |ResourceFileName|
       | 测试报表目录      |回归测试报表     |
@@ -88,7 +88,7 @@ Feature: set the style of all kinds of general chart
 
   Scenario: Set the style of Line chart
     Given I access to "Report" module
-    And I expand the DataSource directory
+    And I expand the Report directory
     And I select Report as following
       | DirectoryName   |ResourceFileName|
       | 测试报表目录      |回归测试报表     |
@@ -118,7 +118,7 @@ Feature: set the style of all kinds of general chart
 
   Scenario: Set the style of Doughnut chart
     Given I access to "Report" module
-    And I expand the DataSource directory
+    And I expand the Report directory
     And I select Report as following
       | DirectoryName   |ResourceFileName|
       | 测试报表目录      |回归测试报表     |
@@ -141,7 +141,7 @@ Feature: set the style of all kinds of general chart
 
   Scenario: Set the style of AreaStack chart
     Given I access to "Report" module
-    And I expand the DataSource directory
+    And I expand the Report directory
     And I select Report as following
       | DirectoryName   |ResourceFileName|
       | 测试报表目录      |回归测试报表     |
@@ -168,7 +168,7 @@ Feature: set the style of all kinds of general chart
 
   Scenario: Set the style of Funnel chart
     Given I access to "Report" module
-    And I expand the DataSource directory
+    And I expand the Report directory
     And I select Report as following
       | DirectoryName   |ResourceFileName|
       | 测试报表目录      |回归测试报表     |
@@ -191,7 +191,7 @@ Feature: set the style of all kinds of general chart
 
 #  Scenario: Set the style of KPI chart
 #    Given I access to "Report" module
-#    And I expand the DataSource directory
+#    And I expand the Report directory
 #    And I select Report as following
 #      | DirectoryName   |ResourceFileName|
 #      | 测试报表目录      |回归测试报表     |

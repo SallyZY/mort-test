@@ -5,7 +5,8 @@ import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.DirectoryPage;
 import com.bigeyedata.morttest.pages.ResourceFileListPage;
 import com.bigeyedata.morttest.pages.dataset_pages.*;
-import com.bigeyedata.morttest.pages.datasource_pages.DatasourceDetailPage;
+import com.bigeyedata.morttest.pages.datasource_pages.DataSourceDetailPage;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -22,14 +23,14 @@ import static org.junit.Assert.assertThat;
 /**
  * Created by yingzhang on 09/05/2017.
  */
-public class DatasetStepdefs {
+public class DataSetStepdefs {
 
     WebDriver webDriver= WebDriverManager.getDriver();
     FieldEditPage fieldEditPage = PageFactory.initElements(webDriver,FieldEditPage.class);
     ImportPreviewPage importPreviewPage =  PageFactory.initElements(webDriver,ImportPreviewPage.class);
     ResourceFileListPage resourceFileListPage = PageFactory.initElements(webDriver,ResourceFileListPage.class);
-    DatasetDetailsPage datasetDetailsPage = PageFactory.initElements(webDriver,DatasetDetailsPage.class);
-    DatasourceDetailPage datasourceDetailPage=PageFactory.initElements(webDriver,DatasourceDetailPage.class);
+    DataSetDetailsPage dataSetDetailsPage = PageFactory.initElements(webDriver,DataSetDetailsPage.class);
+    DataSourceDetailPage dataSourceDetailPage =PageFactory.initElements(webDriver,DataSourceDetailPage.class);
     RDBPreviewPage rdbPreviewPage=PageFactory.initElements(webDriver,RDBPreviewPage.class);
 
     List<Map<String, String>> savedFieldAliasList;
@@ -39,11 +40,11 @@ public class DatasetStepdefs {
     @Given("^I click create new DataSet button on DataSource page$")
     public void iClickCreateNewDatasetButtonOnDatasourcePage() throws Throwable {
 
-        DatasourceDetailPage datasourceDetailPage= PageFactory.initElements(webDriver,DatasourceDetailPage.class);
-        datasourceDetailPage.CreateNewDatasetFromDatasource();
+        DataSourceDetailPage dataSourceDetailPage = PageFactory.initElements(webDriver,DataSourceDetailPage.class);
+        dataSourceDetailPage.CreateNewDatasetFromDatasource();
 
-        DatasourceSelectPage datasourceSelectPage = PageFactory.initElements(webDriver,DatasourceSelectPage.class);
-        datasourceSelectPage.gotoNextStep();
+        DataSourceSelectPage dataSourceSelectPage = PageFactory.initElements(webDriver,DataSourceSelectPage.class);
+        dataSourceSelectPage.gotoNextStep();
     }
 
     @Given("^I modify the alias of fields for DataSet as following$")
@@ -100,25 +101,25 @@ public class DatasetStepdefs {
     @And("^I should see the number of DataSet fields is \"([^\"]*)\"$")
     public void iShouldSeeTheNumberOfDatasetFieldsIs(String fieldCount) throws Throwable {
 
-        assertThat(datasetDetailsPage.getFieldCountOfDataset(),is(Integer.parseInt(fieldCount)));
+        assertThat(dataSetDetailsPage.getFieldCountOfDataset(),is(Integer.parseInt(fieldCount)));
     }
 
     @And("^I should see the ailas of DataSet fields displayed correctly$")
     public void iShouldSeeTheAilasOfDatasetFieldsDisplayedCorrectly() throws Throwable {
 
-        assertThat(datasetDetailsPage.compareFieldAlias(savedFieldAliasList),is(true));
+        assertThat(dataSetDetailsPage.compareFieldAlias(savedFieldAliasList),is(true));
     }
 
     @And("^I should see the type of DataSet fields displayed correctly$")
     public void iShouldSeeTheTypeOfDatasetFieldsDisplayedCorrectly() throws Throwable {
 
-        assertThat(datasetDetailsPage.compareFieldType(savedFieldTypeList),is(true));
+        assertThat(dataSetDetailsPage.compareFieldType(savedFieldTypeList),is(true));
     }
 
     @And("^I should see the initial import record is displayed$")
     public void iShouldSeeTheInitialImportRecordIsDisplayed() throws Throwable {
 
-        assertThat(datasetDetailsPage.getDescriptionOfNewestImportHistory(),is("初始化导入"));
+        assertThat(dataSetDetailsPage.getDescriptionOfNewestImportHistory(),is("初始化导入"));
     }
     
     @Then("^I should locate to the DataSource \"([^\"]*)\"$")
@@ -131,13 +132,13 @@ public class DatasetStepdefs {
     public void iClickItemFromOtherOperationDropdownMenu(String itemName) throws Throwable {
 
         CommonFunctions.refresh();
-        datasetDetailsPage.clickOtherOptionsMenuItem(itemName);
+        dataSetDetailsPage.clickOtherOptionsMenuItem(itemName);
     }
 
     @And("^I should see the related DataSet as following$")
     public void iShouldSeeTheRelatedDatasetAsFollowing(List<Map<String,String>> datasetNameList) throws Throwable {
 
-        datasourceDetailPage.isDatasetNameDisplayed(datasetNameList);
+        dataSourceDetailPage.isDatasetNameDisplayed(datasetNameList);
     }
 
 
@@ -212,7 +213,7 @@ public class DatasetStepdefs {
 
     @And("^I should see the add field import record is displayed$")
     public void iShouldSeeTheAddFieldImportRecordIsDisplayed() throws Throwable {
-        assertThat(datasetDetailsPage.getDescriptionOfNewestImportHistory(),is("修改SQL信息导入"));
+        assertThat(dataSetDetailsPage.getDescriptionOfNewestImportHistory(),is("修改SQL信息导入"));
     }
 
 
@@ -229,6 +230,60 @@ public class DatasetStepdefs {
 
     @Then("^I should see the sql of RDBDataSet$")
     public void iShouldSeeTheSqlOfRDBDataSet() throws Throwable {
-        assertThat(datasetDetailsPage.getSqlofRDBDataSet(),is(rdbDataSetPreviewSQL));
+        assertThat(dataSetDetailsPage.getSqlofRDBDataSet(),is(rdbDataSetPreviewSQL));
+    }
+
+    @And("^I go to new report page from DataSet detail page$")
+    public void iGoToNewReportPageFromDataSetDetailPage() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @When("^I want to create a new virtual dimension$")
+    public void iWantToCreateANewVirtualDimension() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @And("^I set the name of virtual dimension is \"([^\"]*)\"$")
+    public void iSetTheNameOfVirtualDimensionIs(String arg0) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @And("^I set the type of virtual dimension is \"([^\"]*)\"$")
+    public void iSetTheTypeOfVirtualDimensionIs(String arg0) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @And("^I set the expression of virtual dimension is \"([^\"]*)\"$")
+    public void iSetTheExpressionOfVirtualDimensionIs(String arg0) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @And("^I validate the syntax of expression$")
+    public void iValidateTheSyntaxOfExpression() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^I should see the result of validation contains \"([^\"]*)\"$")
+    public void iShouldSeeTheResultOfValidationContains(String arg0) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @When("^I save the new virtual dimension$")
+    public void iSaveTheNewVirtualDimension() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^I should see the new virtual dimension \"([^\"]*)\" displayed in DataSet field list$")
+    public void iShouldSeeTheNewVirtualDimensionDisplayedInDataSetFieldList(String arg0) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 }

@@ -14,7 +14,7 @@ import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
 /**
  * Created by yingzhang on 12/05/2017.
  */
-public class DatasetDetailsPage extends Page {
+public class DataSetDetailsPage extends Page {
 
     @FindBy(xpath = "//div[@role='tab'][1]")
     WebElement fieldTab;

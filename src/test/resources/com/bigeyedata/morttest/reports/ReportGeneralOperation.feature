@@ -8,7 +8,7 @@ Feature: The general operation of chart and report
 
   Scenario: Copy and move a chart from current report page to a new report page
     Given I access to "Report" module
-    And I expand the DataSource directory
+    And I expand the Report directory
     And I select Report as following
       | DirectoryName   |ResourceFileName  |
       | 测试报表目录      |复制移动测试报表    |
@@ -63,7 +63,7 @@ Feature: The general operation of chart and report
 
   Scenario: Delete BindingItem, chart and report page
     Given I access to "Report" module
-    And I expand the DataSource directory
+    And I expand the Report directory
     And I select Report as following
       | DirectoryName   | ResourceFileName  |
       | 测试报表目录      | 删除视图测试报表    |
