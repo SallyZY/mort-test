@@ -1,7 +1,6 @@
 package com.bigeyedata.morttest.pages.management_pages;
 
 import com.bigeyedata.morttest.CommonFunctions;
-import com.bigeyedata.morttest.Hooks;
 import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.Page;
 import org.openqa.selenium.By;
@@ -10,7 +9,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
-import java.util.Map;
 
 import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
 
@@ -106,10 +104,10 @@ public class UserConfigPage extends Page{
         CommonFunctions.waitForElementVisible(userFrom);
         userNameInput.clear();
         userNameInput.sendKeys(userName);
-        CommonFunctions.waitAShortTime();
+        CommonFunctions.waitForShortTime();
         emailInput.clear();
         emailInput.sendKeys(email);
-        CommonFunctions.waitAShortTime();
+        CommonFunctions.waitForShortTime();
         phoneInput.clear();
         phoneInput.sendKeys(phone);
 
@@ -120,10 +118,10 @@ public class UserConfigPage extends Page{
         CommonFunctions.waitForElementVisible(userFrom);
         userNameInput.clear();
         userNameInput.sendKeys(userName);
-        CommonFunctions.waitAShortTime();
+        CommonFunctions.waitForShortTime();
         emailInput.clear();
         emailInput.sendKeys(email);
-        CommonFunctions.waitAShortTime();
+        CommonFunctions.waitForShortTime();
 
 
     }
@@ -154,7 +152,7 @@ public class UserConfigPage extends Page{
     }
 
     public void renameRoleName(String roleName) throws InterruptedException {
-        CommonFunctions.waitAShortTime();
+        CommonFunctions.waitForShortTime();
         roleNameInput.clear();
         roleNameInput.sendKeys(roleName);
     }
@@ -186,7 +184,7 @@ public class UserConfigPage extends Page{
         CommonFunctions.waitForElementVisible(group);
         group.click();
         phoneLab.click();
-        CommonFunctions.waitAShortTime();
+        CommonFunctions.waitForShortTime();
     }
 
     public void setNewPassword(String password) throws InterruptedException {
@@ -194,7 +192,7 @@ public class UserConfigPage extends Page{
         passwordModifyModalNewPasswordInput.sendKeys(password);
         CommonFunctions.waitForElementVisible(passwordModifyModalConfirmNewPasswordInput);
         passwordModifyModalConfirmNewPasswordInput.sendKeys(password);
-        CommonFunctions.waitAShortTime();
+        CommonFunctions.waitForShortTime();
 
     }
 

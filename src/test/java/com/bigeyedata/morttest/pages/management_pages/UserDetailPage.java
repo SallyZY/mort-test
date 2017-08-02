@@ -1,11 +1,9 @@
 package com.bigeyedata.morttest.pages.management_pages;
 
 import com.bigeyedata.morttest.CommonFunctions;
-import com.bigeyedata.morttest.Hooks;
 import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.LoginPage;
 import com.bigeyedata.morttest.pages.Page;
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,7 +14,6 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 import java.util.Map;
 
-import static com.bigeyedata.morttest.CommonFunctions.focusElement;
 import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
 
 /**
@@ -166,7 +163,7 @@ public class UserDetailPage extends Page {
             {
                 int n = i + 1;
                 groupInfoTab.findElement(By.cssSelector( "tr:nth-child("+n+") > td:nth-child(4) > i")).click();
-                CommonFunctions.waitAShortTime();
+                CommonFunctions.waitForShortTime();
                 editGroupMenuItem.click();
                 break;
             }else {
@@ -188,7 +185,7 @@ public class UserDetailPage extends Page {
             {
                 int n = i + 1;
                 roleInfoTab.findElement(By.cssSelector( "tr:nth-child("+n+") > td:nth-child(4) > i")).click();
-                CommonFunctions.waitAShortTime();
+                CommonFunctions.waitForShortTime();
                 editRoleMenuItem.click();
                 break;
             }else {
@@ -210,9 +207,9 @@ public class UserDetailPage extends Page {
             {
                 int n = i + 1;
                 groupInfoTab.findElement(By.cssSelector( "tr:nth-child("+n+") > td:nth-child(4) > i")).click();
-                CommonFunctions.waitAShortTime();
+                CommonFunctions.waitForShortTime();
                 deleteGroupMenuItem.click();
-                CommonFunctions.waitAShortTime();
+                CommonFunctions.waitForShortTime();
                 deleteConfirmButton.click();
                 break;
             }else {
@@ -234,9 +231,9 @@ public class UserDetailPage extends Page {
             {
                 int n = i + 1;
                 groupInfoTab.findElement(By.cssSelector( "tr:nth-child("+n+") > td:nth-child(4) > i")).click();
-                CommonFunctions.waitAShortTime();
+                CommonFunctions.waitForShortTime();
                 deleteRoleMenuItem.click();
-                CommonFunctions.waitAShortTime();
+                CommonFunctions.waitForShortTime();
                 deleteConfirmButton.click();
                 break;
             }else {
@@ -257,7 +254,7 @@ public class UserDetailPage extends Page {
             if (text.contains(email)) {
                 int n = i + 1;
                 groupInfoTab.findElement(By.cssSelector( "tr:nth-child("+n+") > td:nth-child(5) > i")).click();
-                CommonFunctions.waitAShortTime();
+                CommonFunctions.waitForShortTime();
                 editUserMenuItem.click();
                 break;
             }else {
@@ -278,7 +275,7 @@ public class UserDetailPage extends Page {
             if (text.contains(email)) {
                 int n = i + 1;
                 groupInfoTab.findElement(By.cssSelector( "tr:nth-child("+n+") > td:nth-child(5) > i")).click();
-                CommonFunctions.waitAShortTime();
+                CommonFunctions.waitForShortTime();
                 modifyPasswordMenuItem.click();
                 break;
             }else {
@@ -328,7 +325,7 @@ public class UserDetailPage extends Page {
             {
                 int n = i + 1;
                 groupInfoTab.findElement(By.cssSelector( "tr:nth-child("+n+") > td:nth-child(4) > i")).click();
-                CommonFunctions.waitAShortTime();
+                CommonFunctions.waitForShortTime();
                 viewMenuItem.click();
                 break;
             }else {

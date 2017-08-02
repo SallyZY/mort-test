@@ -32,6 +32,8 @@ public class DataSetStepdefs {
     DataSetDetailsPage dataSetDetailsPage = PageFactory.initElements(webDriver,DataSetDetailsPage.class);
     DataSourceDetailPage dataSourceDetailPage =PageFactory.initElements(webDriver,DataSourceDetailPage.class);
     RDBPreviewPage rdbPreviewPage=PageFactory.initElements(webDriver,RDBPreviewPage.class);
+    DataSetListPage dataSetListPage =PageFactory.initElements(webDriver,DataSetListPage.class);
+    VirtualFieldPage virtualFieldPage=PageFactory.initElements(webDriver,VirtualFieldPage.class);
 
     List<Map<String, String>> savedFieldAliasList;
     List<Map<String, String>> savedFieldTypeList;
@@ -235,44 +237,38 @@ public class DataSetStepdefs {
 
     @And("^I go to new report page from DataSet detail page$")
     public void iGoToNewReportPageFromDataSetDetailPage() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        dataSetDetailsPage.createNewReport();
     }
 
-    @When("^I want to create a new virtual dimension$")
-    public void iWantToCreateANewVirtualDimension() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @When("^I want to create a new virtual dimension for DataSet \"([^\"]*)\"$")
+    public void iWantToCreateANewVirtualDimension(String dataSetName) throws Throwable {
+        dataSetListPage.openVirtualDimensionDialog(dataSetName);
     }
 
     @And("^I set the name of virtual dimension is \"([^\"]*)\"$")
-    public void iSetTheNameOfVirtualDimensionIs(String arg0) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    public void iSetTheNameOfVirtualDimensionIs(String name) throws Throwable {
+        virtualFieldPage.setVirtualFieldName(name);
     }
 
     @And("^I set the type of virtual dimension is \"([^\"]*)\"$")
-    public void iSetTheTypeOfVirtualDimensionIs(String arg0) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    public void iSetTheTypeOfVirtualDimensionIs(String type) throws Throwable {
+        virtualFieldPage.setVirtualFieldType(type);
     }
 
-    @And("^I set the expression of virtual dimension is \"([^\"]*)\"$")
-    public void iSetTheExpressionOfVirtualDimensionIs(String arg0) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @And("^I set the expression of virtual dimension as following$")
+    public void iSetTheExpressionOfVirtualDimensionIs(List<Map<String,String>> expressionList) throws Throwable {
+        String expression = expressionList.get(0).get("Expression").toString();
+        virtualFieldPage.setExpression(expression);
     }
 
     @And("^I validate the syntax of expression$")
     public void iValidateTheSyntaxOfExpression() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        virtualFieldPage.validateSyntaxOfExpression();
     }
 
-    @Then("^I should see the result of validation contains \"([^\"]*)\"$")
-    public void iShouldSeeTheResultOfValidationContains(String arg0) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @Then("^I should see the result of validation displayed$")
+    public void iShouldSeeTheResultOfValidationContains() throws Throwable {
+        assertThat(virtualFieldPage.isValidateResultDisplayed(),is(true));
     }
 
     @When("^I save the new virtual dimension$")

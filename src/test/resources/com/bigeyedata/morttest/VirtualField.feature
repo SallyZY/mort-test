@@ -13,12 +13,14 @@ Feature: Create virtual dimension and virtual measure
       |  DirectoryName  |  ResourceFileName |
       |  测试数据集目录   |  测试CSV数据集      |
     And I go to new report page from DataSet detail page
-    When I want to create a new virtual dimension
-    And I set the name of virtual dimension is ""
+    When I want to create a new virtual dimension for DataSet "测试CSV数据集"
+    And I set the name of virtual dimension is "VF_开户渠道"
     And I set the type of virtual dimension is "Text"
-    And I set the expression of virtual dimension is ""
+    And I set the expression of virtual dimension as following
+      | Expression                                               |
+      | if($[开户渠道].contains("测试")) "测试维度" else $[开户渠道] |
     And I validate the syntax of expression
-    Then I should see the result of validation contains ""
+    Then I should see the result of validation displayed
 
-    When I save the new virtual dimension
-    Then I should see the new virtual dimension "" displayed in DataSet field list
+#    When I save the new virtual dimension
+#    Then I should see the new virtual dimension "" displayed in DataSet field list

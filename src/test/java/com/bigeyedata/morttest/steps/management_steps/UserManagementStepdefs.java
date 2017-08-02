@@ -4,7 +4,6 @@ import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.management_pages.UserConfigPage;
 import com.bigeyedata.morttest.pages.management_pages.UserDetailPage;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -195,7 +194,7 @@ public class UserManagementStepdefs {
     @Then("^I should see the prompt message is \"([^\"]*)\"$")
     public void iShouldSeeThePromptIs(String prompt) throws Throwable {
         assertTrue(userConfigPage.getMessageNotice().equals(prompt));
-        CommonFunctions.waitAShortTime();
+        CommonFunctions.waitForShortTime();
     }
 
 

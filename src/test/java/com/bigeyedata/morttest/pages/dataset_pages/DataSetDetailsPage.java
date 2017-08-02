@@ -1,6 +1,7 @@
 package com.bigeyedata.morttest.pages.dataset_pages;
 
 import com.bigeyedata.morttest.CommonFunctions;
+import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -52,6 +53,10 @@ public class DataSetDetailsPage extends Page {
     @FindBy(xpath = "//div[@class='ant-modal-content']//p")
     WebElement viewSQLDiv;
 
+    @FindBy(id = "addNewReport")
+    WebElement addNewReportButton;
+
+
     public void clickOtherOptionsMenuItem(String item) throws InterruptedException {
 
         waitForElementVisible(otherOperationMenu);
@@ -76,6 +81,11 @@ public class DataSetDetailsPage extends Page {
         }
     }
 
+    public void createNewReport() throws InterruptedException {
+
+        waitForElementVisible(addNewReportButton);
+        addNewReportButton.click();
+    }
 
     public String getDescriptionOfNewestImportHistory() throws InterruptedException {
 

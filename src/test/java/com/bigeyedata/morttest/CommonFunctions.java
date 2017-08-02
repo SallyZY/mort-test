@@ -110,11 +110,11 @@ public class CommonFunctions {
         WebDriverManager.getDriver().navigate().refresh();
     }
 
-    public static void waitAShortTime() throws InterruptedException {
+    public static void waitForShortTime() throws InterruptedException {
         Thread.sleep(Hooks.getThreadSleepTime());
     }
 
-    public static void waitALongTime() throws InterruptedException {
+    public static void waitForLongTime() throws InterruptedException {
         Thread.sleep(Hooks.getThreadSleepLongTime());
     }
 
@@ -133,10 +133,5 @@ public class CommonFunctions {
         actions.moveToElement(logoutLink);
         logoutLink.click();
 
-
-
-
     }
-
-
 }
