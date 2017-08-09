@@ -1,8 +1,11 @@
 package com.bigeyedata.morttest.pages.dataset_pages;
 
 import com.bigeyedata.morttest.CommonFunctions;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisibleAndLocated;
 
 /**
  * Created by yingzhang on 10/05/2017.
@@ -15,5 +18,6 @@ public class DataSourceSelectPage {
     public void gotoNextStep() throws InterruptedException {
         CommonFunctions.waitForElementVisible(nextStepButton);
         nextStepButton.click();
+        waitForElementVisibleAndLocated(By.cssSelector("#addDataSetPreview > div > div > div > div > div > div > div > table"));
     }
 }

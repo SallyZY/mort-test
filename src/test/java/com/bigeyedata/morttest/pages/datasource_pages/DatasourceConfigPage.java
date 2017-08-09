@@ -130,7 +130,7 @@ public class DatasourceConfigPage extends Page {
 
     public void setHDFSParameter(List<Map<String,String>> HDFSConfigList) throws InterruptedException {
 
-        dataSourceNameInput.sendKeys(HDFSConfigList.get(0).get("DataSourceName").toString());
+        dataSourceNameInput.sendKeys(HDFSConfigList.get(0).get("DataSourceName").toString().trim());
         hdfsPathInput.sendKeys(HDFSConfigList.get(0).get("Path").toString());
         selectDataSourceType(HDFSConfigList.get(0).get("DataSourceType").toString());
 

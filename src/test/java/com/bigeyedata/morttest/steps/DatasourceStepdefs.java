@@ -3,7 +3,7 @@ package com.bigeyedata.morttest.steps;
 import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.ResourceFileListPage;
 import com.bigeyedata.morttest.pages.datasource_pages.DatasourceConfigPage;
-import com.bigeyedata.morttest.pages.datasource_pages.DatasourceDetailPage;
+import com.bigeyedata.morttest.pages.datasource_pages.DataSourceDetailPage;
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
@@ -25,7 +25,7 @@ public class DatasourceStepdefs {
 
     WebDriver webDriver= WebDriverManager.getDriver();
     DatasourceConfigPage datasourceConfigPage= PageFactory.initElements(webDriver,DatasourceConfigPage.class);
-    DatasourceDetailPage datasourceDetailPage= PageFactory.initElements(webDriver,DatasourceDetailPage.class);
+    DataSourceDetailPage datasourceDetailPage= PageFactory.initElements(webDriver,DataSourceDetailPage.class);
 
     @And("^I want to create a RDB dataSource with configuration as following$")
     public void iWantToCreateARDBDatasourceWithConfigurationAsFollowing(List<Map<String,String>> RDBConfigList) throws Throwable {

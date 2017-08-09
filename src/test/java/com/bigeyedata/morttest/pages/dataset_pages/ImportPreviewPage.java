@@ -51,7 +51,7 @@ public class ImportPreviewPage extends Page {
     public void inputDatasetName(String dataSetName){
 
         dataSetNameInput.clear();
-        dataSetNameInput.sendKeys(dataSetName);
+        dataSetNameInput.sendKeys(dataSetName.trim());
     }
 
     public void gotoDateFieldPreviewTab()

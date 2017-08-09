@@ -24,7 +24,7 @@ public class FieldEditPage extends Page {
 
     public void setFieldsAlias(List<Map<String,String>> fieldsAliasList) throws InterruptedException {
 
-        waitForElementVisibleAndLocated(By.cssSelector("#addDataSetPreview > div > div > div > div > div > div > div > table"));
+//        waitForElementVisibleAndLocated(By.cssSelector("#addDataSetPreview > div > div > div > div > div > div > div > table"));
 
 
         List<WebElement> fieldNameLabelList = FieldViewTable.findElements(By.cssSelector("div.DataSetFieldsEditorField > span"));

@@ -62,6 +62,7 @@ public class DataSourceDetailPage extends Page {
     public void CreateNewDatasetFromDatasource(){
 
         createNewDatasetButton.click();
+
     }
 
     public void goToRDBEditPage(String title) throws InterruptedException {

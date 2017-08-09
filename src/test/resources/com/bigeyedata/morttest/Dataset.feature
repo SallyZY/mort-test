@@ -72,6 +72,35 @@ Feature: Create,view DataSet
       |  DatasetName    |
       |  测试ES数据集   |
 
+  Scenario: Create a new HDFS DataSet from a specified DataSource
+    Given I access to "DataSource" module
+    And I expand the DataSource directory
+    And I select DataSource as following
+      |  DirectoryName  |  ResourceFileName     |
+      |  测试数据源目录   |  测试HDFS_parquet数据源|
+    And I click create new DataSet button on DataSource page
+    And I go to DataSet import preview page
+    And I click date fields preview table
+    And I give the name of DataSet is "测试HDFS_parquet数据集"
+    And I select the saved directory of DataSet is "测试数据集目录"
+    When I save the new DataSet
+    Then I should see the DataSet "测试HDFS_parquet数据集" displayed in directory
+    And I should see the number of DataSet fields is "7"
+
+    And I access to "DataSource" module
+    And I expand the DataSource directory
+    And I select DataSource as following
+      |  DirectoryName  |  ResourceFileName     |
+      |  测试数据源目录   |  测试HDFS_orc数据源     |
+    And I click create new DataSet button on DataSource page
+    And I go to DataSet import preview page
+    And I click date fields preview table
+    And I give the name of DataSet is "测试HDFS_orc数据源"
+    And I select the saved directory of DataSet is "测试数据集目录"
+    When I save the new DataSet
+    Then I should see the DataSet "测试HDFS_orc数据源" displayed in directory
+    And I should see the number of DataSet fields is "29"
+
 
 
   Scenario: Create RDB DataSet from a specified DataSource with import connection mode

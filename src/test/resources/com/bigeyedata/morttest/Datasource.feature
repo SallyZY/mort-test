@@ -34,10 +34,16 @@ Feature: Create DataSource
     And I expand the DataSource directory
     And I select DataSource directory "测试数据源目录"
     And I want to create a HDFS DataSource with configuration as following
-    | DataSourceName | DataSourceType  | Path                                 |
-    | 测试HDFS数据源　 | Parquet         |/home/u-123/bigeye/mort/parquet/aline |
+      | DataSourceName       | DataSourceType   | Path                                                                          |
+      | 测试HDFS_parquet数据源| Parquet          |/Users/liaoyuxue/Bigeye/mort-test/src/test/resources/test-files/bigeye_parquet |
     When I click save button on HDFS dataSource configuration page
-    Then I should see the DataSource "测试HDFS数据源" displayed in directory
+    Then I should see the DataSource "测试HDFS_parquet数据源" displayed in directory
+
+    And I want to create a HDFS DataSource with configuration as following
+      | DataSourceName   | DataSourceType   | Path                                                                          |
+      | 测试HDFS_orc数据源| Orc              |/Users/liaoyuxue/Bigeye/mort-test/src/test/resources/test-files/airline-orc |
+    When I click save button on HDFS dataSource configuration page
+    Then I should see the DataSource "测试HDFS_orc数据源" displayed in directory
 
 
   Scenario: Create a new es dataSource
