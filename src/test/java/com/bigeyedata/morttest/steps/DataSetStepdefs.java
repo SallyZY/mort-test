@@ -5,12 +5,17 @@ import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.DirectoryPage;
 import com.bigeyedata.morttest.pages.ResourceFileListPage;
 import com.bigeyedata.morttest.pages.dataset_pages.*;
+<<<<<<< Updated upstream:src/test/java/com/bigeyedata/morttest/steps/DataSetStepdefs.java
 import com.bigeyedata.morttest.pages.datasource_pages.DataSourceDetailPage;
+=======
+import com.bigeyedata.morttest.pages.datasource_pages.DatasourceDetailPage;
+>>>>>>> Stashed changes:src/test/java/com/bigeyedata/morttest/steps/DatasetStepdefs.java
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -19,6 +24,7 @@ import java.util.Map;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by yingzhang on 09/05/2017.
@@ -281,5 +287,20 @@ public class DataSetStepdefs {
     public void iShouldSeeTheNewVirtualDimensionDisplayedInDataSetFieldList(String arg0) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
+    }
+
+    @When("^I rename the DataSet name \"([^\"]*)\"$")
+    public void iRenameTheDataSetName(String newDataSetName) throws Throwable {
+        datasetDetailsPage.reNameDataSet(newDataSetName);
+    }
+
+    @When("^I modify the alias of fields for DataSet on detail page \"([^\"]*)\"$")
+    public void iModifyTheAliasOfFieldsForDataSetOnDetailPage(String fieldsAlias) throws Throwable {
+        datasetDetailsPage.modifyFieldsAlias(fieldsAlias);
+    }
+
+    @Then("^I should see the alias of fields for DataSet is \"([^\"]*)\"$")
+    public void iShouldSeeTheAliasOfFieldsForDataSetIs(String fieldsAlias) throws Throwable {
+        assertTrue(datasetDetailsPage.checkFieldsAlias(fieldsAlias));
     }
 }

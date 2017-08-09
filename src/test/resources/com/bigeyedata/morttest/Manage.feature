@@ -69,7 +69,7 @@ Feature:Create user,user group,role
       | test_rename  | email_rename@bigeyedata.com|
     When I save the user
     Then I should see the email "email_rename@bigeyedata.com" in user list
-    And I should see the user name "test" in user list
+    And I should see the user name "test_rename" in user list
 
     When I access to set password page of email is "email_rename@bigeyedata.com"
     And I set a new password "qwer1234"

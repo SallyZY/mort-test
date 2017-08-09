@@ -51,6 +51,29 @@ Feature: Create,view DataSet
       |  测试CSV数据集   |
 
 
+  Scenario: Create a new ES DataSet from a specified DataSource
+    Given I access to "DataSource" module
+    And I expand the DataSource directory
+    And I select DataSource as following
+      |  DirectoryName  |  ResourceFileName     |
+      |  测试数据源目录   |  测试ES数据源         |
+    And I click create new DataSet button on DataSource page
+    And I go to DataSet import preview page
+    And I click date fields preview table
+    And I give the name of DataSet is "测试ES数据集"
+    And I select the saved directory of DataSet is "测试数据集目录"
+    When I save the new DataSet
+    Then I should see the DataSet "测试ES数据集" displayed in directory
+    And I should see the number of DataSet fields is "11"
+
+    When  I click "ViewDataSource" item from other operation dropdown menu
+    Then  I should locate to the DataSource "测试ES数据源"
+    And   I should see the related DataSet as following
+      |  DatasetName    |
+      |  测试ES数据集   |
+
+
+
   Scenario: Create RDB DataSet from a specified DataSource with import connection mode
     Given I access to "DataSource" module
     And I expand the DataSource directory
@@ -147,6 +170,32 @@ Feature: Create,view DataSet
     When I add field to the DataSet
     Then I should see the number of DataSet fields is "5"
     And I should see the add field import record is displayed
+
+
+
+  Scenario: Rename the dataset AND Modify the alias of fields
+    Given I access to "DataSource" module
+    And I expand the DataSource directory
+    And I select DataSource as following
+      |  DirectoryName  |  ResourceFileName     |
+      |  测试数据源目录   |  测试MySQL数据源        |
+    And I click create new DataSet button on DataSource page
+    And I give the name of DataSet is "测试MySQL数据集"
+    And I select the saved directory of DataSet is "测试数据集目录"
+    And I set the DataSet connection mode is "直连"
+    And I input SQL is "select * from bank_records"
+    And I preview the query result of SQL
+    And I go to DataSet import preview page
+    And I save the new DataSet
+
+    When I rename the DataSet name "测试MySQL数据集_ 重命名"
+    Then I should see the DataSet "测试MySQL数据集_ 重命名" displayed in directory
+
+    When I modify the alias of fields for DataSet on detail page "CDate_AliasName"
+    Then I should see the alias of fields for DataSet is "CDate_AliasName"
+
+
+
 
 
 

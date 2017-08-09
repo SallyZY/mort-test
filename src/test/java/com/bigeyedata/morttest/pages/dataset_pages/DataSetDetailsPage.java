@@ -4,13 +4,16 @@ import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.Page;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.internal.FindsByCssSelector;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 import java.util.Map;
 
 import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
+import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisibleAndLocated;
 
 /**
  * Created by yingzhang on 12/05/2017.
@@ -53,9 +56,33 @@ public class DataSetDetailsPage extends Page {
     @FindBy(xpath = "//div[@class='ant-modal-content']//p")
     WebElement viewSQLDiv;
 
+<<<<<<< Updated upstream:src/test/java/com/bigeyedata/morttest/pages/dataset_pages/DataSetDetailsPage.java
     @FindBy(id = "addNewReport")
     WebElement addNewReportButton;
 
+=======
+    @FindBy(css = "#resourceListMenuContainerMenu > li.ant-menu-item-selected.ant-menu-item > div > span > span.item-left > span > input")
+    WebElement dataSetNameInput;
+
+    @FindBy(css = "#resourceListMenuContainerMenu > li.ant-menu-item-selected.ant-menu-item > div > span > span.item-right > i.iconfont.icon-vertical-menu.operation-menu-trigger.ant-dropdown-trigger")
+    WebElement operationMenuIcon;
+
+    @FindBy(css = "#resourceListMenuContainerMenu > li.ant-menu-item-selected.ant-menu-item > div > span > span.item-right")
+    WebElement operationMenuspan;
+
+//    @FindBy(css = "body > div:nth-child(10) > div > div > ul > li:nth-child(1)")
+    @FindBy(css = "ul.ant-dropdown-menu.ant-dropdown-menu-vertical.data-sets-resource-list-item-operation-menu.ant-dropdown-menu-light.ant-dropdown-menu-root > li:nth-child(1)")
+    WebElement reNameIcon;
+
+    @FindBy(css = "#fieldsDisplay > div > div > div > div > div > div > table")
+    WebElement FieldViewTable;
+
+    @FindBy(css = "div.ant-popover-inner > div > div.ant-popover-inner-content > div > input")
+    WebElement fieldsAliasInput;
+
+    @FindBy(css = "div.ant-popover-inner > div > div.ant-popover-inner-content > div > div > button.ant-btn.ant-btn-primary.ant-btn-sm > span")
+    WebElement fieldsAliasConfirmButton;
+>>>>>>> Stashed changes:src/test/java/com/bigeyedata/morttest/pages/dataset_pages/DatasetDetailsPage.java
 
     public void clickOtherOptionsMenuItem(String item) throws InterruptedException {
 
@@ -149,4 +176,41 @@ public class DataSetDetailsPage extends Page {
         waitForElementVisible(viewSQLDiv);
         return viewSQLDiv.getText();
     }
+
+
+    public void reNameDataSet(String newName) throws InterruptedException {
+        CommonFunctions.mouseOverAtCoordinates(operationMenuspan,18,21);
+        CommonFunctions.waitForElementVisible(operationMenuIcon);
+        operationMenuIcon.click();
+        CommonFunctions.waitForElementVisible(reNameIcon);
+        reNameIcon.click();
+        dataSetNameInput.clear();
+        dataSetNameInput.sendKeys(newName);
+        dataSetNameInput.sendKeys(Keys.ENTER);
+    }
+
+    public void modifyFieldsAlias(String fieldsAlias) throws InterruptedException {
+
+        CommonFunctions.waitForElementVisible(FieldViewTable);
+
+        WebElement CDate = FieldViewTable.findElement(By.cssSelector("tbody > tr:nth-child(1) > td:nth-child(3)"));
+
+
+        CommonFunctions.mouseOverAtCoordinates(CDate,30,15);
+        CDate.findElement(By.cssSelector("div > i")).click();
+        CommonFunctions.waitForElementVisible(fieldsAliasInput);
+        fieldsAliasInput.clear();
+        fieldsAliasInput.sendKeys(fieldsAlias);
+        CommonFunctions.waitAShortTime();
+        fieldsAliasConfirmButton.click();
+
+    }
+
+    public Boolean checkFieldsAlias(String fieldsAlias) throws InterruptedException {
+
+        Boolean flg;
+        flg = FieldViewTable.findElement(By.cssSelector("tbody > tr:nth-child(1) > td:nth-child(3)")).getText().equals(fieldsAlias) ;
+        return flg;
+    }
+
 }

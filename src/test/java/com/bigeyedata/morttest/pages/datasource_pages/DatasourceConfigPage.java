@@ -61,11 +61,33 @@ public class DatasourceConfigPage extends Page {
     @FindBy(xpath = "//div[@id='editDataSourceModal']//input[@id='path']")
     WebElement hdfsPathInput;
 
+    @FindBy(id = "nodes")
+    WebElement esNodesInput;
+
+    @FindBy(id = "index")
+    WebElement esIndexInput;
+
+    @FindBy(id = "_type")
+    WebElement esTypeInput;
+
+    @FindBy(id = "port")
+    WebElement esPortInput;
+
+    @FindBy(id = "wan")
+    WebElement esWanSwitch;
+
+
 
     public void selectRDBType() throws InterruptedException {
 
         CommonFunctions.waitForElementClickable(RDBTypeLink);
         RDBTypeLink.click();
+    }
+
+
+    public void selectESType() throws InterruptedException {
+        CommonFunctions.waitForElementVisible(ESTypeLink);
+        ESTypeLink.click();
     }
 
 
@@ -80,6 +102,21 @@ public class DatasourceConfigPage extends Page {
         selectDataSourceType(RDBConfigList.get(0).get("DataSourceType").toString());
     }
 
+    public void modifyRDBParameter(List<Map<String,String>> RDBConfigList) throws InterruptedException {
+        dataSourceNameInput.clear();
+        dataSourceNameInput.sendKeys(RDBConfigList.get(0).get("DataSourceName").toString());
+        hostInput.clear();
+        hostInput.sendKeys(RDBConfigList.get(0).get("Host").toString());
+        portInput.clear();
+        portInput.sendKeys(RDBConfigList.get(0).get("Port").toString());
+        userInput.clear();
+        userInput.sendKeys(RDBConfigList.get(0).get("User").toString());
+        passwordInput.clear();
+        passwordInput.sendKeys(RDBConfigList.get(0).get("Password").toString());
+    }
+
+
+
     public void createDataSource(){
 
         DataSourceSaveButton.click();
@@ -91,7 +128,7 @@ public class DatasourceConfigPage extends Page {
         HDFSTypeLink.click();
     }
 
-    public  void setHDFSParameter(List<Map<String,String>> HDFSConfigList) throws InterruptedException {
+    public void setHDFSParameter(List<Map<String,String>> HDFSConfigList) throws InterruptedException {
 
         dataSourceNameInput.sendKeys(HDFSConfigList.get(0).get("DataSourceName").toString());
         hdfsPathInput.sendKeys(HDFSConfigList.get(0).get("Path").toString());
@@ -105,6 +142,22 @@ public class DatasourceConfigPage extends Page {
         WebElement dataSourceType = WebDriverManager.getDriver().findElement(By.xpath("//div/ul[@class='ant-select-dropdown-menu ant-select-dropdown-menu-vertical  ant-select-dropdown-menu-root']/li[text()='" + typeName + "']"));
         CommonFunctions.waitForElementVisible(dataSourceType);
         dataSourceType.click();
+    }
+
+    public void setESParameter(List<Map<String,String>> ESConfigList){
+
+        dataSourceNameInput.sendKeys(ESConfigList.get(0).get("DataSourceName").toString());
+        esNodesInput.sendKeys(ESConfigList.get(0).get("Nodes").toString());
+        esIndexInput.sendKeys(ESConfigList.get(0).get("Index").toString());
+        esTypeInput.sendKeys(ESConfigList.get(0).get("Type").toString());
+        esPortInput.sendKeys(ESConfigList.get(0).get("Port").toString());
+
+    }
+
+    public void openWanSwitch(){
+
+        esWanSwitch.click();
+
     }
 
 }
