@@ -3,6 +3,7 @@ package com.bigeyedata.morttest.pages.dataset_pages;
 import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.Page;
+import com.bigeyedata.morttest.tests.test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -56,11 +57,9 @@ public class DataSetDetailsPage extends Page {
     @FindBy(xpath = "//div[@class='ant-modal-content']//p")
     WebElement viewSQLDiv;
 
-<<<<<<< Updated upstream:src/test/java/com/bigeyedata/morttest/pages/dataset_pages/DataSetDetailsPage.java
     @FindBy(id = "addNewReport")
     WebElement addNewReportButton;
 
-=======
     @FindBy(css = "#resourceListMenuContainerMenu > li.ant-menu-item-selected.ant-menu-item > div > span > span.item-left > span > input")
     WebElement dataSetNameInput;
 
@@ -82,7 +81,6 @@ public class DataSetDetailsPage extends Page {
 
     @FindBy(css = "div.ant-popover-inner > div > div.ant-popover-inner-content > div > div > button.ant-btn.ant-btn-primary.ant-btn-sm > span")
     WebElement fieldsAliasConfirmButton;
->>>>>>> Stashed changes:src/test/java/com/bigeyedata/morttest/pages/dataset_pages/DatasetDetailsPage.java
 
     public void clickOtherOptionsMenuItem(String item) throws InterruptedException {
 
@@ -201,7 +199,7 @@ public class DataSetDetailsPage extends Page {
         CommonFunctions.waitForElementVisible(fieldsAliasInput);
         fieldsAliasInput.clear();
         fieldsAliasInput.sendKeys(fieldsAlias);
-        CommonFunctions.waitAShortTime();
+        CommonFunctions.waitForShortTime();
         fieldsAliasConfirmButton.click();
 
     }

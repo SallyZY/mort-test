@@ -5,11 +5,7 @@ import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.DirectoryPage;
 import com.bigeyedata.morttest.pages.ResourceFileListPage;
 import com.bigeyedata.morttest.pages.dataset_pages.*;
-<<<<<<< Updated upstream:src/test/java/com/bigeyedata/morttest/steps/DataSetStepdefs.java
 import com.bigeyedata.morttest.pages.datasource_pages.DataSourceDetailPage;
-=======
-import com.bigeyedata.morttest.pages.datasource_pages.DatasourceDetailPage;
->>>>>>> Stashed changes:src/test/java/com/bigeyedata/morttest/steps/DatasetStepdefs.java
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -291,16 +287,16 @@ public class DataSetStepdefs {
 
     @When("^I rename the DataSet name \"([^\"]*)\"$")
     public void iRenameTheDataSetName(String newDataSetName) throws Throwable {
-        datasetDetailsPage.reNameDataSet(newDataSetName);
+        dataSetDetailsPage.reNameDataSet(newDataSetName);
     }
 
     @When("^I modify the alias of fields for DataSet on detail page \"([^\"]*)\"$")
     public void iModifyTheAliasOfFieldsForDataSetOnDetailPage(String fieldsAlias) throws Throwable {
-        datasetDetailsPage.modifyFieldsAlias(fieldsAlias);
+        dataSetDetailsPage.modifyFieldsAlias(fieldsAlias);
     }
 
     @Then("^I should see the alias of fields for DataSet is \"([^\"]*)\"$")
     public void iShouldSeeTheAliasOfFieldsForDataSetIs(String fieldsAlias) throws Throwable {
-        assertTrue(datasetDetailsPage.checkFieldsAlias(fieldsAlias));
+        assertTrue(dataSetDetailsPage.checkFieldsAlias(fieldsAlias));
     }
 }
