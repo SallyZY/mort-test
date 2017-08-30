@@ -247,7 +247,7 @@ public class DataSetStepdefs {
         dataSetListPage.openVirtualDimensionDialog(dataSetName);
     }
 
-    @And("^I set the name of virtual dimension is \"([^\"]*)\"$")
+    @And("^I set the name of virtual (?:dimension|measure) is \"([^\"]*)\"$")
     public void iSetTheNameOfVirtualDimensionIs(String name) throws Throwable {
         virtualFieldPage.setVirtualFieldName(name);
     }
@@ -257,7 +257,7 @@ public class DataSetStepdefs {
         virtualFieldPage.setVirtualFieldType(type);
     }
 
-    @And("^I set the expression of virtual dimension as following$")
+    @And("^I set the expression of virtual (?:dimension|measure) as following$")
     public void iSetTheExpressionOfVirtualDimensionIs(List<Map<String,String>> expressionList) throws Throwable {
         String expression = expressionList.get(0).get("Expression").toString();
         virtualFieldPage.setExpression(expression);
@@ -273,16 +273,15 @@ public class DataSetStepdefs {
         assertThat(virtualFieldPage.isValidateResultDisplayed(),is(true));
     }
 
-    @When("^I save the new virtual dimension$")
+    @When("^I save the new virtual (?:dimension|measure)$")
     public void iSaveTheNewVirtualDimension() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        virtualFieldPage.saveVirtualDimension();
+
     }
 
-    @Then("^I should see the new virtual dimension \"([^\"]*)\" displayed in DataSet field list$")
-    public void iShouldSeeTheNewVirtualDimensionDisplayedInDataSetFieldList(String arg0) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @Then("^I should see the new virtual (?:dimension|measure) \"([^\"]*)\" displayed in DataSet field list$")
+    public void iShouldSeeTheNewVirtualDimensionDisplayedInDataSetFieldList(String fieldName) throws Throwable {
+        assertTrue(dataSetListPage.getFieldList().contains(fieldName));
     }
 
     @When("^I rename the DataSet name \"([^\"]*)\"$")
@@ -298,5 +297,15 @@ public class DataSetStepdefs {
     @Then("^I should see the alias of fields for DataSet is \"([^\"]*)\"$")
     public void iShouldSeeTheAliasOfFieldsForDataSetIs(String fieldsAlias) throws Throwable {
         assertTrue(dataSetDetailsPage.checkFieldsAlias(fieldsAlias));
+    }
+
+    @When("^I want to create a new virtual measure for DataSet \"([^\"]*)\"$")
+    public void iWantToCreateANewVirtualMeasureForDataSet(String dataSetName) throws Throwable {
+        dataSetListPage.openVirtualMeasureDialog(dataSetName);
+    }
+
+    @Then("^I should see the new virtual dimension \"([^\"]*)\" displayed in DataSet field table$")
+    public void iShouldSeeTheNewVirtualDimensionDisplayedInDataSetFieldTable(String arg0) throws Throwable {
+        assertTrue(dataSetDetailsPage.getFieldList(arg0));
     }
 }
