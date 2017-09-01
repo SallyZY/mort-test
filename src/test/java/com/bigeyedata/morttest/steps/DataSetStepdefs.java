@@ -13,7 +13,6 @@ import java.util.Map;
 
 import static com.bigeyedata.morttest.SeeThruUtils.currentPage;
 import static com.bigeyedata.morttest.SeeThruUtils.onPage;
-import static com.bigeyedata.morttest.SeeThruUtils.onPage;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
@@ -22,10 +21,6 @@ import static org.junit.Assert.assertTrue;
  * Created by yingzhang on 09/05/2017.
  */
 public class DataSetStepdefs {
-
-    DataSetDetailsPage dataSetDetailsPage = onPage(DataSetDetailsPage.class);
-    VirtualFieldPage virtualFieldPage =onPage(VirtualFieldPage.class);
-    DataSetListPage dataSetListPage=onPage(DataSetListPage.class);
 
     List<Map<String, String>> savedFieldAliasList;
     List<Map<String, String>> savedFieldTypeList;
@@ -219,73 +214,73 @@ public class DataSetStepdefs {
 
     @And("^I go to new report page from DataSet detail page$")
     public void iGoToNewReportPageFromDataSetDetailPage() throws Throwable {
-        dataSetDetailsPage.createNewReport();
+        onPage(DataSetDetailsPage.class).createNewReport();
     }
 
     @When("^I want to create a new virtual dimension for DataSet \"([^\"]*)\"$")
     public void iWantToCreateANewVirtualDimension(String dataSetName) throws Throwable {
-        dataSetListPage.openVirtualDimensionDialog(dataSetName);
+        onPage(DataSetListPage.class).openVirtualDimensionDialog(dataSetName);
     }
 
     @And("^I set the name of virtual (?:dimension|measure) is \"([^\"]*)\"$")
     public void iSetTheNameOfVirtualDimensionIs(String name) throws Throwable {
-        virtualFieldPage.setVirtualFieldName(name);
+        onPage(VirtualFieldPage.class).setVirtualFieldName(name);
     }
 
     @And("^I set the type of virtual dimension is \"([^\"]*)\"$")
     public void iSetTheTypeOfVirtualDimensionIs(String type) throws Throwable {
-        virtualFieldPage.setVirtualFieldType(type);
+        onPage(VirtualFieldPage.class).setVirtualFieldType(type);
     }
 
     @And("^I set the expression of virtual (?:dimension|measure) as following$")
     public void iSetTheExpressionOfVirtualDimensionIs(List<Map<String,String>> expressionList) throws Throwable {
         String expression = expressionList.get(0).get("Expression").toString();
-        virtualFieldPage.setExpression(expression);
+        onPage(VirtualFieldPage.class).setExpression(expression);
     }
 
     @And("^I validate the syntax of expression$")
     public void iValidateTheSyntaxOfExpression() throws Throwable {
-        virtualFieldPage.validateSyntaxOfExpression();
+        onPage(VirtualFieldPage.class).validateSyntaxOfExpression();
     }
 
     @Then("^I should see the result of validation displayed$")
     public void iShouldSeeTheResultOfValidationContains() throws Throwable {
-        assertThat(virtualFieldPage.isValidateResultDisplayed(),is(true));
+        assertThat(onPage(VirtualFieldPage.class).isValidateResultDisplayed(),is(true));
     }
 
     @When("^I save the new virtual (?:dimension|measure)$")
     public void iSaveTheNewVirtualDimension() throws Throwable {
-        virtualFieldPage.saveVirtualDimension();
+        onPage(VirtualFieldPage.class).saveVirtualDimension();
 
     }
 
     @Then("^I should see the new virtual (?:dimension|measure) \"([^\"]*)\" displayed in DataSet field list$")
     public void iShouldSeeTheNewVirtualDimensionDisplayedInDataSetFieldList(String fieldName) throws Throwable {
-        assertTrue(dataSetListPage.getFieldList().contains(fieldName));
+        assertTrue(onPage(DataSetListPage.class).getFieldList().contains(fieldName));
     }
 
     @When("^I rename the DataSet name \"([^\"]*)\"$")
     public void iRenameTheDataSetName(String newDataSetName) throws Throwable {
-        dataSetDetailsPage.reNameDataSet(newDataSetName);
+        onPage(DataSetDetailsPage.class).reNameDataSet(newDataSetName);
     }
 
-    @When("^I modify the alias of fields for DataSet on detail page \"([^\"]*)\"$")
+    @When("^I modify the alias of field for DataSet on detail page \"([^\"]*)\"$")
     public void iModifyTheAliasOfFieldsForDataSetOnDetailPage(String fieldsAlias) throws Throwable {
-        dataSetDetailsPage.modifyFieldsAlias(fieldsAlias);
+        onPage(DataSetDetailsPage.class).modifyFieldAlias(fieldsAlias);
     }
 
-    @Then("^I should see the alias of fields for DataSet is \"([^\"]*)\"$")
-    public void iShouldSeeTheAliasOfFieldsForDataSetIs(String fieldsAlias) throws Throwable {
-        assertTrue(dataSetDetailsPage.checkFieldsAlias(fieldsAlias));
+    @Then("^I should see the alias of field for DataSet is \"([^\"]*)\"$")
+    public void iShouldSeeTheAliasOfFieldsForDataSetIs(String fieldAlias) throws Throwable {
+        assertThat(onPage(DataSetDetailsPage.class).getFieldAlias(),is(fieldAlias));
     }
 
     @When("^I want to create a new virtual measure for DataSet \"([^\"]*)\"$")
     public void iWantToCreateANewVirtualMeasureForDataSet(String dataSetName) throws Throwable {
-        dataSetListPage.openVirtualMeasureDialog(dataSetName);
+        onPage(DataSetListPage.class).openVirtualMeasureDialog(dataSetName);
     }
 
     @Then("^I should see the new virtual dimension \"([^\"]*)\" displayed in DataSet field table$")
     public void iShouldSeeTheNewVirtualDimensionDisplayedInDataSetFieldTable(String arg0) throws Throwable {
-        assertTrue(dataSetDetailsPage.getFieldList(arg0));
+        assertTrue(onPage(DataSetDetailsPage.class).getFieldList(arg0));
     }
 }

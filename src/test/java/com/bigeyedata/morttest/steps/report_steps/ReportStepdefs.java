@@ -15,31 +15,29 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 import java.util.Map;
 
+import static com.bigeyedata.morttest.SeeThruUtils.currentPage;
+import static com.bigeyedata.morttest.SeeThruUtils.onPage;
+
 /**
  * Created by yingzhang on 19/05/2017.
  */
 public class ReportStepdefs {
 
-    WebDriver webDriver= WebDriverManager.getDriver();
-    ReportWorkSpacePage reportWorkSpacePage=PageFactory.initElements(webDriver,ReportWorkSpacePage.class);
-
     @Given("^I open report edit page$")
     public void iOpenReportEditPage() throws Throwable {
-
-        ReportPreviewPage reportPreviewPage = PageFactory.initElements(webDriver,ReportPreviewPage.class);
-        reportPreviewPage.gotoReportEditPage();
+        onPage(ReportPreviewPage.class).gotoReportEditPage();
     }
 
     @When("^I save the report$")
     public void iSaveTheReport() throws Throwable {
 
-        reportWorkSpacePage.saveReport();
+        onPage(ReportWorkSpacePage.class).saveReport();
     }
 
     @When("^I return to report preview page$")
     public void iReturnToReportPreviewPage() throws Throwable {
 
-        reportWorkSpacePage.backToPreviewReport();
+        onPage(ReportWorkSpacePage.class).backToPreviewReport();
     }
 
     @Then("^I Should see the style setting is saved$")
@@ -51,48 +49,47 @@ public class ReportStepdefs {
     @And("^I go to the report page \"([^\"]*)\"$")
     public void iGoToTheReportPage(String pageName) throws Throwable {
 
-        reportWorkSpacePage.gotoReportPageByName(pageName);
+        onPage(ReportWorkSpacePage.class).gotoReportPageByName(pageName);
     }
 
     @And("^I copy the chart with index is \"([^\"]*)\"$")
     public void iCopyTheLineChart(String chartIndex) throws Throwable {
 
-        reportWorkSpacePage.copyChart(Integer.parseInt(chartIndex));
+        onPage(ReportWorkSpacePage.class).copyChart(Integer.parseInt(chartIndex));
     }
 
     @And("^I move the chart with index is \"([^\"]*)\" to report page \"([^\"]*)\"$")
     public void iMoveTheCopiedChartToReportPage(String chartIndex, String pageName) throws Throwable {
 
-        reportWorkSpacePage.moveChart(Integer.parseInt(chartIndex),pageName);
+        onPage(ReportWorkSpacePage.class).moveChart(Integer.parseInt(chartIndex),pageName);
     }
 
     @And("^I create a new report page$")
     public void iCreateANewReportPage() throws Throwable {
 
-        reportWorkSpacePage.addNewReportPage();
+        onPage(ReportWorkSpacePage.class).addNewReportPage();
     }
 
     @And("^I rename the report page \"([^\"]*)\" to \"([^\"]*)\"$")
     public void iRenameTheReportPageTo(String originName, String newName) throws Throwable {
 
-        reportWorkSpacePage.renameReportPage(originName, newName);
+        onPage(ReportWorkSpacePage.class).renameReportPage(originName, newName);
     }
 
     @And("^I select the (?:Pie|Line) chart with index is \"([^\"]*)\"$")
     public void iSelectTheChartWithIndexIs(String chartIndex) throws Throwable {
 
-        reportWorkSpacePage.selectChartByIndex(Integer.parseInt(chartIndex));
+        onPage(ReportWorkSpacePage.class).selectChartByIndex(Integer.parseInt(chartIndex));
     }
 
     @And("^I save as the report as following$")
     public void iSaveAsTheReportAsFollowing(List<Map<String, String>> reportInfoList) throws Throwable {
 
-        reportWorkSpacePage.clickSaveAsMenu();
-        reportWorkSpacePage.inputReportSavedName(reportInfoList.get(0).get("ReportName").toString());
+        onPage(ReportWorkSpacePage.class).clickSaveAsMenu();
+        onPage(ReportWorkSpacePage.class).inputReportSavedName(reportInfoList.get(0).get("ReportName").toString());
 
-        DirectoryPanel directoryPanel = PageFactory.initElements(webDriver,DirectoryPanel.class);
-        directoryPanel.selectSavedDirectoryByName(reportInfoList.get(0).get("Directory").toString());
+        currentPage().dirPanel.selectSavedDirectoryByName(reportInfoList.get(0).get("Directory").toString());
 
-        reportWorkSpacePage.clickSaveReportButtonOnDialog();
+        onPage(ReportWorkSpacePage.class).clickSaveReportButtonOnDialog();
     }
 }

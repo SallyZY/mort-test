@@ -57,7 +57,7 @@ public class RDBPreviewPage extends Page {
     @FindBy(id = "addDataSetName")
     WebElement dataSetNameInput;
 
-    @FindBy(css = "div.directory-selector > span.ant-select-lg.ant-select.ant-select-disabled")
+    @FindBy(css = "div.directory-selector > span.ant-select.ant-select-disabled")
     WebElement dataSetDirectorySpan;
 
     @FindBy(css = "#addDataSetPreview > div > div > div > div > div > div > div > table")

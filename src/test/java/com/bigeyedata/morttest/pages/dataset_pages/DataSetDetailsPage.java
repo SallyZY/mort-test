@@ -1,20 +1,17 @@
 package com.bigeyedata.morttest.pages.dataset_pages;
 
 import com.bigeyedata.morttest.CommonFunctions;
-import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.Page;
-import com.bigeyedata.morttest.tests.test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.internal.FindsByCssSelector;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 import java.util.Map;
 
+import static com.bigeyedata.morttest.CommonFunctions.refresh;
 import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
-import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisibleAndLocated;
 
 /**
  * Created by yingzhang on 12/05/2017.
@@ -190,7 +187,7 @@ public class DataSetDetailsPage extends Page {
         dataSetNameInput.sendKeys(Keys.ENTER);
     }
 
-    public void modifyFieldsAlias(String fieldsAlias) throws InterruptedException {
+    public void modifyFieldAlias(String fieldsAlias) throws InterruptedException {
 
         CommonFunctions.waitForElementVisible(FieldViewTable);
 
@@ -205,13 +202,12 @@ public class DataSetDetailsPage extends Page {
         CommonFunctions.waitForShortTime();
         fieldsAliasConfirmButton.click();
 
+        refresh();
     }
 
-    public Boolean checkFieldsAlias(String fieldsAlias) throws InterruptedException {
-
-        Boolean flg;
-        flg = FieldViewTable.findElement(By.cssSelector("tbody > tr:nth-child(1) > td:nth-child(3)")).getText().equals(fieldsAlias) ;
-        return flg;
+    public String getFieldAlias() throws InterruptedException {
+        waitForElementVisible(FieldViewTable);
+        return FieldViewTable.findElement(By.cssSelector("tbody > tr:nth-child(1) > td:nth-child(3)")).getText();
     }
 
     public boolean getFieldList(String name){

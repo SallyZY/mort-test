@@ -15,6 +15,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.bigeyedata.morttest.CommonFunctions.getTestResourceFilePath;
+
 /**
  * Created by yingzhang on 17/05/2017.
  */
@@ -131,8 +133,9 @@ public class DatasourceConfigPage extends Page {
     public void setHDFSParameter(List<Map<String,String>> HDFSConfigList) throws InterruptedException {
 
         dataSourceNameInput.sendKeys(HDFSConfigList.get(0).get("DataSourceName").toString().trim());
-        hdfsPathInput.sendKeys(HDFSConfigList.get(0).get("Path").toString());
+//        hdfsPathInput.sendKeys(HDFSConfigList.get(0).get("Path").toString());
         selectDataSourceType(HDFSConfigList.get(0).get("DataSourceType").toString());
+        hdfsPathInput.sendKeys(getTestResourceFilePath(HDFSConfigList.get(0).get("FileName").toString()));
 
     }
 

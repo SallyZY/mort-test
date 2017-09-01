@@ -1,5 +1,6 @@
 package com.bigeyedata.morttest;
 
+import com.bigeyedata.morttest.pages.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -13,6 +14,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+
+import static com.bigeyedata.morttest.SeeThruUtils.currentPage;
 
 /**
  * Created by yingzhang on 12/05/2017.
@@ -134,4 +137,13 @@ public class CommonFunctions {
         logoutLink.click();
 
     }
+
+    public static String getTestResourceFilePath(String fileName){
+        String classPath= currentPage().getClass().getResource("/").getPath();
+        String testFilePath = classPath.substring(0,classPath.length()-14) + "/resources/test/test-files/"+ fileName;
+        System.out.println(testFilePath);
+
+        return testFilePath;
+    }
+
 }

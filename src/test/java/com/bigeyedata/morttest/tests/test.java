@@ -7,10 +7,6 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import java.awt.print.Pageable;
-
-import static com.bigeyedata.morttest.SeeThruUtils.*;
-
 /**
  * Created by yingzhang on 05/05/2017.
  */
@@ -19,11 +15,11 @@ public class test extends TestCase {
     @Test
     public  void testPage(){
 
-        onPage(PageA.class).getPageName();
-        onPage(PageB.class).getPageName();
-        onPage(PageA.class).getPageName();
-        onPage(PageA.class).getPageName();
 //        onPage(PageA.class).getPageName();
+//        onPage(PageB.class).getPageName();
+//        onPage(PageA.class).getPageName();
+//        onPage(PageA.class).getPageName();
+        System.out.println(test.class.getResource("/").getPath());
 
     }
 
