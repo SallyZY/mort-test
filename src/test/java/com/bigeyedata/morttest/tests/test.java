@@ -3,13 +3,7 @@ package com.bigeyedata.morttest.tests;
 import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.LoginPage;
 import junit.framework.TestCase;
-import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 
 /**
@@ -26,7 +20,7 @@ public class test extends TestCase {
         webDriver.navigate().to("http://localhost:3000");
 
         LoginPage loginPage = PageFactory.initElements(webDriver, LoginPage.class);
-        loginPage.Login("zhangying@bigeyedata.com", "password123");
+        loginPage.login("zhangying@bigeyedata.com", "password123");
 
 //
 //        WebElement element = webDriver.findElement(By.id("email"));

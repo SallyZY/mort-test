@@ -9,16 +9,16 @@ import org.openqa.selenium.support.FindBy;
  */
 public class LoginPage extends Page {
 
-    @FindBy (id = "email")
+    @FindBy (id = "userName")
     private WebElement userNameInput;
 
-    @FindBy(id = "pass")
+    @FindBy(id = "password")
     private WebElement passwordInput;
 
-    @FindBy(xpath = "//form/filedset[2]/button")
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/form/div[3]/div/div/button")
     private WebElement loginButton;
 
-    public void Login(String userName, String password){
+    public void login(String userName, String password){
 
         userNameInput.sendKeys(userName);
         passwordInput.sendKeys(password);

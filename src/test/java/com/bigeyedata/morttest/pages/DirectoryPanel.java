@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 /**
  * Created by yingzhang on 10/05/2017.
  */
-public class DirectoryPage extends Page {
+public class DirectoryPanel extends Panel {
 
     @FindBy(id = "directoriesMenu")
     WebElement mainDirectoryContainerUl;

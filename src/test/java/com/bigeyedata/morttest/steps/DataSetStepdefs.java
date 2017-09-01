@@ -1,9 +1,10 @@
 package com.bigeyedata.morttest.steps;
 
 import com.bigeyedata.morttest.CommonFunctions;
+import com.bigeyedata.morttest.SeeThruUtils;
 import com.bigeyedata.morttest.WebDriverManager;
-import com.bigeyedata.morttest.pages.DirectoryPage;
-import com.bigeyedata.morttest.pages.ResourceFileListPage;
+import com.bigeyedata.morttest.pages.DirectoryPanel;
+import com.bigeyedata.morttest.pages.ResourceFileListPanel;
 import com.bigeyedata.morttest.pages.dataset_pages.*;
 import com.bigeyedata.morttest.pages.datasource_pages.DataSourceDetailPage;
 import cucumber.api.PendingException;
@@ -11,13 +12,15 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 import java.util.Map;
 
+import static com.bigeyedata.morttest.SeeThruUtils.currentPage;
+import static com.bigeyedata.morttest.SeeThruUtils.currentPageAs;
+import static com.bigeyedata.morttest.SeeThruUtils.setCurPage;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
@@ -30,9 +33,7 @@ public class DataSetStepdefs {
     WebDriver webDriver= WebDriverManager.getDriver();
     FieldEditPage fieldEditPage = PageFactory.initElements(webDriver,FieldEditPage.class);
     ImportPreviewPage importPreviewPage =  PageFactory.initElements(webDriver,ImportPreviewPage.class);
-    ResourceFileListPage resourceFileListPage = PageFactory.initElements(webDriver,ResourceFileListPage.class);
     DataSetDetailsPage dataSetDetailsPage = PageFactory.initElements(webDriver,DataSetDetailsPage.class);
-    DataSourceDetailPage dataSourceDetailPage =PageFactory.initElements(webDriver,DataSourceDetailPage.class);
     RDBPreviewPage rdbPreviewPage=PageFactory.initElements(webDriver,RDBPreviewPage.class);
     DataSetListPage dataSetListPage =PageFactory.initElements(webDriver,DataSetListPage.class);
     VirtualFieldPage virtualFieldPage=PageFactory.initElements(webDriver,VirtualFieldPage.class);
@@ -44,112 +45,102 @@ public class DataSetStepdefs {
     @Given("^I click create new DataSet button on DataSource page$")
     public void iClickCreateNewDatasetButtonOnDatasourcePage() throws Throwable {
 
-        DataSourceDetailPage dataSourceDetailPage = PageFactory.initElements(webDriver,DataSourceDetailPage.class);
-        dataSourceDetailPage.CreateNewDatasetFromDatasource();
+        setCurPage(DataSourceDetailPage.class).CreateNewDatasetFromDatasource();
 
-        DataSourceSelectPage dataSourceSelectPage = PageFactory.initElements(webDriver,DataSourceSelectPage.class);
-        dataSourceSelectPage.gotoNextStep();
+        setCurPage(DataSourceSelectPage.class).gotoNextStep();
     }
 
     @Given("^I modify the alias of fields for DataSet as following$")
     public void iModifyTheAliasOfFieldsForDatasetAsFollowing(List<Map<String, String>> fieldAliasList) throws Throwable {
-
-        fieldEditPage.setFieldsAlias(fieldAliasList);
+        setCurPage(FieldEditPage.class).setFieldsAlias(fieldAliasList);
         savedFieldAliasList = fieldAliasList;
     }
 
     @And("^I modify the type of fields for DataSet as following$")
     public void iModifyTheTypeOfFieldsForDatasetAsFollowing(List<Map<String, String>> fieldTypeList) throws Throwable {
 
-        fieldEditPage.setFieldsType(fieldTypeList);
+        currentPageAs(FieldEditPage.class).setFieldsType(fieldTypeList);
         savedFieldTypeList =fieldTypeList;
     }
 
     @And("^I click date fields preview table$")
     public void iGoToDateFieldsPreviewTable() throws Throwable {
-
-        importPreviewPage.gotoDateFieldPreviewTab();
+        setCurPage(ImportPreviewPage.class).gotoDateFieldPreviewTab();
     }
 
     @And("^I set the date format for date filed as following$")
     public void iSetTheDateFormatForDateFiledAsFollowing(List<Map<String, String>> dateFormatList) throws Throwable {
-
-        importPreviewPage.setDateFormatForDateField(dateFormatList);
+        currentPageAs(ImportPreviewPage.class).setDateFormatForDateField(dateFormatList);
     }
 
     @And("^I give the name of DataSet is \"([^\"]*)\"$")
     public void iGiveTheNameOfDatasetIs(String datasetName) throws Throwable {
 
-        importPreviewPage.inputDatasetName(datasetName);
+        currentPageAs(ImportPreviewPage.class).inputDatasetName(datasetName);
     }
 
     @And("^I select the saved directory of DataSet is \"([^\"]*)\"$")
     public void iSelectTheSavedDirectoryOfDatasetIs(String directoryName) throws Throwable {
-
-        DirectoryPage directoryPage = PageFactory.initElements(webDriver,DirectoryPage.class);
-        directoryPage.selectSavedDirectoryByName(directoryName);
+        currentPage().dirPanel.selectSavedDirectoryByName(directoryName);
     }
 
     @When("^I save the new DataSet$")
     public void iSaveTheNewDataset() throws Throwable {
-
-        importPreviewPage.createDataset();
+        currentPageAs(ImportPreviewPage.class).createDataset();
     }
 
     @Then("^I should see the (?:DataSource|DataSet|Report) \"([^\"]*)\" displayed in directory$")
     public void iShouldSeeTheSourceFileDisplayedInDirectory(String datasetName) throws Throwable {
 
-        assertThat(resourceFileListPage.isResourceFileExistedInList(datasetName),is(true));
+        assertThat(currentPage().resourcePanel.isResourceFileExistedInList(datasetName),is(true));
     }
 
     @And("^I should see the number of DataSet fields is \"([^\"]*)\"$")
     public void iShouldSeeTheNumberOfDatasetFieldsIs(String fieldCount) throws Throwable {
-
-        assertThat(dataSetDetailsPage.getFieldCountOfDataset(),is(Integer.parseInt(fieldCount)));
+        assertThat(setCurPage(DataSetDetailsPage.class).getFieldCountOfDataset(),is(Integer.parseInt(fieldCount)));
     }
 
     @And("^I should see the ailas of DataSet fields displayed correctly$")
     public void iShouldSeeTheAilasOfDatasetFieldsDisplayedCorrectly() throws Throwable {
 
-        assertThat(dataSetDetailsPage.compareFieldAlias(savedFieldAliasList),is(true));
+        assertThat(currentPageAs(DataSetDetailsPage.class).compareFieldAlias(savedFieldAliasList),is(true));
     }
 
     @And("^I should see the type of DataSet fields displayed correctly$")
     public void iShouldSeeTheTypeOfDatasetFieldsDisplayedCorrectly() throws Throwable {
 
-        assertThat(dataSetDetailsPage.compareFieldType(savedFieldTypeList),is(true));
+        assertThat(currentPageAs(DataSetDetailsPage.class).compareFieldType(savedFieldTypeList),is(true));
     }
 
     @And("^I should see the initial import record is displayed$")
     public void iShouldSeeTheInitialImportRecordIsDisplayed() throws Throwable {
 
-        assertThat(dataSetDetailsPage.getDescriptionOfNewestImportHistory(),is("初始化导入"));
+        assertThat(currentPageAs(DataSetDetailsPage.class).getDescriptionOfNewestImportHistory(),is("初始化导入"));
     }
     
     @Then("^I should locate to the DataSource \"([^\"]*)\"$")
     public void iShouldLocateToTheDatasource(String datasourceName) throws Throwable {
 
-        assertThat(resourceFileListPage.isResourceFileExistedInList(datasourceName),is(true));
+        assertThat(currentPage().resourcePanel.isResourceFileExistedInList(datasourceName),is(true));
     }
 
     @When("^I click \"([^\"]*)\" item from other operation dropdown menu$")
     public void iClickItemFromOtherOperationDropdownMenu(String itemName) throws Throwable {
 
         CommonFunctions.refresh();
-        dataSetDetailsPage.clickOtherOptionsMenuItem(itemName);
+        currentPageAs(DataSetDetailsPage.class).clickOtherOptionsMenuItem(itemName);
     }
 
     @And("^I should see the related DataSet as following$")
     public void iShouldSeeTheRelatedDatasetAsFollowing(List<Map<String,String>> datasetNameList) throws Throwable {
 
-        dataSourceDetailPage.isDatasetNameDisplayed(datasetNameList);
+        setCurPage(DataSourceDetailPage.class).isDatasetNameDisplayed(datasetNameList);
     }
 
 
     @And("^I preview the query result of SQL$")
     public void iClickPreviewButtonToPreviewTable() throws Throwable {
-
-        rdbPreviewPage.clickPreviewButton();
+        setCurPage(RDBPreviewPage.class).clickPreviewButton();
 
     }
 
@@ -157,14 +148,14 @@ public class DataSetStepdefs {
     @And("^I set the DataSet connection mode is \"([^\"]*)\"$")
     public void iSetDataSetImportMode(String importMode) throws Throwable {
 
-        rdbPreviewPage.setDataSetConnectionMode(importMode);
+        currentPageAs(RDBPreviewPage.class).setDataSetConnectionMode(importMode);
 
     }
 
     @And("^I input SQL is \"([^\"]*)\"$")
     public void iInputSQLIs(String sql) throws Throwable {
 
-        rdbPreviewPage.inputPreviewSQL(sql);
+        currentPageAs(RDBPreviewPage.class).inputPreviewSQL(sql);
         rdbDataSetPreviewSQL = sql;
     }
 
@@ -172,13 +163,13 @@ public class DataSetStepdefs {
 
     @And("^I set the DataSet import mode is \"([^\"]*)\"$")
     public void iSetTheDataSetImportMode(String importMode) throws Throwable {
-        rdbPreviewPage.setDataSetImportMode(importMode);
+        currentPageAs(RDBPreviewPage.class).setDataSetImportMode(importMode);
     }
 
     @And("^I set import time is 1 minute later current time$")
     public void iSetImportDateAndTime() throws Throwable {
 
-        rdbPreviewPage.setCustomizeImportDate();
+        currentPageAs(RDBPreviewPage.class).setCustomizeImportDate();
 
     }
 
@@ -189,23 +180,23 @@ public class DataSetStepdefs {
 
     @And("^I can modify the field type of DataSet$")
     public void iCanModifyTheFieldTypeOfDataSet() throws Throwable {
-        assertThat(rdbPreviewPage.isFieldTypeOfDataSetEditable(),is(true));
+        assertThat(currentPageAs(RDBPreviewPage.class).isFieldTypeOfDataSetEditable(),is(true));
     }
 
     @And("^I can NOT modify the field type of DataSet$")
     public void iCanNOTModifyTheFieldTypeOfDataSet() throws Throwable {
-        assertThat(rdbPreviewPage.isFieldTypeSelectDisplayed(),is(true));
+        assertThat(currentPageAs(RDBPreviewPage.class).isFieldTypeSelectDisplayed(),is(true));
     }
 
     @And("^I should NOT see the amount of DataSet records$")
     public void iShouldnTSeeNumberOfRecordsAfterTheDatasetName() throws Throwable {
-        assert rdbPreviewPage.assertRecordNumber();
+        assert currentPageAs(RDBPreviewPage.class).assertRecordNumber();
     }
 
     @And("^I can't modify the alias and the type of previous data$")
     public void iCanTModifyTheAliasAndTheTypeOfPreviousData() throws Throwable {
-        assertThat(rdbPreviewPage.countDisabledFieldsAlias(),is(2));
-        assertThat(rdbPreviewPage.countDisabledFieldsType(),is(2));
+        assertThat(currentPageAs(RDBPreviewPage.class).countDisabledFieldsAlias(),is(2));
+        assertThat(currentPageAs(RDBPreviewPage.class).countDisabledFieldsType(),is(2));
     }
 
 

@@ -1,6 +1,7 @@
 package com.bigeyedata.morttest.pages.dataset_pages;
 
 import com.bigeyedata.morttest.CommonFunctions;
+import com.bigeyedata.morttest.pages.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,7 +11,7 @@ import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisibleAndLo
 /**
  * Created by yingzhang on 10/05/2017.
  */
-public class DataSourceSelectPage {
+public class DataSourceSelectPage extends Page {
 
     @FindBy(css = "button.ant-btn.ant-btn-primary")
     WebElement nextStepButton;

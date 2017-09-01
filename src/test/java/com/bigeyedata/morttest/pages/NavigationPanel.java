@@ -10,7 +10,7 @@ import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
 /**
  * Created by yingzhang on 10/05/2017.
  */
-public class NavigationPage extends Page {
+public class NavigationPanel extends Panel {
 
     @FindBy(id = "datasources")
     WebElement datasourcesModuleLink;
@@ -30,7 +30,7 @@ public class NavigationPage extends Page {
     @FindBy(className = "menu")
     WebElement mainMenuUl;
 
-    public void AccessToModule(String module) throws InterruptedException {
+    public void accessToModule(String module) throws InterruptedException {
 
         waitForElementVisible(mainMenuUl);
 

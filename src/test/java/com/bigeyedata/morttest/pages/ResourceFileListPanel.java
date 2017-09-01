@@ -15,7 +15,7 @@ import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisibleAndLo
 /**
  * Created by yingzhang on 10/05/2017.
  */
-public class ResourceFileListPage extends Page {
+public class ResourceFileListPanel extends Panel {
 
     @FindBy(id = "resourceListMenuContainerMenu")
     WebElement resourceFileListContainerDiv;

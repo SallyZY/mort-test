@@ -4,7 +4,7 @@ Feature: Create virtual dimension and virtual measure
   Background:
     Given I open browser and login to Mort Web
       | UserName                 | Password     |
-      | zhangying@bigeyedata.com | password123  |
+      | zhangy@fullsample.com    | password123  |
 
   Scenario: Create virtual dimension with text type
     Given I access to "DataSet" module

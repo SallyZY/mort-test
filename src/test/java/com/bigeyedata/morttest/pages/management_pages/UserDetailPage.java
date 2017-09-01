@@ -307,7 +307,7 @@ public class UserDetailPage extends Page {
         String password=userLoginInfoList.get(0).get("Password").toString();
 
         LoginPage loginPage= PageFactory.initElements(webDriver, LoginPage.class);
-        loginPage.Login(userName,password);
+        loginPage.login(userName,password);
 
 
 
