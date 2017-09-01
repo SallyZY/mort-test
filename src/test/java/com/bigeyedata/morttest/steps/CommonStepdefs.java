@@ -26,7 +26,7 @@ public class CommonStepdefs {
         String password=userLoginInfoList.get(0).get("Password").toString();
 
         navigateTo(Hooks.getMortWebUrl());
-        LoginPage curPage = setCurPage(LoginPage.class);
+        LoginPage curPage = onPage(LoginPage.class);
         curPage.login(userName,password);
 
     }

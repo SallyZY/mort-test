@@ -2,8 +2,8 @@ Feature: Create,view DataSet
 
     Background:
     Given I open browser and login to Mort Web
-      | UserName                 | Password     |
-      | zhangying@bigeyedata.com | password123  |
+      | UserName              | Password     |
+      | zhangy@fullsample.com | password123  |
 
 
   Scenario: Create a new file DataSet from a specified DataSource
@@ -42,7 +42,7 @@ Feature: Create,view DataSet
     And I should see the number of DataSet fields is "16"
     And I should see the ailas of DataSet fields displayed correctly
     And I should see the type of DataSet fields displayed correctly
-    And I should see the initial import record is displayed
+#    And I should see the initial import record is displayed
 
     When  I click "ViewDataSource" item from other operation dropdown menu
     Then  I should locate to the DataSource "测试CSV数据源"

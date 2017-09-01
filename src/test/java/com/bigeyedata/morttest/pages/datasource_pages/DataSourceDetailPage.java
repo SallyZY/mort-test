@@ -23,8 +23,8 @@ public class DataSourceDetailPage extends Page {
     @FindBy(id = "addNewDataSet")
     WebElement createNewDatasetButton;
 
-    @FindBy(css = "div.related-data-sets > div > div >div > div >div > div > table")
-    WebElement relatedDatasetTable;
+    @FindBy(id="reportRelatedDataSet")
+    WebElement relatedDataSetTable;
 
     @FindBy(css = "#resourceListMenuContainerMenu > li.ant-menu-item-selected.ant-menu-item > div > span > span.item-right")
     WebElement operationMenuIcon;
@@ -32,10 +32,6 @@ public class DataSourceDetailPage extends Page {
     @FindBy(className = "ant-dropdown-menu.ant-dropdown-menu-vertical.data-sources-resource-list-item-operation-menu.ant-dropdown-menu-light.ant-dropdown-menu-root")
     WebElement operationMenu;
 
-
-//    @FindBy(css = "div.ant-dropdown.ant-dropdown-placement-topLeft > ul > li:nth-child(3)")
-//    @FindBy(css = "div > div.ant-dropdown.ant-dropdown-placement-topLeft > ul.ant-dropdown-menu.ant-dropdown-menu-vertical.data-sources-resource-list-item-operation-menu.ant-dropdown-menu-light.ant-dropdown-menu-root > li:nth-child(3)")
-//    @FindBy(css = "body > div:nth-child(8) > div > div > ul > li:nth-child(3)")
     @FindBy(xpath = "//div[@class='ant-dropdown ant-dropdown-placement-bottomLeft']/ul[@class='ant-dropdown-menu ant-dropdown-menu-vertical data-sources-resource-list-item-operation-menu ant-dropdown-menu-light ant-dropdown-menu-root']/li[3]")
     WebElement editItem;
 
@@ -47,13 +43,13 @@ public class DataSourceDetailPage extends Page {
 
 
 
-    public boolean isDatasetNameDisplayed(List<Map<String,String>> datasetNameList) throws InterruptedException {
+    public boolean isDataSetNameDisplayed(List<Map<String,String>> datasetNameList) throws InterruptedException {
 
-        waitForElementVisible(relatedDatasetTable);
+        waitForElementVisible(relatedDataSetTable);
 
         boolean isFindDatasetName = false;
         for (int i = 0; i < datasetNameList.size(); i++) {
-            isFindDatasetName = relatedDatasetTable.getText().contains(datasetNameList.get(i).get("DatasetName").toString());
+            isFindDatasetName = relatedDataSetTable.getText().contains(datasetNameList.get(i).get("DatasetName").toString());
         }
 
         return isFindDatasetName;

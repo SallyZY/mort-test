@@ -3,14 +3,29 @@ package com.bigeyedata.morttest.tests;
 import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.LoginPage;
 import junit.framework.TestCase;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+
+import java.awt.print.Pageable;
+
+import static com.bigeyedata.morttest.SeeThruUtils.*;
 
 /**
  * Created by yingzhang on 05/05/2017.
  */
 public class test extends TestCase {
 
+    @Test
+    public  void testPage(){
+
+        onPage(PageA.class).getPageName();
+        onPage(PageB.class).getPageName();
+        onPage(PageA.class).getPageName();
+        onPage(PageA.class).getPageName();
+//        onPage(PageA.class).getPageName();
+
+    }
 
     public void testDrag() throws InterruptedException {
 

@@ -35,7 +35,7 @@ Feature: Create DataSource
     And I select DataSource directory "测试数据源目录"
     And I want to create a HDFS DataSource with configuration as following
       | DataSourceName       | DataSourceType   | Path                                                                          |
-      | 测试HDFS_parquet数据源| Parquet          |/Users/liaoyuxue/Bigeye/mort-test/src/test/resources/test-files/bigeye_parquet |
+      | 测试HDFS_parquet数据源| Parquet           |src/test/resources/test-files/bigeye_parquet |
     When I click save button on HDFS dataSource configuration page
     Then I should see the DataSource "测试HDFS_parquet数据源" displayed in directory
 

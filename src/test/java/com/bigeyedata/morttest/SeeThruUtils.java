@@ -26,16 +26,14 @@ public class SeeThruUtils {
         webDriver.navigate().to(url);
     }
 
-    public static <T extends Page> T setCurPage(Class<T> pageClassToProxy) {
-        curPage = initPage(pageClassToProxy);
-        return (T)curPage;
-    }
-
     public static Page currentPage() {
         return curPage;
     }
 
-    public static <T extends Page> T currentPageAs(Class<T> pageClassToProxy) {
-        return (T)curPage;
+    public static <T extends Page> T onPage(Class<T> pageClassToProxy) {
+        if (curPage==null || !curPage.getClass().equals(pageClassToProxy)) {
+            curPage = initPage(pageClassToProxy);
+        }
+        return (T) curPage;
     }
 }
