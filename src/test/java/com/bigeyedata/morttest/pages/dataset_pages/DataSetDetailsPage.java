@@ -82,6 +82,9 @@ public class DataSetDetailsPage extends Page {
     @FindBy(css = "div.ant-popover-inner > div > div.ant-popover-inner-content > div > div > button.ant-btn.ant-btn-primary.ant-btn-sm > span")
     WebElement fieldsAliasConfirmButton;
 
+    @FindBy(tagName = "tbody")
+    WebElement fieldViewTbody;
+
     public void clickOtherOptionsMenuItem(String item) throws InterruptedException {
 
         waitForElementVisible(otherOperationMenu);
@@ -209,6 +212,23 @@ public class DataSetDetailsPage extends Page {
         Boolean flg;
         flg = FieldViewTable.findElement(By.cssSelector("tbody > tr:nth-child(1) > td:nth-child(3)")).getText().equals(fieldsAlias) ;
         return flg;
+    }
+
+    public boolean getFieldList(String name){
+        List<WebElement> fieldList = fieldViewTbody.findElements(By.tagName("tr"));
+        boolean flg = false;
+        for(int i=0;i<fieldList.size();i++){
+            fieldList.get(i).getText();
+            int n= i+1;
+            String aliasName =  fieldViewTbody.findElement(By.xpath("tr[" + n + "]/td[3]/div/span")).getText();
+            if(aliasName.equals(name)){
+                flg = true;
+                break;
+            }
+        }
+        return flg;
+
+
     }
 
 }

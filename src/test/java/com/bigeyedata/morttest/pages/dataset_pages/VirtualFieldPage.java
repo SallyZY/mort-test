@@ -82,4 +82,9 @@ public class VirtualFieldPage extends Page {
         List<WebElement> trList = WebDriverManager.getDriver().findElements(By.xpath("//div[@class='ant-modal-content']//div[@class='preview-container']//tbody/tr"));
         return trList.size() > 0 ? true : false;
     }
+
+    public void saveVirtualDimension() throws InterruptedException {
+        saveButton.click();
+        CommonFunctions.waitForShortTime();
+    }
 }
