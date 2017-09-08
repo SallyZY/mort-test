@@ -25,6 +25,7 @@ Feature: Create virtual dimension and virtual measure
     When I save the new virtual dimension
     Then I should see the new virtual dimension "VF_开户渠道" displayed in DataSet field list
 
+    And I give up saving the report
     And I access to "DataSet" module
     And I expand the DataSet directory
     And I select DataSet as following

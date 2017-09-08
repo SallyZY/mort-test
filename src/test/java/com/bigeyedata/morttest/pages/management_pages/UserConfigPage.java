@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
+import java.util.Map;
 
 import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
 
@@ -37,8 +38,6 @@ public class UserConfigPage extends Page{
 
     @FindBy(css = "div.ant-modal-content > div.ant-modal-body > div > div > p > input" )
     WebElement groupNameInput;
-
-
 
     @FindBy(css = "div.ant-modal-content > div.ant-modal-body > div.role-name > input")
     WebElement roleNameInput;
@@ -79,7 +78,7 @@ public class UserConfigPage extends Page{
     @FindBy(css = "div.ant-select-selection__placeholder")
     WebElement userSelectorDiv;
 
-    @FindBy(xpath = "//div/ul/li[@title=\"admin support@bigeyedata.com\"]")
+    @FindBy(xpath = "//div/ul/li[@title=\"admin seethru@fullsample.com\"]")
     WebElement adminUser;
 
     @FindBy(css = "div.add-user-toolbar > button > span")
@@ -99,6 +98,9 @@ public class UserConfigPage extends Page{
 
     @FindBy(css = "div.ant-modal-content > div.ant-modal-body > form")
     WebElement userFrom;
+
+    @FindBy(xpath = "//div/ul")
+    WebElement userListUl;
 
     public void setUsersBasicInformation(String userName,String email,String phone) throws InterruptedException {
         CommonFunctions.waitForElementVisible(userFrom);
@@ -214,14 +216,32 @@ public class UserConfigPage extends Page{
         return userOfGroupTab.getText();
     }
 
-    public void deleteUserFromGroup() throws InterruptedException {
+//    public void deleteUserFromGroup() throws InterruptedException {
+//        waitForElementVisible(userOfGroupTab);
+//        List<WebElement> rows = userOfGroupTab.findElements(By.tagName("tr"));
+//        for (int i=0;i<rows.size();i++){
+////            System.out.println(i);
+//            String text = rows.get(i).getText();
+////            System.out.println(text);
+//            if (text.contains("seethru@fullsample.com")) {
+//                int n = i + 1;
+//                userOfGroupTab.findElement(By.cssSelector( "tr:nth-child("+n+") > td:nth-child(3) > a")).click();
+//                break;
+//            }else {
+//                System.out.println("false");
+//            }
+//
+//        }
+//    }
+
+    public void deleteUserFromGroupOrRole(List<Map<String, String>> userInfo) throws InterruptedException {
         waitForElementVisible(userOfGroupTab);
         List<WebElement> rows = userOfGroupTab.findElements(By.tagName("tr"));
         for (int i=0;i<rows.size();i++){
-            System.out.println(i);
+//            System.out.println(i);
             String text = rows.get(i).getText();
-            System.out.println(text);
-            if (text.contains("support@bigeyedata.com")) {
+//            System.out.println(text);
+            if (text.contains(userInfo.get(0).get("Email").toString())) {
                 int n = i + 1;
                 userOfGroupTab.findElement(By.cssSelector( "tr:nth-child("+n+") > td:nth-child(3) > a")).click();
                 break;
@@ -248,6 +268,19 @@ public class UserConfigPage extends Page{
 
     public void waitForMessageNoticeInvisible() throws InterruptedException {
         CommonFunctions.waitForElementInvisible(messageNotice);
+    }
+
+    public void addUserToRole(List<Map<String, String>> userList) throws InterruptedException {
+        CommonFunctions.waitForElementVisible(userSelectorDiv);
+        userSelectorDiv.click();
+        String userName= userList.get(0).get("UserName").toString();
+        String email = userList.get(0).get("Email").toString();
+        WebDriver driver =WebDriverManager.getDriver();
+        WebElement user = driver.findElement(By.xpath("//div/ul/li[@title='"+ userName +" "+ email +"']"));
+        CommonFunctions.waitForElementVisible(user);
+        user.click();
+        addUserButton.click();
+
     }
 
 

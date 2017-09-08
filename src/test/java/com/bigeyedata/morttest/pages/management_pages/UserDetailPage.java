@@ -53,7 +53,7 @@ public class UserDetailPage extends Page {
     @FindBy(css = "div.ant-confirm-btns > button.ant-btn.ant-btn-primary.ant-btn-lg > span")
     WebElement deleteConfirmButton;
 
-    @FindBy(css = "#app > div > div.DefaultLayout > div.header > ul.rightBar.pull-right > li.user > a > i")
+    @FindBy(css = "#app > div > div.DefaultLayout > div.header > ul.rightBar.pull-right > li.user > a > div > i")
     WebElement userIcon;
 
 //    @FindBy(css = "#headerRightNavBar > li.ant-dropdown-menu-item >a")
@@ -70,13 +70,13 @@ public class UserDetailPage extends Page {
     @FindBy(css = "#userGroupListActionDropDownMenu > li:nth-child(2) > a")
     WebElement editGroupMenuItem;
 
-    @FindBy(css = "#roleListActionDropDownMenu > li:nth-child(1) > a")
+    @FindBy(css = "#roleListActionDropDownMenu > li:nth-child(2) > a")
     WebElement editRoleMenuItem;
 
     @FindBy(css = "#userGroupListActionDropDownMenu > li:nth-child(3) > a")
     WebElement deleteGroupMenuItem;
 
-    @FindBy(css = "#roleListActionDropDownMenu > li:nth-child(2) > a")
+    @FindBy(css = "#roleListActionDropDownMenu > li:nth-child(3) > a")
     WebElement deleteRoleMenuItem;
 
     @FindBy(id = "email")
@@ -86,7 +86,7 @@ public class UserDetailPage extends Page {
     WebElement passwordInput;
 
     @FindBy(css = "#userGroupListActionDropDownMenu > li:nth-child(1) > a")
-    WebElement viewMenuItem;
+    WebElement viewUserMenuItem;
 
     @FindBy(css = "#app > div > div.DefaultLayout > div.resource-page > div > div.ant-layout > div > div > div.resource-action-bar.clearfix > div.action-section.pull-right > div > span > input")
     WebElement userSearchInput;
@@ -97,6 +97,8 @@ public class UserDetailPage extends Page {
     @FindBy(css = "#app > div > div.DefaultLayout > div.resource-page > div > div.ant-layout > div > div > div > div.resource-action-bar.clearfix > div.action-section.pull-right > div > span > input")
     WebElement groupSearchInput;
 
+    @FindBy(css = "#roleListActionDropDownMenu > li:nth-child(1) > a")
+    WebElement viewRoleMenuItem;
 
 
     public void selectUserMenuItem(){
@@ -156,9 +158,9 @@ public class UserDetailPage extends Page {
         waitForElementVisible(groupInfoTab);
         List<WebElement> rows = groupInfoTab.findElements(By.tagName("tr"));
         for (int i=0;i<rows.size();i++){
-            System.out.println(i);
+//            System.out.println(i);
             String text = rows.get(i).getText();
-            System.out.println(text);
+//            System.out.println(text);
             if (text.contains(groupName))
             {
                 int n = i + 1;
@@ -178,15 +180,36 @@ public class UserDetailPage extends Page {
         waitForElementVisible(roleInfoTab);
         List<WebElement> rows = roleInfoTab.findElements(By.tagName("tr"));
         for (int i=0;i<rows.size();i++){
-            System.out.println(i);
+//            System.out.println(i);
             String text = rows.get(i).getText();
-            System.out.println(text);
+//            System.out.println(text);
             if (text.contains(roleName))
             {
                 int n = i + 1;
                 roleInfoTab.findElement(By.cssSelector( "tr:nth-child("+n+") > td:nth-child(4) > i")).click();
                 CommonFunctions.waitForShortTime();
                 editRoleMenuItem.click();
+                break;
+            }else {
+                System.out.println("false");
+            }
+
+        }
+    }
+
+    public void gotoViewRolePage(String roleName) throws InterruptedException {
+        waitForElementVisible(roleInfoTab);
+        List<WebElement> rows = roleInfoTab.findElements(By.tagName("tr"));
+        for (int i=0;i<rows.size();i++){
+//            System.out.println(i);
+            String text = rows.get(i).getText();
+//            System.out.println(text);
+            if (text.contains(roleName))
+            {
+                int n = i + 1;
+                roleInfoTab.findElement(By.cssSelector( "tr:nth-child("+n+") > td:nth-child(4) > i")).click();
+                CommonFunctions.waitForShortTime();
+                viewRoleMenuItem.click();
                 break;
             }else {
                 System.out.println("false");
@@ -326,7 +349,7 @@ public class UserDetailPage extends Page {
                 int n = i + 1;
                 groupInfoTab.findElement(By.cssSelector( "tr:nth-child("+n+") > td:nth-child(4) > i")).click();
                 CommonFunctions.waitForShortTime();
-                viewMenuItem.click();
+                viewUserMenuItem.click();
                 break;
             }else {
                 System.out.println("false");

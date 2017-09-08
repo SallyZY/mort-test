@@ -15,6 +15,8 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 import java.util.Map;
 
+import static com.bigeyedata.morttest.SeeThruUtils.onPage;
+
 /**
  * Created by yingzhang on 19/05/2017.
  */
@@ -94,5 +96,11 @@ public class ReportStepdefs {
         directoryPanel.selectSavedDirectoryByName(reportInfoList.get(0).get("Directory").toString());
 
         reportWorkSpacePage.clickSaveReportButtonOnDialog();
+    }
+
+    @And("^I give up saving the report$")
+    public void iGiveUpSavingTheReport() throws Throwable {
+        onPage(ReportWorkSpacePage.class).backToPreviewReport();
+        onPage(ReportWorkSpacePage.class).giveUpSaveTheReport();
     }
 }
