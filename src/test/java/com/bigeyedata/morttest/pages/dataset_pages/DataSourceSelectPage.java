@@ -19,6 +19,6 @@ public class DataSourceSelectPage extends Page {
     public void gotoNextStep() throws InterruptedException {
         CommonFunctions.waitForElementVisible(nextStepButton);
         nextStepButton.click();
-        waitForElementVisibleAndLocated(By.cssSelector("#addDataSetPreview > div > div > div > div > div > div > div > table"));
+        waitForElementVisibleAndLocated(By.cssSelector("div.AddDataSetRDB"));
     }
 }

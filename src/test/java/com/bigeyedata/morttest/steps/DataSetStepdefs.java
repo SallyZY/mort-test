@@ -13,7 +13,6 @@ import java.util.Map;
 
 import static com.bigeyedata.morttest.SeeThruUtils.currentPage;
 import static com.bigeyedata.morttest.SeeThruUtils.onPage;
-import static com.bigeyedata.morttest.SeeThruUtils.onPage;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
@@ -266,14 +265,21 @@ public class DataSetStepdefs {
         onPage(DataSetDetailsPage.class).reNameDataSet(newDataSetName);
     }
 
-    @When("^I modify the alias of fields for DataSet on detail page \"([^\"]*)\"$")
+    @When("^I modify the alias of field for DataSet on detail page \"([^\"]*)\"$")
     public void iModifyTheAliasOfFieldsForDataSetOnDetailPage(String fieldsAlias) throws Throwable {
-        onPage(DataSetDetailsPage.class).modifyFieldsAlias(fieldsAlias);
+//        onPage(DataSetDetailsPage.class).modifyFieldsAlias(fieldsAlias);
+//    }
+//
+//    @Then("^I should see the alias of fields for DataSet is \"([^\"]*)\"$")
+//    public void iShouldSeeTheAliasOfFieldsForDataSetIs(String fieldsAlias) throws Throwable {
+//        assertTrue(onPage(DataSetDetailsPage.class).checkFieldsAlias(fieldsAlias));
+
+        onPage(DataSetDetailsPage.class).modifyFieldAlias(fieldsAlias);
     }
 
-    @Then("^I should see the alias of fields for DataSet is \"([^\"]*)\"$")
-    public void iShouldSeeTheAliasOfFieldsForDataSetIs(String fieldsAlias) throws Throwable {
-        assertTrue(onPage(DataSetDetailsPage.class).checkFieldsAlias(fieldsAlias));
+    @Then("^I should see the alias of field for DataSet is \"([^\"]*)\"$")
+    public void iShouldSeeTheAliasOfFieldsForDataSetIs(String fieldAlias) throws Throwable {
+        assertThat(onPage(DataSetDetailsPage.class).getFieldAlias(),is(fieldAlias));
     }
 
     @When("^I want to create a new virtual measure for DataSet \"([^\"]*)\"$")

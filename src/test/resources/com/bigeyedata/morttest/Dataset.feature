@@ -42,7 +42,7 @@ Feature: Create,view DataSet
     And I should see the number of DataSet fields is "16"
     And I should see the ailas of DataSet fields displayed correctly
     And I should see the type of DataSet fields displayed correctly
-#    And I should see the initial import record is displayed
+    And I should see the initial import record is displayed
 
     When  I click "ViewDataSource" item from other operation dropdown menu
     Then  I should locate to the DataSource "测试CSV数据源"
@@ -202,7 +202,7 @@ Feature: Create,view DataSet
 
 
 
-  Scenario: Rename the dataset AND Modify the alias of fields
+  Scenario: Rename the DataSet AND Modify the alias of fields
     Given I access to "DataSource" module
     And I expand the DataSource directory
     And I select DataSource as following
@@ -220,8 +220,8 @@ Feature: Create,view DataSet
     When I rename the DataSet name "测试MySQL数据集_ 重命名"
     Then I should see the DataSet "测试MySQL数据集_ 重命名" displayed in directory
 
-    When I modify the alias of fields for DataSet on detail page "CDate_AliasName"
-    Then I should see the alias of fields for DataSet is "CDate_AliasName"
+    When I modify the alias of field for DataSet on detail page "CDate_AliasName"
+    Then I should see the alias of field for DataSet is "CDate_AliasName"
 
 
 
