@@ -6,6 +6,7 @@ Feature: Create virtual dimension and virtual measure
       | UserName                 | Password     |
       | zhangy@fullsample.com    | password123  |
 
+
   Scenario: Create virtual dimension with text type
     Given I access to "DataSet" module
     And I expand the DataSet directory
@@ -32,8 +33,6 @@ Feature: Create virtual dimension and virtual measure
       |  DirectoryName  |  ResourceFileName |
       |  测试数据集目录   |  测试CSV数据集      |
     Then I should see the new virtual dimension "VF_开户渠道" displayed in DataSet field table
-
-
 
 
   Scenario: Create virtual measure

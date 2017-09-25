@@ -5,6 +5,7 @@ Feature: Create DataSource
       | UserName              | Password     |
       | zhangy@fullsample.com | password123  |
 
+
   Scenario: Create a new RDB dataSource AND Edit RDB dataSource
     Given I access to "DataSource" module
     And I expand the DataSource directory

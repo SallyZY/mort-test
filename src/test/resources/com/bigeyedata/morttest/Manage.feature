@@ -6,6 +6,7 @@ Feature:Create user,user group,role
       | UserName                 | Password    |
       | zhangy@fullsample.com   | password123  |
 
+
   Scenario: Check validation message when create user with input is null
     Given I access to "Management" module
     And I click create new user button on user page

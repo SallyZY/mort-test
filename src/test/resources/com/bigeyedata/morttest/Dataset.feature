@@ -72,6 +72,7 @@ Feature: Create,view DataSet
       |  DatasetName    |
       |  测试ES数据集   |
 
+
   Scenario: Create a new HDFS DataSet from a specified DataSource
     Given I access to "DataSource" module
     And I expand the DataSource directory
@@ -199,7 +200,6 @@ Feature: Create,view DataSet
     When I add field to the DataSet
     Then I should see the number of DataSet fields is "5"
     And I should see the add field import record is displayed
-
 
 
   Scenario: Rename the DataSet AND Modify the alias of fields

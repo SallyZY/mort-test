@@ -1,6 +1,5 @@
 package com.bigeyedata.morttest.pages.report_pages;
 
-import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.Page;
 import org.openqa.selenium.By;
@@ -19,20 +18,20 @@ import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
  */
 public class ChartSettingPage extends Page {
 
-    @FindBy(id = "reportPresentation")
-    WebElement chartSettingDiv;
+    @FindBy(xpath = "//div[@class='view-panel']//div[@role='tabpanel'][3]")
+    WebElement chartStyleSettingDiv;
 
-    @FindBy(id = "icon-data")
+    @FindBy(xpath = "//div[@class='view-panel']//div[@class='ant-tabs-nav-scroll']//div[@role='tab'][1]")
     WebElement bindingItemIconDiv;
+
+    @FindBy(xpath = "//div[@class='view-panel']//div[@class='ant-tabs-nav-scroll']//div[@role='tab'][2]")
+    WebElement filterIconDiv;
+
+    @FindBy(xpath = "//div[@class='view-panel']//div[@class='ant-tabs-nav-scroll']//div[@role='tab'][3]")
+    WebElement styleSettingIconDiv;
 
     @FindBy(id = "reportBindingsContainer")
     WebElement bindingItemsDiv;
-
-    @FindBy(id = "icon-filter")
-    WebElement filterIconDiv;
-
-    @FindBy(id = "icon-set-up")
-    WebElement styleSettingIconDiv;
 
 
     @FindBy(id = "presentationTitle")
@@ -156,7 +155,7 @@ public class ChartSettingPage extends Page {
                 styleSettingIconDiv.click();
                 break;
         }
-        waitForElementVisible(chartSettingDiv);
+        waitForElementVisible(chartStyleSettingDiv);
     }
 
     public void setChartDataLabelStyle(List<Map<String, String>> dataLabelStyleList){
