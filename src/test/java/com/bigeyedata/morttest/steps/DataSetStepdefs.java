@@ -22,6 +22,7 @@ import static org.junit.Assert.assertTrue;
  */
 public class DataSetStepdefs {
 
+
     List<Map<String, String>> savedFieldAliasList;
     List<Map<String, String>> savedFieldTypeList;
     String rdbDataSetPreviewSQL ="";
@@ -266,6 +267,13 @@ public class DataSetStepdefs {
 
     @When("^I modify the alias of field for DataSet on detail page \"([^\"]*)\"$")
     public void iModifyTheAliasOfFieldsForDataSetOnDetailPage(String fieldsAlias) throws Throwable {
+//        onPage(DataSetDetailsPage.class).modifyFieldsAlias(fieldsAlias);
+//    }
+//
+//    @Then("^I should see the alias of fields for DataSet is \"([^\"]*)\"$")
+//    public void iShouldSeeTheAliasOfFieldsForDataSetIs(String fieldsAlias) throws Throwable {
+//        assertTrue(onPage(DataSetDetailsPage.class).checkFieldsAlias(fieldsAlias));
+
         onPage(DataSetDetailsPage.class).modifyFieldAlias(fieldsAlias);
     }
 

@@ -63,7 +63,7 @@ public class DataSourceDetailPage extends Page {
 
     public void goToRDBEditPage(String title) throws InterruptedException {
         WebDriver driver = WebDriverManager.getDriver();
-        WebElement dataSource = driver.findElement(By.xpath("//div/span/span[1]/span[@title='" + title + "']"));
+        WebElement dataSource = driver.findElement(By.xpath("//div/span/span[1]/span[text()='" + title + "']"));
         CommonFunctions.waitForElementVisible(dataSource);
         dataSource.click();
         CommonFunctions.waitForElementVisible(operationMenuIcon);

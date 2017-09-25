@@ -92,4 +92,10 @@ public class ReportStepdefs {
 
         onPage(ReportWorkSpacePage.class).clickSaveReportButtonOnDialog();
     }
+
+    @And("^I give up saving the report$")
+    public void iGiveUpSavingTheReport() throws Throwable {
+        onPage(ReportWorkSpacePage.class).backToPreviewReport();
+        onPage(ReportWorkSpacePage.class).giveUpSaveTheReport();
+    }
 }

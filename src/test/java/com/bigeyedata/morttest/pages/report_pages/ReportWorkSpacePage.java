@@ -42,7 +42,9 @@ public class ReportWorkSpacePage extends Page {
     @FindBy(xpath = "//div[@class='Chart']")
     List<WebElement> chartCanvasList;
 
-    @FindBy(css = "div.ReportCanvasPages > div:nth-child(2) > div:nth-child(2)")
+//    @FindBy(css = "div.ReportCanvasPages > div:nth-child(2) > div:nth-child(2)")
+    @FindBy(css = "div.ReportCanvasPages > div.addIcon > span.iconfont.icon-add")
+//    @FindBy(className = "iconfont icon-add")
     WebElement addReportPageIcon;
 
     @FindBy(css = "div.savingReport > div:nth-child(2) > div:nth-child(1) > input")
@@ -57,6 +59,11 @@ public class ReportWorkSpacePage extends Page {
     @FindBy(className = "savingReport")
     WebElement reportSaveDialogDiv;
 
+    @FindBy(css = "div.ant-modal-wrap > div > div.ant-modal-content")
+    WebElement saveReportConfirmDiv;
+
+    @FindBy(css = "div.ant-confirm-btns.clearfix > button:nth-child(1)")
+    WebElement doNotSaveButton;
 
     public void clickSaveAsMenu() throws InterruptedException {
 
@@ -158,5 +165,11 @@ public class ReportWorkSpacePage extends Page {
         Thread.sleep(2000);
         mouseOverAtCoordinates(chartCanvasList.get(index),20,20);
         actionBarMenuList.get(index).click();
+    }
+
+    public void giveUpSaveTheReport() throws InterruptedException {
+        waitForElementClickable(saveReportConfirmDiv);
+        doNotSaveButton.click();
+
     }
 }
