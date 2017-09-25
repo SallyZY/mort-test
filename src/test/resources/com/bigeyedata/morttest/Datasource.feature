@@ -2,7 +2,7 @@ Feature: Create DataSource
 
   Background:
     Given I open browser and login to Mort Web
-      | UserName                 | Password     |
+      | UserName              | Password     |
       | zhangy@fullsample.com | password123  |
 
   Scenario: Create a new RDB dataSource AND Edit RDB dataSource

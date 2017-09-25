@@ -3,7 +3,7 @@ Feature: The general operation of chart and report
   Background:
     Given I open browser and login to Mort Web
       | UserName                 | Password     |
-      | zhangying@bigeyedata.com | password123  |
+      | zhangy@fullsample.com    | password123  |
 
 
   Scenario: Copy and move a chart from current report page to a new report page

@@ -3,7 +3,7 @@ Feature: set the style of all kinds of general chart
   Background:
     Given I open browser and login to Mort Web
       | UserName                 | Password     |
-      | zhangying@bigeyedata.com | password123  |
+      | zhangy@fullsample.com    | password123  |
 
 
   Scenario: Set the style of Column chart

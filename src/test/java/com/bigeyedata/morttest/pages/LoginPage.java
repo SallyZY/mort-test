@@ -20,7 +20,9 @@ public class LoginPage extends Page {
 
     public void login(String userName, String password){
 
+        userNameInput.clear();
         userNameInput.sendKeys(userName);
+        passwordInput.clear();
         passwordInput.sendKeys(password);
         loginButton.click();
     }

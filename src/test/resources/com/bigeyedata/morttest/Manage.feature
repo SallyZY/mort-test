@@ -4,7 +4,7 @@ Feature:Create user,user group,role
   Background:
     Given I open browser and login to Mort Web
       | UserName                 | Password     |
-      | zhangying@bigeyedata.com | password123  |
+      | zhangy@fullsample.com   | password123  |
 
   Scenario: Check validation message when create user with input is null or length over 50
     Given I access to "Management" module
