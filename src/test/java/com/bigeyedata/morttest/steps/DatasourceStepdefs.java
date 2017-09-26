@@ -3,15 +3,19 @@ package com.bigeyedata.morttest.steps;
 import com.bigeyedata.morttest.pages.ResourceFileListPanel;
 import com.bigeyedata.morttest.pages.datasource_pages.DatasourceConfigPage;
 import com.bigeyedata.morttest.pages.datasource_pages.DataSourceDetailPage;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import gherkin.lexer.Da;
 
 import java.util.List;
 import java.util.Map;
 
+import static com.bigeyedata.morttest.SeeThruUtils.currentPage;
 import static com.bigeyedata.morttest.SeeThruUtils.initPanel;
 import static com.bigeyedata.morttest.SeeThruUtils.onPage;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
@@ -77,5 +81,16 @@ public class DatasourceStepdefs {
         assertTrue(onPage(DataSourceDetailPage.class).getRDBParameter().contains(RDBConfigList.get(0).get("DataSourceType")));
         assertTrue(onPage(DataSourceDetailPage.class).getRDBParameter().contains(RDBConfigList.get(0).get("Database")));
 
+    }
+
+    @When("^I delete the dataSource \"([^\"]*)\"$")
+    public void iDeleteTheDataSource(String sourceFileName) throws Throwable {
+        currentPage().resourcePanel.clickResourceByName(sourceFileName);
+        currentPage().resourcePanel.deleteDateSourceResourceFile();
+    }
+
+    @Then("^I shoud NOT see the DataSource \"([^\"]*)\" displayed in directory$")
+    public void iShoudNOTSeeTheDataSourceDisplayedInDirectory(String dataSourceName) throws Throwable {
+        assertThat(currentPage().resourcePanel.isResourceFileExistedInList(dataSourceName),is(false));
     }
 }

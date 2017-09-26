@@ -267,15 +267,15 @@ public class DataSetStepdefs {
 
     @When("^I modify the alias of field for DataSet on detail page \"([^\"]*)\"$")
     public void iModifyTheAliasOfFieldsForDataSetOnDetailPage(String fieldsAlias) throws Throwable {
-//        onPage(DataSetDetailsPage.class).modifyFieldsAlias(fieldsAlias);
-//    }
+        onPage(DataSetDetailsPage.class).modifyFieldAlias(fieldsAlias);
+    }
 //
 //    @Then("^I should see the alias of fields for DataSet is \"([^\"]*)\"$")
 //    public void iShouldSeeTheAliasOfFieldsForDataSetIs(String fieldsAlias) throws Throwable {
 //        assertTrue(onPage(DataSetDetailsPage.class).checkFieldsAlias(fieldsAlias));
 
-        onPage(DataSetDetailsPage.class).modifyFieldAlias(fieldsAlias);
-    }
+//        onPage(DataSetDetailsPage.class).modifyFieldAlias(fieldsAlias);
+//    }
 
     @Then("^I should see the alias of field for DataSet is \"([^\"]*)\"$")
     public void iShouldSeeTheAliasOfFieldsForDataSetIs(String fieldAlias) throws Throwable {

@@ -56,3 +56,16 @@ Feature: Create DataSource
       | 测试ES数据源      |192.168.0.180  | pa10million   | pa10million_type   |  9200  | true   |
     When I click save button on ES dataSource configuration page
     Then I should see the DataSource "测试ES数据源" displayed in directory
+
+
+  Scenario: Delete dataSource
+    Given I access to "DataSource" module
+    And I expand the DataSource directory
+    And I select DataSource directory "测试数据源目录"
+    And I want to create a HDFS DataSource with configuration as following
+      | DataSourceName       | DataSourceType   | FileName       |
+      | 测试H数据源_Delete    | Parquet           |bigeye_parquet |
+    And I click save button on HDFS dataSource configuration page
+    And I should see the DataSource "测试H数据源_Delete" displayed in directory
+    When I delete the dataSource "测试H数据源_Delete"
+    Then I shoud NOT see the DataSource "测试H数据源_Delete" displayed in directory
