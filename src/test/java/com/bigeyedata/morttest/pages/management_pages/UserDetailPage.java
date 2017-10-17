@@ -24,14 +24,14 @@ public class UserDetailPage extends Page {
     @FindBy(linkText = "用户")
     WebElement userMenuItem;
 
-    @FindBy(css = "#app > div > div.DefaultLayout > div.resource-page > div > div.ant-layout > div > div > div.resource-action-bar.clearfix > div.action-section.pull-right > div > button > span")
+    @FindBy(css = "#app > div > div > div.resource-page > div > div.ant-layout > div > div > div.resource-action-bar.space-between > div.action-section > div > button.ant-btn.ant-btn-primary > span")
     WebElement createUserButton;
 
 //    @FindBy(css = "#user\\24 Menu > li:nth-child(2) > a")
     @FindBy(linkText = "用户组")
     WebElement groupMenuItem;
 
-    @FindBy(css = "#app > div > div.DefaultLayout > div.resource-page > div > div.ant-layout > div > div > div > div.resource-action-bar.clearfix > div.action-section.pull-right > div > button > span")
+    @FindBy(css = "#app > div > div > div.resource-page > div > div.ant-layout > div > div > div > div.resource-action-bar.space-between > div.action-section > div > button > span")
     WebElement createGroupButton;
 
     @FindBy(css = "div.ant-table-body > table > tbody")
@@ -44,7 +44,7 @@ public class UserDetailPage extends Page {
     @FindBy(linkText = "角色")
     WebElement roleMenuItem;
 
-    @FindBy(css = "#app > div > div.DefaultLayout > div.resource-page > div > div.ant-layout > div > div > div.resource-action-bar.clearfix > div.action-section.pull-right > div > button > span")
+    @FindBy(css = "#app > div > div > div.resource-page > div > div.ant-layout > div > div > div.resource-action-bar.space-between > div.action-section > div > button > span")
     WebElement createRoleButton;
 
     @FindBy(tagName = "tbody")
@@ -88,13 +88,13 @@ public class UserDetailPage extends Page {
     @FindBy(css = "#userGroupListActionDropDownMenu > li:nth-child(1) > a")
     WebElement viewUserMenuItem;
 
-    @FindBy(css = "#app > div > div.DefaultLayout > div.resource-page > div > div.ant-layout > div > div > div.resource-action-bar.clearfix > div.action-section.pull-right > div > span > input")
+    @FindBy(css = "#app > div > div > div.resource-page > div > div.ant-layout > div > div > div.resource-action-bar.space-between > div.action-section > div > span > input")
     WebElement userSearchInput;
 
-    @FindBy(css = "div.resource-action-bar.clearfix > div.action-section.pull-right > div > span > span > i")
+    @FindBy(css = "#app > div > div > div.resource-page > div > div.ant-layout > div > div > div > div.resource-action-bar.space-between > div.action-section > div > span > span > i")
     WebElement searchicon;
 
-    @FindBy(css = "#app > div > div.DefaultLayout > div.resource-page > div > div.ant-layout > div > div > div > div.resource-action-bar.clearfix > div.action-section.pull-right > div > span > input")
+    @FindBy(css = "#app > div > div > div.resource-page > div > div.ant-layout > div > div > div > div.resource-action-bar.space-between > div.action-section > div > span > input")
     WebElement groupSearchInput;
 
     @FindBy(css = "#roleListActionDropDownMenu > li:nth-child(1) > a")

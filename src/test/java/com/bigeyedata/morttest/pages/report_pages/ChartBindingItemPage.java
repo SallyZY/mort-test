@@ -14,7 +14,8 @@ import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
  */
 public class ChartBindingItemPage extends Page {
 
-    @FindBy(id = "reportPresentation")
+//    @FindBy(id = "reportPresentation")
+    @FindBy(id = "reportBindingsContainer")
     WebElement chartSettingDiv;
 
 

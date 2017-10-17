@@ -5,6 +5,7 @@ import com.bigeyedata.morttest.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
@@ -59,6 +60,9 @@ public class DirectoryPanel extends Panel {
 
     @FindBy(xpath = "//*[@id='directoriesMenu']/li/span/input")
     WebElement renameInput;
+
+    @FindBy(css = "#app > div > div > div.resource-page > div > div.ant-layout > div > div > div.draggable-sider > div.ant-layout-sider > div > div.sort-container > span")
+    WebElement directoryNameSpan;
 
     public void clickDicExpandIcon() throws InterruptedException {
 
@@ -151,10 +155,8 @@ public class DirectoryPanel extends Panel {
     public void openDropdownMenu(String directoryName) throws InterruptedException {
         CommonFunctions.waitForElementVisible(mainDirectoryContainerUl);
         List<WebElement> directoryList = mainDirectoryContainerUl.findElements(By.tagName("li")) ;
-//        System.out.println(directoryList.size());
         for (int i=0;i<directoryList.size();i++){
             String directory = directoryList.get(i).getText();
-//            System.out.println(directory);
             if(directory.equals(directoryName)){
                 int n = i+1;
                 WebDriverManager.getDriver().findElement(By.xpath("//*[@id='directoriesMenu']/li[" + n + "]/span/i")).click();
@@ -163,9 +165,24 @@ public class DirectoryPanel extends Panel {
                 System.out.println("false");
             }
         }
-
-
     }
+
+
+    public void openMultiLevelDropdownMenu(String directoryName) throws InterruptedException {
+        CommonFunctions.waitForElementVisible(mainDirectoryContainerUl);
+        List<WebElement> directoryList = mainDirectoryContainerUl.findElements(By.tagName("li")) ;
+        for (int i=0;i<directoryList.size();i++){
+            String directory = directoryList.get(i).getText();
+            if(directory.contains(directoryName)){
+                int n = i+1;
+                WebDriverManager.getDriver().findElement(By.xpath("//*[@id='directoriesMenu']/li[" + n + "]/div/span/i")).click();
+                break;
+            }else{
+                System.out.println("false");
+            }
+        }
+    }
+
 
     public void goToRnamePage() throws InterruptedException{
         CommonFunctions.waitForElementVisible(renameItemLi);
@@ -184,6 +201,18 @@ public class DirectoryPanel extends Panel {
         CommonFunctions.waitForElementVisible(confirmButton);
         confirmButton.click();
     }
+
+    public void moveToDirectory(String directoryName) throws InterruptedException {
+        CommonFunctions.waitForElementVisible(mainDirectoryContainerUl);
+        Actions actions = new Actions(WebDriverManager.getDriver());
+        actions.moveToElement(WebDriverManager.getDriver().findElement(By.xpath("//ul[@id='directoriesMenu']/li/div/span/span[text()='" + directoryName + "']"))).moveByOffset(10,3).build().perform();
+
+    }
+
+    public String getDrectoryName(){
+        return directoryNameSpan.getText();
+    }
+
 
 
 }

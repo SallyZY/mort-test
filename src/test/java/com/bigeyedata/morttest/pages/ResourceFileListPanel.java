@@ -41,11 +41,30 @@ public class ResourceFileListPanel extends Panel {
     @FindBy(css = " div.ant-confirm-btns > button.ant-btn.ant-btn-primary.ant-btn-lg > span")
     WebElement confirmButton;
 
+    @FindBy(id = "newDataSetDropDownMenu")
+    WebElement dataSetTypeUl;
+
+    @FindBy(css = "#newDataSetDropDownMenu > li:nth-child(2) > span")
+    WebElement associatedDataSetSpan;
+
+    @FindBy(className = "ant-modal-content")
+    WebElement createAssociatedDataSetDiv;
 
     public void createNewResource() throws InterruptedException {
 
         createNewResourceLink.click();
         CommonFunctions.waitForElementVisible(dataSourceTypeUl);
+    }
+
+    public void createNewDataSetResource() throws InterruptedException {
+
+        createNewResourceLink.click();
+        CommonFunctions.waitForElementVisible(dataSetTypeUl);
+    }
+
+    public void createAssociatedDataSet() throws InterruptedException {
+        associatedDataSetSpan.click();
+        CommonFunctions.waitForElementVisible(createAssociatedDataSetDiv);
     }
 
     public void createNewDataResource() throws InterruptedException {

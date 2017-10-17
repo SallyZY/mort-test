@@ -62,6 +62,12 @@ public class DirectoryStepdefs {
         currentPage().dirPanel.deleteDirectory();
     }
 
+    @When("^I delete the mutilevel directory name \"([^\"]*)\"$")
+    public void iDeleteTheMultiLevelDirectoryName(String directoryName) throws Throwable {
+        currentPage().dirPanel.openMultiLevelDropdownMenu(directoryName);
+        currentPage().dirPanel.deleteDirectory();
+    }
+
     @Then("^I should NOT see the directory \"([^\"]*)\" displayed in directory list$")
     public void iShouldNOTSeeTheDirectoryDisplayedInDirectoryList(String directoryName) throws Throwable {
         assertThat(currentPage().dirPanel.getDirectory(directoryName),is(false));
@@ -71,5 +77,17 @@ public class DirectoryStepdefs {
     public void iGoToRenameOf(String directoryName) throws Throwable {
         currentPage().dirPanel.openDropdownMenu(directoryName);
         currentPage().dirPanel.goToRnamePage();
+    }
+
+    @When("^I move the mouse to DataSource directory \"([^\"]*)\"$")
+    public void iMoveTheMouseToDataSourceDirectory(String directoryName) throws Throwable {
+        currentPage().dirPanel.moveToDirectory(directoryName);
+    }
+
+    @Then("^I should NOT see the directory \"([^\"]*)\" displayed in resource list$")
+    public void iShouldNOTSeeTheDirectoryDisplayedInResourceList(String directoryName) throws Throwable {
+
+        assertThat(currentPage().dirPanel.getDrectoryName().equals(directoryName),is(true));
+
     }
 }

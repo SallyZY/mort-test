@@ -140,7 +140,7 @@ public class CommonFunctions {
 
     public static String getTestResourceFilePath(String fileName){
         String classPath= currentPage().getClass().getResource("/").getPath();
-        String testFilePath = classPath.substring(0,classPath.length()-14) + "/resources/test/test-files/"+ fileName;
+        String testFilePath = classPath.substring(0,classPath.length()-14) + "/test/resources/test-files/"+ fileName;
         System.out.println(testFilePath);
 
         return testFilePath;

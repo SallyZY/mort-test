@@ -111,7 +111,7 @@ public class ReportWorkSpacePage extends Page {
 
     public void selectChartByIndex(int chartIndex) throws InterruptedException {
 
-        chartIndex--;
+        chartIndex --;
         mouseOverAtCoordinates(chartCanvasList.get(chartIndex),20,20);
         focusElement(actionBarList.get(chartIndex));
         actionBarList.get(chartIndex).click();
@@ -168,7 +168,7 @@ public class ReportWorkSpacePage extends Page {
     }
 
     public void giveUpSaveTheReport() throws InterruptedException {
-        waitForElementClickable(saveReportConfirmDiv);
+//        waitForElementClickable(saveReportConfirmDiv);
         doNotSaveButton.click();
 
     }
