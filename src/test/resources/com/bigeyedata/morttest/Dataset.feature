@@ -70,7 +70,7 @@ Feature: Create,view DataSet
     Then  I should locate to the DataSource "测试ES数据源"
     And   I should see the related DataSet as following
       |  DatasetName    |
-      |  测试ES数据集   |
+      |  测试ES数据集    |
 
 
   Scenario: Create a new HDFS DataSet from a specified DataSource
