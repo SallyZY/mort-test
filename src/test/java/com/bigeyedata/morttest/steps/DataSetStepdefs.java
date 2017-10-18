@@ -1,8 +1,10 @@
 package com.bigeyedata.morttest.steps;
 
 import com.bigeyedata.morttest.CommonFunctions;
+import com.bigeyedata.morttest.pages.ResourceFileListPanel;
 import com.bigeyedata.morttest.pages.dataset_pages.*;
 import com.bigeyedata.morttest.pages.datasource_pages.DataSourceDetailPage;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -267,15 +269,15 @@ public class DataSetStepdefs {
 
     @When("^I modify the alias of field for DataSet on detail page \"([^\"]*)\"$")
     public void iModifyTheAliasOfFieldsForDataSetOnDetailPage(String fieldsAlias) throws Throwable {
-//        onPage(DataSetDetailsPage.class).modifyFieldsAlias(fieldsAlias);
-//    }
+        onPage(DataSetDetailsPage.class).modifyFieldAlias(fieldsAlias);
+    }
 //
 //    @Then("^I should see the alias of fields for DataSet is \"([^\"]*)\"$")
 //    public void iShouldSeeTheAliasOfFieldsForDataSetIs(String fieldsAlias) throws Throwable {
 //        assertTrue(onPage(DataSetDetailsPage.class).checkFieldsAlias(fieldsAlias));
 
-        onPage(DataSetDetailsPage.class).modifyFieldAlias(fieldsAlias);
-    }
+//        onPage(DataSetDetailsPage.class).modifyFieldAlias(fieldsAlias);
+//    }
 
     @Then("^I should see the alias of field for DataSet is \"([^\"]*)\"$")
     public void iShouldSeeTheAliasOfFieldsForDataSetIs(String fieldAlias) throws Throwable {
@@ -290,5 +292,26 @@ public class DataSetStepdefs {
     @Then("^I should see the new virtual dimension \"([^\"]*)\" displayed in DataSet field table$")
     public void iShouldSeeTheNewVirtualDimensionDisplayedInDataSetFieldTable(String arg0) throws Throwable {
         assertTrue(onPage(DataSetDetailsPage.class).getFieldList(arg0));
+    }
+
+    @And("^I click create new DataSet button on DataSet page$")
+    public void iClickCreateNewDataSetButtonOnDataSetPage() throws Throwable {
+        currentPage().resourcePanel.createNewDataSetResource();
+    }
+
+    @And("^I click cereate new Associated button$")
+    public void iClickCereateNewAssociatedButton() throws Throwable {
+        currentPage().resourcePanel.createAssociatedDataSet();
+    }
+
+    @And("^I select the directory \"([^\"]*)\" on associated DataSet page$")
+    public void iSelectTheDirectoryOnAssociatedDataSetPage(String directoryName) throws Throwable {
+        onPage(AssociatedDataSetPage.class).selectDirectory(directoryName);
+
+    }
+
+    @And("^I drag and drop dataset$")
+    public void iDragAndDropDataset() throws Throwable {
+        onPage(AssociatedDataSetPage.class).dragAndDrop();
     }
 }

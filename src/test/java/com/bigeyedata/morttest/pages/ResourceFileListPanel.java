@@ -32,11 +32,39 @@ public class ResourceFileListPanel extends Panel {
     @FindBy(id = "newDataSourceDropDownMenu")
     WebElement dataSourceTypeUl;
 
+    @FindBy(css = "#resourceListMenuContainerMenu > li.ant-menu-item-selected.ant-menu-item > div > span > span.item-right > i")
+    WebElement dataSourceperateionMenuIcon;
+
+    @FindBy(xpath = "//div/ul/li[text()='删除']")
+    WebElement dataSourceDeleteLi;
+
+    @FindBy(css = " div.ant-confirm-btns > button.ant-btn.ant-btn-primary.ant-btn-lg > span")
+    WebElement confirmButton;
+
+    @FindBy(id = "newDataSetDropDownMenu")
+    WebElement dataSetTypeUl;
+
+    @FindBy(css = "#newDataSetDropDownMenu > li:nth-child(2) > span")
+    WebElement associatedDataSetSpan;
+
+    @FindBy(className = "ant-modal-content")
+    WebElement createAssociatedDataSetDiv;
 
     public void createNewResource() throws InterruptedException {
 
         createNewResourceLink.click();
         CommonFunctions.waitForElementVisible(dataSourceTypeUl);
+    }
+
+    public void createNewDataSetResource() throws InterruptedException {
+
+        createNewResourceLink.click();
+        CommonFunctions.waitForElementVisible(dataSetTypeUl);
+    }
+
+    public void createAssociatedDataSet() throws InterruptedException {
+        associatedDataSetSpan.click();
+        CommonFunctions.waitForElementVisible(createAssociatedDataSetDiv);
     }
 
     public void createNewDataResource() throws InterruptedException {
@@ -75,6 +103,16 @@ public class ResourceFileListPanel extends Panel {
         waitForElementVisible(resourceFileListContainerDiv);
         return resourceFileListContainerDiv.getText().contains(fileName);
 
+    }
+
+
+    public void deleteDateSourceResourceFile() throws InterruptedException {
+        CommonFunctions.waitForElementVisible(dataSourceperateionMenuIcon);
+        dataSourceperateionMenuIcon.click();
+        CommonFunctions.waitForElementVisible(dataSourceDeleteLi);
+        dataSourceDeleteLi.click();
+        CommonFunctions.waitForElementVisible(confirmButton);
+        confirmButton.click();
     }
 
 }

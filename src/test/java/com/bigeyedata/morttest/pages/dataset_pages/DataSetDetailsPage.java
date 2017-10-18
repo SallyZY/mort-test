@@ -39,16 +39,16 @@ public class DataSetDetailsPage extends Page {
     @FindBy(id = "dataSetOtherOperationMenu")
     WebElement otherOperationMenu;
 
-    @FindBy(css = "ul#dataSetAllMenu > li:nth-child(1)")
+    @FindBy(css = "#checkDataSourceButton > a")
     WebElement locateToDatasourceMenuItem;
 
-    @FindBy(css = "ul#dataSetAllMenu > li:nth-child(3)")
+    @FindBy(id = "appendFieldsButton")
     WebElement modifySQLMenuItem;
 
     @FindBy(css = "ul#dataSetAllMenu > li:nth-child(3)")
     WebElement appendDataMenuItem;
 
-    @FindBy(css = "ul#dataSetAllMenu > li:nth-child(2)")
+    @FindBy(css = "#checkSqlButton")
     WebElement checkSqlMenuItem;
 
     @FindBy(xpath = "//div[@class='ant-modal-content']//p")
@@ -128,7 +128,7 @@ public class DataSetDetailsPage extends Page {
 
     public boolean compareFieldAlias(List<Map<String, String>> comparedFieldAliasList) {
 
-        List<WebElement> fieldAliasList = FieldAttributeTable.findElements(By.cssSelector("tbody > tr > td:nth-child(3) > div > span"));
+        List<WebElement> fieldAliasList = FieldAttributeTable.findElements(By.cssSelector("tbody > tr > td:nth-child(2) > div > span"));
 
         int aliasEqualToSettingCount = 0;
         String fieldAliasName = "";
@@ -149,7 +149,7 @@ public class DataSetDetailsPage extends Page {
     public boolean compareFieldType(List<Map<String, String>> comparedFieldTypeList) {
 
         List<WebElement> fieldTypeList = FieldAttributeTable.findElements(By.cssSelector("tbody > tr > td:nth-child(4) > span > span"));
-        List<WebElement> fieldNameList = FieldAttributeTable.findElements(By.cssSelector("tbody > tr > td:nth-child(2) > span"));
+        List<WebElement> fieldNameList = FieldAttributeTable.findElements(By.cssSelector("tbody > tr > td:nth-child(3) > span"));
 
         int typeEqualToSettingCount = 0;
         String fieldType = "";
@@ -191,7 +191,7 @@ public class DataSetDetailsPage extends Page {
 
         CommonFunctions.waitForElementVisible(FieldViewTable);
 
-        WebElement CDate = FieldViewTable.findElement(By.cssSelector("tbody > tr:nth-child(1) > td:nth-child(3)"));
+        WebElement CDate = FieldViewTable.findElement(By.cssSelector("tbody > tr:nth-child(1) > td:nth-child(2)"));
 
 
         CommonFunctions.mouseOverAtCoordinates(CDate,30,15);
@@ -207,7 +207,7 @@ public class DataSetDetailsPage extends Page {
 
     public String getFieldAlias() throws InterruptedException {
         waitForElementVisible(FieldViewTable);
-        return FieldViewTable.findElement(By.cssSelector("tbody > tr:nth-child(1) > td:nth-child(3)")).getText();
+        return FieldViewTable.findElement(By.cssSelector("tbody > tr:nth-child(1) > td:nth-child(2)")).getText();
     }
 
     public boolean getFieldList(String name){
@@ -216,7 +216,7 @@ public class DataSetDetailsPage extends Page {
         for(int i=0;i<fieldList.size();i++){
             fieldList.get(i).getText();
             int n= i+1;
-            String aliasName =  fieldViewTbody.findElement(By.xpath("tr[" + n + "]/td[3]/div/span")).getText();
+            String aliasName =  fieldViewTbody.findElement(By.xpath("tr[" + n + "]/td[2]/div/span")).getText();
             if(aliasName.equals(name)){
                 flg = true;
                 break;
