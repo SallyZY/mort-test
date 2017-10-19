@@ -62,7 +62,6 @@ public class CommonStepdefs {
 
     @And("^I select (?:DataSource|DataSet|Report) directory \"([^\"]*)\"$")
     public void iSelectDirectory(String directoryName) throws Throwable {
-
         currentPage().dirPanel.clickDirectoryByName(directoryName);
     }
 
@@ -80,7 +79,6 @@ public class CommonStepdefs {
 
     @And("^I expand the (?:DataSource|DataSet|Report) directory$")
     public void iExpandTheDataSourceDirectory() throws Throwable {
-
         currentPage().dirPanel.clickDicExpandIcon();
     }
 }

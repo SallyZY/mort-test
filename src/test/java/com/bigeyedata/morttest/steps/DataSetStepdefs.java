@@ -1,10 +1,8 @@
 package com.bigeyedata.morttest.steps;
 
 import com.bigeyedata.morttest.CommonFunctions;
-import com.bigeyedata.morttest.pages.ResourceFileListPanel;
 import com.bigeyedata.morttest.pages.dataset_pages.*;
 import com.bigeyedata.morttest.pages.datasource_pages.DataSourceDetailPage;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -78,7 +76,6 @@ public class DataSetStepdefs {
 
     @Then("^I should see the (?:DataSource|DataSet|Report) \"([^\"]*)\" displayed in directory$")
     public void iShouldSeeTheSourceFileDisplayedInDirectory(String datasetName) throws Throwable {
-
         assertThat(currentPage().resourcePanel.isResourceFileExistedInList(datasetName),is(true));
     }
 

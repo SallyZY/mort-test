@@ -1,8 +1,5 @@
 package com.bigeyedata.morttest.pages;
 
-import com.bigeyedata.morttest.SeeThruUtils;
-
-import static com.bigeyedata.morttest.SeeThruUtils.initPage;
 import static com.bigeyedata.morttest.SeeThruUtils.initPanel;
 
 /**
@@ -14,5 +11,5 @@ public class Page {
 
     public DirectoryPanel dirPanel = initPanel(DirectoryPanel.class);
 
-    public ResourceFileListPanel resourcePanel = initPanel(ResourceFileListPanel.class);
+    public ResourceItemsPanel resourcePanel = initPanel(ResourceItemsPanel.class);
 }

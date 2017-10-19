@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
+import static com.bigeyedata.morttest.SeeThruUtils.onPage;
 
 /**
  * Created by yingzhang on 10/05/2017.
@@ -37,6 +38,7 @@ public class NavigationPanel extends Panel {
         switch (module){
             case "DataSource":
                 datasourcesModuleLink.click();
+                onPage(DataSourcePage.class);
                 break;
             case "DataSet":
                 datasetsModuleLink.click();

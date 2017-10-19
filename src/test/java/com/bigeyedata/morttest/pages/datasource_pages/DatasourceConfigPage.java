@@ -120,13 +120,11 @@ public class DatasourceConfigPage extends Page {
 
 
     public void createDataSource(){
-
         DataSourceSaveButton.click();
     }
 
 
     public void selectHDFSType(){
-
         HDFSTypeLink.click();
     }
 

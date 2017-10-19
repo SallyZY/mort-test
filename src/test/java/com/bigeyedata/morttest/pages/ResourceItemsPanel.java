@@ -15,7 +15,7 @@ import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisibleAndLo
 /**
  * Created by yingzhang on 10/05/2017.
  */
-public class ResourceFileListPanel extends Panel {
+public class ResourceItemsPanel extends Panel {
 
     @FindBy(id = "resourceListMenuContainerMenu")
     WebElement resourceFileListContainerDiv;
@@ -49,6 +49,12 @@ public class ResourceFileListPanel extends Panel {
 
     @FindBy(className = "ant-modal-content")
     WebElement createAssociatedDataSetDiv;
+
+    @FindBy(css = "#resourceListMenuContainerMenu > li.ant-menu-item-selected.ant-menu-item > div > span > span.item-right")
+    WebElement operationMenuIcon;
+
+    @FindBy(xpath = "//div[@class='ant-dropdown ant-dropdown-placement-bottomLeft']/ul[@class='ant-dropdown-menu ant-dropdown-menu-vertical data-sources-resource-list-item-operation-menu ant-dropdown-menu-light ant-dropdown-menu-root']/li[3]")
+    WebElement editItem;
 
     public void createNewResource() throws InterruptedException {
 
@@ -113,6 +119,18 @@ public class ResourceFileListPanel extends Panel {
         dataSourceDeleteLi.click();
         CommonFunctions.waitForElementVisible(confirmButton);
         confirmButton.click();
+    }
+
+    public void editItem(String title) throws InterruptedException {
+        WebDriver driver = WebDriverManager.getDriver();
+        WebElement dataSource = driver.findElement(By.xpath("//div/span/span[1]/span[text()='" + title + "']"));
+        CommonFunctions.waitForElementVisible(dataSource);
+        dataSource.click();
+        CommonFunctions.waitForElementVisible(operationMenuIcon);
+        operationMenuIcon.click();
+//        CommonFunctions.waitForElementVisible(operationMenu);
+        CommonFunctions.waitForElementVisible(editItem);
+        editItem.click();
     }
 
 }
