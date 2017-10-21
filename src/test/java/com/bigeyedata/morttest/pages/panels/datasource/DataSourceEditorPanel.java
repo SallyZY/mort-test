@@ -2,6 +2,7 @@ package com.bigeyedata.morttest.pages.panels.datasource;
 
 import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.pages.Panel;
+import com.bigeyedata.morttest.pages.panels.datasource.specificPanel.DataSourceSpecificEditorPanel;
 import com.bigeyedata.morttest.types.DataSourceType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,6 +28,9 @@ public class DataSourceEditorPanel extends Panel {
     @FindBy(css = "//ul[@id='newDataSourceDropDownMenu']//span[text()='HDFS']")
     WebElement HDFSTypeLink;
 
+    @FindBy(css = "ul#newDataSourceDropDownMenu > li:nth-child(4)")
+    WebElement ESTypeLink;
+
     @FindBy(css = "div.ant-modal-footer > button:nth-child(2)")
     WebElement DataSourceSaveButton;
 
@@ -46,14 +50,19 @@ public class DataSourceEditorPanel extends Panel {
         editorPanel = initPanel(RDBDataSourceEditorPanel.class);
     }
 
-    public void confirmCreateDataSource(){
-        DataSourceSaveButton.click();
-    }
-
     public void selectHDFSType(){
         dataSourceType = HDFS;
         HDFSTypeLink.click();
         editorPanel = initPanel(HDFSDataSourceEditorPanel.class);
+    }
+
+    public void selectESType() throws InterruptedException {
+        CommonFunctions.waitForElementVisible(ESTypeLink);
+        ESTypeLink.click();
+    }
+
+    public void confirmCreateDataSource(){
+        DataSourceSaveButton.click();
     }
 
     public <T extends DataSourceSpecificEditorPanel> T specificEditorPanel(Class<T> editor) {

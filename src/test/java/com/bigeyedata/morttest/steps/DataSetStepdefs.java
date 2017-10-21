@@ -75,8 +75,8 @@ public class DataSetStepdefs {
     }
 
     @Then("^I should see the (?:DataSource|DataSet|Report) \"([^\"]*)\" displayed in directory$")
-    public void iShouldSeeTheSourceFileDisplayedInDirectory(String datasetName) throws Throwable {
-        assertThat(currentPage().resourcePanel.isResourceFileExistedInList(datasetName),is(true));
+    public void iShouldSeeThereSourceFileDisplayedInDirectory(String datasetName) throws Throwable {
+        assertThat(currentPage().resourcePanel.isResourceExisted(datasetName),is(true));
     }
 
     @And("^I should see the number of DataSet fields is \"([^\"]*)\"$")
@@ -105,7 +105,7 @@ public class DataSetStepdefs {
     @Then("^I should locate to the DataSource \"([^\"]*)\"$")
     public void iShouldLocateToTheDatasource(String datasourceName) throws Throwable {
 
-        assertThat(currentPage().resourcePanel.isResourceFileExistedInList(datasourceName),is(true));
+        assertThat(currentPage().resourcePanel.isResourceExisted(datasourceName),is(true));
     }
 
     @When("^I click \"([^\"]*)\" item from other operation dropdown menu$")

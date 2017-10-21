@@ -146,7 +146,7 @@ public class CommonFunctions {
         return testFilePath;
     }
 
-    public static WebElement getElementByXpath(String xpath){
+    public static WebElement findByXpath(String xpath){
         WebDriver driver = WebDriverManager.getDriver();
         return driver.findElement(By.xpath(xpath));
     }

@@ -4,13 +4,12 @@ import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.Panel;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-import static com.bigeyedata.morttest.CommonFunctions.getElementByXpath;
+import static com.bigeyedata.morttest.CommonFunctions.findByXpath;
 import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
 
 /**
@@ -50,13 +49,6 @@ public class ResourceItemsPanel extends Panel {
 
     @FindBy(className = "ant-modal-content")
     WebElement createAssociatedDataSetDiv;
-
-//    @FindBy(css = "#resourceListMenuContainerMenu > li.ant-menu-item-selected.ant-menu-item > div > span > span.item-right")
-//    WebElement operationMenuIcon;
-
-//    @FindBy(xpath = "//div[@class='ant-dropdown ant-dropdown-placement-bottomLeft']/ul[@class='ant-dropdown-menu ant-dropdown-menu-vertical data-sources-resource-list-item-operation-menu ant-dropdown-menu-light ant-dropdown-menu-root']/li[3]")
-//    WebElement locateItem;
-
 
     public void createNewResource() throws InterruptedException {
 
@@ -106,14 +98,6 @@ public class ResourceItemsPanel extends Panel {
         }
     }
 
-    public boolean isResourceFileExistedInList(String fileName) throws InterruptedException {
-
-        waitForElementVisible(resourceFileListContainerDiv);
-        return resourceFileListContainerDiv.getText().contains(fileName);
-
-    }
-
-
     public void deleteDateSourceResourceFile() throws InterruptedException {
         CommonFunctions.waitForElementVisible(dataSourceperateionMenuIcon);
         dataSourceperateionMenuIcon.click();
@@ -123,10 +107,19 @@ public class ResourceItemsPanel extends Panel {
         confirmButton.click();
     }
 
+
+
+
+
     public void locateItem(String sourceName) throws InterruptedException {
-        WebElement sourceItem = getElementByXpath("//div/span/span[1]/span[text()='" + sourceName + "']");
+        WebElement sourceItem = findByXpath("//div/span/span[1]/span[text()='" + sourceName + "']");
         CommonFunctions.waitForElementVisible(sourceItem);
         sourceItem.click();
+    }
+
+    public boolean isResourceExisted(String fileName) throws InterruptedException {
+        waitForElementVisible(resourceFileListContainerDiv);
+        return resourceFileListContainerDiv.getText().contains(fileName);
     }
 
 }

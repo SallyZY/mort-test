@@ -57,7 +57,7 @@ public class CommonStepdefs {
     @Then("^I should NOT see deleted resource file \"([^\"]*)\" in directory$")
     public void iShouldNOTSeeDeletedResourceFileInDirectory(String fileName) throws Throwable {
 
-        assertThat(currentPage().resourcePanel.isResourceFileExistedInList(fileName),is(false));
+        assertThat(currentPage().resourcePanel.isResourceExisted(fileName),is(false));
     }
 
     @And("^I select (?:DataSource|DataSet|Report) directory \"([^\"]*)\"$")

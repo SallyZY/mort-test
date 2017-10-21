@@ -5,5 +5,5 @@ package com.bigeyedata.morttest.types;
  */
 public enum DataSourceType {
 
-    RDB, HDFS, CSV
+    RDB, HDFS, CSV, ES
 }
