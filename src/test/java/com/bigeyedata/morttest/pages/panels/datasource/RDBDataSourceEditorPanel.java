@@ -74,4 +74,15 @@ public class RDBDataSourceEditorPanel extends DataSourceSpecificEditorPanel {
     public DataSourceType dataSourceType() {
         return RDB;
     }
+
+    @Override
+    public void createDataSource(List<Map<String,String>> rdbConfigList) throws InterruptedException {
+        dataSourceNameInput.sendKeys(rdbConfigList.get(0).get("DataSourceName").toString());
+        hostInput.sendKeys(rdbConfigList.get(0).get("Host").toString());
+        portInput.sendKeys(rdbConfigList.get(0).get("Port").toString());
+        userInput.sendKeys(rdbConfigList.get(0).get("User").toString());
+        passwordInput.sendKeys(rdbConfigList.get(0).get("Password").toString());
+        databaseInput.sendKeys(rdbConfigList.get(0).get("Database").toString());
+        selectDataSourceType(rdbConfigList.get(0).get("DataSourceType").toString());
+    }
 }

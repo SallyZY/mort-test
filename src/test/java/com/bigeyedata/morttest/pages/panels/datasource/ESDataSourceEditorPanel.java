@@ -34,11 +34,7 @@ public class ESDataSourceEditorPanel extends DataSourceSpecificEditorPanel {
 
     public void createESDataSource(List<Map<String,String>> ESConfigList){
 
-        dataSourceNameInput.sendKeys(ESConfigList.get(0).get("DataSourceName").toString());
-        esNodesInput.sendKeys(ESConfigList.get(0).get("Nodes").toString());
-        esIndexInput.sendKeys(ESConfigList.get(0).get("Index").toString());
-        esTypeInput.sendKeys(ESConfigList.get(0).get("Type").toString());
-        esPortInput.sendKeys(ESConfigList.get(0).get("Port").toString());
+
 
     }
 
@@ -51,5 +47,14 @@ public class ESDataSourceEditorPanel extends DataSourceSpecificEditorPanel {
     @Override
     public DataSourceType dataSourceType() {
         return ES;
+    }
+
+    @Override
+    public void createDataSource(List<Map<String, String>> esConfigList) throws InterruptedException {
+        dataSourceNameInput.sendKeys(esConfigList.get(0).get("DataSourceName").toString());
+        esNodesInput.sendKeys(esConfigList.get(0).get("Nodes").toString());
+        esIndexInput.sendKeys(esConfigList.get(0).get("Index").toString());
+        esTypeInput.sendKeys(esConfigList.get(0).get("Type").toString());
+        esPortInput.sendKeys(esConfigList.get(0).get("Port").toString());
     }
 }

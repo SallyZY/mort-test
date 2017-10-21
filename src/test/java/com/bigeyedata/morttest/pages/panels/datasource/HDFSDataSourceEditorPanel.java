@@ -27,12 +27,9 @@ public class HDFSDataSourceEditorPanel extends DataSourceSpecificEditorPanel {
     WebElement dataSourceTypeSelect;
 
     public void createHDFSDataSource(List<Map<String,String>> HDFSConfigList) throws InterruptedException {
-
         dataSourceNameInput.sendKeys(HDFSConfigList.get(0).get("DataSourceName").toString().trim());
-//        hdfsPathInput.sendKeys(HDFSConfigList.get(0).get("Path").toString());
         selectDataSourceType(HDFSConfigList.get(0).get("DataSourceType").toString());
         hdfsPathInput.sendKeys(getTestResourceFilePath(HDFSConfigList.get(0).get("FileName").toString()));
-
     }
 
     private void selectDataSourceType(String typeName) throws InterruptedException {
@@ -46,5 +43,12 @@ public class HDFSDataSourceEditorPanel extends DataSourceSpecificEditorPanel {
     @Override
     public DataSourceType dataSourceType() {
         return HDFS;
+    }
+
+    @Override
+    public void createDataSource(List<Map<String, String>> hdfsConfigList) throws InterruptedException {
+        dataSourceNameInput.sendKeys(hdfsConfigList.get(0).get("DataSourceName").toString().trim());
+        selectDataSourceType(hdfsConfigList.get(0).get("DataSourceType").toString());
+        hdfsPathInput.sendKeys(getTestResourceFilePath(hdfsConfigList.get(0).get("FileName").toString()));
     }
 }

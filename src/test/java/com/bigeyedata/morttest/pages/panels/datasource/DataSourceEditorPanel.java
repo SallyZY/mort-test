@@ -25,10 +25,10 @@ public class DataSourceEditorPanel extends Panel {
     @FindBy(xpath = "//ul[@id='newDataSourceDropDownMenu']//span[text()='RDB']")
     WebElement RDBTypeLink;
 
-    @FindBy(css = "//ul[@id='newDataSourceDropDownMenu']//span[text()='HDFS']")
+    @FindBy(xpath = "//ul[@id='newDataSourceDropDownMenu']//span[text()='HDFS']")
     WebElement HDFSTypeLink;
 
-    @FindBy(css = "ul#newDataSourceDropDownMenu > li:nth-child(4)")
+    @FindBy(xpath = "//ul[@id='newDataSourceDropDownMenu']//span[text()='ES']")
     WebElement ESTypeLink;
 
     @FindBy(css = "div.ant-modal-footer > button:nth-child(2)")
@@ -65,7 +65,7 @@ public class DataSourceEditorPanel extends Panel {
         DataSourceSaveButton.click();
     }
 
-    public <T extends DataSourceSpecificEditorPanel> T specificEditorPanel(Class<T> editor) {
+    public <T extends DataSourceSpecificEditorPanel> T specificEditorPanel() {
         return (T)editorPanel;
     }
 }

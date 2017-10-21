@@ -10,6 +10,6 @@ import static com.bigeyedata.morttest.SeeThruUtils.initPanel;
  */
 public class DataSourcePage extends Page {
 
-    public DataSourceEditorPanel dataSourceEditorPanel = initPanel(DataSourceEditorPanel.class);
+    public DataSourceEditorPanel editorPanel = initPanel(DataSourceEditorPanel.class);
     public RDBDataSourceDetailPanel rdbDetailPanel = initPanel(RDBDataSourceDetailPanel.class);
 }

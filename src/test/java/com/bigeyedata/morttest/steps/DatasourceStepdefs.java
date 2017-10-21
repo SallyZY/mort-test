@@ -1,8 +1,6 @@
 package com.bigeyedata.morttest.steps;
 
 import com.bigeyedata.morttest.pages.DataSourcePage;
-import com.bigeyedata.morttest.pages.panels.ResourceItemsPanel;
-import com.bigeyedata.morttest.pages.datasource_pages.DatasourceConfigPage;
 import com.bigeyedata.morttest.pages.panels.ResourceItemOperatorPanel;
 import com.bigeyedata.morttest.pages.panels.datasource.*;
 import cucumber.api.java.en.And;
@@ -28,33 +26,30 @@ public class DatasourceStepdefs {
     @And("^I create a RDB dataSource with configuration as following$")
     public void iCreateARDBDatasourceWithConfigurationAsFollowing(List<Map<String,String>> rdbConfigList) throws Throwable {
 
-        DataSourceEditorPanel dataSourceEditorPanel = onPage(DataSourcePage.class).dataSourceEditorPanel;
+        DataSourceEditorPanel dataSourceEditorPanel = ((DataSourcePage)currentPage()).editorPanel;
         dataSourceEditorPanel.createNewDataResource();
         dataSourceEditorPanel.selectRDBType();
 
-        RDBDataSourceEditorPanel rdbDataSourceEditorPanel = dataSourceEditorPanel.specificEditorPanel(RDBDataSourceEditorPanel.class);
-        rdbDataSourceEditorPanel.createRDBDataSource(rdbConfigList);
+        dataSourceEditorPanel.specificEditorPanel().createDataSource(rdbConfigList);
     }
 
     @When("^I saved (?:RDB|HDFS|ES) dataSource$")
     public void iSavedDataSource() throws Throwable {
-        onPage(DataSourcePage.class).dataSourceEditorPanel.confirmCreateDataSource();
+        ((DataSourcePage)currentPage()).editorPanel.confirmCreateDataSource();
     }
 
     @And("^I create a HDFS DataSource with configuration as following$")
-    public void iCreateAHDFSDatasourceWithConfigurationAsFollowing(List<Map<String,String>> HDFSConfigList) throws Throwable {
+    public void iCreateAHDFSDatasourceWithConfigurationAsFollowing(List<Map<String,String>> hdfsConfigList) throws Throwable {
 
-        DataSourceEditorPanel editorPanel =onPage(DataSourcePage.class).dataSourceEditorPanel;
+        DataSourceEditorPanel editorPanel =((DataSourcePage)currentPage()).editorPanel;
         editorPanel.createNewDataResource();
         editorPanel.selectHDFSType();
-
-        HDFSDataSourceEditorPanel hdfsEditorPanel = editorPanel.specificEditorPanel(HDFSDataSourceEditorPanel.class);
-        hdfsEditorPanel.createHDFSDataSource(HDFSConfigList);
+        editorPanel.specificEditorPanel().createDataSource(hdfsConfigList);
     }
 
     @And("^I \"([^\"]*)\" dataSource \"([^\"]*)\"$")
     public void iOperateDataSource(String menuItemName, String dataSourceName) throws Throwable {
-        DataSourcePage dataSourcePage = onPage(DataSourcePage.class);
+        DataSourcePage dataSourcePage = ((DataSourcePage)currentPage());
         dataSourcePage.resourcePanel.locateItem(dataSourceName);
 
         ResourceItemOperatorPanel itemOperatorPanel =initPanel(ResourceItemOperatorPanel.class);
@@ -65,24 +60,25 @@ public class DatasourceStepdefs {
     }
 
     @And("^I create a ES DataSource with configuration as following$")
-    public void iCreateAESDataSourceWithConfigurationAsFollowing(List<Map<String,String>> ESConfigList) throws Throwable {
-        DataSourceEditorPanel editorPanel =onPage(DataSourcePage.class).dataSourceEditorPanel;
+    public void iCreateAESDataSourceWithConfigurationAsFollowing(List<Map<String,String>> esConfigList) throws Throwable {
+        DataSourceEditorPanel editorPanel =onPage(DataSourcePage.class).editorPanel;
         editorPanel.createNewDataResource();
         editorPanel.selectESType();
+        editorPanel.specificEditorPanel().createDataSource(esConfigList);
 
-        ESDataSourceEditorPanel esEditorPanel=editorPanel.specificEditorPanel(ESDataSourceEditorPanel.class);
-        esEditorPanel.createESDataSource(ESConfigList);
-        esEditorPanel.openWanSwitch();
+//        ESDataSourceEditorPanel esEditorPanel=editorPanel.specificEditorPanel(ESDataSourceEditorPanel.class);
+//        esEditorPanel.createESDataSource(ESConfigList);
+//        esEditorPanel.openWanSwitch();
     }
 
     @And("^I modified RDB dataSource with configuration as following$")
     public void iModifiedRDBDataSourceWithConfigurationAsFollowing(List<Map<String,String>> RDBConfigList) throws Throwable {
-        onPage(DataSourcePage.class).dataSourceEditorPanel.specificEditorPanel(RDBDataSourceEditorPanel.class).modifyRDBDataSource(RDBConfigList);
+//        ((DataSourcePage)currentPage()).editorPanel.specificEditorPanel(RDBDataSourceEditorPanel.class).modifyRDBDataSource(RDBConfigList);
     }
 
     @And("^I should see the DataSource configuration displayed correctly as following$")
     public void iShouldSeeTheDataSourceConfigurationDisplayedCorrectlyAsFollowing(List<Map<String,String>> RDBConfigList) throws Throwable {
-        String rdbParameter = onPage(DataSourcePage.class).rdbDetailPanel.getRDBParameter();
+        String rdbParameter = ((DataSourcePage)currentPage()).rdbDetailPanel.getRDBParameter();
         assertTrue(rdbParameter.contains(RDBConfigList.get(0).get("Host")));
         assertTrue(rdbParameter.contains(RDBConfigList.get(0).get("Port")));
         assertTrue(rdbParameter.contains(RDBConfigList.get(0).get("User")));
