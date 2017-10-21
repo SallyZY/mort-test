@@ -1,7 +1,7 @@
 package com.bigeyedata.morttest.tests;
 
 import com.bigeyedata.morttest.WebDriverManager;
-import com.bigeyedata.morttest.pages.LoginPage;
+import com.bigeyedata.morttest.pages.panels.LoginPage;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;

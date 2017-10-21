@@ -1,7 +1,8 @@
 package com.bigeyedata.morttest.pages;
 
-import com.bigeyedata.morttest.pages.panel.DataSourceEditorPanel;
-import com.bigeyedata.morttest.pages.panel.RDBDataSourceDetailPanel;
+import com.bigeyedata.morttest.pages.panels.SourceItemEditPanel;
+import com.bigeyedata.morttest.pages.panels.datasource.DataSourceEditorPanel;
+import com.bigeyedata.morttest.pages.panels.datasource.RDBDataSourceDetailPanel;
 
 import static com.bigeyedata.morttest.SeeThruUtils.initPanel;
 
@@ -12,4 +13,5 @@ public class DataSourcePage extends Page {
 
     public DataSourceEditorPanel dataSourceEditorPanel = initPanel(DataSourceEditorPanel.class);
     public RDBDataSourceDetailPanel rdbDetailPanel = initPanel(RDBDataSourceDetailPanel.class);
+    public SourceItemEditPanel sourceItemEditPanel = initPanel(SourceItemEditPanel.class);
 }

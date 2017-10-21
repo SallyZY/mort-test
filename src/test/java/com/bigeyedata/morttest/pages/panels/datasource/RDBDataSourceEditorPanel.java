@@ -1,8 +1,7 @@
-package com.bigeyedata.morttest.pages.panel;
+package com.bigeyedata.morttest.pages.panels.datasource;
 
 import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.WebDriverManager;
-import com.bigeyedata.morttest.pages.Panel;
 import com.bigeyedata.morttest.types.DataSourceType;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -42,7 +41,7 @@ public class RDBDataSourceEditorPanel extends DataSourceSpecificEditorPanel {
     @FindBy(xpath = "//div[@class='ant-select-lg ant-select ant-select-enabled']")
     WebElement dataSourceTypeSelect;
 
-    public void setRDBParameter(List<Map<String,String>> RDBConfigList) throws InterruptedException {
+    public void createRDBDatasource(List<Map<String,String>> RDBConfigList) throws InterruptedException {
 
         dataSourceNameInput.sendKeys(RDBConfigList.get(0).get("DataSourceName").toString());
         hostInput.sendKeys(RDBConfigList.get(0).get("Host").toString());

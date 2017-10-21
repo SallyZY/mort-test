@@ -45,7 +45,7 @@ public class RDBPreviewPage extends Page {
     @FindBy(css = "div.inline-block.form-control > span.ant-time-picker > span")
     WebElement triggerTimeInput;
 
-    @FindBy(css = "div.ant-time-picker-panel-input-wrap > input")
+    @FindBy(css = "div.ant-time-picker-panels-input-wrap > input")
     WebElement importTimeInput;
 
     @FindBy(css = "table")

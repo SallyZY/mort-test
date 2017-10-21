@@ -1,7 +1,5 @@
 package com.bigeyedata.morttest.steps.report_steps;
 
-import com.bigeyedata.morttest.WebDriverManager;
-import com.bigeyedata.morttest.pages.DirectoryPanel;
 import com.bigeyedata.morttest.pages.report_pages.ReportPreviewPage;
 import com.bigeyedata.morttest.pages.report_pages.ReportWorkSpacePage;
 import cucumber.api.PendingException;
@@ -9,8 +7,6 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 import java.util.Map;

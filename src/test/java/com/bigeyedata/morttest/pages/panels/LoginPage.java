@@ -1,6 +1,6 @@
-package com.bigeyedata.morttest.pages;
+package com.bigeyedata.morttest.pages.panels;
 
-import gherkin.lexer.Pa;
+import com.bigeyedata.morttest.pages.Page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 

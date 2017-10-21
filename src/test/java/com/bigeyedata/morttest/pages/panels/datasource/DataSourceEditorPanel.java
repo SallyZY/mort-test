@@ -1,4 +1,4 @@
-package com.bigeyedata.morttest.pages.panel;
+package com.bigeyedata.morttest.pages.panels.datasource;
 
 import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.pages.Panel;
@@ -21,10 +21,10 @@ public class DataSourceEditorPanel extends Panel {
     @FindBy(id = "newDataSourceDropDownMenu")
     WebElement dataSourceTypeUl;
 
-    @FindBy(css = "ul#newDataSourceDropDownMenu > li:nth-child(2)")
+    @FindBy(xpath = "//ul[@id='newDataSourceDropDownMenu']//span[text()='RDB']")
     WebElement RDBTypeLink;
 
-    @FindBy(css = "ul#newDataSourceDropDownMenu > li:nth-child(3)")
+    @FindBy(css = "//ul[@id='newDataSourceDropDownMenu']//span[text()='HDFS']")
     WebElement HDFSTypeLink;
 
     @FindBy(css = "div.ant-modal-footer > button:nth-child(2)")
@@ -46,7 +46,7 @@ public class DataSourceEditorPanel extends Panel {
         editorPanel = initPanel(RDBDataSourceEditorPanel.class);
     }
 
-    public void createDataSource(){
+    public void confirmCreateDataSource(){
         DataSourceSaveButton.click();
     }
 

@@ -1,4 +1,4 @@
-package com.bigeyedata.morttest.pages.panel;
+package com.bigeyedata.morttest.pages.panels.datasource;
 
 import com.bigeyedata.morttest.types.DataSourceType;
 

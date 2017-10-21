@@ -1,7 +1,7 @@
 package com.bigeyedata.morttest.steps;
 
 import com.bigeyedata.morttest.Hooks;
-import com.bigeyedata.morttest.pages.LoginPage;
+import com.bigeyedata.morttest.pages.panels.LoginPage;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;

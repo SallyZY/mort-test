@@ -1,7 +1,8 @@
-package com.bigeyedata.morttest.pages;
+package com.bigeyedata.morttest.pages.panels;
 
 import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.WebDriverManager;
+import com.bigeyedata.morttest.pages.Panel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;

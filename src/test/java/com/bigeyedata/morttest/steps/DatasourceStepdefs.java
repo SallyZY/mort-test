@@ -1,10 +1,11 @@
 package com.bigeyedata.morttest.steps;
 
 import com.bigeyedata.morttest.pages.DataSourcePage;
-import com.bigeyedata.morttest.pages.ResourceItemsPanel;
+import com.bigeyedata.morttest.pages.panels.ResourceItemsPanel;
 import com.bigeyedata.morttest.pages.datasource_pages.DatasourceConfigPage;
-import com.bigeyedata.morttest.pages.panel.DataSourceEditorPanel;
-import com.bigeyedata.morttest.pages.panel.RDBDataSourceEditorPanel;
+import com.bigeyedata.morttest.pages.panels.datasource.DataSourceEditorPanel;
+import com.bigeyedata.morttest.pages.panels.datasource.DataSourceItemEditPanel;
+import com.bigeyedata.morttest.pages.panels.datasource.RDBDataSourceEditorPanel;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -33,12 +34,12 @@ public class DatasourceStepdefs {
         dataSourceEditorPanel.selectRDBType();
 
         RDBDataSourceEditorPanel rdbDataSourceEditorPanel = dataSourceEditorPanel.specificEditorPanel(RDBDataSourceEditorPanel.class);
-        rdbDataSourceEditorPanel.setRDBParameter(rdbConfigList);
+        rdbDataSourceEditorPanel.createRDBDatasource(rdbConfigList);
     }
 
     @When("^I click save button on (?:RDB|HDFS|ES) dataSource configuration page$")
     public void iClickSaveButtonOnDatasourceConfigurationPage() throws Throwable {
-        onPage(DataSourcePage.class).dataSourceEditorPanel.createDataSource();
+        onPage(DataSourcePage.class).dataSourceEditorPanel.confirmCreateDataSource();
 
     }
 
@@ -52,9 +53,14 @@ public class DatasourceStepdefs {
 
     }
 
-    @And("^I access to edit page of dataSourceName \"([^\"]*)\"$")
-    public void iAccessToEditPageOfDataSourceName(String title) throws Throwable {
-        onPage(DataSourcePage.class).resourcePanel.editItem(title);
+    @And("^I \"([^\"]*)\" dataSource \"([^\"]*)\"$")
+    public void iAccessToEditPageOfDataSourceName(String menuItemName, String dataSourceName) throws Throwable {
+        DataSourcePage dataSourcePage = onPage(DataSourcePage.class);
+        dataSourcePage.resourcePanel.locateItem(dataSourceName);
+
+        DataSourceItemEditPanel dataSourceItemEditPanel = (DataSourceItemEditPanel)(dataSourcePage.sourceItemEditPanel);
+        dataSourceItemEditPanel.showEditMenu();
+        dataSourcePage.sourceItemEditPanel.selectMenuItem(menuItemName);
     }
 
     @And("^I want to create a ES DataSource with configuration as following$")
@@ -68,7 +74,7 @@ public class DatasourceStepdefs {
 
     @And("^I want to modify RDB dataSource with configuration as following$")
     public void iWantToModifyRDBDataSourceWithConfigurationAsFollowing(List<Map<String,String>> RDBConfigList) throws Throwable {
-        onPage(DataSourcePage.class).dataSourceEditorPanel.specificEditorPanel(RDBDataSourceEditorPanel.class).setRDBParameter(RDBConfigList);
+        onPage(DataSourcePage.class).dataSourceEditorPanel.specificEditorPanel(RDBDataSourceEditorPanel.class).createRDBDatasource(RDBConfigList);
     }
 
     @And("^I should see the DataSource configuration displayed correctly as following$")

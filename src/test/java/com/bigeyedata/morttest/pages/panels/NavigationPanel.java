@@ -1,7 +1,7 @@
-package com.bigeyedata.morttest.pages;
+package com.bigeyedata.morttest.pages.panels;
 
-import com.bigeyedata.morttest.CommonFunctions;
-import com.bigeyedata.morttest.pages.Page;
+import com.bigeyedata.morttest.pages.DataSourcePage;
+import com.bigeyedata.morttest.pages.Panel;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 

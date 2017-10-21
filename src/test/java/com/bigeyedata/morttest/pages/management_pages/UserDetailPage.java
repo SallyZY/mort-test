@@ -2,7 +2,7 @@ package com.bigeyedata.morttest.pages.management_pages;
 
 import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.WebDriverManager;
-import com.bigeyedata.morttest.pages.LoginPage;
+import com.bigeyedata.morttest.pages.panels.LoginPage;
 import com.bigeyedata.morttest.pages.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

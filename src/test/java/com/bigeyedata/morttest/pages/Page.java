@@ -1,5 +1,9 @@
 package com.bigeyedata.morttest.pages;
 
+import com.bigeyedata.morttest.pages.panels.DirectoryPanel;
+import com.bigeyedata.morttest.pages.panels.NavigationPanel;
+import com.bigeyedata.morttest.pages.panels.ResourceItemsPanel;
+
 import static com.bigeyedata.morttest.SeeThruUtils.initPanel;
 
 /**
