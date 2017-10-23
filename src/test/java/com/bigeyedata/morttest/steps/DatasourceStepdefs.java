@@ -29,7 +29,6 @@ public class DatasourceStepdefs {
         DataSourceEditorPanel dataSourceEditorPanel = ((DataSourcePage)currentPage()).editorPanel;
         dataSourceEditorPanel.createNewDataResource();
         dataSourceEditorPanel.selectRDBType();
-
         dataSourceEditorPanel.specificEditorPanel().createDataSource(rdbConfigList);
     }
 
@@ -51,12 +50,8 @@ public class DatasourceStepdefs {
     public void iOperateDataSource(String menuItemName, String dataSourceName) throws Throwable {
         DataSourcePage dataSourcePage = ((DataSourcePage)currentPage());
         dataSourcePage.resourcePanel.locateItem(dataSourceName);
-
-        ResourceItemOperatorPanel itemOperatorPanel =initPanel(ResourceItemOperatorPanel.class);
-        itemOperatorPanel.showDataSourceOperatorMenu();
-
-        DataSourceItemOperatorPanel dataSourceItemOperatorPanel =itemOperatorPanel.specificOperatorPanel();
-        dataSourceItemOperatorPanel.selectMenuItem(menuItemName);
+        dataSourcePage.itemOperatorPanel.displayDataSourceOperatorMenu();
+        dataSourcePage.itemOperatorPanel.specificOperatorPanel().selectMenuItem(menuItemName);
     }
 
     @And("^I create a ES DataSource with configuration as following$")
@@ -73,7 +68,7 @@ public class DatasourceStepdefs {
 
     @And("^I modified RDB dataSource with configuration as following$")
     public void iModifiedRDBDataSourceWithConfigurationAsFollowing(List<Map<String,String>> RDBConfigList) throws Throwable {
-//        ((DataSourcePage)currentPage()).editorPanel.specificEditorPanel(RDBDataSourceEditorPanel.class).modifyRDBDataSource(RDBConfigList);
+//        ((DataSourcePage)currentPage()).editorPanel.specificEditorPanel().modifyRDBDataSource(RDBConfigList);
     }
 
     @And("^I should see the DataSource configuration displayed correctly as following$")

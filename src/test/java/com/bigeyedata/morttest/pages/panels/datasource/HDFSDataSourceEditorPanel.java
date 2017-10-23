@@ -33,7 +33,6 @@ public class HDFSDataSourceEditorPanel extends DataSourceSpecificEditorPanel {
     }
 
     private void selectDataSourceType(String typeName) throws InterruptedException {
-
         dataSourceTypeSelect.click();
         WebElement dataSourceType = findByXpath("//div/ul[@class='ant-select-dropdown-menu ant-select-dropdown-menu-vertical  ant-select-dropdown-menu-root']/li[text()='" + typeName + "']");
         CommonFunctions.waitForElementVisible(dataSourceType);

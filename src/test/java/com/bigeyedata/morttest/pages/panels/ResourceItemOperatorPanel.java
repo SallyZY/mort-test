@@ -3,6 +3,7 @@ package com.bigeyedata.morttest.pages.panels;
 import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.pages.Panel;
 import com.bigeyedata.morttest.pages.panels.datasource.DataSourceItemOperatorPanel;
+import com.bigeyedata.morttest.pages.panels.specificPanel.ResourceItemOperatorSpecificPanel;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -15,20 +16,15 @@ public class ResourceItemOperatorPanel extends Panel {
     @FindBy(css = "#resourceListMenuContainerMenu > li.ant-menu-item-selected.ant-menu-item > div > span > span.item-right")
     WebElement dataSourceMenuIcon;
 
-    private ResourceItemOperatorPanel operatorPanelPanel;
+    private ResourceItemOperatorSpecificPanel operatorSpecificPanel;
 
-    public void showDataSourceOperatorMenu() throws InterruptedException {
+    public void displayDataSourceOperatorMenu() throws InterruptedException {
         CommonFunctions.waitForElementVisible(dataSourceMenuIcon);
         dataSourceMenuIcon.click();
-        operatorPanelPanel = initPanel(DataSourceItemOperatorPanel.class);
+        operatorSpecificPanel=initPanel(DataSourceItemOperatorPanel.class);
     }
 
-//    public void showDataSetOperatorMenu(){}
-//
-//    public void showReportOperatorMenu(){}
-
-
-    public <T extends ResourceItemOperatorPanel> T specificOperatorPanel(){
-        return (T) operatorPanelPanel;
+    public <T extends ResourceItemOperatorSpecificPanel> T specificOperatorPanel(){
+        return (T)operatorSpecificPanel;
     }
 }
