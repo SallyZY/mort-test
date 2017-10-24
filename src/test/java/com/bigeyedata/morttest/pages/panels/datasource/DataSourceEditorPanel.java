@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import static com.bigeyedata.morttest.SeeThruUtils.initPanel;
+import static com.bigeyedata.morttest.types.DataSourceType.ES;
 import static com.bigeyedata.morttest.types.DataSourceType.HDFS;
 import static com.bigeyedata.morttest.types.DataSourceType.RDB;
 
@@ -57,8 +58,10 @@ public class DataSourceEditorPanel extends Panel {
     }
 
     public void selectESType() throws InterruptedException {
+        dataSourceType = ES;
         CommonFunctions.waitForElementVisible(ESTypeLink);
         ESTypeLink.click();
+        editorPanel = initPanel(ESDataSourceEditorPanel.class);
     }
 
     public void confirmCreateDataSource(){

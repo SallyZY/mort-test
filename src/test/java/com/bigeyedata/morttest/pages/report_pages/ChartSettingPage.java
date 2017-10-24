@@ -18,16 +18,16 @@ import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
  */
 public class ChartSettingPage extends Page {
 
-    @FindBy(xpath = "//div[@class='view-panels']//div[@role='tabpanel'][3]")
+    @FindBy(xpath = "//div[@class='view-panel']//div[@role='tabpanel'][3]")
     WebElement chartStyleSettingDiv;
 
-    @FindBy(xpath = "//div[@class='view-panels']//div[@class='ant-tabs-nav-scroll']//div[@role='tab'][1]")
+    @FindBy(xpath = "//div[@class='view-panel']//div[@class='ant-tabs-nav-scroll']//div[@role='tab'][1]")
     WebElement bindingItemIconDiv;
 
-    @FindBy(xpath = "//div[@class='view-panels']//div[@class='ant-tabs-nav-scroll']//div[@role='tab'][2]")
+    @FindBy(xpath = "//div[@class='view-panel']//div[@class='ant-tabs-nav-scroll']//div[@role='tab'][2]")
     WebElement filterIconDiv;
 
-    @FindBy(xpath = "//div[@class='view-panels']//div[@class='ant-tabs-nav-scroll']//div[@role='tab'][3]")
+    @FindBy(xpath = "//div[@class='view-panel']//div[@class='ant-tabs-nav-scroll']//div[@role='tab'][3]")
     WebElement styleSettingIconDiv;
 
     @FindBy(id = "reportBindingsContainer")

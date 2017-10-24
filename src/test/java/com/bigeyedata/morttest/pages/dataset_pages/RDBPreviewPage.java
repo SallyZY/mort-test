@@ -5,6 +5,9 @@ import com.bigeyedata.morttest.pages.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 
@@ -45,7 +48,7 @@ public class RDBPreviewPage extends Page {
     @FindBy(css = "div.inline-block.form-control > span.ant-time-picker > span")
     WebElement triggerTimeInput;
 
-    @FindBy(css = "div.ant-time-picker-panels-input-wrap > input")
+    @FindBy(css = "div.ant-time-picker-panel-input-wrap > input")
     WebElement importTimeInput;
 
     @FindBy(css = "table")
@@ -114,6 +117,7 @@ public class RDBPreviewPage extends Page {
         triggerTimeInput.click();
         CommonFunctions.waitForElementVisible(importTimeInput);
         importTimeInput.click();
+        System.out.println(str[1]);
         importTimeInput.sendKeys(str[1]);
     }
 

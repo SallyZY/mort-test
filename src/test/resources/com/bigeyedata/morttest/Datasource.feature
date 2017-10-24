@@ -19,6 +19,7 @@ Feature: Create DataSource
       | DataSourceType  | Host        | Port     | User      | Database         |
       | mysql           |127.0.0.1    | 1234     | haha      | customerdata_dev |
 
+
     And I "edit" dataSource "测试MySQL数据源_test"
     And I modified RDB dataSource with configuration as following
       | Host        | Port     | User      | Password  |DataSourceName  |

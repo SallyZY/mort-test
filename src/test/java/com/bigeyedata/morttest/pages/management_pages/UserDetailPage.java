@@ -91,7 +91,7 @@ public class UserDetailPage extends Page {
     @FindBy(css = "#app > div > div > div.resource-page > div > div.ant-layout > div > div > div.resource-action-bar.space-between > div.action-section > div > span > input")
     WebElement userSearchInput;
 
-    @FindBy(css = "#app > div > div > div.resource-page > div > div.ant-layout > div > div > div > div.resource-action-bar.space-between > div.action-section > div > span > span > i")
+    @FindBy(css = "div.action-section > div > span > span > i")
     WebElement searchicon;
 
     @FindBy(css = "#app > div > div > div.resource-page > div > div.ant-layout > div > div > div > div.resource-action-bar.space-between > div.action-section > div > span > input")

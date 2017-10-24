@@ -185,7 +185,7 @@ Feature: Create,view DataSet
     When I save the new DataSet
     Then I should see the DataSet "测试MySQL数据集_追加字段" displayed in directory
     And I should see the number of DataSet fields is "2"
-#no pass
+
     When I click "ModifySQL" item from other operation dropdown menu
     And I can NOT modify the DataSet name and saved directory
     And I input SQL is "select CDate,STATE_DATE,PROVINCE,SALES_CHANNEL_NAME,PREM from bank_records"

@@ -39,7 +39,7 @@ public class DataSetDetailsPage extends Page {
     @FindBy(id = "dataSetOtherOperationMenu")
     WebElement otherOperationMenu;
 
-    @FindBy(css = "#checkDataSourceButton > a")
+    @FindBy(css = "#dataSource > a")
     WebElement locateToDatasourceMenuItem;
 
     @FindBy(id = "appendFieldsButton")
