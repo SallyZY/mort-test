@@ -13,4 +13,5 @@ public abstract class DataSourceSpecificEditorPanel extends Panel {
 
     public abstract DataSourceType dataSourceType();
     public abstract void createDataSource(List<Map<String,String>> dbConfigList) throws InterruptedException;
+    public abstract void modifyRDBDataSource(List<Map<String,String>> dbConfigList);
 }

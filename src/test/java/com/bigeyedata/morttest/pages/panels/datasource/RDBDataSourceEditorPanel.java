@@ -44,7 +44,6 @@ public class RDBDataSourceEditorPanel extends DataSourceSpecificEditorPanel {
     WebElement dataSourceTypeSelect;
 
     public void createRDBDataSource(List<Map<String,String>> RDBConfigList) throws InterruptedException {
-
         dataSourceNameInput.sendKeys(RDBConfigList.get(0).get("DataSourceName").toString());
         hostInput.sendKeys(RDBConfigList.get(0).get("Host").toString());
         portInput.sendKeys(RDBConfigList.get(0).get("Port").toString());
@@ -54,13 +53,6 @@ public class RDBDataSourceEditorPanel extends DataSourceSpecificEditorPanel {
         selectDataSourceType(RDBConfigList.get(0).get("DataSourceType").toString());
     }
 
-    public void modifyRDBDataSource(List<Map<String,String>> RDBConfigList){
-        dataSourceNameInput.sendKeys(RDBConfigList.get(0).get("DataSourceName").toString());
-        hostInput.sendKeys(RDBConfigList.get(0).get("Host").toString());
-        portInput.sendKeys(RDBConfigList.get(0).get("Port").toString());
-        userInput.sendKeys(RDBConfigList.get(0).get("User").toString());
-        passwordInput.sendKeys(RDBConfigList.get(0).get("Password").toString());
-    }
 
     private void selectDataSourceType(String typeName) throws InterruptedException {
         dataSourceTypeSelect.click();
@@ -83,5 +75,19 @@ public class RDBDataSourceEditorPanel extends DataSourceSpecificEditorPanel {
         passwordInput.sendKeys(rdbConfigList.get(0).get("Password").toString());
         databaseInput.sendKeys(rdbConfigList.get(0).get("Database").toString());
         selectDataSourceType(rdbConfigList.get(0).get("DataSourceType").toString());
+    }
+
+    @Override
+    public void modifyRDBDataSource(List<Map<String,String>> RDBConfigList){
+        dataSourceNameInput.clear();
+        dataSourceNameInput.sendKeys(RDBConfigList.get(0).get("DataSourceName").toString());
+        hostInput.clear();
+        hostInput.sendKeys(RDBConfigList.get(0).get("Host").toString());
+        portInput.clear();
+        portInput.sendKeys(RDBConfigList.get(0).get("Port").toString());
+        userInput.clear();
+        userInput.sendKeys(RDBConfigList.get(0).get("User").toString());
+        passwordInput.clear();
+        passwordInput.sendKeys(RDBConfigList.get(0).get("Password").toString());
     }
 }

@@ -24,7 +24,7 @@ Feature: Create And Edit And Delete directory
     And I save the new directory
     Then I should see the directory "测试第二级目录1" displayed correctly in directory list
 
-    When I select DataSource multiLevelDirectory "测试第一级目录1"
+    When I select DataSource Multi-Level Directory "测试第一级目录1"
     And I create new directory
 #    And I select the parent directory "测试第一级目录1"
     And I input directory name is "测试第二级目录2"
@@ -38,39 +38,38 @@ Feature: Create And Edit And Delete directory
     Then I should see the directory "测试第一级目录2" displayed correctly in directory list
 
 
-
   Scenario: View the resources in the directory
     Given I access to "DataSource" module
     And I expand the DataSource directory
-    And I select DataSource multiLevelDirectory "测试第一级目录1"
-    And I want to create a HDFS DataSource with configuration as following
+    And I select DataSource Multi-Level Directory "测试第一级目录1"
+    And I create a HDFS DataSource with configuration as following
       | DataSourceName        | DataSourceType   | FileName       |
       | HDFS_parquet数据源1    | Parquet           |bigeye_parquet |
-    And I click save button on HDFS dataSource configuration page
+    And I saved HDFS dataSource
     And I should see the DataSource "HDFS_parquet数据源1" displayed in directory
 
     And I select DataSource subdirectories "测试第二级目录1"
-    And I want to create a HDFS DataSource with configuration as following
+    And I create a HDFS DataSource with configuration as following
       | DataSourceName       | DataSourceType   | FileName       |
       | HDFS_parquet数据源2    | Parquet           |bigeye_parquet |
-    And I click save button on HDFS dataSource configuration page
+    And I saved HDFS dataSource
     And I should see the DataSource "HDFS_parquet数据源2" displayed in directory
 
     And I select DataSource subdirectories "测试第二级目录2"
-    And I want to create a HDFS DataSource with configuration as following
+    And I create a HDFS DataSource with configuration as following
       | DataSourceName       | DataSourceType   | FileName       |
       | HDFS_parquet数据源3    | Parquet           |bigeye_parquet |
-    And I click save button on HDFS dataSource configuration page
+    And I saved HDFS dataSource
     And I should see the DataSource "HDFS_parquet数据源3" displayed in directory
 
     And I select DataSource directory "测试第一级目录2"
-    And I want to create a HDFS DataSource with configuration as following
+    And I create a HDFS DataSource with configuration as following
       | DataSourceName       | DataSourceType   | FileName       |
       | HDFS_parquet数据源4    | Parquet           |bigeye_parquet |
-    And I click save button on HDFS dataSource configuration page
+    And I saved HDFS dataSource
     And I should see the DataSource "HDFS_parquet数据源4" displayed in directory
 
-    When I select DataSource multiLevelDirectory "测试第一级目录1"
+    When I select DataSource Multi-Level Directory "测试第一级目录1"
     Then I should see the DataSource "HDFS_parquet数据源1" displayed in directory
 
     When I select DataSource subdirectories "测试第二级目录1"
@@ -109,10 +108,10 @@ Feature: Create And Edit And Delete directory
     And I save the new directory
 
     And I select DataSource directory "测试目录_删除"
-    And I want to create a HDFS DataSource with configuration as following
+    And I create a HDFS DataSource with configuration as following
       | DataSourceName       | DataSourceType   | FileName       |
       | HDFS_parquet数据源5    | Parquet           |bigeye_parquet |
-    And I click save button on HDFS dataSource configuration page
+    And I saved HDFS dataSource
     And I should see the DataSource "HDFS_parquet数据源5" displayed in directory
 
     And I delete the dataSource "HDFS_parquet数据源5"

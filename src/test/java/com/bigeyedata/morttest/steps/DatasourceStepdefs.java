@@ -68,7 +68,7 @@ public class DatasourceStepdefs {
 
     @And("^I modified RDB dataSource with configuration as following$")
     public void iModifiedRDBDataSourceWithConfigurationAsFollowing(List<Map<String,String>> RDBConfigList) throws Throwable {
-//        ((DataSourcePage)currentPage()).editorPanel.specificEditorPanel().modifyRDBDataSource(RDBConfigList);
+        ((DataSourcePage)currentPage()).editorPanel.specificEditorPanel().modifyRDBDataSource(RDBConfigList);
     }
 
     @And("^I should see the DataSource configuration displayed correctly as following$")

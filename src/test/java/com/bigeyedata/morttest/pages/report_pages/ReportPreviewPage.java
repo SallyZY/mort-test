@@ -26,7 +26,7 @@ public class ReportPreviewPage extends Page {
 
     public void gotoReportEditPage() throws InterruptedException {
 
-        Thread.sleep(5000);
+        Thread.sleep(6000);
         reportEditButton.click();
         waitForElementVisibleAndLocated(By.className("Chart"));
     }

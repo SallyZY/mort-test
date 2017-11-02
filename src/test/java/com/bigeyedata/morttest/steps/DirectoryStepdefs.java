@@ -40,7 +40,7 @@ public class DirectoryStepdefs {
     }
 
 
-    @When("^I select DataSource multiLevelDirectory \"([^\"]*)\"$")
+    @When("^I select DataSource Multi-Level Directory \"([^\"]*)\"$")
     public void iSelectDataSourceMultiLevelDirectory(String directoryName) throws Throwable {
         currentPage().dirPanel.clickMultiLevelDirectoryByName(directoryName);
     }

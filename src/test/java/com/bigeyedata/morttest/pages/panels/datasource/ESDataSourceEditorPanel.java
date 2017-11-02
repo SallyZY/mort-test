@@ -57,4 +57,9 @@ public class ESDataSourceEditorPanel extends DataSourceSpecificEditorPanel {
         esTypeInput.sendKeys(esConfigList.get(0).get("Type").toString());
         esPortInput.sendKeys(esConfigList.get(0).get("Port").toString());
     }
+
+    @Override
+    public void modifyRDBDataSource(List<Map<String, String>> dbConfigList) {
+
+    }
 }

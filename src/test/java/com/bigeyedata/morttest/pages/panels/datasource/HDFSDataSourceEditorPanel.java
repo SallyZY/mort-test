@@ -50,4 +50,9 @@ public class HDFSDataSourceEditorPanel extends DataSourceSpecificEditorPanel {
         selectDataSourceType(hdfsConfigList.get(0).get("DataSourceType").toString());
         hdfsPathInput.sendKeys(getTestResourceFilePath(hdfsConfigList.get(0).get("FileName").toString()));
     }
+
+    @Override
+    public void modifyRDBDataSource(List<Map<String, String>> dbConfigList) {
+
+    }
 }
