@@ -3,6 +3,7 @@ package com.bigeyedata.morttest.steps;
 import com.bigeyedata.morttest.pages.DataSourcePage;
 import com.bigeyedata.morttest.pages.panels.ResourceItemOperatorPanel;
 import com.bigeyedata.morttest.pages.panels.datasource.*;
+import com.bigeyedata.morttest.types.DataSourceType;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -28,8 +29,8 @@ public class DatasourceStepdefs {
 
         DataSourceEditorPanel dataSourceEditorPanel = ((DataSourcePage)currentPage()).editorPanel;
         dataSourceEditorPanel.createNewDataResource();
-        dataSourceEditorPanel.selectRDBType();
-        dataSourceEditorPanel.specificEditorPanel().createDataSource(rdbConfigList);
+        dataSourceEditorPanel.selectDataSourceType(DataSourceType.RDB);
+        dataSourceEditorPanel.specificEditorPanel().createDataSource(rdbConfigList.get(0));
     }
 
     @When("^I saved (?:RDB|HDFS|ES) dataSource$")
@@ -42,8 +43,8 @@ public class DatasourceStepdefs {
 
         DataSourceEditorPanel editorPanel =((DataSourcePage)currentPage()).editorPanel;
         editorPanel.createNewDataResource();
-        editorPanel.selectHDFSType();
-        editorPanel.specificEditorPanel().createDataSource(hdfsConfigList);
+        editorPanel.selectDataSourceType(DataSourceType.HDFS);
+        editorPanel.specificEditorPanel().createDataSource(hdfsConfigList.get(0));
     }
 
     @And("^I \"([^\"]*)\" dataSource \"([^\"]*)\"$")
@@ -58,8 +59,8 @@ public class DatasourceStepdefs {
     public void iCreateAESDataSourceWithConfigurationAsFollowing(List<Map<String,String>> esConfigList) throws Throwable {
         DataSourceEditorPanel editorPanel =onPage(DataSourcePage.class).editorPanel;
         editorPanel.createNewDataResource();
-        editorPanel.selectESType();
-        editorPanel.specificEditorPanel().createDataSource(esConfigList);
+        editorPanel.selectDataSourceType(DataSourceType.ES);
+        editorPanel.specificEditorPanel().createDataSource(esConfigList.get(0));
 
 //        ESDataSourceEditorPanel esEditorPanel=editorPanel.specificEditorPanel(ESDataSourceEditorPanel.class);
 //        esEditorPanel.createESDataSource(ESConfigList);
@@ -68,7 +69,7 @@ public class DatasourceStepdefs {
 
     @And("^I modified RDB dataSource with configuration as following$")
     public void iModifiedRDBDataSourceWithConfigurationAsFollowing(List<Map<String,String>> RDBConfigList) throws Throwable {
-        ((DataSourcePage)currentPage()).editorPanel.specificEditorPanel().modifyRDBDataSource(RDBConfigList);
+        ((DataSourcePage)currentPage()).editorPanel.specificEditorPanel().modifyRDBDataSource(RDBConfigList.get(0));
     }
 
     @And("^I should see the DataSource configuration displayed correctly as following$")

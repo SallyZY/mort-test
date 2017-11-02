@@ -7,6 +7,9 @@ import com.bigeyedata.morttest.types.DataSourceType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static com.bigeyedata.morttest.SeeThruUtils.initPanel;
 import static com.bigeyedata.morttest.types.DataSourceType.ES;
 import static com.bigeyedata.morttest.types.DataSourceType.HDFS;
@@ -44,24 +47,13 @@ public class DataSourceEditorPanel extends Panel {
         CommonFunctions.waitForElementVisible(dataSourceTypeUl);
     }
 
-    public void selectRDBType() throws InterruptedException {
-        dataSourceType = RDB;
-        CommonFunctions.waitForElementClickable(RDBTypeLink);
-        RDBTypeLink.click();
-        editorPanel = initPanel(RDBDataSourceEditorPanel.class);
-    }
+    public void selectDataSourceType(DataSourceType selectType) throws InterruptedException {
+        dataSourceType = selectType;
 
-    public void selectHDFSType(){
-        dataSourceType = HDFS;
-        HDFSTypeLink.click();
-        editorPanel = initPanel(HDFSDataSourceEditorPanel.class);
-    }
-
-    public void selectESType() throws InterruptedException {
-        dataSourceType = ES;
-        CommonFunctions.waitForElementVisible(ESTypeLink);
-        ESTypeLink.click();
-        editorPanel = initPanel(ESDataSourceEditorPanel.class);
+        PanelInfo panelInfo = mapInfo().get(selectType);
+        CommonFunctions.waitForElementVisible(panelInfo.typeLink);
+        panelInfo.typeLink.click();
+        editorPanel = initPanel(panelInfo.panel);
     }
 
     public void confirmCreateDataSource(){
@@ -70,5 +62,24 @@ public class DataSourceEditorPanel extends Panel {
 
     public <T extends DataSourceSpecificEditorPanel> T specificEditorPanel() {
         return (T)editorPanel;
+    }
+
+    private class PanelInfo {
+        WebElement typeLink;
+        Class<? extends DataSourceSpecificEditorPanel> panel;
+
+        public PanelInfo(WebElement typeLink, Class<? extends DataSourceSpecificEditorPanel> panel) {
+            this.typeLink = typeLink;
+            this.panel = panel;
+        }
+    }
+
+    private Map<DataSourceType, PanelInfo> mapInfo() {
+        Map<DataSourceType, PanelInfo> map = new HashMap();
+        map.put(RDB, new PanelInfo(RDBTypeLink, RDBDataSourceEditorPanel.class));
+        map.put(HDFS, new PanelInfo(HDFSTypeLink, HDFSDataSourceEditorPanel.class));
+        map.put(ES, new PanelInfo(ESTypeLink, ESDataSourceEditorPanel.class));
+
+        return map;
     }
 }

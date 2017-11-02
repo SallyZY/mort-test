@@ -8,9 +8,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import static com.bigeyedata.morttest.CommonFunctions.fillData;
 import static com.bigeyedata.morttest.CommonFunctions.findByXpath;
 import static com.bigeyedata.morttest.types.DataSourceType.RDB;
 
@@ -43,7 +46,7 @@ public class RDBDataSourceEditorPanel extends DataSourceSpecificEditorPanel {
     @FindBy(xpath = "//div[@class='ant-select-lg ant-select ant-select-enabled']")
     WebElement dataSourceTypeSelect;
 
-    public void createRDBDataSource(List<Map<String,String>> RDBConfigList) throws InterruptedException {
+    public void createRDBDataSource(List<Map<String, String>> RDBConfigList) throws InterruptedException {
         dataSourceNameInput.sendKeys(RDBConfigList.get(0).get("DataSourceName").toString());
         hostInput.sendKeys(RDBConfigList.get(0).get("Host").toString());
         portInput.sendKeys(RDBConfigList.get(0).get("Port").toString());
@@ -67,27 +70,25 @@ public class RDBDataSourceEditorPanel extends DataSourceSpecificEditorPanel {
     }
 
     @Override
-    public void createDataSource(List<Map<String,String>> rdbConfigList) throws InterruptedException {
-        dataSourceNameInput.sendKeys(rdbConfigList.get(0).get("DataSourceName").toString());
-        hostInput.sendKeys(rdbConfigList.get(0).get("Host").toString());
-        portInput.sendKeys(rdbConfigList.get(0).get("Port").toString());
-        userInput.sendKeys(rdbConfigList.get(0).get("User").toString());
-        passwordInput.sendKeys(rdbConfigList.get(0).get("Password").toString());
-        databaseInput.sendKeys(rdbConfigList.get(0).get("Database").toString());
-        selectDataSourceType(rdbConfigList.get(0).get("DataSourceType").toString());
+    public void createDataSource(Map<String, String> rdbConfigList) throws InterruptedException {
+        fillData(rdbConfigList, keysMap());
+        selectDataSourceType(rdbConfigList.get("DataSourceType").toString());
+    }
+
+    private Map<String, WebElement> keysMap() {
+        Map<String, WebElement> map = new HashMap();
+        map.put("DataSourceName", dataSourceNameInput);
+        map.put("Host", hostInput);
+        map.put("Port", portInput);
+        map.put("User", userInput);
+        map.put("Password", passwordInput);
+        map.put("Database", databaseInput);
+
+        return map;
     }
 
     @Override
-    public void modifyRDBDataSource(List<Map<String,String>> RDBConfigList){
-        dataSourceNameInput.clear();
-        dataSourceNameInput.sendKeys(RDBConfigList.get(0).get("DataSourceName").toString());
-        hostInput.clear();
-        hostInput.sendKeys(RDBConfigList.get(0).get("Host").toString());
-        portInput.clear();
-        portInput.sendKeys(RDBConfigList.get(0).get("Port").toString());
-        userInput.clear();
-        userInput.sendKeys(RDBConfigList.get(0).get("User").toString());
-        passwordInput.clear();
-        passwordInput.sendKeys(RDBConfigList.get(0).get("Password").toString());
+    public void modifyRDBDataSource(Map<String, String> RDBConfigList) {
+        fillData(RDBConfigList, keysMap());
     }
 }

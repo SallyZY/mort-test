@@ -32,12 +32,6 @@ public class ESDataSourceEditorPanel extends DataSourceSpecificEditorPanel {
     @FindBy(id = "wan")
     WebElement esWanSwitch;
 
-    public void createESDataSource(List<Map<String,String>> ESConfigList){
-
-
-
-    }
-
     public void openWanSwitch(){
 
         esWanSwitch.click();
@@ -49,17 +43,18 @@ public class ESDataSourceEditorPanel extends DataSourceSpecificEditorPanel {
         return ES;
     }
 
+
     @Override
-    public void createDataSource(List<Map<String, String>> esConfigList) throws InterruptedException {
-        dataSourceNameInput.sendKeys(esConfigList.get(0).get("DataSourceName").toString());
-        esNodesInput.sendKeys(esConfigList.get(0).get("Nodes").toString());
-        esIndexInput.sendKeys(esConfigList.get(0).get("Index").toString());
-        esTypeInput.sendKeys(esConfigList.get(0).get("Type").toString());
-        esPortInput.sendKeys(esConfigList.get(0).get("Port").toString());
+    public void createDataSource(Map<String, String> esConfigList) throws InterruptedException {
+        dataSourceNameInput.sendKeys(esConfigList.get("DataSourceName").toString());
+        esNodesInput.sendKeys(esConfigList.get("Nodes").toString());
+        esIndexInput.sendKeys(esConfigList.get("Index").toString());
+        esTypeInput.sendKeys(esConfigList.get("Type").toString());
+        esPortInput.sendKeys(esConfigList.get("Port").toString());
     }
 
     @Override
-    public void modifyRDBDataSource(List<Map<String, String>> dbConfigList) {
+    public void modifyRDBDataSource(Map<String, String> dbConfigList) {
 
     }
 }

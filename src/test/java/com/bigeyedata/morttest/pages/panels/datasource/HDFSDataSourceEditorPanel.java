@@ -6,7 +6,6 @@ import com.bigeyedata.morttest.types.DataSourceType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.List;
 import java.util.Map;
 
 import static com.bigeyedata.morttest.CommonFunctions.findByXpath;
@@ -26,12 +25,6 @@ public class HDFSDataSourceEditorPanel extends DataSourceSpecificEditorPanel {
     @FindBy(xpath = "//div[@class='ant-select-lg ant-select ant-select-enabled']")
     WebElement dataSourceTypeSelect;
 
-    public void createHDFSDataSource(List<Map<String,String>> HDFSConfigList) throws InterruptedException {
-        dataSourceNameInput.sendKeys(HDFSConfigList.get(0).get("DataSourceName").toString().trim());
-        selectDataSourceType(HDFSConfigList.get(0).get("DataSourceType").toString());
-        hdfsPathInput.sendKeys(getTestResourceFilePath(HDFSConfigList.get(0).get("FileName").toString()));
-    }
-
     private void selectDataSourceType(String typeName) throws InterruptedException {
         dataSourceTypeSelect.click();
         WebElement dataSourceType = findByXpath("//div/ul[@class='ant-select-dropdown-menu ant-select-dropdown-menu-vertical  ant-select-dropdown-menu-root']/li[text()='" + typeName + "']");
@@ -44,15 +37,16 @@ public class HDFSDataSourceEditorPanel extends DataSourceSpecificEditorPanel {
         return HDFS;
     }
 
+
     @Override
-    public void createDataSource(List<Map<String, String>> hdfsConfigList) throws InterruptedException {
-        dataSourceNameInput.sendKeys(hdfsConfigList.get(0).get("DataSourceName").toString().trim());
-        selectDataSourceType(hdfsConfigList.get(0).get("DataSourceType").toString());
-        hdfsPathInput.sendKeys(getTestResourceFilePath(hdfsConfigList.get(0).get("FileName").toString()));
+    public void createDataSource(Map<String, String> hdfsConfigList) throws InterruptedException {
+        dataSourceNameInput.sendKeys(hdfsConfigList.get("DataSourceName").toString().trim());
+        selectDataSourceType(hdfsConfigList.get("DataSourceType").toString());
+        hdfsPathInput.sendKeys(getTestResourceFilePath(hdfsConfigList.get("FileName").toString()));
     }
 
     @Override
-    public void modifyRDBDataSource(List<Map<String, String>> dbConfigList) {
+    public void modifyRDBDataSource(Map<String, String> dbConfigList) {
 
     }
 }

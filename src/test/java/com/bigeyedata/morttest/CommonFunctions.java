@@ -11,9 +11,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.Map;
 
 import static com.bigeyedata.morttest.SeeThruUtils.currentPage;
 
@@ -150,5 +152,19 @@ public class CommonFunctions {
         WebDriver driver = WebDriverManager.getDriver();
         return driver.findElement(By.xpath(xpath));
     }
+
+    public static void fillData(Map<String, String> data ,Map<String, WebElement> keys) {
+
+        Iterator<Map.Entry<String, String>> iterator = data.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<String, String> elementEntry = iterator.next();
+            WebElement webElement = keys.get(elementEntry.getKey());
+            if (webElement != null) {
+                webElement.clear();
+                webElement.sendKeys(elementEntry.getValue());
+            }
+        }
+    }
+
 
 }

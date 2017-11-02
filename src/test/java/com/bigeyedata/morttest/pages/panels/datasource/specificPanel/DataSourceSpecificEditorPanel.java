@@ -12,6 +12,6 @@ import java.util.Map;
 public abstract class DataSourceSpecificEditorPanel extends Panel {
 
     public abstract DataSourceType dataSourceType();
-    public abstract void createDataSource(List<Map<String,String>> dbConfigList) throws InterruptedException;
-    public abstract void modifyRDBDataSource(List<Map<String,String>> dbConfigList);
+    public abstract void createDataSource(Map<String,String> dbConfigList) throws InterruptedException;
+    public abstract void modifyRDBDataSource(Map<String,String> dbConfigList);
 }
