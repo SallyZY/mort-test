@@ -3,6 +3,7 @@ package com.bigeyedata.morttest.steps;
 import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.pages.dataset_pages.*;
 import com.bigeyedata.morttest.pages.datasource_pages.DataSourceDetailPage;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -310,5 +311,29 @@ public class DataSetStepdefs {
     @And("^I drag and drop dataset$")
     public void iDragAndDropDataset() throws Throwable {
         onPage(AssociatedDataSetPage.class).dragAndDrop();
+    }
+
+    @Then("^I should see the DataSet of fileds displayed correctly as following$")
+    public void iShouldSeeTheDataSetOfFiledsDisplayedCorrectlyAsFollowing(List<Map<String, String>> fieldsList) throws Throwable {
+        assertThat(onPage(AssociatedDataSetPage.class).checkFields(fieldsList).get(0),is(true));
+        assertThat(onPage(AssociatedDataSetPage.class).checkFields(fieldsList).get(1),is(true));
+        assertThat(onPage(AssociatedDataSetPage.class).checkFields(fieldsList).get(2),is(true));
+    }
+
+
+    @And("^I should see the DataSet of preview data displayed correctly as following$")
+    public void iShouldSeeTheDataSetOfPreviewDataDisplayedCorrectlyAsFollowing(List<Map<String, String>> fieldsList) throws Throwable {
+        assertThat(onPage(AssociatedDataSetPage.class).checkPreviewData(fieldsList).get(0),is(true));
+        assertThat(onPage(AssociatedDataSetPage.class).checkPreviewData(fieldsList).get(1),is(true));
+        assertThat(onPage(AssociatedDataSetPage.class).checkPreviewData(fieldsList).get(2),is(true));
+        assertThat(onPage(AssociatedDataSetPage.class).checkPreviewData(fieldsList).get(3),is(true));
+        assertThat(onPage(AssociatedDataSetPage.class).checkPreviewData(fieldsList).get(4),is(true));
+        assertThat(onPage(AssociatedDataSetPage.class).checkPreviewData(fieldsList).get(5),is(true));
+        assertThat(onPage(AssociatedDataSetPage.class).checkPreviewData(fieldsList).get(6),is(true));
+    }
+
+    @And("^I should see the DataSet of related dataset displayed correctly as following$")
+    public void iShouldSeeTheDataSetOfRelatedDatasetDisplayedCorrectlyAsFollowing() throws Throwable {
+
     }
 }
