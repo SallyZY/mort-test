@@ -46,16 +46,6 @@ public class RDBDataSourceEditorPanel extends DataSourceSpecificEditorPanel {
     @FindBy(xpath = "//div[@class='ant-select-lg ant-select ant-select-enabled']")
     WebElement dataSourceTypeSelect;
 
-    public void createRDBDataSource(List<Map<String, String>> RDBConfigList) throws InterruptedException {
-        dataSourceNameInput.sendKeys(RDBConfigList.get(0).get("DataSourceName").toString());
-        hostInput.sendKeys(RDBConfigList.get(0).get("Host").toString());
-        portInput.sendKeys(RDBConfigList.get(0).get("Port").toString());
-        userInput.sendKeys(RDBConfigList.get(0).get("User").toString());
-        passwordInput.sendKeys(RDBConfigList.get(0).get("Password").toString());
-        databaseInput.sendKeys(RDBConfigList.get(0).get("Database").toString());
-        selectDataSourceType(RDBConfigList.get(0).get("DataSourceType").toString());
-    }
-
 
     private void selectDataSourceType(String typeName) throws InterruptedException {
         dataSourceTypeSelect.click();

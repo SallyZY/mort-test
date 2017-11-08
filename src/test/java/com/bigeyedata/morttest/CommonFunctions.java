@@ -1,6 +1,7 @@
 package com.bigeyedata.morttest;
 
 import com.bigeyedata.morttest.pages.Page;
+import cucumber.api.java.it.Ma;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -154,7 +155,6 @@ public class CommonFunctions {
     }
 
     public static void fillData(Map<String, String> data ,Map<String, WebElement> keys) {
-
         Iterator<Map.Entry<String, String>> iterator = data.entrySet().iterator();
         while (iterator.hasNext()) {
             Map.Entry<String, String> elementEntry = iterator.next();
@@ -165,6 +165,4 @@ public class CommonFunctions {
             }
         }
     }
-
-
 }

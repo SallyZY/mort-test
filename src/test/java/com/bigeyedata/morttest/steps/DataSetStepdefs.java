@@ -3,7 +3,6 @@ package com.bigeyedata.morttest.steps;
 import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.pages.dataset_pages.*;
 import com.bigeyedata.morttest.pages.datasource_pages.DataSourceDetailPage;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -334,6 +333,13 @@ public class DataSetStepdefs {
 
     @And("^I should see the DataSet of related dataset displayed correctly as following$")
     public void iShouldSeeTheDataSetOfRelatedDatasetDisplayedCorrectlyAsFollowing() throws Throwable {
+
+    }
+
+
+    @Then("^I should see test list as following$")
+    public void iShouldSeeTestListAsFollowing(List<Map<String, String>> fieldsList) throws Throwable {
+        onPage(AssociatedDataSetPage.class).convertList(fieldsList);
 
     }
 }

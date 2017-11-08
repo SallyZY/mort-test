@@ -256,7 +256,16 @@ Feature: Create,view DataSet
 #    | orders  | 张莹	    | 正常  |
 #
 
-
+  Scenario: Test List
+    Then I should see test list as following
+    | AliasName         | FieldName       | Type |
+    | OrderNo (cars)    | cars.OrderNo    | 文本  |
+    | Name_C            | cars.Name_C     | 文本  |
+    | SalesDate         | cars.SalesDate  | 文本  |
+    | OrderNo (orders)  | orders.OrderNo  | 文本  |
+    | Id_C              | cars.Id_C       | 数值  |
+    | Id_O              | orders.Id_O     | 数值  |
+    | Id_P              | orders.Id_P     | 数值  |
 
 
 

@@ -7,10 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class AssociatedDataSetPage extends Page {
 
@@ -57,12 +54,6 @@ public class AssociatedDataSetPage extends Page {
         Actions actions = new Actions(WebDriverManager.getDriver());
         actions.dragAndDrop(source,target).perform();
         actions.clickAndHold(source).moveToElement(target).release(target).perform();
-    }
-
-    public List getList(List<List<WebElement>> lists){
-        for (int i =0;i<lists.get(0).size();i++){
-
-        }
     }
 
     public List checkFields(List<Map<String, String>> fieldsList){
@@ -139,7 +130,6 @@ public class AssociatedDataSetPage extends Page {
 
 
     }
-
 
     public void clickPreviewData(){
         previewDataDiv.click();
