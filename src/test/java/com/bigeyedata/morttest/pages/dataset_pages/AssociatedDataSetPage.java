@@ -2,6 +2,7 @@ package com.bigeyedata.morttest.pages.dataset_pages;
 
 import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.Page;
+import cucumber.api.DataTable;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -59,86 +60,79 @@ public class AssociatedDataSetPage extends Page {
         actions.clickAndHold(source).moveToElement(target).release(target).perform();
     }
 
-    public List getList(List<List<WebElement>> lists){
-        for (int i =0;i<lists.get(0).size();i++){
+    public List getLists(List<List<WebElement>> lists){
+//        Boolean flg = true;
+//        for(int i=0;i<lists.size();i++){
+//            if (lists.get(0).size()==lists.get(i).size()){
+//                continue;
+//            }else {
+//                flg = false;
+//                break;
+//            }
+//        }
 
+        List<List<String>> newlists = new ArrayList<>();
+        for(int i = 0; i < lists.get(0).size(); i++){
+            List<String> list = new ArrayList<>();
+            newlists.add(list);
         }
+
+        for(int i=0;i<lists.size();i++){
+            for(int j = 0; j <  lists.get(i).size(); j++){
+                newlists.get(j).add(lists.get(i).get(j).getText());
+            }
+        }
+        return newlists;
+
     }
 
-    public List checkFields(List<Map<String, String>> fieldsList){
+    public List getFields() {
         List<WebElement> fieldAliasNameList = FieldViewTable.findElements(By.xpath("//td[2]/div/span"));
-        List<WebElement> fieldNameList = FieldViewTable.findElements(By.xpath("//td[3]/span"));
+        List<WebElement> fieldNameList = FieldViewTable.findElements(By.xpath("//td[3]"));
         List<WebElement> fieldTypeList = FieldViewTable.findElements(By.xpath("//td[4]/span/span"));
 
-
-        boolean fieldAliasNameFlg = true;
-        boolean fieldsNameFlg = true;
-        boolean fieldTypeFlg = true;
-
-        if(fieldsList.size()==fieldAliasNameList.size()){
-            for(int j=0; j< fieldsList.size();j++) {
-               String fieldAliasName = fieldsList.get(j).get("AliasName").toString();
-               System.out.println("期待的别名："+fieldAliasName);
-               System.out.println("实际获取的别名："+fieldAliasNameList.get(j).getText());
-               if (fieldAliasName.equals(fieldAliasNameList.get(j).getText())){
-                   System.out.println(true);
-               }else{
-                   System.out.println(false);
-                   fieldAliasNameFlg = false;
-                   break;
-               }
-            }
-        }else{
-            System.out.println("fieldsList.size() != fieldAliasNameList.size()");
-            fieldAliasNameFlg = false;
-        }
+        List<List<WebElement>> newlists = new ArrayList<>();
+        newlists.add(fieldAliasNameList);
+        newlists.add(fieldNameList);
+        newlists.add(fieldTypeList);
+        return newlists;
+    }
 
 
-        if(fieldsList.size()==fieldNameList.size()){
-            for(int i=0; i< fieldsList.size();i++) {
-                String fieldsName = fieldsList.get(i).get("FieldName").toString();
-                System.out.println("期待的字段名："+fieldsName);
-                System.out.println("实际获取的字段名："+fieldNameList.get(i).getText());
-                if (fieldsName.equals(fieldNameList.get(i).getText())){
-                    System.out.println(true);
-                }else{
-                    System.out.println(false);
-                    fieldsNameFlg = false;
-                    break;
+    public Boolean checkFields(DataTable dataInfo) {
+//        List<List<String>> lists1 = oldLists;
+        List<List<String>> lists1 = getLists(getFields());
+        List<List<String>> lists2 = dataInfo.asLists(String.class);
+
+        boolean checkFieldsFlg = true;
+        if(lists2.size()==lists1.size()){
+            for(int i=0; i< lists2.size();i++) {
+                if (lists1.get(i).size()==lists2.get(i).size()){
+                    for(int j=0;j<lists2.get(i).size();j++){
+                        if (lists1.get(i).get(j).equals(lists2.get(i).get(j))){
+
+                        }else{
+                            System.out.println(false +"："+lists1.get(i).get(j)+"不等于"+(lists2.get(i).get(j)));
+                            checkFieldsFlg = false;
+                            break;
+                        }
+                    }
+                }else {
+                    System.out.println("lists1.get(i).size() != lists2.get(i).size()");
+                    checkFieldsFlg = false;
                 }
             }
         }else{
-            System.out.println("fieldsList.size() != fieldNameList.size()");
-            fieldsNameFlg = false;
+            System.out.println("lists1.size() != lists2.size()");
+            checkFieldsFlg = false;
         }
 
-        if(fieldsList.size()==fieldTypeList.size()){
-            for(int i=0; i< fieldsList.size();i++) {
-                String fieldType = fieldsList.get(i).get("Type").toString();
-                System.out.println("期待的字段类型："+fieldType);
-                System.out.println("实际获取的字段类型："+fieldTypeList.get(i).getText());
-                if (fieldType.equals(fieldTypeList.get(i).getText())){
-                    System.out.println(true);
-                }else{
-                    System.out.println(false);
-                    fieldTypeFlg = true;
-                    break;
-                }
-            }
-        }else{
-            System.out.println("fieldsList.size() != fieldTypeList.size()");
-            fieldTypeFlg = true;
-        }
-
-        List<Boolean> list = new ArrayList();
-        list.add(fieldAliasNameFlg);
-        list.add(fieldsNameFlg);
-        list.add(fieldTypeFlg);
-
-        return list;
-
+        return checkFieldsFlg;
 
     }
+
+
+
 
 
     public void clickPreviewData(){

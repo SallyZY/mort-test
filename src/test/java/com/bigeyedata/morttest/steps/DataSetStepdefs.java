@@ -3,11 +3,13 @@ package com.bigeyedata.morttest.steps;
 import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.pages.dataset_pages.*;
 import com.bigeyedata.morttest.pages.datasource_pages.DataSourceDetailPage;
+import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import cucumber.api.java.sk.A;
 
 import java.util.List;
 import java.util.Map;
@@ -314,10 +316,10 @@ public class DataSetStepdefs {
     }
 
     @Then("^I should see the DataSet of fileds displayed correctly as following$")
-    public void iShouldSeeTheDataSetOfFiledsDisplayedCorrectlyAsFollowing(List<Map<String, String>> fieldsList) throws Throwable {
-        assertThat(onPage(AssociatedDataSetPage.class).checkFields(fieldsList).get(0),is(true));
-        assertThat(onPage(AssociatedDataSetPage.class).checkFields(fieldsList).get(1),is(true));
-        assertThat(onPage(AssociatedDataSetPage.class).checkFields(fieldsList).get(2),is(true));
+    public void iShouldSeeTheDataSetOfFiledsDisplayedCorrectlyAsFollowing(DataTable fieldsList) throws Throwable {
+//        oldLists = onPage(AssociatedDataSetPage.class).getFields();
+
+        assertThat(onPage(AssociatedDataSetPage.class).checkFields(fieldsList),is(true));
     }
 
 
