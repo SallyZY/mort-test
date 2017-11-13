@@ -2,6 +2,7 @@ package com.bigeyedata.morttest.pages.datasource_pages;
 
 import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.WebDriverManager;
+import com.bigeyedata.morttest.pages.DataSetPage;
 import com.bigeyedata.morttest.pages.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +15,7 @@ import java.util.Map;
 
 import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
 import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisibleAndLocated;
+import static com.bigeyedata.morttest.SeeThruUtils.onPage;
 
 /**
  * Created by yingzhang on 10/05/2017.
@@ -58,7 +60,7 @@ public class DataSourceDetailPage extends Page {
     public void CreateNewDatasetFromDatasource(){
 
         createNewDatasetButton.click();
-
+        onPage(DataSetPage.class);
     }
 
     public void goToRDBEditPage(String title) throws InterruptedException {

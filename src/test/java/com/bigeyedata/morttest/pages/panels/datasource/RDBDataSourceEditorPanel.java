@@ -1,16 +1,12 @@
 package com.bigeyedata.morttest.pages.panels.datasource;
 
 import com.bigeyedata.morttest.CommonFunctions;
-import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.panels.datasource.specificPanel.DataSourceSpecificEditorPanel;
 import com.bigeyedata.morttest.types.DataSourceType;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 import static com.bigeyedata.morttest.CommonFunctions.fillData;

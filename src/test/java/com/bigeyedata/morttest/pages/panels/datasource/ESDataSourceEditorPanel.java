@@ -5,9 +5,11 @@ import com.bigeyedata.morttest.types.DataSourceType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.bigeyedata.morttest.CommonFunctions.fillData;
 import static com.bigeyedata.morttest.types.DataSourceType.ES;
 
 /**
@@ -46,11 +48,18 @@ public class ESDataSourceEditorPanel extends DataSourceSpecificEditorPanel {
 
     @Override
     public void createDataSource(Map<String, String> esConfigList) throws InterruptedException {
-        dataSourceNameInput.sendKeys(esConfigList.get("DataSourceName").toString());
-        esNodesInput.sendKeys(esConfigList.get("Nodes").toString());
-        esIndexInput.sendKeys(esConfigList.get("Index").toString());
-        esTypeInput.sendKeys(esConfigList.get("Type").toString());
-        esPortInput.sendKeys(esConfigList.get("Port").toString());
+        fillData(esConfigList,keysMap());
+    }
+
+    private Map<String,WebElement> keysMap() {
+        Map<String, WebElement> map = new HashMap();
+        map.put("DataSourceName", dataSourceNameInput);
+        map.put("Nodes", esNodesInput);
+        map.put("Index", esIndexInput);
+        map.put("Type", esTypeInput);
+        map.put("Port", esPortInput);
+
+        return map;
     }
 
     @Override

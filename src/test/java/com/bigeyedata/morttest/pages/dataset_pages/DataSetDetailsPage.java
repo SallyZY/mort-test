@@ -126,49 +126,6 @@ public class DataSetDetailsPage extends Page {
         return trList.size();
     }
 
-    public boolean compareFieldAlias(List<Map<String, String>> comparedFieldAliasList) {
-
-        List<WebElement> fieldAliasList = FieldAttributeTable.findElements(By.cssSelector("tbody > tr > td:nth-child(2) > div > span"));
-
-        int aliasEqualToSettingCount = 0;
-        String fieldAliasName = "";
-        for (int i = 0; i < fieldAliasList.size(); i++) {
-            fieldAliasName = fieldAliasList.get(i).getText();
-
-            for (int j = 0; j < comparedFieldAliasList.size(); j++) {
-                if (fieldAliasName.equals(comparedFieldAliasList.get(j).get("AliasName").toString())) {
-                    aliasEqualToSettingCount++;
-                    continue;
-                }
-            }
-        }
-
-        return aliasEqualToSettingCount == comparedFieldAliasList.size() ? true : false;
-    }
-
-    public boolean compareFieldType(List<Map<String, String>> comparedFieldTypeList) {
-
-        List<WebElement> fieldTypeList = FieldAttributeTable.findElements(By.cssSelector("tbody > tr > td:nth-child(4) > span > span"));
-        List<WebElement> fieldNameList = FieldAttributeTable.findElements(By.cssSelector("tbody > tr > td:nth-child(3) > span"));
-
-        int typeEqualToSettingCount = 0;
-        String fieldType = "";
-        String fieldName="";
-        for (int i = 0; i < fieldTypeList.size(); i++) {
-            fieldName = fieldNameList.get(i).getText();
-            fieldType = fieldTypeList.get(i).getText();
-
-            for (int j = 0; j < comparedFieldTypeList.size(); j++) {
-                if (fieldName.equals(comparedFieldTypeList.get(j).get("FieldName").toString()) && fieldType.equals(comparedFieldTypeList.get(j).get("FieldType").toString())) {
-                    typeEqualToSettingCount++;
-                    continue;
-                }
-            }
-        }
-
-        return typeEqualToSettingCount == comparedFieldTypeList.size() ? true : false;
-    }
-
     public String getSqlofRDBDataSet() throws InterruptedException {
 
         waitForElementVisible(viewSQLDiv);

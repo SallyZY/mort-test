@@ -10,6 +10,10 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.*;
 
+import static com.bigeyedata.morttest.CommonFunctions.compareDataTable;
+import static com.bigeyedata.morttest.CommonFunctions.findByXpath;
+import static com.bigeyedata.morttest.CommonFunctions.findListByXpath;
+
 public class AssociatedDataSetPage extends Page {
 
     @FindBy(css = " div > span > span > span.ant-select-selection__rendered > span")
@@ -38,6 +42,9 @@ public class AssociatedDataSetPage extends Page {
 
     @FindBy(css = "#dataSetDataPreview > div > div > div > div > div > div > div > table > tbody")
     WebElement previewDataTable;
+
+    @FindBy(xpath ="//div[@id='fieldsDisplay']//table//tr")
+    List<WebElement> fieldDetailRows;
 
 
 
@@ -293,23 +300,16 @@ public class AssociatedDataSetPage extends Page {
 
     }
 
+    public void checkFieldDetail(DataTable expectedDetailsTable){
+        List<WebElement> fieldAliasNameList = findListByXpath("//div[@id='fieldsDisplay']//table//td[2]");
+        List<WebElement> fieldNameList = findListByXpath("//div[@id='fieldsDisplay']//table//td[3]");
+        List<WebElement> fieldTypeList = findListByXpath("//div[@id='fieldsDisplay']//table//td[4]");
 
+        List<List<WebElement>> colLists = new ArrayList<>();
+        colLists.add(fieldAliasNameList);
+        colLists.add(fieldNameList);
+        colLists.add(fieldTypeList);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        compareDataTable(expectedDetailsTable,fieldDetailRows,colLists);
+    }
 }

@@ -16,9 +16,8 @@ Feature: Create DataSource
     When I saved RDB dataSource
     Then I should see the DataSource "测试MySQL数据源_test" displayed in directory
     And I should see the DataSource configuration displayed correctly as following
-      | DataSourceType  | Host        | Port     | User      | Database         |
-      | mysql           |127.0.0.1    | 1234     | haha      | customerdata_dev |
-
+      | Host        | Port | DataSourceType  | Database         | User      |
+      |127.0.0.1    | 1234 |     mysql       | customerdata_dev | haha      |
     And I "edit" dataSource "测试MySQL数据源_test"
     And I modified RDB dataSource with configuration as following
       | Host        | Port     | User      | Password  |DataSourceName  |
@@ -26,8 +25,8 @@ Feature: Create DataSource
     When I saved RDB dataSource
     Then I should see the DataSource "测试MySQL数据源" displayed in directory
     And I should see the DataSource configuration displayed correctly as following
-      | DataSourceType  | Host        | Port     | User      | Database         |
-      | mysql           |localhost    | 3306     | root      | customerdata_dev |
+      | Host        | Port | DataSourceType  | Database         | User      |
+      |localhost    | 3306 |     mysql       | customerdata_dev | root      |
 
 
   Scenario: Create a new HDFS dataSource
@@ -52,10 +51,13 @@ Feature: Create DataSource
     And I expand the DataSource directory
     And I select DataSource directory "测试数据源目录"
     And I create a ES DataSource with configuration as following
-      | DataSourceName  | Nodes         | Index         | Type                | Port  | Wan     |
-      | 测试ES数据源      |192.168.0.180  | pa10million   | pa10million_type   |  9200  | true   |
+      | DataSourceName  | Nodes      | Index    | Type         | Port  | Wan     |
+      | 测试ES数据源      |localhost  | pa5000   | pa5000_type  |  9200 | false   |
     When I saved ES dataSource
     Then I should see the DataSource "测试ES数据源" displayed in directory
+    And I should see the DataSource configuration displayed correctly as following
+      | Nodes      | Index    | Type         | Port  | Wan     |
+      |localhost  | pa5000   | pa5000_type  |  9200 | 关       |
 
 
   Scenario: Delete dataSource

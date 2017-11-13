@@ -61,7 +61,7 @@ public class DataSourceEditorPanel extends Panel {
     }
 
     public <T extends DataSourceSpecificEditorPanel> T specificEditorPanel() {
-        return (T)editorPanel;
+        return (T) editorPanel;
     }
 
     private class PanelInfo {

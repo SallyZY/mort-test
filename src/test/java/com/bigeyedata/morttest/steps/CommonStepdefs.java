@@ -39,13 +39,11 @@ public class CommonStepdefs {
 
     @Given("^I select (?:DataSource|DataSet|Report) as following$")
     public void iSelectDatasourceAsFollowing(List<Map<String,String>> sourceInfoList) throws Throwable {
-
         String directoryName = sourceInfoList.get(0).get("DirectoryName").toString();
         String sourceFileName=sourceInfoList.get(0).get("ResourceFileName").toString();
 
         currentPage().dirPanel.clickDirectoryByName(directoryName);
         currentPage().resourcePanel.clickResourceByName(sourceFileName);
-
     }
 
     @When("^I click \"([^\"]*)\" item from dropdown menu of \"([^\"]*)\"$")

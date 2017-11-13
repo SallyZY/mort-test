@@ -1,5 +1,6 @@
 package com.bigeyedata.morttest.pages.panels;
 
+import com.bigeyedata.morttest.pages.DataSetPage;
 import com.bigeyedata.morttest.pages.DataSourcePage;
 import com.bigeyedata.morttest.pages.Panel;
 import org.openqa.selenium.WebElement;
@@ -42,6 +43,7 @@ public class NavigationPanel extends Panel {
                 break;
             case "DataSet":
                 datasetsModuleLink.click();
+                onPage(DataSetPage.class);
                 break;
             case "Report":
                 reportsModuleLink.click();

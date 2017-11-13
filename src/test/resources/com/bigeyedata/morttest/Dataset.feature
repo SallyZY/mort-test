@@ -40,8 +40,24 @@ Feature: Create,view DataSet
     When I save the new DataSet
     Then I should see the DataSet "测试CSV数据集" displayed in directory
     And I should see the number of DataSet fields is "16"
-    And I should see the ailas of DataSet fields displayed correctly
-    And I should see the type of DataSet fields displayed correctly
+    And I should see the field detail displayed correctly as following
+      | AliasName   | FieldName    | Type |
+      | 空日期字段   | 空日期字段     | 日期  |
+      | 测试日期     | 测试日期      | 日期 |
+      | 流失日期     | 流失日期      | 日期 |
+      | 编号        | 客户编号       | 文本 |
+      | 客户姓名     | 客户姓名      | 文本  |
+      | 性别         | 性别         | 文本  |
+      | 学历         | 学历         | 文本  |
+      | 空文本       | 空文本字段    | 文本  |
+      | 开户渠道     | 开户渠道      | 文本  |
+      | 经纪人       | 经纪人       | 文本  |
+      | 年龄         | 年龄         | 数值  |
+      | 空数值字段    | 空数值字段    | 数值  |
+      | 测试数值字段  | 测试数值字段    |数值   |
+      | 流失资产      | 流失资产      | 数值  |
+      | 流失股基交易量 | 流失股基交易量 | 数值  |
+      | 净佣金        | 流失股基净佣金 | 数值  |
     And I should see the initial import record is displayed
 
     When  I click "ViewDataSource" item from other operation dropdown menu
@@ -231,7 +247,7 @@ Feature: Create,view DataSet
     And I select DataSet directory "测试关联数据集目录"
 
     When I select the DataSet "cars-orders"
-    Then I should see the DataSet of fileds displayed correctly as following
+    Then I should see the field detail displayed correctly as following
 #    | AliasName         | FieldName       | Type |
     | OrderNo (cars)    | cars.OrderNo    | 文本  |
     | Name_C            | cars.Name_C     | 文本  |

@@ -87,18 +87,6 @@ public class DataSetStepdefs {
         assertThat(onPage(DataSetDetailsPage.class).getFieldCountOfDataset(),is(Integer.parseInt(fieldCount)));
     }
 
-    @And("^I should see the ailas of DataSet fields displayed correctly$")
-    public void iShouldSeeTheAilasOfDatasetFieldsDisplayedCorrectly() throws Throwable {
-
-        assertThat(onPage(DataSetDetailsPage.class).compareFieldAlias(savedFieldAliasList),is(true));
-    }
-
-    @And("^I should see the type of DataSet fields displayed correctly$")
-    public void iShouldSeeTheTypeOfDatasetFieldsDisplayedCorrectly() throws Throwable {
-
-        assertThat(onPage(DataSetDetailsPage.class).compareFieldType(savedFieldTypeList),is(true));
-    }
-
     @And("^I should see the initial import record is displayed$")
     public void iShouldSeeTheInitialImportRecordIsDisplayed() throws Throwable {
 
@@ -315,11 +303,10 @@ public class DataSetStepdefs {
         onPage(AssociatedDataSetPage.class).dragAndDrop();
     }
 
-    @Then("^I should see the DataSet of fileds displayed correctly as following$")
-    public void iShouldSeeTheDataSetOfFiledsDisplayedCorrectlyAsFollowing(DataTable fieldsList) throws Throwable {
-//        oldLists = onPage(AssociatedDataSetPage.class).getFields();
-
-        assertThat(onPage(AssociatedDataSetPage.class).checkFields(fieldsList),is(true));
+    @Then("^I should see the field detail displayed correctly as following$")
+    public void iShouldSeeTheDataSetOfFiledsDisplayedCorrectlyAsFollowing(DataTable fieldDetailTable) throws Throwable {
+//        assertThat(onPage(AssociatedDataSetPage.class).checkFields(fieldsList),is(true));
+        onPage(AssociatedDataSetPage.class).checkFieldDetail(fieldDetailTable);
     }
 
 

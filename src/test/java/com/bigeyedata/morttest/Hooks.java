@@ -13,7 +13,7 @@ import org.openqa.selenium.WebElement;
  */
 public class Hooks {
 
-    private static final String MortWeb_URL = "http://localhost";
+    private static final String MortWeb_URL = "http://localhost:3000";
     private static final int Wait_TimeOutInSeconds = 15;
     private static final int Thread_Sleep_Short = 3000;
     private static final int Thread_Sleep_Long =10000;

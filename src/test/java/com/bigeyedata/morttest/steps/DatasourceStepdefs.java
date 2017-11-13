@@ -4,6 +4,7 @@ import com.bigeyedata.morttest.pages.DataSourcePage;
 import com.bigeyedata.morttest.pages.panels.ResourceItemOperatorPanel;
 import com.bigeyedata.morttest.pages.panels.datasource.*;
 import com.bigeyedata.morttest.types.DataSourceType;
+import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -73,14 +74,8 @@ public class DatasourceStepdefs {
     }
 
     @And("^I should see the DataSource configuration displayed correctly as following$")
-    public void iShouldSeeTheDataSourceConfigurationDisplayedCorrectlyAsFollowing(List<Map<String,String>> RDBConfigList) throws Throwable {
-        String rdbParameter = ((DataSourcePage)currentPage()).rdbDetailPanel.getRDBParameter();
-        assertTrue(rdbParameter.contains(RDBConfigList.get(0).get("Host")));
-        assertTrue(rdbParameter.contains(RDBConfigList.get(0).get("Port")));
-        assertTrue(rdbParameter.contains(RDBConfigList.get(0).get("User")));
-        assertTrue(rdbParameter.contains(RDBConfigList.get(0).get("DataSourceType")));
-        assertTrue(rdbParameter.contains(RDBConfigList.get(0).get("Database")));
-
+    public void iShouldSeeTheDataSourceConfigurationDisplayedCorrectlyAsFollowing(DataTable configTable) throws Throwable {
+        ((DataSourcePage)currentPage()).detailPanel.checkConfigDetail(configTable);
     }
 
     @When("^I delete the dataSource \"([^\"]*)\"$")

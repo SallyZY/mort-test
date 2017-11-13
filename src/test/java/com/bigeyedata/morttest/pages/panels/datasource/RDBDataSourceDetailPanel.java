@@ -17,4 +17,15 @@ public class RDBDataSourceDetailPanel extends Panel {
         CommonFunctions.waitForElementVisible(dataSourceDetailInfoTbody);
         return dataSourceDetailInfoTbody.getText();
     }
+
+
+
+
+//    String rdbParameter = ((DataSourcePage)currentPage()).rdbDetailPanel.getRDBParameter();
+//    assertTrue(rdbParameter.contains(RDBConfigList.get(0).get("Host")));
+//    assertTrue(rdbParameter.contains(RDBConfigList.get(0).get("Port")));
+//    assertTrue(rdbParameter.contains(RDBConfigList.get(0).get("User")));
+//    assertTrue(rdbParameter.contains(RDBConfigList.get(0).get("DataSourceType")));
+//    assertTrue(rdbParameter.contains(RDBConfigList.get(0).get("Database")));
 }
+

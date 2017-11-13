@@ -1,6 +1,7 @@
 package com.bigeyedata.morttest;
 
 import com.bigeyedata.morttest.pages.Page;
+import cucumber.api.DataTable;
 import cucumber.api.java.it.Ma;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -12,11 +13,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Date;
+import java.util.*;
 import java.text.SimpleDateFormat;
-import java.util.Map;
 
 import static com.bigeyedata.morttest.SeeThruUtils.currentPage;
 
@@ -37,25 +35,25 @@ public class CommonFunctions {
 
     public static void waitForElementVisible(WebElement element) throws InterruptedException {
 
-        Thread.sleep(Hooks.getThreadSleepTime());
+//        Thread.sleep(Hooks.getThreadSleepTime());
         new WebDriverWait(WebDriverManager.getDriver(), Hooks.getTimeOutInSeconds()).until(ExpectedConditions.visibilityOf(element));
     }
 
     public static void waitForElementInvisible(WebElement element) throws InterruptedException {
 
-        Thread.sleep(Hooks.getThreadSleepTime());
+//        Thread.sleep(Hooks.getThreadSleepTime());
         new WebDriverWait(WebDriverManager.getDriver(), Hooks.getTimeOutInSeconds()).until(ExpectedConditions.invisibilityOf(element));
     }
 
     public static void waitForElementVisibleAndLocated(By by) throws InterruptedException {
 
-        Thread.sleep(Hooks.getThreadSleepTime());
+//        Thread.sleep(Hooks.getThreadSleepTime());
         new WebDriverWait(WebDriverManager.getDriver(), Hooks.getTimeOutInSeconds()).until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
     public static void waitForElementClickable(WebElement element) throws InterruptedException {
 
-        Thread.sleep(Hooks.getThreadSleepTime());
+//        Thread.sleep(Hooks.getThreadSleepTime());
         new WebDriverWait(WebDriverManager.getDriver(), Hooks.getTimeOutInSeconds()).until(ExpectedConditions.elementToBeClickable(element));
 
     }
@@ -154,6 +152,11 @@ public class CommonFunctions {
         return driver.findElement(By.xpath(xpath));
     }
 
+    public static List<WebElement> findListByXpath(String xpath){
+        WebDriver driver = WebDriverManager.getDriver();
+        return driver.findElements(By.xpath(xpath));
+    }
+
     public static void fillData(Map<String, String> data ,Map<String, WebElement> keys) {
         Iterator<Map.Entry<String, String>> iterator = data.entrySet().iterator();
         while (iterator.hasNext()) {
@@ -164,5 +167,30 @@ public class CommonFunctions {
                 webElement.sendKeys(elementEntry.getValue());
             }
         }
+    }
+
+    public static void compareDataTable(DataTable expectedTable,List<WebElement> actualTableRows,List<List<WebElement>> actualTableCols){
+        List<List<String>> actualLists = new ArrayList<List<String>>();
+        List<String> list = new ArrayList<String>();
+
+        List<String> titleRow = expectedTable.raw().get(0);
+        for (String val: titleRow){
+            list.add(val);
+        }
+        actualLists.add(list);
+
+        System.out.println("actualTableCols.get(0).size()" + actualTableCols.get(0).size());
+        for (int i = 0; i< actualTableCols.get(0).size(); i++){
+            List<String> rowList=new ArrayList<>();
+            for (int j = 0; j< actualTableCols.size(); j++){
+                rowList.add(actualTableCols.get(j).get(i).getText().trim());
+                System.out.println("content" + actualTableCols.get(j).get(i).getText().trim());
+            }
+            actualLists.add(rowList);
+        }
+
+        System.out.println(actualTableCols.size());
+        System.out.println(expectedTable.raw());
+        expectedTable.diff(actualLists);
     }
 }
