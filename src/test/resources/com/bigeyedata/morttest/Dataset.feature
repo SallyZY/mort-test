@@ -248,7 +248,7 @@ Feature: Create,view DataSet
 
     When I select the DataSet "cars-orders"
     Then I should see the field detail displayed correctly as following
-#    | AliasName         | FieldName       | Type |
+    | AliasName         | FieldName       | Type |
     | OrderNo (cars)    | cars.OrderNo    | 文本  |
     | Name_C            | cars.Name_C     | 文本  |
     | SalesDate         | cars.SalesDate  | 文本  |

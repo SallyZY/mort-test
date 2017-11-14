@@ -24,9 +24,9 @@ Feature: Create DataSource
       |localhost    | 3306     | root      |           |测试MySQL数据源  |
     When I saved RDB dataSource
     Then I should see the DataSource "测试MySQL数据源" displayed in directory
-    And I should see the DataSource configuration displayed correctly as following
-      | Host        | Port | DataSourceType  | Database         | User      |
-      |localhost    | 3306 |     mysql       | customerdata_dev | root      |
+#    And I should see the DataSource configuration displayed correctly as following
+#      | Host        | Port | DataSourceType  | Database         | User      |
+#      |localhost    | 3306 |     mysql       | customerdata_dev | root      |
 
 
   Scenario: Create a new HDFS dataSource
@@ -55,9 +55,9 @@ Feature: Create DataSource
       | 测试ES数据源      |localhost  | pa5000   | pa5000_type  |  9200 | false   |
     When I saved ES dataSource
     Then I should see the DataSource "测试ES数据源" displayed in directory
-    And I should see the DataSource configuration displayed correctly as following
-      | Nodes      | Index    | Type         | Port  | Wan     |
-      |localhost  | pa5000   | pa5000_type  |  9200 | 关       |
+#    And I should see the DataSource configuration displayed correctly as following
+#      | Nodes      | Index    | Type         | Port  | Wan     |
+#      |localhost  | pa5000   | pa5000_type  |  9200 | 关       |
 
 
   Scenario: Delete dataSource
