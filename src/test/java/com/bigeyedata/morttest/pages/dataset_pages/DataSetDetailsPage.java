@@ -51,6 +51,9 @@ public class DataSetDetailsPage extends Page {
     @FindBy(css = "#checkSqlButton")
     WebElement checkSqlMenuItem;
 
+    @FindBy(id = "showJoinDataSet")
+    WebElement showJoinDataSetMenuItem;
+
     @FindBy(xpath = "//div[@class='ant-modal-content']//p")
     WebElement viewSQLDiv;
 
@@ -101,7 +104,9 @@ public class DataSetDetailsPage extends Page {
             case "ViewSql":
                 waitForElementVisible(checkSqlMenuItem);
                 checkSqlMenuItem.click();
-
+            case "showJoinDataSet":
+                waitForElementVisible(showJoinDataSetMenuItem);
+                showJoinDataSetMenuItem.click();
 
         }
     }

@@ -305,30 +305,37 @@ public class DataSetStepdefs {
 
     @Then("^I should see the field detail displayed correctly as following$")
     public void iShouldSeeTheDataSetOfFiledsDisplayedCorrectlyAsFollowing(DataTable fieldDetailTable) throws Throwable {
-//        assertThat(onPage(AssociatedDataSetPage.class).checkFields(fieldsList),is(true));
         onPage(AssociatedDataSetPage.class).checkFieldDetail(fieldDetailTable);
     }
 
 
     @And("^I should see the DataSet of preview data displayed correctly as following$")
-    public void iShouldSeeTheDataSetOfPreviewDataDisplayedCorrectlyAsFollowing(List<Map<String, String>> fieldsList) throws Throwable {
-        assertThat(onPage(AssociatedDataSetPage.class).checkPreviewData(fieldsList).get(0),is(true));
-        assertThat(onPage(AssociatedDataSetPage.class).checkPreviewData(fieldsList).get(1),is(true));
-        assertThat(onPage(AssociatedDataSetPage.class).checkPreviewData(fieldsList).get(2),is(true));
-        assertThat(onPage(AssociatedDataSetPage.class).checkPreviewData(fieldsList).get(3),is(true));
-        assertThat(onPage(AssociatedDataSetPage.class).checkPreviewData(fieldsList).get(4),is(true));
-        assertThat(onPage(AssociatedDataSetPage.class).checkPreviewData(fieldsList).get(5),is(true));
-        assertThat(onPage(AssociatedDataSetPage.class).checkPreviewData(fieldsList).get(6),is(true));
+    public void iShouldSeeTheDataSetOfPreviewDataDisplayedCorrectlyAsFollowing(DataTable previewataTable) throws Throwable {
+       onPage(AssociatedDataSetPage.class).clickPreviewData();
+        onPage(AssociatedDataSetPage.class).checkPreviewDataOfThreeTable(previewataTable);
     }
 
-    @And("^I should see the DataSet of related dataset displayed correctly as following$")
-    public void iShouldSeeTheDataSetOfRelatedDatasetDisplayedCorrectlyAsFollowing() throws Throwable {
-
+    @And("^I should see source of data displayed correctly as following$")
+    public void iShouldSeeSourceOfDataDisplayedCorrectlyAsFollowing(DataTable sourceOfDataTable) throws Throwable {
+        onPage(AssociatedDataSetPage.class).clickSourceOfData();
+        onPage(AssociatedDataSetPage.class).checkSourceOfData(sourceOfDataTable);
     }
 
 
-    @Then("^I should see test list as following$")
-    public void iShouldSeeTestListAsFollowing(List<Map<String, String>> fieldsList) throws Throwable {
+    @Then("^I should see the joinDataSet displayed correctly as following$")
+    public void iShouldSeeTheJoinDataSetDisplayedCorrectlyAsFollowing(DataTable sourceOfDataTable) throws Throwable {
+        onPage(AssociatedDataSetPage.class).checkJoinDataSet(sourceOfDataTable);
+    }
 
+    @When("^I view the detail of join DataSet$")
+    public void iViewTheDetailOfJoinDataSet() throws Throwable {
+        onPage(DataSetDetailsPage.class).clickOtherOptionsMenuItem("showJoinDataSet");
+    }
+
+
+    @And("^I should see the join type displayed correctly$")
+    public void iShouldSeeTheJoinTypeDisplayedCorrectly() throws Throwable {
+        assertTrue(onPage(AssociatedDataSetPage.class).checkRightJoin());
+        assertTrue(onPage(AssociatedDataSetPage.class).checkLeftJoin());
     }
 }

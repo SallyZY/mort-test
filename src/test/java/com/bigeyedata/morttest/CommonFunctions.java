@@ -157,6 +157,11 @@ public class CommonFunctions {
         return driver.findElements(By.xpath(xpath));
     }
 
+    public static WebElement findById(String id){
+        WebDriver driver = WebDriverManager.getDriver();
+        return driver.findElement(By.id(id));
+    }
+
     public static void fillData(Map<String, String> data ,Map<String, WebElement> keys) {
         Iterator<Map.Entry<String, String>> iterator = data.entrySet().iterator();
         while (iterator.hasNext()) {
@@ -169,7 +174,7 @@ public class CommonFunctions {
         }
     }
 
-    public static void compareDataTable(DataTable expectedTable,List<WebElement> actualTableRows,List<List<WebElement>> actualTableCols){
+    public static void compareDataTable(DataTable expectedTable,List<List<WebElement>> actualTableCols){
         List<List<String>> actualLists = new ArrayList<List<String>>();
         List<String> list = new ArrayList<String>();
 
