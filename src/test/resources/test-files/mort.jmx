@@ -13552,6 +13552,182 @@ import java.util.regex.Pattern;
               <stringProp name="Authorization.realm"></stringProp>
               <stringProp name="Authorization.mechanism">KERBEROS</stringProp>
             </elementProp>
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">http://localhost:3000/api/mort/data-sources/directories/ada78676-02a8-4ae5-a13e-a6a18724ed9a/items</stringProp>
+              <stringProp name="Authorization.username">${AUTH_LOGIN}</stringProp>
+              <stringProp name="Authorization.password">${AUTH_PASSWORD}</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+              <stringProp name="Authorization.mechanism">KERBEROS</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">http://localhost:3000/api/mort/data-sources/f8404d19-779f-4337-8313-ffa3e720b52b</stringProp>
+              <stringProp name="Authorization.username">${AUTH_LOGIN}</stringProp>
+              <stringProp name="Authorization.password">${AUTH_PASSWORD}</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+              <stringProp name="Authorization.mechanism">KERBEROS</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">http://localhost:3000/api/cdata/preview</stringProp>
+              <stringProp name="Authorization.username">${AUTH_LOGIN}</stringProp>
+              <stringProp name="Authorization.password">${AUTH_PASSWORD}</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+              <stringProp name="Authorization.mechanism">KERBEROS</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">http://localhost:3000/api/cdata/fields</stringProp>
+              <stringProp name="Authorization.username">${AUTH_LOGIN}</stringProp>
+              <stringProp name="Authorization.password">${AUTH_PASSWORD}</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+              <stringProp name="Authorization.mechanism">KERBEROS</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">http://localhost:3000/api/mort/data-sets</stringProp>
+              <stringProp name="Authorization.username">${AUTH_LOGIN}</stringProp>
+              <stringProp name="Authorization.password">${AUTH_PASSWORD}</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+              <stringProp name="Authorization.mechanism">KERBEROS</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">http://localhost:3000/api/mort/data-sets/directories/c33bc1f5-12ee-409b-adc8-fb7c98f1fa36/items</stringProp>
+              <stringProp name="Authorization.username">${AUTH_LOGIN}</stringProp>
+              <stringProp name="Authorization.password">${AUTH_PASSWORD}</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+              <stringProp name="Authorization.mechanism">KERBEROS</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">http://localhost:3000/api/mort/data-sets/07dff774-7458-483c-8a83-4998c1687e44</stringProp>
+              <stringProp name="Authorization.username">${AUTH_LOGIN}</stringProp>
+              <stringProp name="Authorization.password">${AUTH_PASSWORD}</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+              <stringProp name="Authorization.mechanism">KERBEROS</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">http://localhost:3000/api/mort/data-sets/07dff774-7458-483c-8a83-4998c1687e44/fields</stringProp>
+              <stringProp name="Authorization.username">${AUTH_LOGIN}</stringProp>
+              <stringProp name="Authorization.password">${AUTH_PASSWORD}</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+              <stringProp name="Authorization.mechanism">KERBEROS</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">http://localhost:3000/api/mort/data-sets/d913db59-8ce9-465c-9e29-a76bda926461</stringProp>
+              <stringProp name="Authorization.username">${AUTH_LOGIN}</stringProp>
+              <stringProp name="Authorization.password">${AUTH_PASSWORD}</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+              <stringProp name="Authorization.mechanism">KERBEROS</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">http://localhost:3000/api/mort/data-sets/d913db59-8ce9-465c-9e29-a76bda926461/fields</stringProp>
+              <stringProp name="Authorization.username">${AUTH_LOGIN}</stringProp>
+              <stringProp name="Authorization.password">${AUTH_PASSWORD}</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+              <stringProp name="Authorization.mechanism">KERBEROS</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">http://localhost:3000/api/mort/data-sets/07dff774-7458-483c-8a83-4998c1687e44/preview?rowSize=10</stringProp>
+              <stringProp name="Authorization.username">${AUTH_LOGIN}</stringProp>
+              <stringProp name="Authorization.password">${AUTH_PASSWORD}</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+              <stringProp name="Authorization.mechanism">KERBEROS</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">http://localhost:3000/api/mort/data-sets/55ef4cc4-2eb3-43a3-9371-899481393874</stringProp>
+              <stringProp name="Authorization.username">${AUTH_LOGIN}</stringProp>
+              <stringProp name="Authorization.password">${AUTH_PASSWORD}</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+              <stringProp name="Authorization.mechanism">KERBEROS</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">http://localhost:3000/api/mort/data-sets/55ef4cc4-2eb3-43a3-9371-899481393874/fields</stringProp>
+              <stringProp name="Authorization.username">${AUTH_LOGIN}</stringProp>
+              <stringProp name="Authorization.password">${AUTH_PASSWORD}</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+              <stringProp name="Authorization.mechanism">KERBEROS</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">http://localhost:3000/api/mort/data-sets/55ef4cc4-2eb3-43a3-9371-899481393874/preview?rowSize=10</stringProp>
+              <stringProp name="Authorization.username">${AUTH_LOGIN}</stringProp>
+              <stringProp name="Authorization.password">${AUTH_PASSWORD}</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+              <stringProp name="Authorization.mechanism">KERBEROS</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">http://localhost:3000/api/mort/data-sets/55ef4cc4-2eb3-43a3-9371-899481393874/fields/groups</stringProp>
+              <stringProp name="Authorization.username">${AUTH_LOGIN}</stringProp>
+              <stringProp name="Authorization.password">${AUTH_PASSWORD}</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+              <stringProp name="Authorization.mechanism">KERBEROS</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">http://localhost:3000/api/mort/analysis-result</stringProp>
+              <stringProp name="Authorization.username">${AUTH_LOGIN}</stringProp>
+              <stringProp name="Authorization.password">${AUTH_PASSWORD}</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+              <stringProp name="Authorization.mechanism">KERBEROS</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">http://localhost:3000/api/mort/data-sets/07dff774-7458-483c-8a83-4998c1687e44/fields/groups</stringProp>
+              <stringProp name="Authorization.username">${AUTH_LOGIN}</stringProp>
+              <stringProp name="Authorization.password">${AUTH_PASSWORD}</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+              <stringProp name="Authorization.mechanism">KERBEROS</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">http://localhost:3000/api/mort/data-sets/d913db59-8ce9-465c-9e29-a76bda926461/fields/groups</stringProp>
+              <stringProp name="Authorization.username">${AUTH_LOGIN}</stringProp>
+              <stringProp name="Authorization.password">${AUTH_PASSWORD}</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+              <stringProp name="Authorization.mechanism">KERBEROS</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">http://localhost:3000/api/mort/data-sets/unions/preview</stringProp>
+              <stringProp name="Authorization.username">${AUTH_LOGIN}</stringProp>
+              <stringProp name="Authorization.password">${AUTH_PASSWORD}</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+              <stringProp name="Authorization.mechanism">KERBEROS</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">http://localhost:3000/api/mort/data-sets/unions</stringProp>
+              <stringProp name="Authorization.username">${AUTH_LOGIN}</stringProp>
+              <stringProp name="Authorization.password">${AUTH_PASSWORD}</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+              <stringProp name="Authorization.mechanism">KERBEROS</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">http://localhost:3000/api/mort/data-sets/1d9b2c9b-5f38-442a-88a8-b0b12b79e562</stringProp>
+              <stringProp name="Authorization.username">${AUTH_LOGIN}</stringProp>
+              <stringProp name="Authorization.password">${AUTH_PASSWORD}</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+              <stringProp name="Authorization.mechanism">KERBEROS</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">http://localhost:3000/api/mort/data-sets/1d9b2c9b-5f38-442a-88a8-b0b12b79e562/fields</stringProp>
+              <stringProp name="Authorization.username">${AUTH_LOGIN}</stringProp>
+              <stringProp name="Authorization.password">${AUTH_PASSWORD}</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+              <stringProp name="Authorization.mechanism">KERBEROS</stringProp>
+            </elementProp>
           </collectionProp>
         </AuthManager>
         <hashTree/>
@@ -13663,7 +13839,7 @@ import java.util.regex.Pattern;
           <stringProp name="filename"></stringProp>
         </ResultCollector>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1 新建关联数据源目录-/mort/data-sources/directories" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1 关联数据源目录-/mort/data-sources/directories" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -13807,7 +13983,80 @@ import java.util.regex.Pattern;
           </RegexExtractor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="4 新建测试关联数据集目录-/mort/data-sets/directories" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="4 测试原始数据集目录-/mort/data-sets/directories" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;name&quot;:&quot;测试原始数据集目录&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${global_server_ip}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/mort/data-sets/directories</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">true</stringProp>
+            <stringProp name="RegexExtractor.refname">origin_data_set_dic_id</stringProp>
+            <stringProp name="RegexExtractor.regex">/data-sets/directories/(.*)</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default">NOT_FOUND_data_set_dic_id</stringProp>
+            <stringProp name="RegexExtractor.match_number">0</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="4 测试关联数据集目录-/mort/data-sets/directories" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -13880,708 +14129,13 @@ import java.util.regex.Pattern;
           </ResultCollector>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="预览sql-/cdata/preview" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="75 原始数据集ActualIncome-导入 -/mort/data-sets" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;dataSource&quot;:{&quot;database&quot;:&quot;customerdata_dev&quot;,&quot;username&quot;:&quot;root&quot;,&quot;host&quot;:&quot;localhost&quot;,&quot;port&quot;:&quot;3306&quot;,&quot;databaseType&quot;:&quot;mysql&quot;,&quot;password&quot;:&quot;&quot;},&quot;rawSql&quot;:{&quot;statement&quot;:&quot;select * from cars&quot;},&quot;rowCount&quot;:10}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${global_server_ip}</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/cdata/preview</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="预览sql-/cdata/fields" enabled="false">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;dataSource&quot;:{&quot;database&quot;:&quot;customerdata_dev&quot;,&quot;username&quot;:&quot;root&quot;,&quot;host&quot;:&quot;localhost&quot;,&quot;port&quot;:&quot;3306&quot;,&quot;databaseType&quot;:&quot;mysql&quot;,&quot;password&quot;:&quot;&quot;},&quot;rawSql&quot;:{&quot;statement&quot;:&quot;select * from cars&quot;},&quot;rowCount&quot;:10}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${global_server_ip}</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/cdata/fields</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="创建cars数据集-/mort/data-sets" enabled="false">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;sql&quot;:&quot;select * from cars&quot;,&quot;fields&quot;:[{&quot;displayName&quot;:&quot;Id_C&quot;,&quot;fieldName&quot;:&quot;Id_C&quot;,&quot;fieldType&quot;:&quot;Numeric&quot;},{&quot;displayName&quot;:&quot;OrderNo&quot;,&quot;fieldName&quot;:&quot;OrderNo&quot;,&quot;fieldType&quot;:&quot;Text&quot;},{&quot;displayName&quot;:&quot;Name_C&quot;,&quot;fieldName&quot;:&quot;Name_C&quot;,&quot;fieldType&quot;:&quot;Text&quot;},{&quot;displayName&quot;:&quot;SalesDate&quot;,&quot;fieldName&quot;:&quot;SalesDate&quot;,&quot;fieldType&quot;:&quot;Text&quot;}],&quot;directoryIds&quot;:[&quot;${data_set_dic_id}&quot;],&quot;dataSourceId&quot;:&quot;${data_source_id}&quot;,&quot;dataSourceType&quot;:&quot;RDB&quot;,&quot;name&quot;:&quot;cars&quot;,&quot;alive&quot;:false}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${global_server_ip}</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/mort/data-sets</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
-            <stringProp name="RegexExtractor.useHeaders">true</stringProp>
-            <stringProp name="RegexExtractor.refname">cars_data_set_id</stringProp>
-            <stringProp name="RegexExtractor.regex">/data-sets/(.*)</stringProp>
-            <stringProp name="RegexExtractor.template">$1$</stringProp>
-            <stringProp name="RegexExtractor.default">NOT_FOUND_data_set_id</stringProp>
-            <stringProp name="RegexExtractor.match_number">0</stringProp>
-          </RegexExtractor>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="预览sql-/cdata/preview" enabled="false">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;dataSource&quot;:{&quot;database&quot;:&quot;customerdata_dev&quot;,&quot;username&quot;:&quot;root&quot;,&quot;host&quot;:&quot;localhost&quot;,&quot;port&quot;:&quot;3306&quot;,&quot;databaseType&quot;:&quot;mysql&quot;,&quot;password&quot;:&quot;&quot;},&quot;rawSql&quot;:{&quot;statement&quot;:&quot;select * from Orders&quot;},&quot;rowCount&quot;:10}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${global_server_ip}</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/cdata/preview</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="预览sql-/cdata/fields" enabled="false">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;dataSource&quot;:{&quot;database&quot;:&quot;customerdata_dev&quot;,&quot;username&quot;:&quot;root&quot;,&quot;host&quot;:&quot;localhost&quot;,&quot;port&quot;:&quot;3306&quot;,&quot;databaseType&quot;:&quot;mysql&quot;,&quot;password&quot;:&quot;&quot;},&quot;rawSql&quot;:{&quot;statement&quot;:&quot;select * from Orders&quot;},&quot;rowCount&quot;:10}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${global_server_ip}</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/cdata/fields</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="创建orders数据集-/mort/data-sets" enabled="false">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;sql&quot;:&quot;select * from Orders&quot;,&quot;fields&quot;:[{&quot;displayName&quot;:&quot;Id_O&quot;,&quot;fieldName&quot;:&quot;Id_O&quot;,&quot;fieldType&quot;:&quot;Numeric&quot;},{&quot;displayName&quot;:&quot;OrderNo&quot;,&quot;fieldName&quot;:&quot;OrderNo&quot;,&quot;fieldType&quot;:&quot;Text&quot;},{&quot;displayName&quot;:&quot;Id_P&quot;,&quot;fieldName&quot;:&quot;Id_P&quot;,&quot;fieldType&quot;:&quot;Numeric&quot;}],&quot;directoryIds&quot;:[&quot;${data_set_dic_id}&quot;],&quot;dataSourceId&quot;:&quot;${data_source_id}&quot;,&quot;dataSourceType&quot;:&quot;RDB&quot;,&quot;name&quot;:&quot;orders&quot;,&quot;alive&quot;:false}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${global_server_ip}</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/mort/data-sets</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="false">
-            <stringProp name="RegexExtractor.useHeaders">true</stringProp>
-            <stringProp name="RegexExtractor.refname">orders_data_set_id</stringProp>
-            <stringProp name="RegexExtractor.regex">/data-sets/(.*)</stringProp>
-            <stringProp name="RegexExtractor.template">$1$</stringProp>
-            <stringProp name="RegexExtractor.default">NOT_FOUND_data_set_id</stringProp>
-            <stringProp name="RegexExtractor.match_number">0</stringProp>
-          </RegexExtractor>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="预览sql-/cdata/preview" enabled="false">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;dataSource&quot;:{&quot;database&quot;:&quot;customerdata_dev&quot;,&quot;username&quot;:&quot;root&quot;,&quot;host&quot;:&quot;localhost&quot;,&quot;port&quot;:&quot;3306&quot;,&quot;databaseType&quot;:&quot;mysql&quot;,&quot;password&quot;:&quot;&quot;},&quot;rawSql&quot;:{&quot;statement&quot;:&quot;select * from Persons&quot;},&quot;rowCount&quot;:10}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${global_server_ip}</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/cdata/preview</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="预览sql-/cdata/fields" enabled="false">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;dataSource&quot;:{&quot;database&quot;:&quot;customerdata_dev&quot;,&quot;username&quot;:&quot;root&quot;,&quot;host&quot;:&quot;localhost&quot;,&quot;port&quot;:&quot;3306&quot;,&quot;databaseType&quot;:&quot;mysql&quot;,&quot;password&quot;:&quot;&quot;},&quot;rawSql&quot;:{&quot;statement&quot;:&quot;select * from Persons&quot;},&quot;rowCount&quot;:10}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${global_server_ip}</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/cdata/fields</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="创建persons数据集-/mort/data-sets" enabled="false">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;sql&quot;:&quot;select * from Persons&quot;,&quot;fields&quot;:[{&quot;displayName&quot;:&quot;Id_P&quot;,&quot;fieldName&quot;:&quot;Id_P&quot;,&quot;fieldType&quot;:&quot;Numeric&quot;},{&quot;displayName&quot;:&quot;LastName&quot;,&quot;fieldName&quot;:&quot;LastName&quot;,&quot;fieldType&quot;:&quot;Text&quot;},{&quot;displayName&quot;:&quot;FirstName&quot;,&quot;fieldName&quot;:&quot;FirstName&quot;,&quot;fieldType&quot;:&quot;Text&quot;},{&quot;displayName&quot;:&quot;Address&quot;,&quot;fieldName&quot;:&quot;Address&quot;,&quot;fieldType&quot;:&quot;Text&quot;},{&quot;displayName&quot;:&quot;City&quot;,&quot;fieldName&quot;:&quot;City&quot;,&quot;fieldType&quot;:&quot;Text&quot;}],&quot;directoryIds&quot;:[&quot;${data_set_dic_id}&quot;],&quot;dataSourceId&quot;:&quot;${data_source_id}&quot;,&quot;dataSourceType&quot;:&quot;RDB&quot;,&quot;name&quot;:&quot;persons&quot;,&quot;alive&quot;:false}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${global_server_ip}</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/mort/data-sets</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
-            <stringProp name="RegexExtractor.useHeaders">true</stringProp>
-            <stringProp name="RegexExtractor.refname">persons_data_set_id</stringProp>
-            <stringProp name="RegexExtractor.regex">/data-sets/(.*)</stringProp>
-            <stringProp name="RegexExtractor.template">$1$</stringProp>
-            <stringProp name="RegexExtractor.default">NOT_FOUND_data_set_id</stringProp>
-            <stringProp name="RegexExtractor.match_number">0</stringProp>
-          </RegexExtractor>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="预览sql-/cdata/preview" enabled="false">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;dataSource&quot;:{&quot;database&quot;:&quot;customerdata_dev&quot;,&quot;username&quot;:&quot;root&quot;,&quot;host&quot;:&quot;localhost&quot;,&quot;port&quot;:&quot;3306&quot;,&quot;databaseType&quot;:&quot;mysql&quot;,&quot;password&quot;:&quot;&quot;},&quot;rawSql&quot;:{&quot;statement&quot;:&quot;select * from Region&quot;},&quot;rowCount&quot;:10}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${global_server_ip}</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/cdata/preview</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="预览sql-/cdata/fields" enabled="false">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;dataSource&quot;:{&quot;database&quot;:&quot;customerdata_dev&quot;,&quot;username&quot;:&quot;root&quot;,&quot;host&quot;:&quot;localhost&quot;,&quot;port&quot;:&quot;3306&quot;,&quot;databaseType&quot;:&quot;mysql&quot;,&quot;password&quot;:&quot;&quot;},&quot;rawSql&quot;:{&quot;statement&quot;:&quot;select * from Region&quot;},&quot;rowCount&quot;:10}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${global_server_ip}</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/cdata/fields</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="创建region数据集-/mort/data-sets" enabled="false">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;sql&quot;:&quot;select * from Region&quot;,&quot;fields&quot;:[{&quot;displayName&quot;:&quot;OrderNo&quot;,&quot;fieldName&quot;:&quot;OrderNo&quot;,&quot;fieldType&quot;:&quot;Text&quot;},{&quot;displayName&quot;:&quot;Province&quot;,&quot;fieldName&quot;:&quot;Province&quot;,&quot;fieldType&quot;:&quot;Text&quot;},{&quot;displayName&quot;:&quot;SalesDate&quot;,&quot;fieldName&quot;:&quot;SalesDate&quot;,&quot;fieldType&quot;:&quot;Datetime&quot;,&quot;format&quot;:&quot;yyyy-MM-dd&quot;}],&quot;directoryIds&quot;:[&quot;${data_set_dic_id}&quot;],&quot;dataSourceId&quot;:&quot;${data_source_id}&quot;,&quot;dataSourceType&quot;:&quot;RDB&quot;,&quot;name&quot;:&quot;region&quot;,&quot;alive&quot;:false}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${global_server_ip}</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/mort/data-sets</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
-            <stringProp name="RegexExtractor.useHeaders">true</stringProp>
-            <stringProp name="RegexExtractor.refname">region_data_set_id</stringProp>
-            <stringProp name="RegexExtractor.regex">/data-sets/(.*)</stringProp>
-            <stringProp name="RegexExtractor.template">$1$</stringProp>
-            <stringProp name="RegexExtractor.default">NOT_FOUND_data_set_id</stringProp>
-            <stringProp name="RegexExtractor.match_number">0</stringProp>
-          </RegexExtractor>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取cars数据集字段-/mort/data-sets/${cars_data_set_id}/fields" enabled="false">
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
-            <collectionProp name="Arguments.arguments"/>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${global_server_ip}</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/mort/data-sets/${cars_data_set_id}/fields</stringProp>
-          <stringProp name="HTTPSampler.method">GET</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor-ResponseString" enabled="true">
-            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
-            <stringProp name="RegexExtractor.refname">response_str</stringProp>
-            <stringProp name="RegexExtractor.regex">(.*)</stringProp>
-            <stringProp name="RegexExtractor.template">$1$</stringProp>
-            <stringProp name="RegexExtractor.default">NOT_FOUND_response_str</stringProp>
-            <stringProp name="RegexExtractor.match_number">0</stringProp>
-          </RegexExtractor>
-          <hashTree/>
-          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
-            <boolProp name="ResultCollector.error_logging">false</boolProp>
-            <objProp>
-              <name>saveConfig</name>
-              <value class="SampleSaveConfiguration">
-                <time>true</time>
-                <latency>true</latency>
-                <timestamp>true</timestamp>
-                <success>true</success>
-                <label>true</label>
-                <code>true</code>
-                <message>true</message>
-                <threadName>true</threadName>
-                <dataType>true</dataType>
-                <encoding>false</encoding>
-                <assertions>true</assertions>
-                <subresults>true</subresults>
-                <responseData>false</responseData>
-                <samplerData>false</samplerData>
-                <xml>false</xml>
-                <fieldNames>true</fieldNames>
-                <responseHeaders>false</responseHeaders>
-                <requestHeaders>false</requestHeaders>
-                <responseDataOnError>false</responseDataOnError>
-                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-                <assertionsResultsToSave>0</assertionsResultsToSave>
-                <bytes>true</bytes>
-                <sentBytes>true</sentBytes>
-                <threadCounts>true</threadCounts>
-                <idleTime>true</idleTime>
-                <connectTime>true</connectTime>
-              </value>
-            </objProp>
-            <stringProp name="filename"></stringProp>
-          </ResultCollector>
-          <hashTree/>
-          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
-            <boolProp name="resetInterpreter">false</boolProp>
-            <stringProp name="parameters"></stringProp>
-            <stringProp name="filename"></stringProp>
-            <stringProp name="script">import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-
- 	   String responseStr = vars.get(&quot;response_str&quot;);
-        String regEx = &quot;\&quot;id\&quot;:\&quot;(.+?)\&quot;,\&quot;codeName\&quot;:\&quot;(.+?)\&quot;,\&quot;displayName\&quot;:\&quot;(.+?)\&quot;,\&quot;fieldName\&quot;:\&quot;(.+?)\&quot;&quot;;
-        Pattern pattern = Pattern.compile(regEx, Pattern.CASE_INSENSITIVE);
-        Matcher matcher = pattern.matcher(responseStr);
-
-        String OrderNo_cars_FieldId=&quot;&quot;;              
-        String Name_C_FieldId=&quot;&quot;;
-        String SalesDate_FieldId=&quot;&quot;;
-        String Id_C_FieldId=&quot;&quot;;
-
-        int groupCount = 0;
-        while(matcher.find()) {
-            groupCount = groupCount + 1;
-            switch (matcher.group(4)) {
-                case &quot;OrderNo&quot;:
-                    OrderNo_cars_FieldId = matcher.group(1);                    
-                    break;
-                case &quot;Name_C&quot;:
-                    Name_C_FieldId = matcher.group(1);                   
-                    break;
-                case &quot;SalesDate&quot;:
-                    SalesDate_FieldId = matcher.group(1);                   
-                    break;
-                case &quot;Id_C&quot;:
-                    Id_C_FieldId = matcher.group(1);                    
-                    break;
-            }
-        }
-        vars.put(&quot;data_set_field_cars_OrderNo&quot;,OrderNo_cars_FieldId);
-        vars.put(&quot;data_set_field_Name_C&quot;,Name_C_FieldId);
-        vars.put(&quot;data_set_field_SalesDate&quot;,SalesDate_FieldId);
-        vars.put(&quot;data_set_field_Id_C&quot;,Id_C_FieldId);
-        </stringProp>
-          </BeanShellPostProcessor>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取orders数据集字段-/mort/data-sets/${orders_data_set_id}/fields" enabled="false">
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
-            <collectionProp name="Arguments.arguments"/>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${global_server_ip}</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/mort/data-sets/${orders_data_set_id}/fields</stringProp>
-          <stringProp name="HTTPSampler.method">GET</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor-ResponseString" enabled="true">
-            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
-            <stringProp name="RegexExtractor.refname">response_str</stringProp>
-            <stringProp name="RegexExtractor.regex">(.*)</stringProp>
-            <stringProp name="RegexExtractor.template">$1$</stringProp>
-            <stringProp name="RegexExtractor.default">NOT_FOUND_response_str</stringProp>
-            <stringProp name="RegexExtractor.match_number">0</stringProp>
-          </RegexExtractor>
-          <hashTree/>
-          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
-            <boolProp name="ResultCollector.error_logging">false</boolProp>
-            <objProp>
-              <name>saveConfig</name>
-              <value class="SampleSaveConfiguration">
-                <time>true</time>
-                <latency>true</latency>
-                <timestamp>true</timestamp>
-                <success>true</success>
-                <label>true</label>
-                <code>true</code>
-                <message>true</message>
-                <threadName>true</threadName>
-                <dataType>true</dataType>
-                <encoding>false</encoding>
-                <assertions>true</assertions>
-                <subresults>true</subresults>
-                <responseData>false</responseData>
-                <samplerData>false</samplerData>
-                <xml>false</xml>
-                <fieldNames>true</fieldNames>
-                <responseHeaders>false</responseHeaders>
-                <requestHeaders>false</requestHeaders>
-                <responseDataOnError>false</responseDataOnError>
-                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-                <assertionsResultsToSave>0</assertionsResultsToSave>
-                <bytes>true</bytes>
-                <sentBytes>true</sentBytes>
-                <threadCounts>true</threadCounts>
-                <idleTime>true</idleTime>
-                <connectTime>true</connectTime>
-              </value>
-            </objProp>
-            <stringProp name="filename"></stringProp>
-          </ResultCollector>
-          <hashTree/>
-          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
-            <boolProp name="resetInterpreter">false</boolProp>
-            <stringProp name="parameters"></stringProp>
-            <stringProp name="filename"></stringProp>
-            <stringProp name="script">import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-
- 	   String responseStr = vars.get(&quot;response_str&quot;);
-        String regEx = &quot;\&quot;id\&quot;:\&quot;(.+?)\&quot;,\&quot;codeName\&quot;:\&quot;(.+?)\&quot;,\&quot;displayName\&quot;:\&quot;(.+?)\&quot;,\&quot;fieldName\&quot;:\&quot;(.+?)\&quot;&quot;;
-        Pattern pattern = Pattern.compile(regEx, Pattern.CASE_INSENSITIVE);
-        Matcher matcher = pattern.matcher(responseStr);
-
-        String OrderNo_orders_FieldId=&quot;&quot;;              
-        String Id_O_FieldId=&quot;&quot;;
-        String Id_P_FieldId=&quot;&quot;;
-
-        int groupCount = 0;
-        while(matcher.find()) {
-            groupCount = groupCount + 1;
-            switch (matcher.group(4)) {
-                case &quot;OrderNo&quot;:
-                    OrderNo_orders_FieldId = matcher.group(1);                    
-                    break;
-                case &quot;Id_O&quot;:
-                    Id_O_FieldId = matcher.group(1);                   
-                    break;
-                case &quot;Id_P&quot;:
-                    Id_P_FieldId = matcher.group(1);                   
-                    break;
-            }
-        }
-        vars.put(&quot;data_set_field_orders_OrderNo&quot;,OrderNo_orders_FieldId);
-        vars.put(&quot;data_set_field_Id_O&quot;,Id_O_FieldId);
-        vars.put(&quot;data_set_field_Id_P&quot;,Id_P_FieldId);
-        </stringProp>
-          </BeanShellPostProcessor>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="预览结果-/mort/data-sets/joins/preview" enabled="false">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;left&quot;:{&quot;type&quot;:&quot;Leaf&quot;,&quot;dataSetId&quot;:&quot;${cars_data_set_id}&quot;},&quot;join&quot;:{&quot;conditions&quot;:[{&quot;left&quot;:{&quot;type&quot;:&quot;Field&quot;,&quot;value&quot;:&quot;${data_set_field_cars_OrderNo}&quot;},&quot;operator&quot;:&quot;=&quot;,&quot;right&quot;:{&quot;type&quot;:&quot;Field&quot;,&quot;value&quot;:&quot;${data_set_field_orders_OrderNo}&quot;}}],&quot;type&quot;:&quot;Inner&quot;},&quot;right&quot;:{&quot;type&quot;:&quot;Leaf&quot;,&quot;dataSetId&quot;:&quot;${orders_data_set_id}&quot;}}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${global_server_ip}</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/mort/data-sets/joins/preview</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="创建关联数据集-/mort/data-sets/joins" enabled="false">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{  &#xd;
-   &quot;name&quot;:&quot;Cars-Left-Orders&quot;,&#xd;
-   &quot;directoryIds&quot;:[  &#xd;
-      &quot;${data_set_dic_id}&quot;&#xd;
-   ],&#xd;
-   &quot;alive&quot;:true,&#xd;
-   &quot;joinTree&quot;:{  &#xd;
-      &quot;left&quot;:{  &#xd;
-         &quot;type&quot;:&quot;Leaf&quot;,&#xd;
-         &quot;dataSetId&quot;:&quot;${cars_data_set_id}&quot;,&#xd;
-         &quot;fields&quot;:[  &#xd;
-            {  &#xd;
-               &quot;id&quot;:&quot;${data_set_field_Id_C}&quot;,&#xd;
-               &quot;displayName&quot;:&quot;Id_C&quot;&#xd;
-            },&#xd;
-            {  &#xd;
-               &quot;id&quot;:&quot;${data_set_field_cars_OrderNo}&quot;,&#xd;
-               &quot;displayName&quot;:&quot;OrderNo (cars)&quot;&#xd;
-            },&#xd;
-            {  &#xd;
-               &quot;id&quot;:&quot;${data_set_field_Name_C}&quot;,&#xd;
-               &quot;displayName&quot;:&quot;Name_C&quot;&#xd;
-            },&#xd;
-            {  &#xd;
-               &quot;id&quot;:&quot;${data_set_field_SalesDate}&quot;,&#xd;
-               &quot;displayName&quot;:&quot;SalesDate&quot;&#xd;
-            }&#xd;
-         ]&#xd;
-      },&#xd;
-      &quot;join&quot;:{  &#xd;
-         &quot;conditions&quot;:[  &#xd;
-            {  &#xd;
-               &quot;left&quot;:{  &#xd;
-                  &quot;type&quot;:&quot;Field&quot;,&#xd;
-                  &quot;value&quot;:&quot;${data_set_field_cars_OrderNo}&quot;&#xd;
-               },&#xd;
-               &quot;operator&quot;:&quot;=&quot;,&#xd;
-               &quot;right&quot;:{  &#xd;
-                  &quot;type&quot;:&quot;Field&quot;,&#xd;
-                  &quot;value&quot;:&quot;${data_set_field_orders_OrderNo}&quot;&#xd;
-               }&#xd;
-            }&#xd;
-         ],&#xd;
-         &quot;type&quot;:&quot;Inner&quot;&#xd;
-      },&#xd;
-      &quot;right&quot;:{  &#xd;
-         &quot;type&quot;:&quot;Leaf&quot;,&#xd;
-         &quot;dataSetId&quot;:&quot;${orders_data_set_id}&quot;,&#xd;
-         &quot;fields&quot;:[  &#xd;
-            {  &#xd;
-               &quot;id&quot;:&quot;${data_set_field_Id_O}&quot;,&#xd;
-               &quot;displayName&quot;:&quot;Id_O&quot;&#xd;
-            },&#xd;
-            {  &#xd;
-               &quot;id&quot;:&quot;${data_set_field_orders_OrderNo}&quot;,&#xd;
-               &quot;displayName&quot;:&quot;OrderNo (orders)&quot;&#xd;
-            },&#xd;
-            {  &#xd;
-               &quot;id&quot;:&quot;${data_set_field_Id_P}&quot;,&#xd;
-               &quot;displayName&quot;:&quot;Id_P&quot;&#xd;
-            }&#xd;
-         ]&#xd;
-      }&#xd;
-   }&#xd;
-}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${global_server_ip}</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/mort/data-sets/joins</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="75 创建数据集ActualIncome-导入 -/mort/data-sets" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;sql&quot;:&quot;select * from ActualIncome&quot;,&quot;fields&quot;:[{&quot;displayName&quot;:&quot;SalesMonth&quot;,&quot;fieldName&quot;:&quot;SalesMonth&quot;,&quot;fieldType&quot;:&quot;Text&quot;},{&quot;displayName&quot;:&quot;ActualIncome&quot;,&quot;fieldName&quot;:&quot;ActualIncome&quot;,&quot;fieldType&quot;:&quot;Numeric&quot;}],&quot;directoryIds&quot;:[&quot;${data_set_dic_id}&quot;],&quot;dataSourceId&quot;:&quot;${data_source_id}&quot;,&quot;dataSourceType&quot;:&quot;RDB&quot;,&quot;name&quot;:&quot;ActualIncome-导入&quot;,&quot;alive&quot;:false}</stringProp>
+                <stringProp name="Argument.value">{&quot;sql&quot;:&quot;select * from ActualIncome&quot;,&quot;fields&quot;:[{&quot;displayName&quot;:&quot;SalesMonth&quot;,&quot;fieldName&quot;:&quot;SalesMonth&quot;,&quot;fieldType&quot;:&quot;Text&quot;},{&quot;displayName&quot;:&quot;ActualIncome&quot;,&quot;fieldName&quot;:&quot;ActualIncome&quot;,&quot;fieldType&quot;:&quot;Numeric&quot;}],&quot;directoryIds&quot;:[&quot;${origin_data_set_dic_id}&quot;],&quot;dataSourceId&quot;:&quot;${data_source_id}&quot;,&quot;dataSourceType&quot;:&quot;RDB&quot;,&quot;name&quot;:&quot;ActualIncome-导入&quot;,&quot;alive&quot;:false}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -14611,14 +14165,18 @@ import java.util.regex.Pattern;
             <stringProp name="RegexExtractor.match_number">0</stringProp>
           </RegexExtractor>
           <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">2000</stringProp>
+          </ConstantTimer>
+          <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="82 创建数据集ActualCost-直连-/mort/data-sets" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="82 原始数据集ActualCost-直连-/mort/data-sets" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;sql&quot;:&quot;select * from ActualCost&quot;,&quot;fields&quot;:[{&quot;displayName&quot;:&quot;SalesMonth&quot;,&quot;fieldName&quot;:&quot;SalesMonth&quot;,&quot;fieldType&quot;:&quot;Text&quot;},{&quot;displayName&quot;:&quot;ActualCost&quot;,&quot;fieldName&quot;:&quot;ActualCost&quot;,&quot;fieldType&quot;:&quot;Numeric&quot;}],&quot;directoryIds&quot;:[&quot;${data_set_dic_id}&quot;],&quot;dataSourceId&quot;:&quot;${data_source_id}&quot;,&quot;dataSourceType&quot;:&quot;RDB&quot;,&quot;name&quot;:&quot;ActualCost-直连&quot;,&quot;alive&quot;:true}</stringProp>
+                <stringProp name="Argument.value">{&quot;sql&quot;:&quot;select * from ActualCost&quot;,&quot;fields&quot;:[{&quot;displayName&quot;:&quot;SalesMonth&quot;,&quot;fieldName&quot;:&quot;SalesMonth&quot;,&quot;fieldType&quot;:&quot;Text&quot;},{&quot;displayName&quot;:&quot;ActualCost&quot;,&quot;fieldName&quot;:&quot;ActualCost&quot;,&quot;fieldType&quot;:&quot;Numeric&quot;}],&quot;directoryIds&quot;:[&quot;${origin_data_set_dic_id}&quot;],&quot;dataSourceId&quot;:&quot;${data_source_id}&quot;,&quot;dataSourceType&quot;:&quot;RDB&quot;,&quot;name&quot;:&quot;ActualCost-直连&quot;,&quot;alive&quot;:true}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -14649,13 +14207,13 @@ import java.util.regex.Pattern;
           </RegexExtractor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="89 创建数据集ExpectedIncome-导入-/mort/data-sets" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="89 原始数据集ExpectedIncome-导入-/mort/data-sets" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;sql&quot;:&quot;select * from ExpectedIncome&quot;,&quot;fields&quot;:[{&quot;displayName&quot;:&quot;SalesMonth&quot;,&quot;fieldName&quot;:&quot;SalesMonth&quot;,&quot;fieldType&quot;:&quot;Text&quot;},{&quot;displayName&quot;:&quot;ExpectedIncome&quot;,&quot;fieldName&quot;:&quot;ExpectedIncome&quot;,&quot;fieldType&quot;:&quot;Numeric&quot;}],&quot;directoryIds&quot;:[&quot;${data_set_dic_id}&quot;],&quot;dataSourceId&quot;:&quot;${data_source_id}&quot;,&quot;dataSourceType&quot;:&quot;RDB&quot;,&quot;name&quot;:&quot;ExpectedIncome-导入&quot;,&quot;alive&quot;:false}</stringProp>
+                <stringProp name="Argument.value">{&quot;sql&quot;:&quot;select * from ExpectedIncome&quot;,&quot;fields&quot;:[{&quot;displayName&quot;:&quot;SalesMonth&quot;,&quot;fieldName&quot;:&quot;SalesMonth&quot;,&quot;fieldType&quot;:&quot;Text&quot;},{&quot;displayName&quot;:&quot;ExpectedIncome&quot;,&quot;fieldName&quot;:&quot;ExpectedIncome&quot;,&quot;fieldType&quot;:&quot;Numeric&quot;}],&quot;directoryIds&quot;:[&quot;${origin_data_set_dic_id}&quot;],&quot;dataSourceId&quot;:&quot;${data_source_id}&quot;,&quot;dataSourceType&quot;:&quot;RDB&quot;,&quot;name&quot;:&quot;ExpectedIncome-导入&quot;,&quot;alive&quot;:false}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -14684,6 +14242,10 @@ import java.util.regex.Pattern;
             <stringProp name="RegexExtractor.default">NOT_FOUND_exIncome_data_set_id</stringProp>
             <stringProp name="RegexExtractor.match_number">0</stringProp>
           </RegexExtractor>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">2000</stringProp>
+          </ConstantTimer>
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取ActualIncome数据集字段-/mort/data-sets/${acIncome_data_set_id}/fields" enabled="true">
@@ -14983,229 +14545,7 @@ import java.util.regex.Pattern;
           </BeanShellPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="93 /mort/data-sets/directories/df899ef8-5f98-4f34-9619-d148a94cd503/items" enabled="false">
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
-            <collectionProp name="Arguments.arguments"/>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">/mort/data-sets/directories/df899ef8-5f98-4f34-9619-d148a94cd503/items</stringProp>
-          <stringProp name="HTTPSampler.method">GET</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="Referer" elementType="Header">
-                <stringProp name="Header.name">Referer</stringProp>
-                <stringProp name="Header.value">http://localhost/</stringProp>
-              </elementProp>
-              <elementProp name="Accept-Language" elementType="Header">
-                <stringProp name="Header.name">Accept-Language</stringProp>
-                <stringProp name="Header.value">en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4</stringProp>
-              </elementProp>
-              <elementProp name="Content-Type" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-              <elementProp name="Accept-Encoding" elementType="Header">
-                <stringProp name="Header.name">Accept-Encoding</stringProp>
-                <stringProp name="Header.value">gzip, deflate, br</stringProp>
-              </elementProp>
-              <elementProp name="User-Agent" elementType="Header">
-                <stringProp name="Header.name">User-Agent</stringProp>
-                <stringProp name="Header.value">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36</stringProp>
-              </elementProp>
-              <elementProp name="Accept" elementType="Header">
-                <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">*/*</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="94 /mort/data-sets/joins/preview" enabled="false">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;left&quot;:{&quot;type&quot;:&quot;Leaf&quot;,&quot;dataSetId&quot;:&quot;6e876c94-6504-4304-9e6a-73fd43c15691&quot;},&quot;join&quot;:{&quot;conditions&quot;:[{&quot;left&quot;:{&quot;type&quot;:&quot;Field&quot;,&quot;value&quot;:&quot;7e636e99-d44e-4ad8-b30a-54750223e1c0&quot;},&quot;operator&quot;:&quot;=&quot;,&quot;right&quot;:{&quot;type&quot;:&quot;Field&quot;,&quot;value&quot;:&quot;5e5d2828-fd34-44a8-ab30-b39e0b17b1c1&quot;}}],&quot;type&quot;:&quot;Right&quot;},&quot;right&quot;:{&quot;type&quot;:&quot;Leaf&quot;,&quot;dataSetId&quot;:&quot;ec28a1b9-7822-475f-a67b-7dfff2b7cf98&quot;}}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/mort/data-sets/joins/preview</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="Referer" elementType="Header">
-                <stringProp name="Header.name">Referer</stringProp>
-                <stringProp name="Header.value">http://localhost/</stringProp>
-              </elementProp>
-              <elementProp name="Accept-Language" elementType="Header">
-                <stringProp name="Header.name">Accept-Language</stringProp>
-                <stringProp name="Header.value">en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4</stringProp>
-              </elementProp>
-              <elementProp name="Origin" elementType="Header">
-                <stringProp name="Header.name">Origin</stringProp>
-                <stringProp name="Header.value">http://localhost</stringProp>
-              </elementProp>
-              <elementProp name="Content-Type" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-              <elementProp name="Accept-Encoding" elementType="Header">
-                <stringProp name="Header.name">Accept-Encoding</stringProp>
-                <stringProp name="Header.value">gzip, deflate, br</stringProp>
-              </elementProp>
-              <elementProp name="User-Agent" elementType="Header">
-                <stringProp name="Header.name">User-Agent</stringProp>
-                <stringProp name="Header.value">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36</stringProp>
-              </elementProp>
-              <elementProp name="Accept" elementType="Header">
-                <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">*/*</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="95 /mort/data-sets/directories/df899ef8-5f98-4f34-9619-d148a94cd503/items" enabled="false">
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
-            <collectionProp name="Arguments.arguments"/>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">/mort/data-sets/directories/df899ef8-5f98-4f34-9619-d148a94cd503/items</stringProp>
-          <stringProp name="HTTPSampler.method">GET</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="Referer" elementType="Header">
-                <stringProp name="Header.name">Referer</stringProp>
-                <stringProp name="Header.value">http://localhost/</stringProp>
-              </elementProp>
-              <elementProp name="Accept-Language" elementType="Header">
-                <stringProp name="Header.name">Accept-Language</stringProp>
-                <stringProp name="Header.value">en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4</stringProp>
-              </elementProp>
-              <elementProp name="Content-Type" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-              <elementProp name="Accept-Encoding" elementType="Header">
-                <stringProp name="Header.name">Accept-Encoding</stringProp>
-                <stringProp name="Header.value">gzip, deflate, br</stringProp>
-              </elementProp>
-              <elementProp name="User-Agent" elementType="Header">
-                <stringProp name="Header.name">User-Agent</stringProp>
-                <stringProp name="Header.value">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36</stringProp>
-              </elementProp>
-              <elementProp name="Accept" elementType="Header">
-                <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">*/*</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="96 /mort/data-sets/joins/preview" enabled="false">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;left&quot;:{&quot;left&quot;:{&quot;type&quot;:&quot;Leaf&quot;,&quot;dataSetId&quot;:&quot;6e876c94-6504-4304-9e6a-73fd43c15691&quot;},&quot;join&quot;:{&quot;conditions&quot;:[{&quot;left&quot;:{&quot;type&quot;:&quot;Field&quot;,&quot;value&quot;:&quot;7e636e99-d44e-4ad8-b30a-54750223e1c0&quot;},&quot;operator&quot;:&quot;=&quot;,&quot;right&quot;:{&quot;type&quot;:&quot;Field&quot;,&quot;value&quot;:&quot;5e5d2828-fd34-44a8-ab30-b39e0b17b1c1&quot;}}],&quot;type&quot;:&quot;Right&quot;},&quot;right&quot;:{&quot;type&quot;:&quot;Leaf&quot;,&quot;dataSetId&quot;:&quot;ec28a1b9-7822-475f-a67b-7dfff2b7cf98&quot;}},&quot;join&quot;:{&quot;conditions&quot;:[{&quot;left&quot;:{&quot;type&quot;:&quot;Field&quot;,&quot;value&quot;:&quot;5e5d2828-fd34-44a8-ab30-b39e0b17b1c1&quot;},&quot;operator&quot;:&quot;=&quot;,&quot;right&quot;:{&quot;type&quot;:&quot;Field&quot;,&quot;value&quot;:&quot;2717c60f-d4b2-4cc2-b123-ae29fa06f940&quot;}}],&quot;type&quot;:&quot;Left&quot;},&quot;right&quot;:{&quot;type&quot;:&quot;Leaf&quot;,&quot;dataSetId&quot;:&quot;ac161bcd-cc2a-4d6e-b563-e23b2d885037&quot;}}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">/mort/data-sets/joins/preview</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="Referer" elementType="Header">
-                <stringProp name="Header.name">Referer</stringProp>
-                <stringProp name="Header.value">http://localhost/</stringProp>
-              </elementProp>
-              <elementProp name="Accept-Language" elementType="Header">
-                <stringProp name="Header.name">Accept-Language</stringProp>
-                <stringProp name="Header.value">en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4</stringProp>
-              </elementProp>
-              <elementProp name="Origin" elementType="Header">
-                <stringProp name="Header.name">Origin</stringProp>
-                <stringProp name="Header.value">http://localhost</stringProp>
-              </elementProp>
-              <elementProp name="Content-Type" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-              <elementProp name="Accept-Encoding" elementType="Header">
-                <stringProp name="Header.name">Accept-Encoding</stringProp>
-                <stringProp name="Header.value">gzip, deflate, br</stringProp>
-              </elementProp>
-              <elementProp name="User-Agent" elementType="Header">
-                <stringProp name="Header.name">User-Agent</stringProp>
-                <stringProp name="Header.value">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36</stringProp>
-              </elementProp>
-              <elementProp name="Accept" elementType="Header">
-                <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">*/*</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="97 创建三表关联数据集/mort/data-sets/joins" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="97 三表关联数据集-导入/mort/data-sets/joins" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -15321,72 +14661,26 @@ import java.util.regex.Pattern;
             <stringProp name="RegexExtractor.refname">join_data_set_id</stringProp>
             <stringProp name="RegexExtractor.regex">/data-sets/(.*)</stringProp>
             <stringProp name="RegexExtractor.template">$1$</stringProp>
-            <stringProp name="RegexExtractor.default"></stringProp>
+            <stringProp name="RegexExtractor.default">NOT_FOUND_join_data_set_id</stringProp>
             <stringProp name="RegexExtractor.match_number">0</stringProp>
           </RegexExtractor>
           <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="98 /mort/data-sets/directories/df899ef8-5f98-4f34-9619-d148a94cd503/items" enabled="false">
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
-            <collectionProp name="Arguments.arguments"/>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">/mort/data-sets/directories/df899ef8-5f98-4f34-9619-d148a94cd503/items</stringProp>
-          <stringProp name="HTTPSampler.method">GET</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="Referer" elementType="Header">
-                <stringProp name="Header.name">Referer</stringProp>
-                <stringProp name="Header.value">http://localhost/</stringProp>
-              </elementProp>
-              <elementProp name="Accept-Language" elementType="Header">
-                <stringProp name="Header.name">Accept-Language</stringProp>
-                <stringProp name="Header.value">en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4</stringProp>
-              </elementProp>
-              <elementProp name="Content-Type" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-              <elementProp name="Accept-Encoding" elementType="Header">
-                <stringProp name="Header.name">Accept-Encoding</stringProp>
-                <stringProp name="Header.value">gzip, deflate, br</stringProp>
-              </elementProp>
-              <elementProp name="User-Agent" elementType="Header">
-                <stringProp name="Header.name">User-Agent</stringProp>
-                <stringProp name="Header.value">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36</stringProp>
-              </elementProp>
-              <elementProp name="Accept" elementType="Header">
-                <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">*/*</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">4000</stringProp>
+          </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="99 /mort/data-sets/a75e9eff-7ceb-4a32-8173-fd3c89e26b86" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="100 /mort/data-sets/${join_data_set_id}/fields" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.domain">${global_server_ip}</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/mort/data-sets/a75e9eff-7ceb-4a32-8173-fd3c89e26b86</stringProp>
+          <stringProp name="HTTPSampler.path">/mort/data-sets/${join_data_set_id}/fields</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -15396,137 +14690,106 @@ import java.util.regex.Pattern;
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="Referer" elementType="Header">
-                <stringProp name="Header.name">Referer</stringProp>
-                <stringProp name="Header.value">http://localhost/</stringProp>
-              </elementProp>
-              <elementProp name="Accept-Language" elementType="Header">
-                <stringProp name="Header.name">Accept-Language</stringProp>
-                <stringProp name="Header.value">en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4</stringProp>
-              </elementProp>
-              <elementProp name="Content-Type" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-              <elementProp name="Accept-Encoding" elementType="Header">
-                <stringProp name="Header.name">Accept-Encoding</stringProp>
-                <stringProp name="Header.value">gzip, deflate, br</stringProp>
-              </elementProp>
-              <elementProp name="User-Agent" elementType="Header">
-                <stringProp name="Header.name">User-Agent</stringProp>
-                <stringProp name="Header.value">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36</stringProp>
-              </elementProp>
-              <elementProp name="Accept" elementType="Header">
-                <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">*/*</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor-ResponseString" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">response_str</stringProp>
+            <stringProp name="RegexExtractor.regex">(.*)</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default">NOT_FOUND_response_str</stringProp>
+            <stringProp name="RegexExtractor.match_number">0</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
+ 	   String responseStr = vars.get(&quot;response_str&quot;);
+        String regEx = &quot;\&quot;id\&quot;:\&quot;(.+?)\&quot;,\&quot;codeName\&quot;:\&quot;(.+?)\&quot;,\&quot;displayName\&quot;:\&quot;(.+?)\&quot;,\&quot;fieldName\&quot;:\&quot;(.+?)\&quot;&quot;;
+        Pattern pattern = Pattern.compile(regEx, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(responseStr);
+
+        String acIncomeMonth_FieldId=&quot;&quot;;              
+        String acIncome_FieldId=&quot;&quot;;
+        String acCostMonth_FieldId=&quot;&quot;;
+        String acCost_FieldId=&quot;&quot;;
+        String exIncomeMonth_FieldId=&quot;&quot;;
+        String exIncome_FieldId=&quot;&quot;;
+
+        int groupCount = 0;
+        while(matcher.find()) {
+            groupCount = groupCount + 1;
+            switch (matcher.group(4)) {
+                case &quot;ActualIncome-导入.SalesMonth&quot;:
+                    acIncomeMonth_FieldId = matcher.group(1);                    
+                    break;
+                case &quot;ActualIncome-导入.ActualIncome&quot;:
+                    acIncome_FieldId = matcher.group(1);                   
+                    break;
+               case &quot;ActualCost-直连.SalesMonth&quot;:
+                    acCostMonth_FieldId = matcher.group(1);                   
+                    break;
+               case &quot;ActualCost-直连.ActualCost&quot;:
+                    acCost_FieldId = matcher.group(1);                   
+                    break;
+               case &quot;ExpectedIncome-导入.SalesMonth&quot;:
+                    exIncomeMonth_FieldId = matcher.group(1);                   
+                    break;
+               case &quot;ExpectedIncome-导入.ExpectedIncome&quot;:
+                    exIncome_FieldId = matcher.group(1);                   
+                    break;
+            }
+        }
+        vars.put(&quot;field_join_acIncomeMonth&quot;,acIncomeMonth_FieldId);
+        vars.put(&quot;field_join_acIncome&quot;,acIncome_FieldId);
+        vars.put(&quot;field_join_acCostMonth&quot;,acCostMonth_FieldId);
+        vars.put(&quot;field_join_acCost&quot;,acCost_FieldId);
+        vars.put(&quot;field_join_exIncomeMonth&quot;,exIncomeMonth_FieldId);
+        vars.put(&quot;field_join_exIncome&quot;,exIncome_FieldId);
+        </stringProp>
+          </BeanShellPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="100 /mort/data-sets/a75e9eff-7ceb-4a32-8173-fd3c89e26b86/fields" enabled="false">
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
-            <collectionProp name="Arguments.arguments"/>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/mort/data-sets/a75e9eff-7ceb-4a32-8173-fd3c89e26b86/fields</stringProp>
-          <stringProp name="HTTPSampler.method">GET</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="Referer" elementType="Header">
-                <stringProp name="Header.name">Referer</stringProp>
-                <stringProp name="Header.value">http://localhost/</stringProp>
-              </elementProp>
-              <elementProp name="Accept-Language" elementType="Header">
-                <stringProp name="Header.name">Accept-Language</stringProp>
-                <stringProp name="Header.value">en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4</stringProp>
-              </elementProp>
-              <elementProp name="Content-Type" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-              <elementProp name="Accept-Encoding" elementType="Header">
-                <stringProp name="Header.name">Accept-Encoding</stringProp>
-                <stringProp name="Header.value">gzip, deflate, br</stringProp>
-              </elementProp>
-              <elementProp name="User-Agent" elementType="Header">
-                <stringProp name="Header.name">User-Agent</stringProp>
-                <stringProp name="Header.value">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36</stringProp>
-              </elementProp>
-              <elementProp name="Accept" elementType="Header">
-                <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">*/*</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="107 /mort/data-sets/8a1bd9f7-4243-4fb2-be72-71294bbb24d9/import-strategies" enabled="false">
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
-            <collectionProp name="Arguments.arguments"/>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/mort/data-sets/8a1bd9f7-4243-4fb2-be72-71294bbb24d9/import-strategies</stringProp>
-          <stringProp name="HTTPSampler.method">GET</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="Referer" elementType="Header">
-                <stringProp name="Header.name">Referer</stringProp>
-                <stringProp name="Header.value">http://localhost/</stringProp>
-              </elementProp>
-              <elementProp name="Accept-Language" elementType="Header">
-                <stringProp name="Header.name">Accept-Language</stringProp>
-                <stringProp name="Header.value">en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4</stringProp>
-              </elementProp>
-              <elementProp name="Content-Type" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-              <elementProp name="Accept-Encoding" elementType="Header">
-                <stringProp name="Header.name">Accept-Encoding</stringProp>
-                <stringProp name="Header.value">gzip, deflate, br</stringProp>
-              </elementProp>
-              <elementProp name="User-Agent" elementType="Header">
-                <stringProp name="Header.name">User-Agent</stringProp>
-                <stringProp name="Header.value">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36</stringProp>
-              </elementProp>
-              <elementProp name="Accept" elementType="Header">
-                <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">*/*</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="108 /mort/data-sets/${join_data_set_id}/import-strategies" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="108 /mort/data-sets/${join_data_set_id}/import-strategies" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -15563,57 +14826,7 @@ import java.util.regex.Pattern;
           </RegexExtractor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="109 /mort/data-sets/8a1bd9f7-4243-4fb2-be72-71294bbb24d9/import-strategies" enabled="false">
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
-            <collectionProp name="Arguments.arguments"/>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">/mort/data-sets/8a1bd9f7-4243-4fb2-be72-71294bbb24d9/import-strategies</stringProp>
-          <stringProp name="HTTPSampler.method">GET</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="Referer" elementType="Header">
-                <stringProp name="Header.name">Referer</stringProp>
-                <stringProp name="Header.value">http://localhost/</stringProp>
-              </elementProp>
-              <elementProp name="Accept-Language" elementType="Header">
-                <stringProp name="Header.name">Accept-Language</stringProp>
-                <stringProp name="Header.value">en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4</stringProp>
-              </elementProp>
-              <elementProp name="Content-Type" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-              <elementProp name="Accept-Encoding" elementType="Header">
-                <stringProp name="Header.name">Accept-Encoding</stringProp>
-                <stringProp name="Header.value">gzip, deflate, br</stringProp>
-              </elementProp>
-              <elementProp name="User-Agent" elementType="Header">
-                <stringProp name="Header.name">User-Agent</stringProp>
-                <stringProp name="Header.value">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36</stringProp>
-              </elementProp>
-              <elementProp name="Accept" elementType="Header">
-                <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">*/*</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="110 /mort/import-strategies/${new_strategy_id}/import-histories" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="110 /mort/import-strategies/${new_strategy_id}/import-histories" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -15625,6 +14838,487 @@ import java.util.regex.Pattern;
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/mort/import-strategies/${new_strategy_id}/import-histories</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5 原始数据集Cost_2016-直连-/mort/data-sets" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;sql&quot;:&quot;select * from Cost_2016&quot;,&quot;fields&quot;:[{&quot;displayName&quot;:&quot;SalesMonth&quot;,&quot;fieldName&quot;:&quot;SalesMonth&quot;,&quot;fieldType&quot;:&quot;Text&quot;},{&quot;displayName&quot;:&quot;ExpectedCost&quot;,&quot;fieldName&quot;:&quot;ExpectedCost&quot;,&quot;fieldType&quot;:&quot;Numeric&quot;},{&quot;displayName&quot;:&quot;ActualCost&quot;,&quot;fieldName&quot;:&quot;ActualCost&quot;,&quot;fieldType&quot;:&quot;Numeric&quot;}],&quot;directoryIds&quot;:[&quot;${origin_data_set_dic_id}&quot;],&quot;dataSourceId&quot;:&quot;${data_source_id}&quot;,&quot;dataSourceType&quot;:&quot;RDB&quot;,&quot;name&quot;:&quot;Cost_2016-直连&quot;,&quot;alive&quot;:true}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${global_server_ip}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/mort/data-sets</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">true</stringProp>
+            <stringProp name="RegexExtractor.refname">cost_data_set_id</stringProp>
+            <stringProp name="RegexExtractor.regex">/data-sets/(.*)</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default">NOT_FOUND_cost_data_set_id</stringProp>
+            <stringProp name="RegexExtractor.match_number">0</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="8 /mort/data-sets/${cost_data_set_id}/fields" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${global_server_ip}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/mort/data-sets/${cost_data_set_id}/fields</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor-ResponseString" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">response_str</stringProp>
+            <stringProp name="RegexExtractor.regex">(.*)</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default">NOT_FOUND_response_str</stringProp>
+            <stringProp name="RegexExtractor.match_number">0</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
+ 	   String responseStr = vars.get(&quot;response_str&quot;);
+        String regEx = &quot;\&quot;id\&quot;:\&quot;(.+?)\&quot;,\&quot;codeName\&quot;:\&quot;(.+?)\&quot;,\&quot;displayName\&quot;:\&quot;(.+?)\&quot;,\&quot;fieldName\&quot;:\&quot;(.+?)\&quot;&quot;;
+        Pattern pattern = Pattern.compile(regEx, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(responseStr);
+
+        String salesMonth_fieldId=&quot;&quot;;              
+        String expectedCost_fieldId=&quot;&quot;;
+        String actualCost_fieldId=&quot;&quot;;
+
+        int groupCount = 0;
+        while(matcher.find()) {
+            groupCount = groupCount + 1;
+            switch (matcher.group(4)) {
+                case &quot;SalesMonth&quot;:
+                    salesMonth_fieldId = matcher.group(1);                    
+                    break;
+                case &quot;ExpectedCost&quot;:
+                    expectedCost_fieldId = matcher.group(1);                   
+                    break;
+               case &quot;ActualCost&quot;:
+                    actualCost_fieldId = matcher.group(1);                   
+                    break;
+            }
+        }
+        vars.put(&quot;field_cost_salesMonth2016&quot;,salesMonth_fieldId);
+        vars.put(&quot;field_expectedCost2016&quot;,expectedCost_fieldId);
+        vars.put(&quot;field_actualCost2016&quot;,actualCost_fieldId);
+        </stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="13 原始数据集-Income_2016-导入-/mort/data-sets" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;sql&quot;:&quot;select * from Income_2016&quot;,&quot;fields&quot;:[{&quot;displayName&quot;:&quot;SalesMonth&quot;,&quot;fieldName&quot;:&quot;SalesMonth&quot;,&quot;fieldType&quot;:&quot;Text&quot;},{&quot;displayName&quot;:&quot;ExpectedIncome&quot;,&quot;fieldName&quot;:&quot;ExpectedIncome&quot;,&quot;fieldType&quot;:&quot;Numeric&quot;},{&quot;displayName&quot;:&quot;ActualIncome&quot;,&quot;fieldName&quot;:&quot;ActualIncome&quot;,&quot;fieldType&quot;:&quot;Numeric&quot;}],&quot;directoryIds&quot;:[&quot;${origin_data_set_dic_id}&quot;],&quot;dataSourceId&quot;:&quot;${data_source_id}&quot;,&quot;dataSourceType&quot;:&quot;RDB&quot;,&quot;name&quot;:&quot;Income_2016-导入&quot;,&quot;alive&quot;:false}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${global_server_ip}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/mort/data-sets</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">true</stringProp>
+            <stringProp name="RegexExtractor.refname">income_data_set_id</stringProp>
+            <stringProp name="RegexExtractor.regex">/data-sets/(.*)</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default">NOT_FOUND_income_data_set_id</stringProp>
+            <stringProp name="RegexExtractor.match_number">0</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">2000</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="46 /mort/data-sets/${income_data_set_id}/fields" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${global_server_ip}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/mort/data-sets/${income_data_set_id}/fields</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor-ResponseString" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">response_str</stringProp>
+            <stringProp name="RegexExtractor.regex">(.*)</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default">NOT_FOUND_response_str</stringProp>
+            <stringProp name="RegexExtractor.match_number">0</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
+ 	   String responseStr = vars.get(&quot;response_str&quot;);
+        String regEx = &quot;\&quot;id\&quot;:\&quot;(.+?)\&quot;,\&quot;codeName\&quot;:\&quot;(.+?)\&quot;,\&quot;displayName\&quot;:\&quot;(.+?)\&quot;,\&quot;fieldName\&quot;:\&quot;(.+?)\&quot;&quot;;
+        Pattern pattern = Pattern.compile(regEx, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(responseStr);
+
+        String salesMonth_fieldId=&quot;&quot;;              
+        String expectedIncome_fieldId=&quot;&quot;;
+        String actualIncome_fieldId=&quot;&quot;;
+
+        int groupCount = 0;
+        while(matcher.find()) {
+            groupCount = groupCount + 1;
+            switch (matcher.group(4)) {
+                case &quot;SalesMonth&quot;:
+                    salesMonth_fieldId = matcher.group(1);                    
+                    break;
+                case &quot;ExpectedIncome&quot;:
+                    expectedIncome_fieldId = matcher.group(1);                   
+                    break;
+               case &quot;ActualIncome&quot;:
+                    actualIncome_fieldId = matcher.group(1);                   
+                    break;
+            }
+        }
+        vars.put(&quot;field_income_SalesMonth2016&quot;,salesMonth_fieldId);
+        vars.put(&quot;field_expectedIncome2016&quot;,expectedIncome_fieldId);
+        vars.put(&quot;field_actualIncome2016&quot;,actualIncome_fieldId);
+        </stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="64 三表Union数据集-直连/mort/data-sets/unions" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{  &#xd;
+   &quot;unions&quot;:{  &#xd;
+      &quot;columns&quot;:[  &#xd;
+         &quot;ActualIncome&quot;,&#xd;
+         &quot;日期-ActualCost&quot;,&#xd;
+         &quot;ActualCost&quot;,&#xd;
+         &quot;ExpectedIncome&quot;,&#xd;
+         &quot;ExpectedCost&quot;&#xd;
+      ],&#xd;
+      &quot;sourceColumn&quot;:&quot;源表&quot;,&#xd;
+      &quot;dataSets&quot;:[  &#xd;
+         {  &#xd;
+            &quot;dataSetId&quot;:&quot;${join_data_set_id}&quot;,&#xd;
+            &quot;sourceName&quot;:&quot;三表关联-导入&quot;,&#xd;
+            &quot;fields&quot;:[  &#xd;
+               &quot;${field_join_acIncome}&quot;,&#xd;
+               &quot;${field_join_acIncomeMonth}&quot;,&#xd;
+               &quot;${field_join_acCost}&quot;,&#xd;
+               &quot;${field_join_exIncome}&quot;,&#xd;
+               null&#xd;
+            ],&#xd;
+            &quot;filter&quot;:{  &#xd;
+               &quot;operator&quot;:&quot;and&quot;,&#xd;
+               &quot;number&quot;:&quot;c47f8716-e9b7-47a8-a7dc-5bf015520787&quot;,&#xd;
+               &quot;conditions&quot;:[  &#xd;
+                  {  &#xd;
+                     &quot;number&quot;:&quot;72a560f3-e8da-4846-b657-cfe4782e8d30&quot;,&#xd;
+                     &quot;nodeType&quot;:&quot;condition&quot;,&#xd;
+                     &quot;comparisonOperator&quot;:&quot;IN_OPTIONS&quot;,&#xd;
+                     &quot;values&quot;:[  &#xd;
+                        &quot;2017-1-1&quot;,&#xd;
+                        &quot;2017-2-1&quot;,&#xd;
+                        &quot;2017-3-1&quot;&#xd;
+                     ],&#xd;
+                     &quot;item&quot;:{  &#xd;
+                        &quot;dataSetId&quot;:&quot;${join_data_set_id}&quot;,&#xd;
+                        &quot;fieldId&quot;:&quot;${field_join_exIncomeMonth}&quot;,&#xd;
+                        &quot;fieldType&quot;:&quot;Text&quot;,&#xd;
+                        &quot;displayName&quot;:&quot;日期-ExpectedIncome&quot;&#xd;
+                     }&#xd;
+                  },&#xd;
+                  {  &#xd;
+                     &quot;number&quot;:&quot;81f26bff-cff9-4af3-9fbc-d321a1403112&quot;,&#xd;
+                     &quot;nodeType&quot;:&quot;condition&quot;,&#xd;
+                     &quot;comparisonOperator&quot;:&quot;IN_OPTIONS&quot;,&#xd;
+                     &quot;values&quot;:[  &#xd;
+                        &quot;2017-1-1&quot;,&#xd;
+                        &quot;2017-3-1&quot;&#xd;
+                     ],&#xd;
+                     &quot;item&quot;:{  &#xd;
+                        &quot;dataSetId&quot;:&quot;${join_data_set_id}&quot;,&#xd;
+                        &quot;fieldId&quot;:&quot;${field_join_acCostMonth}&quot;,&#xd;
+                        &quot;fieldType&quot;:&quot;Text&quot;,&#xd;
+                        &quot;displayName&quot;:&quot;日期-ActualCost&quot;&#xd;
+                     }&#xd;
+                  },&#xd;
+                  {  &#xd;
+                     &quot;number&quot;:&quot;3a121dad-a4ca-4d41-b479-6b2e0f9640d4&quot;,&#xd;
+                     &quot;nodeType&quot;:&quot;condition&quot;,&#xd;
+                     &quot;comparisonOperator&quot;:&quot;IN_OPTIONS&quot;,&#xd;
+                     &quot;values&quot;:[  &#xd;
+                        &quot;2017-1-1&quot;,&#xd;
+                        &quot;2017-2-1&quot;,&#xd;
+                        &quot;2017-3-1&quot;&#xd;
+                     ],&#xd;
+                     &quot;item&quot;:{  &#xd;
+                        &quot;dataSetId&quot;:&quot;${join_data_set_id}&quot;,&#xd;
+                        &quot;fieldId&quot;:&quot;${field_join_acIncomeMonth}&quot;,&#xd;
+                        &quot;fieldType&quot;:&quot;Text&quot;,&#xd;
+                        &quot;displayName&quot;:&quot;日期-ActualIncome&quot;&#xd;
+                     }&#xd;
+                  }&#xd;
+               ]&#xd;
+            }&#xd;
+         },&#xd;
+         {  &#xd;
+            &quot;dataSetId&quot;:&quot;${cost_data_set_id}&quot;,&#xd;
+            &quot;sourceName&quot;:&quot;Cost_2016-直连&quot;,&#xd;
+            &quot;fields&quot;:[  &#xd;
+               null,&#xd;
+               &quot;${field_cost_salesMonth2016}&quot;,&#xd;
+               &quot;${field_actualCost2016}&quot;,&#xd;
+               null,&#xd;
+               &quot;${field_expectedCost2016}&quot;&#xd;
+            ],&#xd;
+            &quot;filter&quot;:{  &#xd;
+               &quot;operator&quot;:&quot;and&quot;,&#xd;
+               &quot;number&quot;:&quot;c3e72d81-3927-41a6-8624-c23b71207f02&quot;,&#xd;
+               &quot;conditions&quot;:[  &#xd;
+                  {  &#xd;
+                     &quot;number&quot;:&quot;d5542a13-e402-454f-b0c5-6c0c9ff3149f&quot;,&#xd;
+                     &quot;nodeType&quot;:&quot;condition&quot;,&#xd;
+                     &quot;comparisonOperator&quot;:&quot;IN_OPTIONS&quot;,&#xd;
+                     &quot;values&quot;:[  &#xd;
+                        &quot;2016-1-1&quot;,&#xd;
+                        &quot;2016-2-1&quot;,&#xd;
+                        &quot;2016-3-1&quot;&#xd;
+                     ],&#xd;
+                     &quot;item&quot;:{  &#xd;
+                        &quot;dataSetId&quot;:&quot;${cost_data_set_id}&quot;,&#xd;
+                        &quot;fieldId&quot;:&quot;${field_cost_salesMonth2016}&quot;,&#xd;
+                        &quot;fieldType&quot;:&quot;Text&quot;,&#xd;
+                        &quot;displayName&quot;:&quot;SalesMonth&quot;&#xd;
+                     }&#xd;
+                  }&#xd;
+               ]&#xd;
+            }&#xd;
+         },&#xd;
+         {  &#xd;
+            &quot;dataSetId&quot;:&quot;${income_data_set_id}&quot;,&#xd;
+            &quot;sourceName&quot;:&quot;Income_2016-导入&quot;,&#xd;
+            &quot;fields&quot;:[  &#xd;
+               &quot;${field_actualIncome2016}&quot;,&#xd;
+               &quot;${field_income_SalesMonth2016}&quot;,&#xd;
+               null,&#xd;
+               &quot;${field_expectedIncome2016}&quot;,&#xd;
+               null&#xd;
+            ],&#xd;
+            &quot;filter&quot;:{  &#xd;
+               &quot;operator&quot;:&quot;and&quot;,&#xd;
+               &quot;number&quot;:&quot;9b92d0af-8208-4afe-8ef8-dda64bf4269a&quot;,&#xd;
+               &quot;conditions&quot;:[  &#xd;
+                  {  &#xd;
+                     &quot;number&quot;:&quot;85c33644-7fde-4d59-a696-01c77641fac5&quot;,&#xd;
+                     &quot;nodeType&quot;:&quot;condition&quot;,&#xd;
+                     &quot;comparisonOperator&quot;:&quot;IN_OPTIONS&quot;,&#xd;
+                     &quot;values&quot;:[  &#xd;
+                        &quot;2016-1-1&quot;,&#xd;
+                        &quot;2016-2-1&quot;,&#xd;
+                        &quot;2016-3-1&quot;&#xd;
+                     ],&#xd;
+                     &quot;item&quot;:{  &#xd;
+                        &quot;dataSetId&quot;:&quot;${income_data_set_id}&quot;,&#xd;
+                        &quot;fieldId&quot;:&quot;${field_income_SalesMonth2016}&quot;,&#xd;
+                        &quot;fieldType&quot;:&quot;Text&quot;,&#xd;
+                        &quot;displayName&quot;:&quot;SalesMonth&quot;&#xd;
+                     }&#xd;
+                  }&#xd;
+               ]&#xd;
+            }&#xd;
+         }&#xd;
+      ]&#xd;
+   },&#xd;
+   &quot;name&quot;:&quot;第一季度-Union-直连&quot;,&#xd;
+   &quot;directoryIds&quot;:[  &#xd;
+      &quot;${data_set_dic_id}&quot;&#xd;
+   ],&#xd;
+   &quot;alive&quot;:true&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${global_server_ip}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/mort/data-sets/unions</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="67 /mort/data-sets/1d9b2c9b-5f38-442a-88a8-b0b12b79e562/fields" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${global_server_ip}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/mort/data-sets/1d9b2c9b-5f38-442a-88a8-b0b12b79e562/fields</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>

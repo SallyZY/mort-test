@@ -20,10 +20,10 @@ import static org.junit.Assert.assertThat;
 public class CommonStepdefs {
 
     @Given("^I open browser and login to Mort Web$")
-    public void iOpenBrowserAndLoginToMortWeb(List<Map<String, String>> userLoginInfoList) throws Throwable {
+    public void iOpenBrowserAndLoginToMortWeb(Map<String, String> userLoginInfo) throws Throwable {
 
-        String userName= userLoginInfoList.get(0).get("UserName").toString();
-        String password=userLoginInfoList.get(0).get("Password").toString();
+        String userName= userLoginInfo.get("UserName").toString();
+        String password=userLoginInfo.get("Password").toString();
 
         navigateTo(Hooks.getMortWebUrl());
         LoginPage curPage = onPage(LoginPage.class);
@@ -38,9 +38,9 @@ public class CommonStepdefs {
     }
 
     @Given("^I select (?:DataSource|DataSet|Report) as following$")
-    public void iSelectDatasourceAsFollowing(List<Map<String,String>> sourceInfoList) throws Throwable {
-        String directoryName = sourceInfoList.get(0).get("DirectoryName").toString();
-        String sourceFileName=sourceInfoList.get(0).get("ResourceFileName").toString();
+    public void iSelectDataSourceAsFollowing(Map<String,String> sourceInfo) throws Throwable {
+        String directoryName = sourceInfo.get("DirectoryName").toString();
+        String sourceFileName=sourceInfo.get("ResourceFileName").toString();
 
         currentPage().dirPanel.clickDirectoryByName(directoryName);
         currentPage().resourcePanel.clickResourceByName(sourceFileName);
