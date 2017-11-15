@@ -241,47 +241,7 @@ Feature: Create,view DataSet
 
 
 
-  Scenario: Create a new Associated DataSet
-    Given I access to "DataSet" module
-    And I expand the DataSet directory
-    And I select DataSet directory "测试关联数据集目录"
 
-    When I select the DataSet "cars-orders"
-    Then I should see the field detail displayed correctly as following
-    | AliasName         | FieldName       | Type |
-    | OrderNo (cars)    | cars.OrderNo    | 文本  |
-    | Name_C            | cars.Name_C     | 文本  |
-    | SalesDate         | cars.SalesDate  | 文本  |
-    | OrderNo (orders)  | orders.OrderNo  | 文本  |
-    | Id_C              | cars.Id_C       | 数值  |
-    | Id_O              | orders.Id_O     | 数值  |
-    | Id_P              | orders.Id_P     | 数值  |
-
-#    And I should see the DataSet of preview data displayed correctly as following
-#    | Id_C	| OrderNo (cars)| Name_C   | SalesDate	| Id_O	| OrderNo (orders)	| Id_P |
-#    | 1	    | 1-Order-1	    | Audi	   | null	    | 3	    | 1-Order-1	        | 1    |
-#    | 2	    | 1-Order-1	    | Benz	   | 2017-3-6	| 3	    | 1-Order-1	        | 1    |
-#    | 3	    | 65-Order-1    | Toyota   | null       | 5     | 65-Order-1	    | 65   |
-#    | 4	    | 65-Order-1    | Audi	   | null	    | 5	    | 65-Order-1	    | 65   |
-#    | 7	    | 65-Order-2    | Toyota   | 2000-1-1	| 6	    | 65-Order-2	    | 65   |
-#    | 8	    | 65-Order-2    | Audi	   | 2017-9-1   | 6	    | 65-Order-2	    | 65   |
-
-#    And I should see the DataSet of related dataset displayed correctly as following
-#    | 数据集	  | 创建人   | 状态  |
-#    | cars    | 张莹     | 正常  |
-#    | orders  | 张莹	    | 正常  |
-#
-
-  Scenario: Test List
-    Then I should see test list as following
-    | AliasName         | FieldName       | Type |
-    | OrderNo (cars)    | cars.OrderNo    | 文本  |
-    | Name_C            | cars.Name_C     | 文本  |
-    | SalesDate         | cars.SalesDate  | 文本  |
-    | OrderNo (orders)  | orders.OrderNo  | 文本  |
-    | Id_C              | cars.Id_C       | 数值  |
-    | Id_O              | orders.Id_O     | 数值  |
-    | Id_P              | orders.Id_P     | 数值  |
 
 
 
