@@ -57,7 +57,21 @@ public class AssociatedDataSetPage extends Page {
     @FindBy(xpath = "//button/span[text()='下一步']")
     WebElement nextStep;
 
+    @FindBy(css = "#resourceListMenuContainerMenu > li.ant-menu-item-selected.ant-menu-item > div > span > span.item-right")
+    WebElement operationMenuspan;
 
+    @FindBy(css = "#resourceListMenuContainerMenu > li.ant-menu-item-selected.ant-menu-item > div > span > span.item-right > i.iconfont.icon-vertical-menu.operation-menu-trigger.ant-dropdown-trigger")
+    WebElement operationMenuIcon;
+
+    @FindBy(xpath = "//div/ul/li[text()=\"删除\"]")
+    WebElement deleteIcon;
+
+    @FindBy(xpath = "//button/span[text()='确 定']")
+    WebElement confirmButton;
+
+    @FindBy(className = "ant-notification-notice ant-notification-notice-closable")
+//    @FindBy(className = "ant-notification ant-notification-topRight")
+    WebElement notificationDiv;
 
     public void selectDirectory(String directoryName) throws InterruptedException {
         selectDirectorySpan.click();
@@ -364,7 +378,25 @@ public class AssociatedDataSetPage extends Page {
 
 
 
+    public void deleteDataSet() throws InterruptedException {
+        CommonFunctions.mouseOverAtCoordinates(operationMenuspan,18,21);
+        CommonFunctions.waitForElementVisible(operationMenuIcon);
+        operationMenuIcon.click();
+        CommonFunctions.waitForElementVisible(deleteIcon);
+        deleteIcon.click();
+        CommonFunctions.waitForElementVisible(confirmButton);
+        confirmButton.click();
+    }
 
+    public boolean verifyNotification(){
+        String notification = findByXpath("//div[@class='ant-notification-notice-message']").getText();
+        if (notification.equals("无法删除数据集,含有关联的数据集")){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
 
 
 

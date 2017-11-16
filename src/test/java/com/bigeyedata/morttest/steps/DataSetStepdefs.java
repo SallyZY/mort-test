@@ -359,4 +359,15 @@ public class DataSetStepdefs {
         onPage(AssociatedDataSetPage.class).nextStep();
         onPage(AssociatedDataSetPage.class).checkBaseInfo(expectedDetailsTable);
     }
+
+    @When("^I delete joinDataset of source dataSet$")
+    public void iDeleteJoinDatasetOfSourceDataSet() throws Throwable {
+        onPage(AssociatedDataSetPage.class).deleteDataSet();
+    }
+
+    @And("^I should NOT see the deletion succeed$")
+    public void iShouldNOTSeeTheDeletionSucceed() throws Throwable {
+        System.out.println(onPage(AssociatedDataSetPage.class).verifyNotification());
+        assertTrue(onPage(AssociatedDataSetPage.class).verifyNotification());
+    }
 }
