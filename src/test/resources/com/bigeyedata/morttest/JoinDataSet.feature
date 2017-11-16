@@ -61,7 +61,7 @@ Feature: Create,view DataSet
      | 文本 | 日期-ExpectedIncome  |
     And I should see the basic information of joinDataSet as following
      | 名称         | 目录             | 数据 |
-     | 三表关联-导入 | 测试关联数据集目录 | |
+     | 三表关联-导入 | 测试关联数据集目录 | 导入 |
 
 
 
