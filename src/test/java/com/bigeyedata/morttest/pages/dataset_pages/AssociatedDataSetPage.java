@@ -332,6 +332,35 @@ public class AssociatedDataSetPage extends Page {
         nextStep.click();
     }
 
+    public void checkBaseInfo(DataTable expectedDetailsTable){
+        List<String> nameList = new ArrayList<>();
+        List<String> directoryList = new ArrayList<>();
+        List<String> dataList = new ArrayList<>();
+
+        String name = findByXpath("//div/input[@id='name']").getAttribute("value");
+        nameList.add(name);
+
+        String directory = findByXpath("//form//span[@class='ant-select-selection-selected-value']").getText();
+        directoryList.add(directory);
+
+        for (int i=0;i<findListByXpath("//div[@class='ant-radio-group ant-radio-group-large']/label").size();i++){
+            int j = i + 1 ;
+            String classAttribute = findByXpath("//div[@class='ant-radio-group ant-radio-group-large']/label["+j+"]").getAttribute("class");
+            if (classAttribute.contains("ant-radio-wrapper-checked")){
+                String element = findByXpath("//div[@class='ant-radio-group ant-radio-group-large']/label["+j+"]").getText();
+                dataList.add(element);
+            }
+        }
+
+        List<List<String>> colLists = new ArrayList<>();
+        colLists.add(nameList);
+        colLists.add(directoryList);
+        colLists.add(dataList);
+
+        compareDataTableOfText(expectedDetailsTable,colLists);
+
+
+    }
 
 
 

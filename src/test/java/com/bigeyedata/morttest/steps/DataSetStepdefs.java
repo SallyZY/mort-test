@@ -353,4 +353,10 @@ public class DataSetStepdefs {
         onPage(AssociatedDataSetPage.class).nextStep();
         onPage(AssociatedDataSetPage.class).checkPreviewTableOfHeader(expectedDetailsTable);
     }
+
+    @And("^I should see the basic information of joinDataSet as following$")
+    public void iShouldSeeTheBasicInformationOfJoinDataSetAsFollowing(DataTable expectedDetailsTable) throws Throwable {
+        onPage(AssociatedDataSetPage.class).nextStep();
+        onPage(AssociatedDataSetPage.class).checkBaseInfo(expectedDetailsTable);
+    }
 }
