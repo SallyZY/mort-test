@@ -1,6 +1,5 @@
 package com.bigeyedata.morttest.pages.dataset_pages;
 
-import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.Page;
 import cucumber.api.DataTable;
@@ -167,7 +166,7 @@ public class AssociatedDataSetPage extends Page {
 //        colLists.add(fieldNameList);
 //        colLists.add(fieldTypeList);
 //
-//        compareDataTable(expectedDetailsTable,colLists);
+//        compareDataTableByWebElement(expectedDetailsTable,colLists);
 //    }
 
 //  check previewdata of "三表关联-导入"
@@ -187,7 +186,7 @@ public class AssociatedDataSetPage extends Page {
         colLists.add(data_ExpectedIncome);
         colLists.add(ExpectedIncome);
 
-        compareDataTable(expectedDetailsTable,colLists);
+        compareDataTableByWebElement(expectedDetailsTable,colLists);
     }
 
     public void checkSourceOfData(DataTable expectedDetailsTable){
@@ -200,7 +199,7 @@ public class AssociatedDataSetPage extends Page {
         colLists.add(createrList);
         colLists.add(statusList);
 
-        compareDataTable(expectedDetailsTable,colLists);
+        compareDataTableByWebElement(expectedDetailsTable,colLists);
     }
 
 
@@ -217,7 +216,7 @@ public class AssociatedDataSetPage extends Page {
        List<List<WebElement>> colLists = new ArrayList<>();
        colLists.add(list);
 
-       compareDataTable(expectedDataSetTable,colLists);
+       compareDataTableByWebElement(expectedDataSetTable,colLists);
     }
 
     public void checkJoinType(DataTable expectedJoinTypeTable){
@@ -226,7 +225,7 @@ public class AssociatedDataSetPage extends Page {
         List<List<WebElement>> colLists = new ArrayList<>();
         colLists.add(joinTypeList);
 
-        compareDataTable(expectedJoinTypeTable,colLists);
+        compareDataTableByWebElement(expectedJoinTypeTable,colLists);
     }
 
     public boolean checkRightJoin(){

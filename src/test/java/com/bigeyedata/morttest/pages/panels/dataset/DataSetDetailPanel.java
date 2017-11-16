@@ -48,7 +48,7 @@ public class DataSetDetailPanel extends Panel {
         System.out.println("tab:" + tab);
 //        CommonFunctions.waitForElementVisible(panelInfo.detailTab);
         Thread.sleep(10000);
-        panelInfo.detailTab.click();
+//        panelInfo.detailTab.click();
         specificDetailPanel = initPanel(panelInfo.panel);
     }
 

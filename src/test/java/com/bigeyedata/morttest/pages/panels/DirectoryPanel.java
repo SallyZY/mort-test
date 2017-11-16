@@ -66,7 +66,7 @@ public class DirectoryPanel extends Panel {
     WebElement directoryNameSpan;
 
     public void clickDicExpandIcon() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(10000);
         dicExpandIcon.click();
         CommonFunctions.waitForElementVisible(mainDirectoryContainerUl);
     }
