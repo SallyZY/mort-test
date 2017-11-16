@@ -312,23 +312,23 @@ public class DataSetStepdefs {
 
     @And("^I should see the preview data of DataSet displayed correctly as following$")
     public void iShouldSeeTheDataSetOfPreviewDataDisplayedCorrectlyAsFollowing(DataTable previewDataTable) throws Throwable {
-        onPage(AssociatedDataSetPage.class).clickPreviewData();
-//        onPage(AssociatedDataSetPage.class).checkPreviewDataOfThreeTable(previewataTable);
-
-//        ((DataSetPage)currentPage()).detailPanel.selectTab("dataPreview");
+        ((DataSetPage)currentPage()).detailPanel.selectTab("dataPreview");
         ((DataSetPage)currentPage()).detailPanel.specificDetailPanel().verifyDetail(previewDataTable);
     }
 
     @And("^I should see the (?:join|union|extract) source of DataSet displayed correctly as following$")
     public void iShouldSeeSourceOfDataDisplayedCorrectlyAsFollowing(DataTable sourceOfDataTable) throws Throwable {
-        onPage(AssociatedDataSetPage.class).clickSourceOfData();
-        onPage(AssociatedDataSetPage.class).checkSourceOfData(sourceOfDataTable);
+//        onPage(AssociatedDataSetPage.class).clickSourceOfData();
+//        onPage(AssociatedDataSetPage.class).checkSourceOfData(sourceOfDataTable);
+        ((DataSetPage)currentPage()).detailPanel.selectTab("sourceOfData");
+        ((DataSetPage)currentPage()).detailPanel.specificDetailPanel().verifyDetail(sourceOfDataTable);
     }
 
 
     @Then("^I should see the joinDataSet displayed correctly as following$")
     public void iShouldSeeTheJoinDataSetDisplayedCorrectlyAsFollowing(DataTable sourceOfDataTable) throws Throwable {
         onPage(AssociatedDataSetPage.class).checkJoinDataSet(sourceOfDataTable);
+        ((DataSetPage)currentPage()).detailPanel.specificDetailPanel().verifyDetail(sourceOfDataTable);
     }
 
     @When("^I view the detail of join DataSet$")

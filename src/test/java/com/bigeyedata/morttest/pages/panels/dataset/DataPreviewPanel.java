@@ -29,21 +29,6 @@ public class DataPreviewPanel extends DataSetSpecificDetailPanel {
             colLists.add(findListByXpath("//div[@id='dataSetDataPreview']//table//td[" + columnNo + "]"));
         }
 
-//        List<WebElement> data_ActualIncome = findListByXpath("//div[@id='dataSetDataPreview']//table//td[1]//span[2]");
-//        List<WebElement> ActualIncome = findListByXpath("//div[@id='dataSetDataPreview']//table//td[2]//span");
-//        List<WebElement> data_ActualCost = findListByXpath("//div[@id='dataSetDataPreview']//table//td[3]//span");
-//        List<WebElement> ActualCost = findListByXpath("//div[@id='dataSetDataPreview']//table//td[4]//span");
-//        List<WebElement> data_ExpectedIncome = findListByXpath("//div[@id='dataSetDataPreview']//table//td[5]//span");
-//        List<WebElement> ExpectedIncome = findListByXpath("//div[@id='dataSetDataPreview']//table//td[6]//span");
-//
-//
-//        colLists.add(data_ActualIncome);
-//        colLists.add(ActualIncome);
-//        colLists.add(data_ActualCost);
-//        colLists.add(ActualCost);
-//        colLists.add(data_ExpectedIncome);
-//        colLists.add(ExpectedIncome);
-
         return colLists;
     }
 }

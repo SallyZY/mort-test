@@ -24,7 +24,6 @@ public class WebDriverManager {
             chromeOptions.addArguments("--kiosk");
             webDriver = new ChromeDriver(chromeOptions);
 
-//            webDriver = new ChromeDriver();
             webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         }
 

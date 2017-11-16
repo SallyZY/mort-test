@@ -30,7 +30,7 @@ Feature: Verify detail of union DataSet
       | Income_2016-导入  | 4900.0       | 2016-2-1        | null        | 5100.0          | null         |
       | Income_2016-导入  | 5900.0       | 2016-3-1        | null        | 5700.0          | null         |
     And I should see the union source of DataSet displayed correctly as following
-      | 数据集            | 状态 |
-      | Cost_2016-直连    | 正常 |
-      | 三表关联-导入      | 正常 |
-      | Income_2016-导入  | 正常 |
+      | 数据集            | 创建人 | 状态 |
+      | Cost_2016-直连    | 张莹  | 正常 |
+      | 三表关联-导入      | 张莹  | 正常 |
+      | Income_2016-导入  | 张莹  | 正常 |

@@ -16,7 +16,7 @@ import static com.bigeyedata.morttest.SeeThruUtils.initPanel;
  */
 public class DataSetDetailPanel extends Panel {
 
-    @FindBy(xpath = "//div[@role='tab' and text()='字段']")
+    @FindBy(xpath = "//*[@id=\"app\"]//div[text()='字段']")
     WebElement fieldTab;
 
     @FindBy(xpath = "//*[@id=\"app\"]//div[text()='数据预览']")
@@ -47,7 +47,7 @@ public class DataSetDetailPanel extends Panel {
         PanelInfo panelInfo = navBarMapInfo().get(tab);
         System.out.println("tab:" + tab);
 //        CommonFunctions.waitForElementVisible(panelInfo.detailTab);
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         panelInfo.detailTab.click();
         specificDetailPanel = initPanel(panelInfo.panel);
     }

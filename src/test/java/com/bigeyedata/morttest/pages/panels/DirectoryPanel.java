@@ -66,19 +66,17 @@ public class DirectoryPanel extends Panel {
     WebElement directoryNameSpan;
 
     public void clickDicExpandIcon() throws InterruptedException {
-
+        Thread.sleep(3000);
         dicExpandIcon.click();
         CommonFunctions.waitForElementVisible(mainDirectoryContainerUl);
     }
 
     public void clickDirectoryByName(String directoryName) throws InterruptedException {
-
         CommonFunctions.waitForElementVisible(mainDirectoryContainerUl);
         CommonFunctions.clickDirectoryByName(directoryName);
     }
 
     public void selectSavedDirectoryByName(String directoryName) throws InterruptedException {
-
         CommonFunctions.waitForElementVisible(dataSetDirectoryDiv);
         dataSetDirectoryDiv.click();
         CommonFunctions.waitForElementVisible(directoryContainerUl);
@@ -101,11 +99,9 @@ public class DirectoryPanel extends Panel {
             List<WebElement> directoryList = directoryListul.findElements(By.tagName("li")) ;
             for (int i=0;i<directoryList.size();i++){
                 String directory1 = directoryList.get(i).getText();
-//                System.out.println(directory1);
                 if(directory1.equals(directory)){
                     int n =i +1;
                     WebDriverManager.getDriver().findElement(By.xpath("//div/ul/li/ul/li[" + n + "]/span[2]/span"));
-//                    directoryListul.findElement(By.cssSelector("li[" + n + "]"));
                     break;
                 }else{
                     System.out.println("false");
@@ -143,7 +139,6 @@ public class DirectoryPanel extends Panel {
     }
 
     public void clickMultiLevelDirectoryByName(String directoryName) throws InterruptedException {
-
         WebDriverManager.getDriver().findElement(By.xpath("//ul[@id='directoriesMenu']/li/div/span/span[text()='" + directoryName + "']")).click();
     }
 
