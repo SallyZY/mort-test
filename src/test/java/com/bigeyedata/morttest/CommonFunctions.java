@@ -175,8 +175,8 @@ public class CommonFunctions {
     }
 
     public static void compareDataTable(DataTable expectedTable,List<List<WebElement>> actualTableCols){
-        List<List<String>> actualLists = new ArrayList<List<String>>();
-        List<String> list = new ArrayList<String>();
+        List<List<String>> actualLists = new ArrayList();
+        List<String> list = new ArrayList();
 
         List<String> titleRow = expectedTable.raw().get(0);
         for (String val: titleRow){

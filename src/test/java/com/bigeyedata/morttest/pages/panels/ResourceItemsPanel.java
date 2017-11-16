@@ -77,6 +77,7 @@ public class ResourceItemsPanel extends Panel {
 
         waitForElementVisible(resourceFileListContainerDiv);
         WebDriverManager.getDriver().findElement(By.xpath("//ul[@id='resourceListMenuContainerMenu']/li//span[@class='item-left']/span[text()='" + resourceName + "']")).click();
+
     }
 
     public void clickOptionMenuOfResourceFile(String resourceName) throws InterruptedException {

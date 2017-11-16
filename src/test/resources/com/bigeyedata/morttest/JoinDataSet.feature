@@ -21,7 +21,7 @@ Feature: Create,view DataSet
     | ActualCost           | ActualCost-直连.ActualCost         | 数值  |
     | ExpectedIncome       | ExpectedIncome-导入.ExpectedIncome | 数值  |
 
-    And I should see the DataSet of preview data displayed correctly as following
+    And I should see the preview data of DataSet displayed correctly as following
     | 日期-ActualIncome	| ActualIncome	 | 日期-ActualCost	| ActualCost| 日期-ExpectedIncome  | ExpectedIncome  |
     | 2014-1-1	        | null	         | 2014-1-1	        | null	    | null	               | null            |
     | 2017-1-1      	| 7500.0	     | 2017-1-1       	| 800.0		| 2017-1-1	           | 5500.0          |
@@ -34,7 +34,7 @@ Feature: Create,view DataSet
     | null	            | null           | 2017-8-1         | 1000.0    | null		           | null	         |
     | null	            | null           | 2017-9-1         | 2600.0	| null		           | null	         |
 
-    And I should see source of data displayed correctly as following
+    And I should see the join source of DataSet displayed correctly as following
     | 数据集               | 创建人   | 状态  |
     | ActualIncome-导入    | 张莹    | 正常  |
     | ActualCost-直连      | 张莹	    | 正常  |

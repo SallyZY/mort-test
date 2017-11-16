@@ -153,18 +153,18 @@ public class AssociatedDataSetPage extends Page {
         sourceOfDataDiv.click();
     }
 
-    public void checkFieldDetail(DataTable expectedDetailsTable){
-        List<WebElement> fieldAliasNameList = findListByXpath("//div[@id='fieldsDisplay']//table//td[2]");
-        List<WebElement> fieldNameList = findListByXpath("//div[@id='fieldsDisplay']//table//td[3]");
-        List<WebElement> fieldTypeList = findListByXpath("//div[@id='fieldsDisplay']//table//td[4]");
-
-        List<List<WebElement>> colLists = new ArrayList<>();
-        colLists.add(fieldAliasNameList);
-        colLists.add(fieldNameList);
-        colLists.add(fieldTypeList);
-
-        compareDataTable(expectedDetailsTable,colLists);
-    }
+//    public void checkFieldDetail(DataTable expectedDetailsTable){
+//        List<WebElement> fieldAliasNameList = findListByXpath("//div[@id='fieldsDisplay']//table//td[2]");
+//        List<WebElement> fieldNameList = findListByXpath("//div[@id='fieldsDisplay']//table//td[3]");
+//        List<WebElement> fieldTypeList = findListByXpath("//div[@id='fieldsDisplay']//table//td[4]");
+//
+//        List<List<WebElement>> colLists = new ArrayList<>();
+//        colLists.add(fieldAliasNameList);
+//        colLists.add(fieldNameList);
+//        colLists.add(fieldTypeList);
+//
+//        compareDataTable(expectedDetailsTable,colLists);
+//    }
 
 //  check previewdata of "三表关联-导入"
     public void checkPreviewDataOfThreeTable(DataTable expectedDetailsTable){

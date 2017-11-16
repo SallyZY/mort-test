@@ -20,27 +20,25 @@ import static org.junit.Assert.assertThat;
 public class CommonStepdefs {
 
     @Given("^I open browser and login to Mort Web$")
-    public void iOpenBrowserAndLoginToMortWeb(Map<String, String> userLoginInfo) throws Throwable {
-
-        String userName= userLoginInfo.get("UserName").toString();
-        String password=userLoginInfo.get("Password").toString();
-
+    public void iOpenBrowserAndLoginToMortWeb(List<Map<String,String>> userLoginInfo) throws Throwable {
         navigateTo(Hooks.getMortWebUrl());
+
+        String userName = userLoginInfo.get(0).get("UserName").toString();
+        String password = userLoginInfo.get(0).get("Password").toString();
         LoginPage curPage = onPage(LoginPage.class);
-        curPage.login(userName,password);
+        curPage.login(userName, password);
 
     }
 
     @Given("^I access to \"([^\"]*)\" module$")
     public void iAccessToModule(String module) throws Throwable {
-
         currentPage().navPanel.accessToModule(module);
     }
 
     @Given("^I select (?:DataSource|DataSet|Report) as following$")
-    public void iSelectDataSourceAsFollowing(Map<String,String> sourceInfo) throws Throwable {
-        String directoryName = sourceInfo.get("DirectoryName").toString();
-        String sourceFileName=sourceInfo.get("ResourceFileName").toString();
+    public void iSelectDataSourceAsFollowing(List<Map<String,String>> sourceInfo) throws Throwable {
+        String directoryName = sourceInfo.get(0).get("DirectoryName").toString();
+        String sourceFileName = sourceInfo.get(0).get("ResourceFileName").toString();
 
         currentPage().dirPanel.clickDirectoryByName(directoryName);
         currentPage().resourcePanel.clickResourceByName(sourceFileName);
@@ -48,13 +46,11 @@ public class CommonStepdefs {
 
     @When("^I click \"([^\"]*)\" item from dropdown menu of \"([^\"]*)\"$")
     public void iClickItemFromOperationMenuOf(String menuItem, String fileName) throws Throwable {
-
         currentPage().resourcePanel.clickOptionMenuOfResourceFile(fileName);
     }
 
     @Then("^I should NOT see deleted resource file \"([^\"]*)\" in directory$")
     public void iShouldNOTSeeDeletedResourceFileInDirectory(String fileName) throws Throwable {
-
         assertThat(currentPage().resourcePanel.isResourceExisted(fileName),is(false));
     }
 
@@ -65,13 +61,11 @@ public class CommonStepdefs {
 
     @And("^I select the directory \"([^\"]*)\"$")
     public void iSelectTheDirectory(String dicName) throws Throwable {
-
         currentPage().dirPanel.clickDirectoryByName(dicName);
     }
 
     @When("^I select the (?:DataSource|DataSet|Report) \"([^\"]*)\"$")
     public void iSelectTheResourceFile(String fileName) throws Throwable {
-
         currentPage().resourcePanel.clickResourceByName(fileName);
     }
 

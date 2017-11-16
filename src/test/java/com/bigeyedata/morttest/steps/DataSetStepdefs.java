@@ -1,6 +1,7 @@
 package com.bigeyedata.morttest.steps;
 
 import com.bigeyedata.morttest.CommonFunctions;
+import com.bigeyedata.morttest.pages.DataSetPage;
 import com.bigeyedata.morttest.pages.dataset_pages.*;
 import com.bigeyedata.morttest.pages.datasource_pages.DataSourceDetailPage;
 import cucumber.api.DataTable;
@@ -304,18 +305,21 @@ public class DataSetStepdefs {
     }
 
     @Then("^I should see the field detail displayed correctly as following$")
-    public void iShouldSeeTheDataSetOfFiledsDisplayedCorrectlyAsFollowing(DataTable fieldDetailTable) throws Throwable {
-        onPage(AssociatedDataSetPage.class).checkFieldDetail(fieldDetailTable);
+    public void iShouldSeeDataSetFiledDisplayedCorrectlyAsFollowing(DataTable fieldTable) throws Throwable {
+        ((DataSetPage)currentPage()).detailPanel.selectTab("field");
+        ((DataSetPage)currentPage()).detailPanel.specificDetailPanel().verifyDetail(fieldTable);
     }
 
+    @And("^I should see the preview data of DataSet displayed correctly as following$")
+    public void iShouldSeeTheDataSetOfPreviewDataDisplayedCorrectlyAsFollowing(DataTable previewDataTable) throws Throwable {
+        onPage(AssociatedDataSetPage.class).clickPreviewData();
+//        onPage(AssociatedDataSetPage.class).checkPreviewDataOfThreeTable(previewataTable);
 
-    @And("^I should see the DataSet of preview data displayed correctly as following$")
-    public void iShouldSeeTheDataSetOfPreviewDataDisplayedCorrectlyAsFollowing(DataTable previewataTable) throws Throwable {
-       onPage(AssociatedDataSetPage.class).clickPreviewData();
-        onPage(AssociatedDataSetPage.class).checkPreviewDataOfThreeTable(previewataTable);
+//        ((DataSetPage)currentPage()).detailPanel.selectTab("dataPreview");
+        ((DataSetPage)currentPage()).detailPanel.specificDetailPanel().verifyDetail(previewDataTable);
     }
 
-    @And("^I should see source of data displayed correctly as following$")
+    @And("^I should see the (?:join|union|extract) source of DataSet displayed correctly as following$")
     public void iShouldSeeSourceOfDataDisplayedCorrectlyAsFollowing(DataTable sourceOfDataTable) throws Throwable {
         onPage(AssociatedDataSetPage.class).clickSourceOfData();
         onPage(AssociatedDataSetPage.class).checkSourceOfData(sourceOfDataTable);
