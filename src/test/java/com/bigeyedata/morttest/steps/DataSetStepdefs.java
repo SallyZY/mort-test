@@ -338,4 +338,15 @@ public class DataSetStepdefs {
         assertTrue(onPage(AssociatedDataSetPage.class).checkRightJoin());
         assertTrue(onPage(AssociatedDataSetPage.class).checkLeftJoin());
     }
+
+    @And("^I should see the Checked field displayed correctly as following$")
+    public void iShouldSeeTheCheckedFieldDisplayedCorrectlyAsFollowing(DataTable expectedJoinTypeTable) throws Throwable {
+        onPage(AssociatedDataSetPage.class).checkCheckedField(expectedJoinTypeTable);
+    }
+
+    @And("^I should see the preview table of header displayed correctly as following$")
+    public void iShouldSeeThePreviewTableOfHeaderDisplayedCorrectlyAsFollowing(DataTable expectedDetailsTable) throws Throwable {
+        onPage(AssociatedDataSetPage.class).nextStep();
+        onPage(AssociatedDataSetPage.class).checkPreviewTableOfHeader(expectedDetailsTable);
+    }
 }
