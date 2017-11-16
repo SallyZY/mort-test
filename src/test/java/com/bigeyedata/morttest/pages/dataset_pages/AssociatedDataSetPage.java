@@ -1,5 +1,6 @@
 package com.bigeyedata.morttest.pages.dataset_pages;
 
+import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.WebDriverManager;
 import com.bigeyedata.morttest.pages.Page;
 import cucumber.api.DataTable;
@@ -52,6 +53,9 @@ public class AssociatedDataSetPage extends Page {
 
     @FindBy(xpath ="//div[@id='dataSetDataPreview']//table//tr")
     List<WebElement> sourceOfDataRows;
+
+    @FindBy(xpath = "//button/span[text()='下一步']")
+    WebElement nextStep;
 
 
 
@@ -238,6 +242,119 @@ public class AssociatedDataSetPage extends Page {
         Boolean flg = findByXpath("//div[@class='ant-radio-group ant-radio-group-large']/label[2]").getAttribute("class" ).contains("checked");
         return flg;
     }
+
+
+    public void checkCheckedField(DataTable expectedJoinTypeTable) throws InterruptedException {
+        List<List<String>> colLists = new ArrayList<>();
+
+        findByXpath("//div[@class='joining-data-set']//span[text()='ActualIncome-导入']").click();
+        List<WebElement> list1 = findListByXpath("//div[@class='ant-checkbox-group']//label/span[2]");
+        List<String> list2 =new ArrayList<>();
+        for(int i=0;i<list1.size();i++){
+            int j = i + 1;
+            if (findByXpath("//div[@class='ant-checkbox-group']//li[" + j +"]/label/span[1]").getAttribute("class").contains("ant-checkbox-checked")){
+
+                String element = findByXpath("//div[@class='ant-checkbox-group']//li[" + j + "]/label/span[2]/span").getText();
+                list2.add(element);
+
+
+            }
+
+        }
+        colLists.add(list2);
+
+        findByXpath("//div[@class='joining-data-set']//span[text()='ActualCost-直连']").click();
+        List<WebElement> list3 = findListByXpath("//div[@class='ant-checkbox-group']//label/span[2]");
+        List<String> list4 =new ArrayList<>();
+        for(int i=0;i<list3.size();i++){
+
+            int j = i + 1;
+
+            if (findByXpath("//div[@class='ant-checkbox-group']//li[" + j +"]/label/span[1]").getAttribute("class").contains("ant-checkbox-checked")){
+
+                String element = findByXpath("//div[@class='ant-checkbox-group']//li[" + j + "]/label/span[2]/span").getText();
+                list4.add(element);
+
+
+            }
+        }
+        colLists.add(list4);
+
+
+        findByXpath("//div[@class='joining-data-set']//span[text()='ExpectedIncome-导入']").click();
+        List<WebElement> list5 = findListByXpath("//div[@class='ant-checkbox-group']//label/span[2]");
+        List<String> list6 =new ArrayList<>();
+        for(int i=0;i<list5.size();i++){
+
+            int j = i + 1;
+
+            if (findByXpath("//div[@class='ant-checkbox-group']//li[" + j +"]/label/span[1]").getAttribute("class").contains("ant-checkbox-checked")){
+
+                String element = findByXpath("//div[@class='ant-checkbox-group']//li[" + j + "]/label/span[2]/span").getText();
+                list6.add(element);
+
+
+            }
+        }
+        colLists.add(list6);
+
+
+        compareDataTableOfText(expectedJoinTypeTable,colLists);
+
+    }
+
+
+    public void checkPreviewTableOfHeader(DataTable expectedDetailsTable) throws InterruptedException {
+
+        List<String> typeList = new ArrayList<>();
+        List<String> fieldsList = new ArrayList<>();
+
+        List<WebElement>  allType = findListByXpath("//tr[2]/th/span");
+        for(int i=0;i<allType.size();i++){
+            String type = findListByXpath("//tr[2]/th/span").get(i).getText();
+            typeList.add(type);
+        }
+
+        List<WebElement>  allField = findListByXpath("//tr[3]/th/span/div/input");
+        for(int i=0;i<allField.size();i++){
+            String field =findListByXpath("//tr[3]/th/span/div/input").get(i).getAttribute("value").toString();
+            fieldsList.add(field);
+        }
+
+        List<List<String>> colLists = new ArrayList<>();
+        colLists.add(typeList);
+        colLists.add(fieldsList);
+
+        compareDataTableOfText(expectedDetailsTable,colLists);
+    }
+
+    public void nextStep(){
+        nextStep.click();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

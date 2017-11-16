@@ -47,6 +47,21 @@ Feature: Create,view DataSet
     | ActualCost-直连      |
     | ExpectedIncome-导入  |
     And I should see the join type displayed correctly
+    And I should see the Checked field displayed correctly as following
+     | ActualIncome-导入  | ActualCost-直连 | ExpectedIncome-导入  |
+     | SalesMonth         | SalesMonth     | SalesMonth           |
+     | ActualIncome       | ActualCost     | ExpectedIncome       |
+    And I should see the preview table of header displayed correctly as following
+     | 类型 | 字段名                |
+     | 数值 | ActualIncome         |
+     | 文本 | 日期-ActualIncome    |
+     | 数值 | ActualCost           |
+     | 文本 | 日期-ActualCost      |
+     | 数值 | ExpectedIncome      |
+     | 文本 | 日期-ExpectedIncome  |
+    And I should see the basic information of joinDataSet as following
+     | 名称         | 目录             | 数据 |
+     | 三表关联-导入 | 测试关联数据集目录 | |
 
 
 
