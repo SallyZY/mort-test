@@ -62,7 +62,7 @@ public class DirectoryStepdefs {
         currentPage().dirPanel.deleteDirectory();
     }
 
-    @When("^I delete the mutilevel directory name \"([^\"]*)\"$")
+    @When("^I delete the multi-level directory name \"([^\"]*)\"$")
     public void iDeleteTheMultiLevelDirectoryName(String directoryName) throws Throwable {
         currentPage().dirPanel.openMultiLevelDropdownMenu(directoryName);
         currentPage().dirPanel.deleteDirectory();

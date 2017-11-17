@@ -1,7 +1,9 @@
 package com.bigeyedata.morttest.steps;
 
 import com.bigeyedata.morttest.Hooks;
+import com.bigeyedata.morttest.pages.DataSetPage;
 import com.bigeyedata.morttest.pages.panels.LoginPage;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -73,4 +75,11 @@ public class CommonStepdefs {
     public void iExpandTheDataSourceDirectory() throws Throwable {
         currentPage().dirPanel.clickDicExpandIcon();
     }
+
+    @Then("^I should see the notice message \"([^\"]*)\"$")
+    public void iShouldSeeTheErrorMessage(String msg) throws Throwable {
+        System.out.println("notice: "+ msg);
+        assertThat(((DataSetPage)(currentPage())).noticePanel.getNoticeMessage(),is(msg));
+    }
+
 }

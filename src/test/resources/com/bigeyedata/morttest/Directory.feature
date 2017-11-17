@@ -132,7 +132,7 @@ Feature: Create And Edit And Delete directory
     Then I should see the directory "测试第二级目录_删除" displayed correctly in directory list
 
     When I move the mouse to DataSource directory "测试第一级目录_删除"
-    And I delete the mutilevel directory name "测试第一级目录_删除"
+    And I delete the multi-level directory name "测试第一级目录_删除"
     Then I should NOT see the directory "测试第一级目录_删除" displayed in directory list
     Then I should NOT see the directory "我的关注" displayed in resource list
 

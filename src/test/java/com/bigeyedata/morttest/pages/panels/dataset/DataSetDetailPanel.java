@@ -46,9 +46,8 @@ public class DataSetDetailPanel extends Panel {
     public void selectTab(String tab) throws InterruptedException {
         PanelInfo panelInfo = navBarMapInfo().get(tab);
         System.out.println("tab:" + tab);
-//        CommonFunctions.waitForElementVisible(panelInfo.detailTab);
-        Thread.sleep(10000);
-//        panelInfo.detailTab.click();
+        CommonFunctions.waitForElementVisible(panelInfo.detailTab);
+        panelInfo.detailTab.click();
         specificDetailPanel = initPanel(panelInfo.panel);
     }
 

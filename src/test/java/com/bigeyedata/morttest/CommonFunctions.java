@@ -173,6 +173,31 @@ public class CommonFunctions {
         }
     }
 
+//    public static void compareDataTableByWebElement(DataTable expectedTable, List<List<WebElement>> actualTableCols) {
+//        List<List<String>> actualLists = new ArrayList();
+//        List<String> list = new ArrayList();
+//
+//        List<String> titleRow = expectedTable.raw().get(0);
+//        for (String val : titleRow) {
+//            list.add(val);
+//        }
+//        actualLists.add(list);
+//
+//        System.out.println("actualTableCols.get(0).size()" + actualTableCols.get(0).size());
+//        for (int i = 0; i < actualTableCols.get(0).size(); i++) {
+//            List<String> rowList = new ArrayList<>();
+//            for (int j = 0; j < actualTableCols.size(); j++) {
+//                rowList.add(actualTableCols.get(j).get(i).getText().trim());
+//                System.out.println("content" + actualTableCols.get(j).get(i).getText().trim());
+//            }
+//            actualLists.add(rowList);
+//        }
+//
+//        System.out.println(actualTableCols.size());
+//        System.out.println(expectedTable.raw());
+//        expectedTable.diff(actualLists);
+//    }
+
     public static void compareDataTableByWebElement(DataTable expectedTable, List<List<WebElement>> actualTableCols) {
         List<List<String>> actualLists = new ArrayList();
         List<String> list = new ArrayList();
@@ -207,7 +232,6 @@ public class CommonFunctions {
     }
 
     public static List<String> extractDynamicPaths(String tablePath, Integer... includes) {
-
         if (includes.length > 0) {
             return Arrays.asList(includes).stream().map(index -> tablePath + "//td[" + index + "]").collect(Collectors.toList());
         }
@@ -215,15 +239,10 @@ public class CommonFunctions {
         List<WebElement> tableHeaders = findListByXpath(tablePath + "//th");
         List<String> colLists = new ArrayList<>();
 
-        IntStream.range(1, tableHeaders.size()+1).forEach(index -> {
+        IntStream.range(1, tableHeaders.size() + 1).forEach(index -> {
                     colLists.add(tablePath + "//td[" + index + "]");
                 }
         );
-//        int columnNo = 0;
-//        for (int i = 0; i < tableHeaders.size(); i++) {
-//            columnNo = i + 1;
-//            colLists.add(tablePath + "//td[" + columnNo + "]");
-//        }
 
         return colLists;
     }

@@ -1,5 +1,6 @@
 package com.bigeyedata.morttest.pages;
 
+import com.bigeyedata.morttest.pages.panels.NoticeMessagePanel;
 import com.bigeyedata.morttest.pages.panels.dataset.*;
 
 import static com.bigeyedata.morttest.SeeThruUtils.initPanel;
@@ -10,4 +11,6 @@ import static com.bigeyedata.morttest.SeeThruUtils.initPanel;
 public class DataSetPage extends Page {
 
     public DataSetDetailPanel detailPanel = initPanel(DataSetDetailPanel.class);
+    public NoticeMessagePanel noticePanel = initPanel(NoticeMessagePanel.class);
+    public SourceItemMenuPanel sourceItemMenuPanel =initPanel(SourceItemMenuPanel.class);
 }

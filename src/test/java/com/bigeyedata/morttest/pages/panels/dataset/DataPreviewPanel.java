@@ -16,9 +16,9 @@ import static com.bigeyedata.morttest.CommonFunctions.findListByXpath;
  * Created by yingzhang on 16/11/2017.
  */
 public class DataPreviewPanel extends DataSetSpecificDetailPanel {
+
     @Override
     public void verifyDetail(DataTable expectedDetailsTable) {
-
         compareDataTable(expectedDetailsTable, extractDynamicPaths("//div[@id='dataSetDataPreview']//table"));
     }
 

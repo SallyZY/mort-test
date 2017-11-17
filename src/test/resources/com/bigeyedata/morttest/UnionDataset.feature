@@ -34,3 +34,18 @@ Feature: Verify detail of union DataSet
       | Cost_2016-直连    | 张莹  | 正常 |
       | 三表关联-导入      | 张莹  | 正常 |
       | Income_2016-导入  | 张莹  | 正常 |
+
+
+  Scenario: Delete the union source of DataSet
+    Given I access to "DataSet" module
+    And I expand the DataSet directory
+    And I select DataSet directory "测试原始数据集目录"
+    When I select the DataSet "Cost_2016-直连"
+    And I delete the dataSet
+    Then I should see the notice message "无法删除数据集,含有关联的数据联合数据集"
+    When I select the DataSet "Income_2016-导入"
+    And I delete the dataSet
+    Then I should see the notice message "无法删除数据集,含有关联的数据联合数据集"
+#    When I select the DataSet "三表关联-导入"
+#    And I delete the dataSet
+#    Then I should see the notice message "无法删除数据集,含有关联的数据联合数据集"
