@@ -46,6 +46,7 @@ Feature: Verify detail of union DataSet
     When I select the DataSet "Income_2016-导入"
     And I delete the dataSet
     Then I should see the notice message "无法删除数据集,含有关联的数据联合数据集"
-#    When I select the DataSet "三表关联-导入"
-#    And I delete the dataSet
-#    Then I should see the notice message "无法删除数据集,含有关联的数据联合数据集"
+    When I select the DataSet "三表关联-导入"
+    And I delete the dataSet
+    Then I should see the notice message "无法删除数据集,含有关联的数据联合数据集"
+    
