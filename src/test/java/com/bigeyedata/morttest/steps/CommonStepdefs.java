@@ -1,5 +1,6 @@
 package com.bigeyedata.morttest.steps;
 
+import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.Hooks;
 import com.bigeyedata.morttest.pages.DataSetPage;
 import com.bigeyedata.morttest.pages.panels.LoginPage;
@@ -82,4 +83,8 @@ public class CommonStepdefs {
         assertThat(((DataSetPage)(currentPage())).noticePanel.getNoticeMessage(),is(msg));
     }
 
+    @And("^I refresh current page$")
+    public void iRefreshCurrentPage() throws Throwable {
+        CommonFunctions.refresh();
+    }
 }
