@@ -71,16 +71,11 @@ Feature: Create,view DataSet
     When I select the DataSet "ActualCost-直连"
     And I delete the dataSet
     Then I should see the notice message "无法删除数据集,含有关联的数据集"
-    And I refresh current page
-    When I select the DataSet "ActualIncome-导入"
+    When I refresh current page
+    And I select the DataSet "ActualIncome-导入"
     And I delete the dataSet
     Then I should see the notice message "无法删除数据集,含有关联的数据集"
-    And I refresh current page
-    When I select the DataSet "ExpectedIncome-导入"
+    When I refresh current page
+    And I select the DataSet "ExpectedIncome-导入"
     And I delete the dataSet
     Then I should see the notice message "无法删除数据集,含有关联的数据集"
-
-
-
-
-

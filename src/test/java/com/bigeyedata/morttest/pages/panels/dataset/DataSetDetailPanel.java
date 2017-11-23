@@ -37,6 +37,9 @@ public class DataSetDetailPanel extends Panel {
     @FindBy(xpath = "//*[@id=\"app\"]//div[text()='衍生数据集']")
     WebElement derivedDataSetTab;
 
+    @FindBy(xpath = "//div[@class='sort-container']")
+    WebElement dicNameDiv;
+
     private DataSetSpecificDetailPanel specificDetailPanel;
 
     public <T extends DataSetSpecificDetailPanel> T specificDetailPanel(){
@@ -46,7 +49,8 @@ public class DataSetDetailPanel extends Panel {
     public void selectTab(String tab) throws InterruptedException {
         PanelInfo panelInfo = navBarMapInfo().get(tab);
         System.out.println("tab:" + tab);
-        CommonFunctions.waitForElementVisible(panelInfo.detailTab);
+        dicNameDiv.click();
+        CommonFunctions.waitForElementClickable(panelInfo.detailTab);
         panelInfo.detailTab.click();
         specificDetailPanel = initPanel(panelInfo.panel);
     }

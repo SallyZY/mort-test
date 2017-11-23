@@ -2,6 +2,7 @@ package com.bigeyedata.morttest.steps;
 
 import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.pages.DataSetPage;
+import com.bigeyedata.morttest.pages.DataSourcePage;
 import com.bigeyedata.morttest.pages.dataset_pages.*;
 import com.bigeyedata.morttest.pages.datasource_pages.DataSourceDetailPage;
 import cucumber.api.DataTable;
@@ -33,9 +34,7 @@ public class DataSetStepdefs {
 
     @Given("^I click create new DataSet button on DataSource page$")
     public void iClickCreateNewDataSetButtonOnDatasourcePage() throws Throwable {
-
         onPage(DataSourceDetailPage.class).CreateNewDatasetFromDatasource();
-
         onPage(DataSourceSelectPage.class).gotoNextStep();
     }
 
@@ -88,10 +87,10 @@ public class DataSetStepdefs {
         assertThat(onPage(DataSetDetailsPage.class).getFieldCountOfDataset(),is(Integer.parseInt(fieldCount)));
     }
 
-    @And("^I should see the initial import record is displayed$")
-    public void iShouldSeeTheInitialImportRecordIsDisplayed() throws Throwable {
-
-        assertThat(onPage(DataSetDetailsPage.class).getDescriptionOfNewestImportHistory(),is("初始化导入"));
+    @And("^I should see the import record displayed as following$")
+    public void iShouldSeeTheImportRecordDisplayedAsFollowing(DataTable importTable) throws Throwable {
+        ((DataSetPage)currentPage()).detailPanel.selectTab("import");
+        ((DataSetPage)currentPage()).detailPanel.specificDetailPanel().verifyDetail(importTable);
     }
     
     @Then("^I should locate to the DataSource \"([^\"]*)\"$")
@@ -108,7 +107,7 @@ public class DataSetStepdefs {
     }
 
     @And("^I should see the related DataSet as following$")
-    public void iShouldSeeTheRelatedDatasetAsFollowing(List<Map<String,String>> datasetNameList) throws Throwable {
+    public void iShouldSeeTheRelatedDataSetAsFollowing(List<Map<String,String>> datasetNameList) throws Throwable {
 
         onPage(DataSourceDetailPage.class).isDataSetNameDisplayed(datasetNameList);
     }
@@ -181,12 +180,6 @@ public class DataSetStepdefs {
         onPage(ImportPreviewPage.class).createDataset();
         CommonFunctions.refresh();
     }
-
-    @And("^I should see the add field import record is displayed$")
-    public void iShouldSeeTheAddFieldImportRecordIsDisplayed() throws Throwable {
-        assertThat(onPage(DataSetDetailsPage.class).getDescriptionOfNewestImportHistory(),is("修改SQL信息导入"));
-    }
-
 
     @And("^I can NOT modify the DataSet name and saved directory$")
     public void iCanTModifyTheDatasetNameAndHeSavedDirectoryOfDataSet() throws Throwable {
@@ -306,8 +299,8 @@ public class DataSetStepdefs {
 
     @Then("^I should see the field detail displayed correctly as following$")
     public void iShouldSeeDataSetFiledDisplayedCorrectlyAsFollowing(DataTable fieldTable) throws Throwable {
-        onPage(DataSetPage.class).detailPanel.selectTab("field");
-        ((DataSetPage)currentPage()).detailPanel.specificDetailPanel().verifyDetail(fieldTable);
+        (onPage(DataSetPage.class)).detailPanel.selectTab("field");
+        (onPage(DataSetPage.class)).detailPanel.specificDetailPanel().verifyDetail(fieldTable);
     }
 
     @And("^I should see the preview data of DataSet displayed correctly as following$")

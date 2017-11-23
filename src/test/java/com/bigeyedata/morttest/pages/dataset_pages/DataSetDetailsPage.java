@@ -123,15 +123,6 @@ public class DataSetDetailsPage extends Page {
         addNewReportButton.click();
     }
 
-    public String getDescriptionOfNewestImportHistory() throws InterruptedException {
-
-        waitForElementVisible(importHistoryTab);
-        importHistoryTab.click();
-        List<WebElement> descriptionList = importHistoryTable.findElements(By.cssSelector("tbody > tr > td:nth-child(3) > span"));
-        return descriptionList.get(0).getText();
-    }
-
-
     public int getFieldCountOfDataset() {
         List<WebElement> trList = FieldAttributeTable.findElements(By.cssSelector("tbody > tr"));
         return trList.size();

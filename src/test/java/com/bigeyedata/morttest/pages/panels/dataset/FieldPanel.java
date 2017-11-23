@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.bigeyedata.morttest.CommonFunctions.compareDataTable;
+import static com.bigeyedata.morttest.CommonFunctions.extractDynamicPaths;
 import static com.bigeyedata.morttest.CommonFunctions.findListByXpath;
 
 /**
@@ -17,8 +19,8 @@ public class FieldPanel extends DataSetSpecificDetailPanel {
 
     @Override
     public void verifyDetail(DataTable expectedDetailsTable) {
-        List<String> paths = CommonFunctions.extractDynamicPaths("//div[@id='fieldsDisplay']//table", 2, 3, 4);
-        CommonFunctions.compareDataTable(
+        List<String> paths = extractDynamicPaths("//div[@id='fieldsDisplay']//table", 2, 3, 4);
+        compareDataTable(
                 expectedDetailsTable,
                 paths
                 );
