@@ -58,7 +58,9 @@ Feature: Create,view DataSet
       | 流失资产      | 流失资产      | 数值  |
       | 流失股基交易量 | 流失股基交易量 | 数值  |
       | 净佣金        | 流失股基净佣金 | 数值  |
-    And I should see the initial import record is displayed
+    And I should see the import record displayed as following
+      | Description | TriggeredBy | ImportType | Status  |
+      | 初始化导入   | 张莹         | 全量        | 导入成功 |
 
     When  I click "ViewDataSource" item from other operation dropdown menu
     Then  I should locate to the DataSource "测试CSV数据源"
@@ -181,7 +183,9 @@ Feature: Create,view DataSet
     Then I should see the DataSet "测试MySQL数据集-自定义导入" displayed in directory
     And I should see the number of DataSet fields is "7"
     And I should wait 1 minute
-    And I should see the initial import record is displayed
+    And I should see the import record displayed as following
+      | Description | TriggeredBy | ImportType | Status  |
+      | 初始化导入   | 张莹         | 全量        | 导入成功 |
 
 
   Scenario: Create a new RDB DataSet from a specified DataSource and Add field
@@ -215,7 +219,9 @@ Feature: Create,view DataSet
 
     When I add field to the DataSet
     Then I should see the number of DataSet fields is "5"
-    And I should see the add field import record is displayed
+    And I should see the import record displayed as following
+      | Description     | TriggeredBy | ImportType | Status  |
+      | 修改SQL信息导入   | 张莹         | 全量        | 导入成功 |
 
 
   Scenario: Rename the DataSet AND Modify the alias of fields

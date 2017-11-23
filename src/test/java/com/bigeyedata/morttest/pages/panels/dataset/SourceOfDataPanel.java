@@ -19,6 +19,6 @@ public class SourceOfDataPanel extends DataSetSpecificDetailPanel {
 
     @Override
     public void verifyDetail(DataTable expectedDetailsTable) {
-        compareDataTable(expectedDetailsTable, extractDynamicPaths("//div[@id='reportRelatedDataSet']//table"));
+        compareDataTable(expectedDetailsTable, extractDynamicPaths("//div[@id='reportRelatedDataSet']//table", 1,2,4));
     }
 }

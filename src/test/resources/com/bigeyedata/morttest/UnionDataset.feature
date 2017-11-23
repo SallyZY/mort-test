@@ -31,9 +31,9 @@ Feature: Verify detail of union DataSet
       | Income_2016-导入  | 5900.0       | 2016-3-1        | null        | 5700.0          | null         |
     And I should see the union source of DataSet displayed correctly as following
       | 数据集            | 创建人 | 状态 |
-      | Cost_2016-直连    | 张莹  | 正常 |
-      | 三表关联-导入      | 张莹  | 正常 |
       | Income_2016-导入  | 张莹  | 正常 |
+      | 三表关联-导入      | 张莹  | 正常 |
+      | Cost_2016-直连    | 张莹  | 正常 |
 
 
   Scenario: Delete the union source of DataSet
@@ -43,10 +43,13 @@ Feature: Verify detail of union DataSet
     When I select the DataSet "Cost_2016-直连"
     And I delete the dataSet
     Then I should see the notice message "无法删除数据集,含有关联的数据联合数据集"
-    When I select the DataSet "Income_2016-导入"
+    When I refresh current page
+    And I select the DataSet "Income_2016-导入"
     And I delete the dataSet
     Then I should see the notice message "无法删除数据集,含有关联的数据联合数据集"
-    When I select the DataSet "三表关联-导入"
+    When I refresh current page
+    And I expand the DataSet directory
+    And I select DataSet directory "测试关联数据集目录"
+    And I select the DataSet "三表关联-导入"
     And I delete the dataSet
     Then I should see the notice message "无法删除数据集,含有关联的数据联合数据集"
-    
