@@ -27,7 +27,7 @@ public class DataSetDetailsPage extends Page {
     @FindBy(xpath = "//div[@role='tab'][3]")
     WebElement relatedReportTab;
 
-    @FindBy(xpath = "//div[@role='tab'][4]")
+    @FindBy(xpath = "//div[@role='tab'][5]")
     WebElement importHistoryTab;
 
     @FindBy(xpath = "//div[@id='fieldsDisplay']//table")
@@ -54,7 +54,11 @@ public class DataSetDetailsPage extends Page {
     @FindBy(id = "showJoinDataSet")
     WebElement showJoinDataSetMenuItem;
 
-    @FindBy(xpath = "//div[@class='ant-modal-content']//p")
+//    @FindBy(css = "#brace-editor > div.ace_scroller > div")
+//    WebElement viewSql;
+
+
+    @FindBy(xpath = "//*[@id='brace-editor']//div[@class='ace_line']")
     WebElement viewSQLDiv;
 
     @FindBy(id = "addNewReport")
@@ -104,9 +108,11 @@ public class DataSetDetailsPage extends Page {
             case "ViewSql":
                 waitForElementVisible(checkSqlMenuItem);
                 checkSqlMenuItem.click();
+                break;
             case "showJoinDataSet":
                 waitForElementVisible(showJoinDataSetMenuItem);
                 showJoinDataSetMenuItem.click();
+                break;
 
         }
     }

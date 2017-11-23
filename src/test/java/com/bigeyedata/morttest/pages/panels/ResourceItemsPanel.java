@@ -120,6 +120,7 @@ public class ResourceItemsPanel extends Panel {
 
     public boolean isResourceExisted(String fileName) throws InterruptedException {
         waitForElementVisible(resourceFileListContainerDiv);
+        System.out.println("resourceListMenuContainerMenu："+resourceFileListContainerDiv.getText()+"Boolean:"+resourceFileListContainerDiv.getText().contains(fileName));
         return resourceFileListContainerDiv.getText().contains(fileName);
     }
 

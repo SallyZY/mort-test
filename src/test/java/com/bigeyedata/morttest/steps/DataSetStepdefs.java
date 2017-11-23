@@ -306,7 +306,7 @@ public class DataSetStepdefs {
 
     @Then("^I should see the field detail displayed correctly as following$")
     public void iShouldSeeDataSetFiledDisplayedCorrectlyAsFollowing(DataTable fieldTable) throws Throwable {
-        ((DataSetPage)currentPage()).detailPanel.selectTab("field");
+        onPage(DataSetPage.class).detailPanel.selectTab("field");
         ((DataSetPage)currentPage()).detailPanel.specificDetailPanel().verifyDetail(fieldTable);
     }
 

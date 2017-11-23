@@ -7,10 +7,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static com.bigeyedata.morttest.CommonFunctions.fillData;
 import static com.bigeyedata.morttest.CommonFunctions.findByXpath;
+import static com.bigeyedata.morttest.CommonFunctions.getTestResourceFilePath;
 import static com.bigeyedata.morttest.types.DataSourceType.HDFS;
 
 /**
@@ -41,13 +43,15 @@ public class HDFSDataSourceEditorPanel extends DataSourceSpecificEditorPanel {
     @Override
     public void createDataSource(Map<String, String> hdfsConfigList) throws InterruptedException {
         fillData(hdfsConfigList, keysMap());
+        hdfsPathInput.sendKeys(getTestResourceFilePath(hdfsConfigList.get("FileName").toString()));
         selectDataSourceType(hdfsConfigList.get("DataSourceType").toString());
+
     }
 
     private Map<String,WebElement> keysMap() {
         Map<String, WebElement> map = new HashMap();
         map.put("DataSourceName", dataSourceNameInput);
-        map.put("FileName", hdfsPathInput);
+//        map.put("FileName", hdfsPathInput);
 
         return map;
     }

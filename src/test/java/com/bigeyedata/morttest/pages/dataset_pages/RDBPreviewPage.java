@@ -23,7 +23,10 @@ public class RDBPreviewPage extends Page {
 //    @FindBy(xpath = "//*[@id=\"addDataSetAlive\"]/div/label[2]/span[1]/input")
     WebElement directConnectionRadio;
 
-    @FindBy(id = "add-data-set-rdb-sql-textarea")
+    @FindBy(id = "brace-editor")
+    WebElement sqlTexDiv;
+
+    @FindBy(css = "#brace-editor > textarea")
     WebElement sqlTextarea;
 
     @FindBy(id = "addDataSetRdbSqlBoxButton")
@@ -81,7 +84,7 @@ public class RDBPreviewPage extends Page {
 
     public void inputPreviewSQL(String sql) throws InterruptedException {
 
-        CommonFunctions.waitForElementVisible(sqlTextarea);
+        CommonFunctions.waitForElementVisible(sqlTexDiv);
         sqlTextarea.clear();
         sqlTextarea.sendKeys(sql);
     }
