@@ -2,16 +2,14 @@ package com.bigeyedata.morttest.steps;
 
 import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.pages.DataSetPage;
-import com.bigeyedata.morttest.pages.DataSourcePage;
 import com.bigeyedata.morttest.pages.dataset_pages.*;
 import com.bigeyedata.morttest.pages.datasource_pages.DataSourceDetailPage;
+import com.bigeyedata.morttest.types.DataSetType;
 import cucumber.api.DataTable;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import cucumber.api.java.sk.A;
 
 import java.util.List;
 import java.util.Map;
@@ -46,7 +44,6 @@ public class DataSetStepdefs {
 
     @And("^I modify the type of fields for DataSet as following$")
     public void iModifyTheTypeOfFieldsForDataSetAsFollowing(List<Map<String, String>> fieldTypeList) throws Throwable {
-
         onPage(FieldEditPage.class).setFieldsType(fieldTypeList);
         savedFieldTypeList =fieldTypeList;
     }
@@ -89,7 +86,7 @@ public class DataSetStepdefs {
 
     @And("^I should see the import record displayed as following$")
     public void iShouldSeeTheImportRecordDisplayedAsFollowing(DataTable importTable) throws Throwable {
-        ((DataSetPage)currentPage()).detailPanel.selectTab("import");
+        ((DataSetPage)currentPage()).detailPanel.selectTab("IMPORT");
         ((DataSetPage)currentPage()).detailPanel.specificDetailPanel().verifyDetail(importTable);
     }
     
@@ -108,7 +105,6 @@ public class DataSetStepdefs {
 
     @And("^I should see the related DataSet as following$")
     public void iShouldSeeTheRelatedDataSetAsFollowing(List<Map<String,String>> datasetNameList) throws Throwable {
-
         onPage(DataSourceDetailPage.class).isDataSetNameDisplayed(datasetNameList);
     }
 
@@ -133,8 +129,6 @@ public class DataSetStepdefs {
         onPage(RDBPreviewPage.class).inputPreviewSQL(sql);
         rdbDataSetPreviewSQL = sql;
     }
-
-
 
     @And("^I set the DataSet import mode is \"([^\"]*)\"$")
     public void iSetTheDataSetImportMode(String importMode) throws Throwable {
@@ -253,13 +247,6 @@ public class DataSetStepdefs {
     public void iModifyTheAliasOfFieldsForDataSetOnDetailPage(String fieldsAlias) throws Throwable {
         onPage(DataSetDetailsPage.class).modifyFieldAlias(fieldsAlias);
     }
-//
-//    @Then("^I should see the alias of fields for DataSet is \"([^\"]*)\"$")
-//    public void iShouldSeeTheAliasOfFieldsForDataSetIs(String fieldsAlias) throws Throwable {
-//        assertTrue(onPage(DataSetDetailsPage.class).checkFieldsAlias(fieldsAlias));
-
-//        onPage(DataSetDetailsPage.class).modifyFieldAlias(fieldsAlias);
-//    }
 
     @Then("^I should see the alias of field for DataSet is \"([^\"]*)\"$")
     public void iShouldSeeTheAliasOfFieldsForDataSetIs(String fieldAlias) throws Throwable {
@@ -299,34 +286,32 @@ public class DataSetStepdefs {
 
     @Then("^I should see the field detail displayed correctly as following$")
     public void iShouldSeeDataSetFiledDisplayedCorrectlyAsFollowing(DataTable fieldTable) throws Throwable {
-        (onPage(DataSetPage.class)).detailPanel.selectTab("field");
+        (onPage(DataSetPage.class)).detailPanel.selectTab("FIELD");
         ((DataSetPage)currentPage()).detailPanel.specificDetailPanel().verifyDetail(fieldTable);
     }
 
     @And("^I should see the preview data of DataSet displayed correctly as following$")
     public void iShouldSeeTheDataSetOfPreviewDataDisplayedCorrectlyAsFollowing(DataTable previewDataTable) throws Throwable {
-        ((DataSetPage)currentPage()).detailPanel.selectTab("dataPreview");
+        ((DataSetPage)currentPage()).detailPanel.selectTab("PREVIEW");
         ((DataSetPage)currentPage()).detailPanel.specificDetailPanel().verifyDetail(previewDataTable);
     }
 
     @And("^I should see the (?:join|union|extract) source of DataSet displayed correctly as following$")
     public void iShouldSeeSourceOfDataDisplayedCorrectlyAsFollowing(DataTable sourceOfDataTable) throws Throwable {
-//        onPage(AssociatedDataSetPage.class).clickSourceOfData();
-//        onPage(AssociatedDataSetPage.class).checkSourceOfData(sourceOfDataTable);
-        ((DataSetPage)currentPage()).detailPanel.selectTab("sourceOfData");
+        ((DataSetPage)currentPage()).detailPanel.selectTab("SOURCEOFDATA");
         ((DataSetPage)currentPage()).detailPanel.specificDetailPanel().verifyDetail(sourceOfDataTable);
     }
 
 
-    @Then("^I should see the joinDataSet displayed correctly as following$")
-    public void iShouldSeeTheJoinDataSetDisplayedCorrectlyAsFollowing(DataTable sourceOfDataTable) throws Throwable {
-        onPage(AssociatedDataSetPage.class).checkJoinDataSet(sourceOfDataTable);
-        ((DataSetPage)currentPage()).detailPanel.specificDetailPanel().verifyDetail(sourceOfDataTable);
+    @Then("^I should see the source DataSets displayed correctly as following$")
+    public void iShouldSeeTheJoinDataSetDisplayedCorrectlyAsFollowing(List<String> datasetList) throws Throwable {
+        ((DataSetPage)currentPage()).editPanel.setDataSetType(DataSetType.JOIN);
+        ((DataSetPage)currentPage()).editPanel.specificEditPanel().verifySourceDataSet(datasetList);
     }
 
-    @When("^I view the detail of join DataSet$")
+    @When("^I edit (?:join|union|extract) DataSet")
     public void iViewTheDetailOfJoinDataSet() throws Throwable {
-        onPage(DataSetDetailsPage.class).clickOtherOptionsMenuItem("showJoinDataSet");
+        ((DataSetPage)currentPage()).moreOperationPanel.selectMenu("EDITJOIN");
     }
 
 
@@ -336,12 +321,12 @@ public class DataSetStepdefs {
         assertTrue(onPage(AssociatedDataSetPage.class).checkLeftJoin());
     }
 
-    @And("^I should see the Checked field displayed correctly as following$")
-    public void iShouldSeeTheCheckedFieldDisplayedCorrectlyAsFollowing(DataTable expectedJoinTypeTable) throws Throwable {
-        onPage(AssociatedDataSetPage.class).checkCheckedField(expectedJoinTypeTable);
+    @And("^I should see the selected field of source dataset displayed correctly as following$")
+    public void iShouldSeeTheCheckedFieldDisplayedCorrectlyAsFollowing(DataTable expectedFieldTable) throws Throwable {
+        ((DataSetPage)currentPage()).editPanel.specificEditPanel().verifySourceDataSetField(expectedFieldTable);
     }
 
-    @And("^I should see the preview table of header displayed correctly as following$")
+    @And("^I should see the field of (?:join|union) dataset displayed correctly as following$")
     public void iShouldSeeThePreviewTableOfHeaderDisplayedCorrectlyAsFollowing(DataTable expectedDetailsTable) throws Throwable {
         onPage(AssociatedDataSetPage.class).nextStep();
         onPage(AssociatedDataSetPage.class).checkPreviewTableOfHeader(expectedDetailsTable);

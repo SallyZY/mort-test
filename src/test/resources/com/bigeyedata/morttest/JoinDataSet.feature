@@ -40,18 +40,25 @@ Feature: Create,view DataSet
     | ActualCost-直连      | 张莹	    | 正常  |
     | ExpectedIncome-导入  | 张莹	    | 正常  |
 
-    When I view the detail of join DataSet
-    Then I should see the joinDataSet displayed correctly as following
-    | 数据集               |
-    | ActualIncome-导入    |
-    | ActualCost-直连      |
-    | ExpectedIncome-导入  |
-    And I should see the join type displayed correctly
-    And I should see the Checked field displayed correctly as following
-     | ActualIncome-导入  | ActualCost-直连 | ExpectedIncome-导入  |
-     | SalesMonth         | SalesMonth     | SalesMonth           |
-     | ActualIncome       | ActualCost     | ExpectedIncome       |
-    And I should see the preview table of header displayed correctly as following
+
+  Scenario:  Verify the join detail of dataset
+    Given I access to "DataSet" module
+    And I expand the DataSet directory
+    And I select DataSet directory "测试关联数据集目录"
+    And I select the DataSet "三表关联-导入"
+
+    When I edit join DataSet
+    Then I should see the source DataSets displayed correctly as following
+      | 数据集               |
+      | ActualIncome-导入    |
+      | ActualCost-直连      |
+      | ExpectedIncome-导入  |
+#    And I should see the join type displayed correctly
+    And I should see the selected field of source dataset displayed correctly as following
+      | ActualIncome-导入  | ActualCost-直连 | ExpectedIncome-导入  |
+      | SalesMonth         | SalesMonth     | SalesMonth           |
+      | ActualIncome       | ActualCost     | ExpectedIncome       |
+    And I should see the field of join dataset displayed correctly as following
      | 类型 | 字段名                |
      | 数值 | ActualIncome         |
      | 文本 | 日期-ActualIncome    |

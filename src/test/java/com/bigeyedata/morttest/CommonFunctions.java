@@ -173,31 +173,6 @@ public class CommonFunctions {
         }
     }
 
-//    public static void compareDataTableByWebElement(DataTable expectedTable, List<List<WebElement>> actualTableCols) {
-//        List<List<String>> actualLists = new ArrayList();
-//        List<String> list = new ArrayList();
-//
-//        List<String> titleRow = expectedTable.raw().get(0);
-//        for (String val : titleRow) {
-//            list.add(val);
-//        }
-//        actualLists.add(list);
-//
-//        System.out.println("actualTableCols.get(0).size()" + actualTableCols.get(0).size());
-//        for (int i = 0; i < actualTableCols.get(0).size(); i++) {
-//            List<String> rowList = new ArrayList<>();
-//            for (int j = 0; j < actualTableCols.size(); j++) {
-//                rowList.add(actualTableCols.get(j).get(i).getText().trim());
-//                System.out.println("content" + actualTableCols.get(j).get(i).getText().trim());
-//            }
-//            actualLists.add(rowList);
-//        }
-//
-//        System.out.println(actualTableCols.size());
-//        System.out.println(expectedTable.raw());
-//        expectedTable.diff(actualLists);
-//    }
-
     public static void compareDataTableByWebElement(DataTable expectedTable, List<List<WebElement>> actualTableCols) {
         List<List<String>> actualLists = new ArrayList();
         List<String> list = new ArrayList();
@@ -247,7 +222,7 @@ public class CommonFunctions {
         return colLists;
     }
 
-    public static void compareDataTableOfText(DataTable expectedTable, List<List<String>> actualTableCols) {
+    public static void compareDataTableByText(DataTable expectedTable, List<List<String>> actualTableCols) {
         List<List<String>> actualLists = new ArrayList<List<String>>();
         List<String> list = new ArrayList<String>();
 

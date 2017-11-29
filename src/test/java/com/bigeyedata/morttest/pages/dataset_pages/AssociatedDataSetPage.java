@@ -313,7 +313,7 @@ public class AssociatedDataSetPage extends Page {
         colLists.add(list6);
 
 
-        compareDataTableOfText(expectedJoinTypeTable,colLists);
+        compareDataTableByText(expectedJoinTypeTable,colLists);
 
     }
 
@@ -339,7 +339,7 @@ public class AssociatedDataSetPage extends Page {
         colLists.add(typeList);
         colLists.add(fieldsList);
 
-        compareDataTableOfText(expectedDetailsTable,colLists);
+        compareDataTableByText(expectedDetailsTable,colLists);
     }
 
     public void nextStep(){
@@ -371,7 +371,7 @@ public class AssociatedDataSetPage extends Page {
         colLists.add(directoryList);
         colLists.add(dataList);
 
-        compareDataTableOfText(expectedDetailsTable,colLists);
+        compareDataTableByText(expectedDetailsTable,colLists);
 
 
     }

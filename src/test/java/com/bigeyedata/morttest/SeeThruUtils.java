@@ -18,7 +18,7 @@ public class SeeThruUtils {
         return PageFactory.initElements(webDriver, pageClassToProxy);
     }
 
-    public static <T extends Panel> T initPanel(Class<T> pageClassToProxy) {
+    public static <T extends Panel> T  initPanel(Class<T> pageClassToProxy) {
         return PageFactory.initElements(webDriver, pageClassToProxy);
     }
 

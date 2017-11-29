@@ -48,7 +48,6 @@ public class DataSetDetailPanel extends Panel {
 
     public void selectTab(String tab) throws InterruptedException {
         PanelInfo panelInfo = navBarMapInfo().get(tab);
-        System.out.println("tab:" + tab);
         dicNameDiv.click();
         CommonFunctions.waitForElementClickable(panelInfo.detailTab);
         panelInfo.detailTab.click();
@@ -67,13 +66,13 @@ public class DataSetDetailPanel extends Panel {
 
     private Map<String, PanelInfo> navBarMapInfo() {
         Map<String, PanelInfo> map = new HashMap();
-        map.put("field", new PanelInfo(fieldTab, FieldPanel.class));
-        map.put("dataPreview", new PanelInfo(dataPreviewTab, DataPreviewPanel.class));
-        map.put("report", new PanelInfo(reportTab, RelatedReportPanel.class));
-        map.put("import", new PanelInfo(importTab, ImportPanel.class));
-        map.put("sourceOfData", new PanelInfo(sourceOfDataTab, SourceOfDataPanel.class));
-        map.put("derivedDataset", new PanelInfo(derivedDataSetTab, DerivedDataSetPanel.class));
-        map.put("rowAuthority", new PanelInfo(rowAuthorityTab, RowAuthorityPanel.class));
+        map.put("FIELD", new PanelInfo(fieldTab, FieldPanel.class));
+        map.put("PREVIEW", new PanelInfo(dataPreviewTab, DataPreviewPanel.class));
+        map.put("REPORT", new PanelInfo(reportTab, RelatedReportPanel.class));
+        map.put("IMPORT", new PanelInfo(importTab, ImportPanel.class));
+        map.put("SOURCEOFDATA", new PanelInfo(sourceOfDataTab, SourceOfDataPanel.class));
+        map.put("DERIVEDDATASET", new PanelInfo(derivedDataSetTab, DerivedDataSetPanel.class));
+        map.put("ROWAUTHORITY", new PanelInfo(rowAuthorityTab, RowAuthorityPanel.class));
 
         return map;
     }
