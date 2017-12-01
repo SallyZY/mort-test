@@ -2,9 +2,10 @@ package com.bigeyedata.morttest.pages;
 
 import com.bigeyedata.morttest.pages.panels.NoticeMessagePanel;
 import com.bigeyedata.morttest.pages.panels.dataset.*;
-import com.bigeyedata.morttest.pages.panels.dataset.datasetOperator.DataSetEditPanel;
-import com.bigeyedata.morttest.pages.panels.dataset.datasetOperator.JoinDataSetEditPanel;
-import com.bigeyedata.morttest.pages.panels.dataset.datasetOperator.MoreOperationPanel;
+import com.bigeyedata.morttest.pages.panels.dataset.datasetEditor.DataSetValidatorPanel;
+import com.bigeyedata.morttest.pages.panels.dataset.datasetEditor.JoinDataSetEditPanel;
+import com.bigeyedata.morttest.pages.panels.dataset.datasetEditor.MoreOperationPanel;
+import com.bigeyedata.morttest.pages.panels.dataset.datasetEditor.UnionDataSetEditPanel;
 
 import static com.bigeyedata.morttest.SeeThruUtils.initPanel;
 
@@ -17,5 +18,6 @@ public class DataSetPage extends Page {
     public NoticeMessagePanel noticePanel = initPanel(NoticeMessagePanel.class);
     public SourceItemMenuPanel sourceItemMenuPanel = initPanel(SourceItemMenuPanel.class);
     public MoreOperationPanel moreOperationPanel = initPanel(MoreOperationPanel.class);
-    public DataSetEditPanel editPanel = initPanel(DataSetEditPanel.class);
+    public JoinDataSetEditPanel joinEditPanel = initPanel(JoinDataSetEditPanel.class);
+    public DataSetValidatorPanel validatorPanel = initPanel(DataSetValidatorPanel.class);
 }

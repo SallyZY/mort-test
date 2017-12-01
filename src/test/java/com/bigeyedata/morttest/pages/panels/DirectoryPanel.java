@@ -17,7 +17,7 @@ import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
 /**
  * Created by yingzhang on 10/05/2017.
  */
-public class DirectoryPanel extends Panel {
+public class DirectoryPanel implements Panel {
 
     @FindBy(id = "directoriesMenu")
     WebElement mainDirectoryContainerUl;

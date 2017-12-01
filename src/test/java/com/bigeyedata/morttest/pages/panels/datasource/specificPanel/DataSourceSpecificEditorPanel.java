@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Created by yingzhang on 19/10/2017.
  */
-public abstract class DataSourceSpecificEditorPanel extends Panel {
+public abstract class DataSourceSpecificEditorPanel implements Panel {
 
     public abstract DataSourceType dataSourceType();
     public abstract void createDataSource(Map<String,String> dbConfigList) throws InterruptedException;

@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 /**
  * Created by yingzhang on 16/11/2017.
  */
-public class AuthorityPanel extends Panel {
+public class AuthorityPanel implements Panel {
 
     @FindBy(xpath = "//*[@id=\"app\"]//div[text()='权限']")
     WebElement authorityTab;

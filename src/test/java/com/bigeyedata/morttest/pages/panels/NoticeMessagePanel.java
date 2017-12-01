@@ -9,7 +9,7 @@ import static com.bigeyedata.morttest.CommonFunctions.*;
 /**
  * Created by yingzhang on 17/11/2017.
  */
-public class NoticeMessagePanel extends Panel {
+public class NoticeMessagePanel implements Panel {
 
     @FindBy(xpath ="//div[@class='ant-notification-notice-message']" )
     WebElement noticeMsg;

@@ -53,7 +53,7 @@ Feature: Create,view DataSet
       | ActualIncome-导入    |
       | ActualCost-直连      |
       | ExpectedIncome-导入  |
-#    And I should see the join type displayed correctly
+    And I should see the join type displayed correctly
     And I should see the selected field of source dataset displayed correctly as following
       | ActualIncome-导入  | ActualCost-直连 | ExpectedIncome-导入  |
       | SalesMonth         | SalesMonth     | SalesMonth           |

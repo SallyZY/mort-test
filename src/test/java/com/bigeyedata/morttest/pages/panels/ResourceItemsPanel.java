@@ -15,7 +15,7 @@ import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
 /**
  * Created by yingzhang on 10/05/2017.
  */
-public class ResourceItemsPanel extends Panel {
+public class ResourceItemsPanel implements Panel {
 
     @FindBy(id = "resourceListMenuContainerMenu")
     WebElement resourceFileListContainerDiv;

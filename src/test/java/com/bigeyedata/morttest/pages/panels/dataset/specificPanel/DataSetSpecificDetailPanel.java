@@ -6,7 +6,7 @@ import cucumber.api.DataTable;
 /**
  * Created by yingzhang on 16/11/2017.
  */
-public abstract class DataSetSpecificDetailPanel extends Panel {
+public abstract class DataSetSpecificDetailPanel implements Panel {
 
     public abstract void verifyDetail(DataTable expectedDetailsTable);
 }

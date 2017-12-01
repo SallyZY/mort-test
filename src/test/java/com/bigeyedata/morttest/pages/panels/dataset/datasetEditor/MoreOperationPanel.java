@@ -1,19 +1,15 @@
-package com.bigeyedata.morttest.pages.panels.dataset.datasetOperator;
+package com.bigeyedata.morttest.pages.panels.dataset.datasetEditor;
 
 import com.bigeyedata.morttest.pages.Panel;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
-import static com.bigeyedata.morttest.SeeThruUtils.initPanel;
 
 /**
  * Created by yingzhang on 28/11/2017.
  */
-public class MoreOperationPanel extends Panel {
+public class MoreOperationPanel implements Panel {
     @FindBy(id = "dataSetOtherOperationMenu")
     WebElement otherOperationMenu;
 

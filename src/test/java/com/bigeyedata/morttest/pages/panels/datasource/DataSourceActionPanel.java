@@ -10,7 +10,7 @@ import static com.bigeyedata.morttest.SeeThruUtils.onPage;
 /**
  * Created by yingzhang on 23/11/2017.
  */
-public class DataSourceActionPanel extends Panel {
+public class DataSourceActionPanel implements Panel {
     @FindBy(id = "addNewDataSet")
     WebElement createNewDatasetButton;
 

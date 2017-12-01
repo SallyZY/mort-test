@@ -305,8 +305,7 @@ public class DataSetStepdefs {
 
     @Then("^I should see the source DataSets displayed correctly as following$")
     public void iShouldSeeTheJoinDataSetDisplayedCorrectlyAsFollowing(List<String> datasetList) throws Throwable {
-        ((DataSetPage)currentPage()).editPanel.setDataSetType(DataSetType.JOIN);
-        ((DataSetPage)currentPage()).editPanel.specificEditPanel().verifySourceDataSet(datasetList);
+//        ((DataSetPage)currentPage()).joinEditPanel
     }
 
     @When("^I edit (?:join|union|extract) DataSet")
@@ -316,14 +315,13 @@ public class DataSetStepdefs {
 
 
     @And("^I should see the join type displayed correctly$")
-    public void iShouldSeeTheJoinTypeDisplayedCorrectly() throws Throwable {
-        assertTrue(onPage(AssociatedDataSetPage.class).checkRightJoin());
-        assertTrue(onPage(AssociatedDataSetPage.class).checkLeftJoin());
+    public void iShouldSeeTheJoinTypeDisplayedCorrectly(DataTable data) throws Throwable {
+        ((DataSetPage)currentPage()).joinEditPanel.verifyJoinType(data);
     }
 
     @And("^I should see the selected field of source dataset displayed correctly as following$")
     public void iShouldSeeTheCheckedFieldDisplayedCorrectlyAsFollowing(DataTable expectedFieldTable) throws Throwable {
-        ((DataSetPage)currentPage()).editPanel.specificEditPanel().verifySourceDataSetField(expectedFieldTable);
+        ((DataSetPage)currentPage()).validatorPanel.verifySourceDataSet(expectedFieldTable);
     }
 
     @And("^I should see the field of (?:join|union) dataset displayed correctly as following$")

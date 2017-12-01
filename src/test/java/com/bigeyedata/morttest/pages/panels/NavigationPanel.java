@@ -12,7 +12,7 @@ import static com.bigeyedata.morttest.SeeThruUtils.onPage;
 /**
  * Created by yingzhang on 10/05/2017.
  */
-public class NavigationPanel extends Panel {
+public class NavigationPanel implements Panel {
 
     @FindBy(id = "datasources")
     WebElement datasourcesModuleLink;

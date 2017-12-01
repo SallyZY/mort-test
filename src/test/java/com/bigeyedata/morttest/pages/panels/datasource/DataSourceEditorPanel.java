@@ -18,7 +18,7 @@ import static com.bigeyedata.morttest.types.DataSourceType.RDB;
 /**
  * Created by yingzhang on 19/10/2017.
  */
-public class DataSourceEditorPanel extends Panel {
+public class DataSourceEditorPanel implements Panel {
 
     @FindBy(id = "addNewDataSourceLink")
     WebElement createNewDataResourceLink;

@@ -11,7 +11,7 @@ import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
 /**
  * Created by yingzhang on 17/11/2017.
  */
-public class SourceItemMenuPanel extends Panel {
+public class SourceItemMenuPanel implements Panel {
 
     @FindBy(css = "#resourceListMenuContainerMenu > li.ant-menu-item-selected.ant-menu-item > div > span > span.item-right")
     WebElement operationMenuspan;

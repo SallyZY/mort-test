@@ -10,7 +10,7 @@ import java.util.*;
 /**
  * Created by yingzhang on 09/11/2017.
  */
-public class DataSourceDetailPanel extends Panel {
+public class DataSourceDetailPanel implements Panel {
     @FindBy(xpath = "//div[@class='data-source-config']//tbody//td[position() < last()]")
     public List<WebElement> configDetailsCols;
 

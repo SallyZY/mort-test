@@ -12,7 +12,7 @@ import static com.bigeyedata.morttest.SeeThruUtils.initPanel;
 /**
  * Created by yingzhang on 20/10/2017.
  */
-public class ResourceItemOperatorPanel extends Panel {
+public class ResourceItemOperatorPanel implements Panel {
     @FindBy(css = "#resourceListMenuContainerMenu > li.ant-menu-item-selected.ant-menu-item > div > span > span.item-right")
     WebElement dataSourceMenuIcon;
 

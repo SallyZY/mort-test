@@ -14,7 +14,7 @@ import static com.bigeyedata.morttest.SeeThruUtils.initPanel;
 /**
  * Created by yingzhang on 16/11/2017.
  */
-public class DataSetDetailPanel extends Panel {
+public class DataSetDetailPanel implements Panel {
 
     @FindBy(xpath = "//*[@id=\"app\"]//div[text()='字段']")
     WebElement fieldTab;
