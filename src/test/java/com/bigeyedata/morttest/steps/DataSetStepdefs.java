@@ -302,21 +302,31 @@ public class DataSetStepdefs {
         ((DataSetPage)currentPage()).detailPanel.specificDetailPanel().verifyDetail(sourceOfDataTable);
     }
 
-    @When("^I edit (?:join|union|extract) DataSet")
+    @When("^I edit join DataSet")
     public void iViewTheDetailOfJoinDataSet() throws Throwable {
         ((DataSetPage)currentPage()).moreOperationPanel.selectMenu("EDITJOIN");
     }
 
+    @When("^I edit union DataSet")
+    public void iViewTheDetailOfUnionDataSet() throws Throwable {
+        ((DataSetPage)currentPage()).moreOperationPanel.selectMenu("EDITUNION");
+    }
 
     @And("^I should see the join type displayed correctly$")
     public void iShouldSeeTheJoinTypeDisplayedCorrectly() throws Throwable {
         ((DataSetPage)currentPage()).joinEditPanel.verifyJoinType();
     }
 
-    @And("^I should see the selected field of source dataset displayed correctly as following$")
+    @And("^I should see the selected field of join source dataset displayed correctly as following$")
     public void iShouldSeeTheCheckedFieldDisplayedCorrectlyAsFollowing(DataTable expectedFieldTable) throws Throwable {
          Thread.sleep(2000);
-        ((DataSetPage)currentPage()).validatorPanel.verifySourceDataSet(expectedFieldTable);
+        ((DataSetPage)currentPage()).joinEditPanel.verifySourceDataSet(expectedFieldTable);
+    }
+
+    @And("^I should see the selected field of union source dataset displayed correctly as following$")
+    public void iShouldSeeTheSourceDataSetdDisplayedCorrectlyAsFollowing(DataTable expectedFieldTable) throws Throwable {
+        Thread.sleep(2000);
+        ((DataSetPage)currentPage()).unionEditPanel.verifySourceDataSet(expectedFieldTable);
     }
 
     @And("^I should see the field of (?:join|union) dataset displayed correctly as following$")

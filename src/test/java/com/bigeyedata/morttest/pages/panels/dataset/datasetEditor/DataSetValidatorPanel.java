@@ -8,6 +8,8 @@ import cucumber.api.DataTable;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 import static com.bigeyedata.morttest.SeeThruUtils.initPanel;
 
 /**
@@ -28,7 +30,7 @@ public class DataSetValidatorPanel implements Panel {
         basicInfoPanel = initPanel(BasicInfoPanel.class);
     }
 
-    public void verifySourceDataSet(DataTable exceptedTable){
+    public void verifySourceDataSet(DataTable exceptedTable, List<WebElement> datasetList){
         sourceDataSetPanel.validate(exceptedTable);
     }
 

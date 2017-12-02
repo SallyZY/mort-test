@@ -228,7 +228,7 @@ public class CommonFunctions {
             List<String> rowList = new ArrayList<>();
             for (int j = 0; j < actualTableCols.size(); j++) {
                 rowList.add(actualTableCols.get(j).get(i).trim());
-                System.out.println("content" + actualTableCols.get(j).get(i).trim());
+                System.out.println("actual: " + actualTableCols.get(j).get(i).trim());
             }
             actualLists.add(rowList);
         }

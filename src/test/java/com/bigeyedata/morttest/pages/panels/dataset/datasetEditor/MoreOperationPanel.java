@@ -16,6 +16,9 @@ public class MoreOperationPanel implements Panel {
     @FindBy(id = "showJoinDataSet")
     WebElement editJoinDataSetMenuItem;
 
+    @FindBy(id = "showUnionDataSet")
+    WebElement editUnionDataSetMenuItem;
+
     @FindBy(css = "#checkSqlButton")
     WebElement viewSqlMenuItem;
 
@@ -51,6 +54,10 @@ public class MoreOperationPanel implements Panel {
             case "EDITJOIN":
                 waitForElementVisible(editJoinDataSetMenuItem);
                 editJoinDataSetMenuItem.click();
+                break;
+            case "EDITUNION":
+                waitForElementVisible(editUnionDataSetMenuItem);
+                editUnionDataSetMenuItem.click();
                 break;
         }
     }

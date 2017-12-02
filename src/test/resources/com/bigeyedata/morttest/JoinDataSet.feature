@@ -41,7 +41,7 @@ Feature: Create,view DataSet
     | ExpectedIncome-导入  | 张莹	    | 正常  |
 
 
-  Scenario:  Verify the join detail of dataset
+  Scenario:  Verify join detail
     Given I access to "DataSet" module
     And I expand the DataSet directory
     And I select DataSet directory "测试关联数据集目录"
@@ -49,10 +49,14 @@ Feature: Create,view DataSet
 
     When I edit join DataSet
 #    Then I should see the join type displayed correctly
-    And I should see the selected field of source dataset displayed correctly as following
-      | ActualIncome-导入  | ActualCost-直连 | ExpectedIncome-导入  |
-      | SalesMonth         | SalesMonth     | SalesMonth           |
-      | ActualIncome       | ActualCost     | ExpectedIncome       |
+    And I should see the selected field of join source dataset displayed correctly as following
+      | 表名                 | 字段名         |
+      | ActualIncome-导入    | SalesMonth    |
+      | ActualIncome-导入    | ActualIncome  |
+      | ActualCost-直连      | SalesMonth    |
+      | ActualCost-直连      | ActualCost    |
+      | ExpectedIncome-导入  | SalesMonth    |
+      | ExpectedIncome-导入  | ExpectedIncome|
     And I should see the field of join dataset displayed correctly as following
      | 类型 | 字段名                |
      | 数值 | ActualIncome         |

@@ -19,5 +19,6 @@ public class DataSetPage extends Page {
     public SourceItemMenuPanel sourceItemMenuPanel = initPanel(SourceItemMenuPanel.class);
     public MoreOperationPanel moreOperationPanel = initPanel(MoreOperationPanel.class);
     public JoinDataSetEditPanel joinEditPanel = initPanel(JoinDataSetEditPanel.class);
+    public UnionDataSetEditPanel unionEditPanel = initPanel(UnionDataSetEditPanel.class);
     public DataSetValidatorPanel validatorPanel = initPanel(DataSetValidatorPanel.class);
 }

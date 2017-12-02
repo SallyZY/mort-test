@@ -19,43 +19,31 @@ import static org.hamcrest.core.Is.is;
  */
 public class SourceDataSetPanel implements ValidationPanel {
 
-//    public void verifySourceDataSet(List<String> datasetList) {
-//        for (int i=0; i<datasetList.size(); i++){
-//            WebElement webElement = findByXpath("//div//span[text()='"+datasetList.get(0).toString().trim()+"']");
-//            assertThat(webElement.isDisplayed(),is(true));
-//        }
-//    }
-
-    public SourceDataSetPanel(){
-        System.out.println("SourceDataSetPanel");
-    }
-
     @Override
     public void validate(DataTable expectedTable) {
-        List<String> titleRow = expectedTable.raw().get(0);
-        for (String val : titleRow) {
-            WebElement webElement = findByXpath("//div//span[text()='" + val.trim() + "']");
-            assertThat(webElement.isDisplayed(), is(true));
-        }
-
         List<List<String>> colLists = new ArrayList<>();
-        List<WebElement> datasetList = findListByXpath("//div[@class='joining-data-set']");
+//        List<WebElement> datasetList = findListByXpath("//div[@class='joining-data-set']");
+        List<WebElement> datasetList = findListByXpath("//div[@class='union-data-sets']/div");
 
+        List<String> nameList = new ArrayList<>();
+        List<String> valueList = new ArrayList<>();
         for (WebElement element : datasetList) {
-            System.out.println(element);
             element.click();
 
-            List<WebElement> fieldList = findListByXpath("//div[@class='ant-checkbox-group']//li/label");
-            List<String> list = new ArrayList<>();
             int j = 0;
+            List<WebElement> fieldList = findListByXpath("//div[@class='ant-checkbox-group']//li/label");
             for (int i = 0; i < fieldList.size(); i++) {
                 j = i + 1;
-                WebElement checkboxElement = findByXpath("//div[@class='ant-checkbox-group']//li[" + j +"]/label/span[1]");
-                if (checkboxElement.getAttribute("class").contains("ant-checkbox-checked"))
-                    list.add(findByXpath("//div[@class='ant-checkbox-group']//li[" + j + "]/label/span[2]/span").getText());
+                WebElement checkboxElement = findByXpath("//div[@class='ant-checkbox-group']//li[" + j + "]/label/span[1]");
+                if (checkboxElement.getAttribute("class").contains("ant-checkbox-checked")) {
+                    nameList.add(element.getText());
+                    valueList.add(findByXpath("//div[@class='ant-checkbox-group']//li[" + j + "]/label/span[2]/span").getText());
+                }
             }
-            colLists.add(list);
         }
+        colLists.add(nameList);
+        colLists.add(valueList);
+
         compareDataTableByText(expectedTable,colLists);
     }
 }

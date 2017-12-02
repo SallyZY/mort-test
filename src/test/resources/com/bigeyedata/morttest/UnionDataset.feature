@@ -36,6 +36,44 @@ Feature: Verify detail of union DataSet
       | Cost_2016-直连    | 张莹  | 正常 |
 
 
+  Scenario:  Verify union detail
+    Given I access to "DataSet" module
+    And I expand the DataSet directory
+    And I select DataSet directory "测试关联数据集目录"
+    And I select the DataSet "第一季度-Union-直连"
+
+    When I edit union DataSet
+    And I should see the selected field of union source dataset displayed correctly as following
+      | 表名                 | 字段名             |
+      | 三表关联-导入         | 日期-ActualIncome  |
+      | 三表关联-导入         | ActualIncome      |
+      | 三表关联-导入         | ActualCost        |
+      | 三表关联-导入         | ExpectedIncome    |
+      | Cost_2016-直连       | SalesMonth        |
+      | Cost_2016-直连       | ExpectedCost      |
+      | Cost_2016-直连       | ActualCost        |
+      | Income_2016-导入     | SalesMonth        |
+      | Income_2016-导入     | ExpectedIncome    |
+      | Income_2016-导入     | ActualIncome      |
+#    And I should see the union rule displayed correctly as following
+#      | 结果表名          | 源表名           | 字段1        | 字段2             | 字段3        | 字段4          | 字段5          |
+#      | Union结果        | 源表             | ActualIncome | 日期-ActualCost   | ActualCost  | ExpectedIncome | ExpectedCost  |
+#      | 三表关联-导       | 三表关联-导入     | ActualIncome | 日期-ActualIncome | ActualCost  | ExpectedIncome | -             |
+#      | Cost_2016-直连   | Cost_2016-直连   | -            | SalesMonth        | ActualCost  | -              | ExpectedCost |
+#      | Income_2016-导入 | Income_2016-导入 | ActualIncome | SalesMonth        | -           | ExpectedIncome | -            |
+#    And I should see the field of union dataset displayed correctly as following
+#      | 类型 | 字段名           |
+#      | 文本 | 源表             |
+#      | 数值 | ActualIncome    |
+#      | 文本 | 日期-ActualCost  |
+#      | 数值 | ActualCost      |
+#      | 数值 | ExpectedIncome  |
+#      | 数值 | ExpectedCost    |
+#    And I should see the basic information of join dataset as following
+#      | 名称         | 目录             | 数据 |
+#      | 三表关联-导入 | 测试关联数据集目录 | 导入 |
+
+
   Scenario: Delete the union source of DataSet
     Given I access to "DataSet" module
     And I expand the DataSet directory
