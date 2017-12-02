@@ -32,7 +32,7 @@ public class NavigationPanel implements Panel {
     @FindBy(className = "menu")
     WebElement mainMenuUl;
 
-    public void accessToModule(String module) throws InterruptedException {
+    public void accessToModule(String module) {
 
         waitForElementVisible(mainMenuUl);
 

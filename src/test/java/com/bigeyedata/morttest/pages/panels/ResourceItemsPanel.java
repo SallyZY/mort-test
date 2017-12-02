@@ -50,37 +50,37 @@ public class ResourceItemsPanel implements Panel {
     @FindBy(className = "ant-modal-content")
     WebElement createAssociatedDataSetDiv;
 
-    public void createNewResource() throws InterruptedException {
+    public void createNewResource() {
 
         createNewResourceLink.click();
         CommonFunctions.waitForElementVisible(dataSourceTypeUl);
     }
 
-    public void createNewDataSetResource() throws InterruptedException {
+    public void createNewDataSetResource() {
 
         createNewResourceLink.click();
         CommonFunctions.waitForElementVisible(dataSetTypeUl);
     }
 
-    public void createAssociatedDataSet() throws InterruptedException {
+    public void createAssociatedDataSet() {
         associatedDataSetSpan.click();
         CommonFunctions.waitForElementVisible(createAssociatedDataSetDiv);
     }
 
-    public void createNewDataResource() throws InterruptedException {
+    public void createNewDataResource(){
 
         createNewDataResourceLink.click();
         CommonFunctions.waitForElementVisible(dataSourceTypeUl);
     }
 
-    public void clickResourceByName(String resourceName) throws InterruptedException {
+    public void clickResourceByName(String resourceName) {
 
         waitForElementVisible(resourceFileListContainerDiv);
         WebDriverManager.getDriver().findElement(By.xpath("//ul[@id='resourceListMenuContainerMenu']/li//span[@class='item-left']/span[text()='" + resourceName + "']")).click();
 
     }
 
-    public void clickOptionMenuOfResourceFile(String resourceName) throws InterruptedException {
+    public void clickOptionMenuOfResourceFile(String resourceName) {
 
         waitForElementVisible(resourceFileListContainerDiv);
         List<WebElement> resourceList = resourceFileListContainerDiv.findElements(By.cssSelector("div.ResourceListItem"));
@@ -99,7 +99,7 @@ public class ResourceItemsPanel implements Panel {
         }
     }
 
-    public void deleteDateSourceResourceFile() throws InterruptedException {
+    public void deleteDateSourceResourceFile() {
         CommonFunctions.waitForElementVisible(dataSourceperateionMenuIcon);
         dataSourceperateionMenuIcon.click();
         CommonFunctions.waitForElementVisible(dataSourceDeleteLi);
@@ -112,13 +112,13 @@ public class ResourceItemsPanel implements Panel {
 
 
 
-    public void locateItem(String sourceName) throws InterruptedException {
+    public void locateItem(String sourceName){
         WebElement sourceItem = findByXpath("//div/span/span[1]/span[text()='" + sourceName + "']");
         CommonFunctions.waitForElementVisible(sourceItem);
         sourceItem.click();
     }
 
-    public boolean isResourceExisted(String fileName) throws InterruptedException {
+    public boolean isResourceExisted(String fileName) {
         waitForElementVisible(resourceFileListContainerDiv);
         System.out.println("resourceListMenuContainerMenu："+resourceFileListContainerDiv.getText()+"Boolean:"+resourceFileListContainerDiv.getText().contains(fileName));
         return resourceFileListContainerDiv.getText().contains(fileName);

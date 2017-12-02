@@ -89,7 +89,7 @@ public class DataSetDetailsPage extends Page {
     @FindBy(tagName = "tbody")
     WebElement fieldViewTbody;
 
-    public void clickOtherOptionsMenuItem(String item) throws InterruptedException {
+    public void clickOtherOptionsMenuItem(String item) {
 
         waitForElementVisible(otherOperationMenu);
         otherOperationMenu.click();
@@ -117,7 +117,7 @@ public class DataSetDetailsPage extends Page {
         }
     }
 
-    public void createNewReport() throws InterruptedException {
+    public void createNewReport() {
 
         waitForElementVisible(addNewReportButton);
         addNewReportButton.click();
@@ -128,14 +128,14 @@ public class DataSetDetailsPage extends Page {
         return trList.size();
     }
 
-    public String getSqlofRDBDataSet() throws InterruptedException {
+    public String getSqlofRDBDataSet() {
 
         waitForElementVisible(viewSQLDiv);
         return viewSQLDiv.getText();
     }
 
 
-    public void reNameDataSet(String newName) throws InterruptedException {
+    public void reNameDataSet(String newName){
         CommonFunctions.mouseOverAtCoordinates(operationMenuspan,18,21);
         CommonFunctions.waitForElementVisible(operationMenuIcon);
         operationMenuIcon.click();
@@ -164,7 +164,7 @@ public class DataSetDetailsPage extends Page {
         refresh();
     }
 
-    public String getFieldAlias() throws InterruptedException {
+    public String getFieldAlias() {
         waitForElementVisible(FieldViewTable);
         return FieldViewTable.findElement(By.cssSelector("tbody > tr:nth-child(1) > td:nth-child(2)")).getText();
     }

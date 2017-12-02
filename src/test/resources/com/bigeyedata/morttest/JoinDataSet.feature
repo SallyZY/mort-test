@@ -48,12 +48,7 @@ Feature: Create,view DataSet
     And I select the DataSet "三表关联-导入"
 
     When I edit join DataSet
-    Then I should see the source DataSets displayed correctly as following
-      | 数据集               |
-      | ActualIncome-导入    |
-      | ActualCost-直连      |
-      | ExpectedIncome-导入  |
-    And I should see the join type displayed correctly
+#    Then I should see the join type displayed correctly
     And I should see the selected field of source dataset displayed correctly as following
       | ActualIncome-导入  | ActualCost-直连 | ExpectedIncome-导入  |
       | SalesMonth         | SalesMonth     | SalesMonth           |
@@ -66,7 +61,7 @@ Feature: Create,view DataSet
      | 文本 | 日期-ActualCost      |
      | 数值 | ExpectedIncome      |
      | 文本 | 日期-ExpectedIncome  |
-    And I should see the basic information of joinDataSet as following
+    And I should see the basic information of join dataset as following
      | 名称         | 目录             | 数据 |
      | 三表关联-导入 | 测试关联数据集目录 | 导入 |
 

@@ -32,29 +32,20 @@ public class CommonFunctions {
         WebDriverManager.getDriver().findElement(By.xpath("//ul[@class='ant-select-tree']/li/span[2]/span[text()='" + directoryName + "']")).click();
     }
 
-    public static void waitForElementVisible(WebElement element) throws InterruptedException {
-
-//        Thread.sleep(Hooks.getThreadSleepTime());
+    public static void waitForElementVisible(WebElement element) {
         new WebDriverWait(WebDriverManager.getDriver(), Hooks.getTimeOutInSeconds()).until(ExpectedConditions.visibilityOf(element));
     }
 
-    public static void waitForElementInvisible(WebElement element) throws InterruptedException {
-
-//        Thread.sleep(Hooks.getThreadSleepTime());
+    public static void waitForElementInvisible(WebElement element) {
         new WebDriverWait(WebDriverManager.getDriver(), Hooks.getTimeOutInSeconds()).until(ExpectedConditions.invisibilityOf(element));
     }
 
-    public static void waitForElementVisibleAndLocated(By by) throws InterruptedException {
-
-//        Thread.sleep(Hooks.getThreadSleepTime());
+    public static void waitForElementVisibleAndLocated(By by) {
         new WebDriverWait(WebDriverManager.getDriver(), Hooks.getTimeOutInSeconds()).until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
-    public static void waitForElementClickable(WebElement element) throws InterruptedException {
-
-//        Thread.sleep(Hooks.getThreadSleepTime());
+    public static void waitForElementClickable(WebElement element) {
         new WebDriverWait(WebDriverManager.getDriver(), Hooks.getTimeOutInSeconds()).until(ExpectedConditions.elementToBeClickable(element));
-
     }
 
     public static void focusElement(WebElement element) {

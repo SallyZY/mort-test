@@ -87,13 +87,13 @@ public class DirectoryPanel implements Panel {
         CommonFunctions.clickSavedDirectoryByName(directoryName);
     }
 
-    public void createDirectory() throws InterruptedException {
+    public void createDirectory() {
         waitForElementVisible(createDirectoryIcon);
         createDirectoryIcon.click();
     }
 
 
-    public void selectRootDirectory(String directory) throws InterruptedException {
+    public void selectRootDirectory(String directory) {
         waitForElementVisible(parentDirectorySelectorSpan);
         parentDirectorySelectorSpan.click();
         if (directory.equals("根目录")) {

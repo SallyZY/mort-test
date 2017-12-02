@@ -45,7 +45,7 @@ public class DataSourceDetailPage extends Page {
 
 
 
-    public boolean isDataSetNameDisplayed(List<Map<String,String>> datasetNameList) throws InterruptedException {
+    public boolean isDataSetNameDisplayed(List<Map<String,String>> datasetNameList) {
 
         waitForElementVisible(relatedDataSetTable);
 
@@ -63,7 +63,7 @@ public class DataSourceDetailPage extends Page {
         onPage(DataSetPage.class);
     }
 
-    public void goToRDBEditPage(String title) throws InterruptedException {
+    public void goToRDBEditPage(String title) {
         WebDriver driver = WebDriverManager.getDriver();
         WebElement dataSource = driver.findElement(By.xpath("//div/span/span[1]/span[text()='" + title + "']"));
         CommonFunctions.waitForElementVisible(dataSource);
@@ -77,7 +77,7 @@ public class DataSourceDetailPage extends Page {
     }
 
 
-    public String getRDBParameter() throws InterruptedException {
+    public String getRDBParameter() {
         CommonFunctions.waitForElementVisible(dataSourceDetailInfoTbody);
         return dataSourceDetailInfoTbody.getText();
     }

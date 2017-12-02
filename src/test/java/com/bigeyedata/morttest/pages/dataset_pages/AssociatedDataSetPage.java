@@ -378,7 +378,7 @@ public class AssociatedDataSetPage extends Page {
 
 
 
-    public void deleteDataSet() throws InterruptedException {
+    public void deleteDataSet()  {
         CommonFunctions.mouseOverAtCoordinates(operationMenuspan,18,21);
         CommonFunctions.waitForElementVisible(operationMenuIcon);
         operationMenuIcon.click();

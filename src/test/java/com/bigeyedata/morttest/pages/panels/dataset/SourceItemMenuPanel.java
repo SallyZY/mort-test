@@ -26,7 +26,7 @@ public class SourceItemMenuPanel implements Panel {
     WebElement confirmButton;
 
 
-    public void deleteDataSet() throws InterruptedException {
+    public void deleteDataSet() {
         mouseOverAtCoordinates(operationMenuspan,18,21);
         waitForElementVisible(operationMenuIcon);
         operationMenuIcon.click();

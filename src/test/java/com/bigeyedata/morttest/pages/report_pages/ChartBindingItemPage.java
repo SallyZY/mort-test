@@ -21,7 +21,7 @@ public class ChartBindingItemPage extends Page {
 
     WebDriver webDriver = WebDriverManager.getDriver();
 
-    public void deleteBindingItem(String itemName) throws InterruptedException {
+    public void deleteBindingItem(String itemName){
 
         waitForElementVisible(chartSettingDiv);
         String bindingItemID = getBindingItemIDByItemName(itemName);

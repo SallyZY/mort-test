@@ -43,7 +43,7 @@ public class RDBDataSourceEditorPanel extends DataSourceSpecificEditorPanel {
     WebElement dataSourceTypeSelect;
 
 
-    private void selectDataSourceType(String typeName) throws InterruptedException {
+    private void selectDataSourceType(String typeName) {
         dataSourceTypeSelect.click();
         WebElement dataSourceType = findByXpath("//div/ul[@class='ant-select-dropdown-menu ant-select-dropdown-menu-vertical  ant-select-dropdown-menu-root']/li[text()='" + typeName + "']");
         CommonFunctions.waitForElementVisible(dataSourceType);

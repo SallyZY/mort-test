@@ -113,7 +113,7 @@ public class UserDetailPage extends Page {
 
     }
 
-    public String getUserBaseInfo() throws InterruptedException {
+    public String getUserBaseInfo() {
 
         waitForElementVisible(userBaseInfoTab);
         userBaseInfoTab.click();
@@ -136,7 +136,7 @@ public class UserDetailPage extends Page {
         createGroupButton.click();
     }
 
-    public String getGroupInfo() throws InterruptedException {
+    public String getGroupInfo() {
 
         waitForElementVisible(groupInfoTab);
 //        groupInfoTab.click();
@@ -147,7 +147,7 @@ public class UserDetailPage extends Page {
         createRoleButton.click();
     }
 
-    public String getRoleInfo() throws InterruptedException {
+    public String getRoleInfo() {
 
         waitForElementVisible(roleInfoTab);
 //        roleInfoTab.click();

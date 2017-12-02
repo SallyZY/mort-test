@@ -42,12 +42,12 @@ public class DataSourceEditorPanel implements Panel {
 
     private DataSourceSpecificEditorPanel editorPanel;
 
-    public void createNewDataResource() throws InterruptedException {
+    public void createNewDataResource(){
         createNewDataResourceLink.click();
         CommonFunctions.waitForElementVisible(dataSourceTypeUl);
     }
 
-    public void selectDataSourceType(DataSourceType selectType) throws InterruptedException {
+    public void selectDataSourceType(DataSourceType selectType)  {
         dataSourceType = selectType;
 
         PanelInfo panelInfo = mapInfo().get(selectType);

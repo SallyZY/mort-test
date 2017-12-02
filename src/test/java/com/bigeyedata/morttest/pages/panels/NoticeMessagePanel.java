@@ -17,7 +17,7 @@ public class NoticeMessagePanel implements Panel {
     @FindBy(xpath = "//span[@class='ant-notification-notice-close-x']")
     WebElement noticeCloseIcon;
 
-    public String getNoticeMessage() throws InterruptedException {
+    public String getNoticeMessage()  {
         waitForElementVisible(noticeMsg);
         String msg = noticeMsg.getText();
         noticeCloseIcon.click();

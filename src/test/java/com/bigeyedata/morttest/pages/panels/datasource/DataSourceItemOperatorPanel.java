@@ -14,7 +14,7 @@ import static com.bigeyedata.morttest.SeeThruUtils.initPanel;
 public class DataSourceItemOperatorPanel extends ResourceItemOperatorSpecificPanel {
 
     @Override
-    public void selectMenuItem(String itemName) throws InterruptedException {
+    public void selectMenuItem(String itemName) {
         switch (itemName){
             case "edit":
                 itemName="编辑";

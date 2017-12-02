@@ -142,7 +142,7 @@ public class ChartSettingPage extends Page {
 
     private WebDriver webDriver =WebDriverManager.getDriver();
 
-    public void gotoSettingPanel(String panelName) throws InterruptedException {
+    public void gotoSettingPanel(String panelName) {
 
         switch (panelName){
             case "binding":

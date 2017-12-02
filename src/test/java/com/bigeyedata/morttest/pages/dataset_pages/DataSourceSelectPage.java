@@ -16,7 +16,7 @@ public class DataSourceSelectPage extends Page {
     @FindBy(css = "button.ant-btn.ant-btn-primary")
     WebElement nextStepButton;
 
-    public void gotoNextStep() throws InterruptedException {
+    public void gotoNextStep() {
         CommonFunctions.waitForElementVisible(nextStepButton);
         nextStepButton.click();
         waitForElementVisibleAndLocated(By.id("addDataSetPreview"));

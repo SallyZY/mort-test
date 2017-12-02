@@ -72,7 +72,7 @@ public class ReportWorkSpacePage extends Page {
         reportSaveAsMenuItem.click();
     }
 
-    public void inputReportSavedName(String reportName) throws InterruptedException {
+    public void inputReportSavedName(String reportName){
 
         waitForElementVisible(reportSaveDialogDiv);
         reportSavedNameInput.clear();
@@ -85,7 +85,7 @@ public class ReportWorkSpacePage extends Page {
         reportSaveDialogDiv.findElement(By.cssSelector("div:nth-child(4) > a:nth-child(2)")).click();
     }
 
-    public void gotoReportPageByName(String name) throws InterruptedException {
+    public void gotoReportPageByName(String name) {
 
         pageDiv.findElement(By.xpath("//span[text()='" + name + "']")).click();
         waitForElementVisibleAndLocated(By.className("Chart"));

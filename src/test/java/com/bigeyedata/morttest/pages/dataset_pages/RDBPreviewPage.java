@@ -82,7 +82,7 @@ public class RDBPreviewPage extends Page {
 
     }
 
-    public void inputPreviewSQL(String sql) throws InterruptedException {
+    public void inputPreviewSQL(String sql){
 
         CommonFunctions.waitForElementVisible(sqlTexDiv);
         sqlTextarea.clear();
@@ -108,7 +108,7 @@ public class RDBPreviewPage extends Page {
     }
 
 
-    public  void setCustomizeImportDate() throws InterruptedException {
+    public  void setCustomizeImportDate(){
 
         String[] str=CommonFunctions.customizeImportDate().split("\\s+");
 
@@ -126,7 +126,7 @@ public class RDBPreviewPage extends Page {
 
 
 
-    public boolean isFieldTypeOfDataSetEditable()throws InterruptedException {
+    public boolean isFieldTypeOfDataSetEditable() {
 
         CommonFunctions.waitForElementVisibleAndLocated(By.cssSelector("table"));
         List<WebElement> fieldTypeList = FieldAttributeTable.findElements(By.xpath("//div[@class='DataSetFieldsEditorField']//select"));
@@ -134,7 +134,7 @@ public class RDBPreviewPage extends Page {
         return fieldTypeList.size() > 0 ? true : false;
     }
 
-    public boolean isFieldTypeSelectDisplayed()throws InterruptedException {
+    public boolean isFieldTypeSelectDisplayed() {
 
         CommonFunctions.waitForElementVisibleAndLocated(By.cssSelector("table"));
         List<WebElement> fieldTypeList = FieldAttributeTable.findElements(By.xpath("//div[@class='DataSetFieldsEditorField']/div/div/span"));
@@ -163,7 +163,7 @@ public class RDBPreviewPage extends Page {
         return !dataSetDirectorySpan.isDisplayed();
     }
 
-    public int countDisabledFieldsAlias()throws InterruptedException {
+    public int countDisabledFieldsAlias() {
 
         CommonFunctions.waitForElementVisibleAndLocated(By.cssSelector("#addDataSetPreview > div > div > div > div > div > div > div > table"));
 
@@ -181,7 +181,7 @@ public class RDBPreviewPage extends Page {
     }
 
 
-    public int countDisabledFieldsType()throws InterruptedException {
+    public int countDisabledFieldsType(){
 
         CommonFunctions.waitForElementVisibleAndLocated(By.cssSelector("#addDataSetPreview > div > div > div > div > div > div > div > table"));
 

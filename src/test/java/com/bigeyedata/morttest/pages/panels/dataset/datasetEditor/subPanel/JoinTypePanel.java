@@ -31,6 +31,8 @@ public class JoinTypePanel implements ValidationPanel {
 
     @Override
     public void validate(DataTable data) {
-
+        List<WebElement> joinTypeList = findListByXpath("//div[@class='relation-icon']/*[name()='svg']");
+        joinTypeList.get(0).click();
+        Boolean flg = findByXpath("//div[@class='ant-radio-group ant-radio-group-large']/label[3]").getAttribute("class" ).contains("checked");
     }
 }

@@ -87,7 +87,7 @@ public class DatasourceConfigPage extends Page {
     }
 
 
-    public void selectESType() throws InterruptedException {
+    public void selectESType() {
         CommonFunctions.waitForElementVisible(ESTypeLink);
         ESTypeLink.click();
     }
@@ -137,7 +137,7 @@ public class DatasourceConfigPage extends Page {
 
     }
 
-    private void selectDataSourceType(String typeName) throws InterruptedException {
+    private void selectDataSourceType(String typeName)  {
 
         dataSourceTypeSelect.click();
         WebElement dataSourceType = WebDriverManager.getDriver().findElement(By.xpath("//div/ul[@class='ant-select-dropdown-menu ant-select-dropdown-menu-vertical  ant-select-dropdown-menu-root']/li[text()='" + typeName + "']"));

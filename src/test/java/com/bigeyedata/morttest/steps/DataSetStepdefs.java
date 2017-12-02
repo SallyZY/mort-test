@@ -302,12 +302,6 @@ public class DataSetStepdefs {
         ((DataSetPage)currentPage()).detailPanel.specificDetailPanel().verifyDetail(sourceOfDataTable);
     }
 
-
-    @Then("^I should see the source DataSets displayed correctly as following$")
-    public void iShouldSeeTheJoinDataSetDisplayedCorrectlyAsFollowing(List<String> datasetList) throws Throwable {
-//        ((DataSetPage)currentPage()).joinEditPanel
-    }
-
     @When("^I edit (?:join|union|extract) DataSet")
     public void iViewTheDetailOfJoinDataSet() throws Throwable {
         ((DataSetPage)currentPage()).moreOperationPanel.selectMenu("EDITJOIN");
@@ -315,24 +309,25 @@ public class DataSetStepdefs {
 
 
     @And("^I should see the join type displayed correctly$")
-    public void iShouldSeeTheJoinTypeDisplayedCorrectly(DataTable data) throws Throwable {
-        ((DataSetPage)currentPage()).joinEditPanel.verifyJoinType(data);
+    public void iShouldSeeTheJoinTypeDisplayedCorrectly() throws Throwable {
+        ((DataSetPage)currentPage()).joinEditPanel.verifyJoinType();
     }
 
     @And("^I should see the selected field of source dataset displayed correctly as following$")
     public void iShouldSeeTheCheckedFieldDisplayedCorrectlyAsFollowing(DataTable expectedFieldTable) throws Throwable {
+         Thread.sleep(2000);
         ((DataSetPage)currentPage()).validatorPanel.verifySourceDataSet(expectedFieldTable);
     }
 
     @And("^I should see the field of (?:join|union) dataset displayed correctly as following$")
-    public void iShouldSeeThePreviewTableOfHeaderDisplayedCorrectlyAsFollowing(DataTable expectedDetailsTable) throws Throwable {
-        onPage(AssociatedDataSetPage.class).nextStep();
-        onPage(AssociatedDataSetPage.class).checkPreviewTableOfHeader(expectedDetailsTable);
+    public void iShouldSeeThePreviewTableOfHeaderDisplayedCorrectlyAsFollowing(DataTable expectedTable) throws Throwable {
+        ((DataSetPage)currentPage()).validatorPanel.nextStep();
+        ((DataSetPage)currentPage()).validatorPanel.verifyPreviewFiled(expectedTable);
     }
 
-    @And("^I should see the basic information of joinDataSet as following$")
+    @And("^I should see the basic information of (?:join|union|) dataset as following$")
     public void iShouldSeeTheBasicInformationOfJoinDataSetAsFollowing(DataTable expectedDetailsTable) throws Throwable {
-        onPage(AssociatedDataSetPage.class).nextStep();
+        ((DataSetPage)currentPage()).validatorPanel.nextStep();
         onPage(AssociatedDataSetPage.class).checkBaseInfo(expectedDetailsTable);
     }
 
