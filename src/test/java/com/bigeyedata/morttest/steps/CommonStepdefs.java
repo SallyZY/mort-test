@@ -4,7 +4,6 @@ import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.Hooks;
 import com.bigeyedata.morttest.pages.DataSetPage;
 import com.bigeyedata.morttest.pages.panels.LoginPage;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -43,7 +42,7 @@ public class CommonStepdefs {
         String directoryName = sourceInfo.get(0).get("DirectoryName").toString();
         String sourceFileName = sourceInfo.get(0).get("ResourceFileName").toString();
 
-        currentPage().dirPanel.clickDirectoryByName(directoryName);
+        currentPage().dirContainerPanel.clickDirectoryByName(directoryName);
         currentPage().resourcePanel.clickResourceByName(sourceFileName);
     }
 
@@ -59,12 +58,12 @@ public class CommonStepdefs {
 
     @And("^I select (?:DataSource|DataSet|Report) directory \"([^\"]*)\"$")
     public void iSelectDirectory(String directoryName) throws Throwable {
-        currentPage().dirPanel.clickDirectoryByName(directoryName);
+        currentPage().dirContainerPanel.clickDirectoryByName(directoryName);
     }
 
     @And("^I select the directory \"([^\"]*)\"$")
     public void iSelectTheDirectory(String dicName) throws Throwable {
-        currentPage().dirPanel.clickDirectoryByName(dicName);
+        currentPage().dirContainerPanel.clickDirectoryByName(dicName);
     }
 
     @When("^I select the (?:DataSource|DataSet|Report) \"([^\"]*)\"$")
@@ -74,7 +73,7 @@ public class CommonStepdefs {
 
     @And("^I expand the (?:DataSource|DataSet|Report) directory$")
     public void iExpandTheDataSourceDirectory() throws Throwable {
-        currentPage().dirPanel.clickDicExpandIcon();
+        currentPage().dirContainerPanel.clickDicExpandIcon();
     }
 
     @Then("^I should see the notice message \"([^\"]*)\"$")

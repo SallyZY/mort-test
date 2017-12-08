@@ -4,7 +4,6 @@ import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.pages.DataSetPage;
 import com.bigeyedata.morttest.pages.dataset_pages.*;
 import com.bigeyedata.morttest.pages.datasource_pages.DataSourceDetailPage;
-import com.bigeyedata.morttest.types.DataSetType;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -66,7 +65,7 @@ public class DataSetStepdefs {
 
     @And("^I select the saved directory of DataSet is \"([^\"]*)\"$")
     public void iSelectTheSavedDirectoryOfDatasetIs(String directoryName) throws Throwable {
-        currentPage().dirPanel.selectSavedDirectoryByName(directoryName);
+        currentPage().dirContainerPanel.selectSavedDirectoryByName(directoryName);
     }
 
     @When("^I save the new DataSet$")

@@ -5,37 +5,36 @@ Feature: Create And Edit And Delete directory
       | UserName                 | Password     |
       | zhangy@fullsample.com    | password123  |
 
-#  Scenario: Check validation message when create user with input is null
-
 
   Scenario:Create directory
     Given I access to "DataSource" module
     And I expand the DataSource directory
-    And I create new directory
+    When I want to create a new directory
     And I select the parent directory "根目录"
-    And I input directory name is "测试第一级目录1"
+    And I input directory name is "测试第一级目录_1"
     When I save the new directory
-    Then I should see the directory "测试第一级目录1" displayed correctly in directory list
+    Then I should see the directory "测试第一级目录_1" displayed correctly in directory Container
 
-
-    When I create new directory
-#    And I select the parent directory "测试第一级目录1"
-    And I input directory name is "测试第二级目录1"
+    When I select favorite directory
+    And I want to create a new directory
+    And I select the parent directory "测试第一级目录_1"
+    And I input directory name is "测试第二级目录_1"
     And I save the new directory
-    Then I should see the directory "测试第二级目录1" displayed correctly in directory list
+    Then I should see the directory "测试第二级目录_1" displayed correctly in directory Container
 
-    When I select DataSource Multi-Level Directory "测试第一级目录1"
-    And I create new directory
-#    And I select the parent directory "测试第一级目录1"
-    And I input directory name is "测试第二级目录2"
+    When I select favorite directory
+    And I want to create a new directory
+    And I select the parent directory "测试第一级目录_1"
+    And I input directory name is "测试第二级目录_2"
     And I save the new directory
-    Then I should see the directory "测试第二级目录2" displayed correctly in directory list
+    Then I should see the directory "测试第二级目录_2" displayed correctly in directory Container
 
-    When I create new directory
+    When I select favorite directory
+    And I want to create a new directory
     And I select the parent directory "根目录"
-    And I input directory name is "测试第一级目录2"
+    And I input directory name is "测试第一级目录_2"
     And I save the new directory
-    Then I should see the directory "测试第一级目录2" displayed correctly in directory list
+    Then I should see the directory "测试第一级目录_2" displayed correctly in directory Container
 
 
   Scenario: View the resources in the directory

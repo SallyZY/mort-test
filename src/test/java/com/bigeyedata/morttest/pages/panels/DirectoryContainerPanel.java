@@ -11,16 +11,20 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
+import static com.bigeyedata.morttest.CommonFunctions.findByXpath;
 import static com.bigeyedata.morttest.CommonFunctions.waitForElementClickable;
 import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
 
 /**
  * Created by yingzhang on 10/05/2017.
  */
-public class DirectoryPanel implements Panel {
+public class DirectoryContainerPanel implements Panel {
 
     @FindBy(id = "directoriesMenu")
     WebElement mainDirectoryContainerUl;
+
+    @FindBy(id="directoryContainerFavorite")
+    WebElement favoriteDir;
 
     @FindBy(css = "div.add-directory-btn > span:nth-child(2)")
     WebElement addDirectoryButton;
@@ -40,15 +44,8 @@ public class DirectoryPanel implements Panel {
     @FindBy(xpath = "//div/span[@title='数据源目录']/i[@title='新建目录']")
     WebElement createDirectoryIcon;
 
-//    @FindBy(xpath = "//form//div//span[text()='请选择目录']")
-    @FindBy(xpath = "//form//div//span")
-    WebElement parentDirectorySelectorSpan;
-
     @FindBy(xpath = "//div//span[text()='根目录']")
     WebElement rootDirectorySpan;
-
-    @FindBy(id = "name")
-    WebElement directoryNameInput;
 
     @FindBy(xpath = "//div/button[2]/span")
     WebElement confirmButton;
@@ -87,59 +84,27 @@ public class DirectoryPanel implements Panel {
         CommonFunctions.clickSavedDirectoryByName(directoryName);
     }
 
-    public void createDirectory() {
-        waitForElementVisible(createDirectoryIcon);
-        createDirectoryIcon.click();
-    }
-
-
-    public void selectRootDirectory(String directory) {
-        waitForElementVisible(parentDirectorySelectorSpan);
-        parentDirectorySelectorSpan.click();
-        if (directory.equals("根目录")) {
-            waitForElementVisible(rootDirectorySpan);
-            rootDirectorySpan.click();
-        }else {
-            List<WebElement> directoryList = directoryListul.findElements(By.tagName("li")) ;
-            for (int i=0;i<directoryList.size();i++){
-                String directory1 = directoryList.get(i).getText();
-                if(directory1.equals(directory)){
-                    int n =i +1;
-                    WebDriverManager.getDriver().findElement(By.xpath("//div/ul/li/ul/li[" + n + "]/span[2]/span"));
-                    break;
-                }else{
-                    System.out.println("false");
-                }
-            }
-        }
-    }
-
-    public void setDirectoryName(String directoryName) throws InterruptedException {
-        waitForElementVisible(directoryNameInput);
-        directoryNameInput.clear();
-        directoryNameInput.sendKeys(directoryName);
-    }
-
-    public void saveDirectory(){
-        confirmButton.click();
-    }
-
-    public boolean getDirectory(String directoryName) throws InterruptedException {
+    public Boolean isDirNameDisplayed(String dirName) {
         waitForElementVisible(mainDirectoryContainerUl);
-        List<WebElement> directoryList = mainDirectoryContainerUl.findElements(By.tagName("li")) ;
-//        System.out.println(directoryList.size());
-        boolean flg = false;
-        for (int i=0;i<directoryList.size();i++){
-            String directory = directoryList.get(i).getText();
-//            System.out.println(directory);
-            if(directory.equals(directoryName)){
-                flg = true;
-                break;
-            }else{
-                System.out.println("false");
-            }
-        }
-        return flg;
+        return findByXpath("//ul[@id='directoriesMenu']/li//span[@title='"+dirName+"']").isDisplayed();
+//        List<WebElement> directoryList = mainDirectoryContainerUl.findElements(By.tagName("li")) ;
+////        System.out.println(directoryList.size());
+//        boolean flg = false;
+//        for (int i=0;i<directoryList.size();i++){
+//            String directory = directoryList.get(i).getText();
+////            System.out.println(directory);
+//            if(directory.equals(directoryName)){
+//                flg = true;
+//                break;
+//            }else{
+//                System.out.println("false");
+//            }
+//        }
+//        return flg;
+    }
+
+    public void clickFavoriteDir(){
+        favoriteDir.click();
     }
 
     public void clickMultiLevelDirectoryByName(String directoryName) throws InterruptedException {

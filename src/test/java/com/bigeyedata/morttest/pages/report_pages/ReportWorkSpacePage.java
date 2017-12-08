@@ -62,7 +62,7 @@ public class ReportWorkSpacePage extends Page {
     @FindBy(css = "div.ant-modal-wrap > div > div.ant-modal-content")
     WebElement saveReportConfirmDiv;
 
-    @FindBy(css = "div.ant-confirm-btns.clearfix > button:nth-child(1)")
+    @FindBy(css = "div.ant-confirmCreatDir-btns.clearfix > button:nth-child(1)")
     WebElement doNotSaveButton;
 
     public void clickSaveAsMenu() throws InterruptedException {

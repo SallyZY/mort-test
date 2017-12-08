@@ -84,7 +84,7 @@ public class ReportStepdefs {
         onPage(ReportWorkSpacePage.class).clickSaveAsMenu();
         onPage(ReportWorkSpacePage.class).inputReportSavedName(reportInfoList.get(0).get("ReportName").toString());
 
-        currentPage().dirPanel.selectSavedDirectoryByName(reportInfoList.get(0).get("Directory").toString());
+        currentPage().dirContainerPanel.selectSavedDirectoryByName(reportInfoList.get(0).get("Directory").toString());
 
         onPage(ReportWorkSpacePage.class).clickSaveReportButtonOnDialog();
     }

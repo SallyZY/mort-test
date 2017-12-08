@@ -38,7 +38,7 @@ public class ResourceItemsPanel implements Panel {
     @FindBy(xpath = "//div/ul/li[text()='删除']")
     WebElement dataSourceDeleteLi;
 
-    @FindBy(css = " div.ant-confirm-btns > button.ant-btn.ant-btn-primary.ant-btn-lg > span")
+    @FindBy(css = " div.ant-confirmCreatDir-btns > button.ant-btn.ant-btn-primary.ant-btn-lg > span")
     WebElement confirmButton;
 
     @FindBy(id = "newDataSetDropDownMenu")

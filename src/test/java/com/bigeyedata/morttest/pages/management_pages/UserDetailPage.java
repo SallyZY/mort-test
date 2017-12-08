@@ -50,7 +50,7 @@ public class UserDetailPage extends Page {
     @FindBy(tagName = "tbody")
     WebElement roleInfoTab;
 
-    @FindBy(css = "div.ant-confirm-btns > button.ant-btn.ant-btn-primary.ant-btn-lg > span")
+    @FindBy(css = "div.ant-confirmCreatDir-btns > button.ant-btn.ant-btn-primary.ant-btn-lg > span")
     WebElement deleteConfirmButton;
 
     @FindBy(css = "#app > div > div.DefaultLayout > div.header > ul.rightBar.pull-right > li.user > a > div > i")
