@@ -24,8 +24,7 @@ public class JoinDataSetEditPanel extends DataSetValidatorPanel {
         joinTypePanel = initPanel(JoinTypePanel.class);
     }
 
-    public void verifyJoinType(){
-        DataTable data = null;
+    public void verifyJoinType(DataTable data){
         joinTypePanel.validate(data);
     }
 
@@ -55,4 +54,7 @@ public class JoinDataSetEditPanel extends DataSetValidatorPanel {
         compareDataTableByText(exceptedTable,colLists);
     }
 
+    public void verifyJoinLinField(DataTable data){
+        joinTypePanel.getJoinLink(data);
+    }
 }

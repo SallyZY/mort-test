@@ -207,7 +207,7 @@ Feature: Create,view DataSet
     And I should see the number of DataSet fields is "2"
 
     When I click "ModifySQL" item from other operation dropdown menu
-    And I can NOT modify the DataSet name and saved directory
+#    And I can NOT modify the DataSet name and saved directory
     And I input SQL is "select CDate,STATE_DATE,PROVINCE,SALES_CHANNEL_NAME,PREM from bank_records"
     And I preview the query result of SQL
 #    And I can't modify the alias and the type of previous data

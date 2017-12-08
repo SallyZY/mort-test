@@ -57,6 +57,15 @@ Feature: Create,view DataSet
       | ActualCost-直连      | ActualCost    |
       | ExpectedIncome-导入  | SalesMonth    |
       | ExpectedIncome-导入  | ExpectedIncome|
+    And I should see the join type displayed correctly as following
+      | Join Type  |
+      | Right Join |
+      | Left Join  |
+
+    And I should see the link condition displayed as following
+      | Left Dataset | Right DataSet |
+      | SalesMonth   | SalesMonth    |
+      | SalesMonth   | SalesMonth    |
     And I should see the field of join dataset displayed correctly as following
      | 类型 | 字段名                |
      | 数值 | ActualIncome         |

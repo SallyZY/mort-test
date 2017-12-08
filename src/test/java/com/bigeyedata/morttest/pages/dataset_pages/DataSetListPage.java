@@ -40,7 +40,7 @@ public class DataSetListPage extends Page {
 
         waitForElementVisible(dataSetListDiv);
 
-        List<WebElement> rows = dataSetListDiv.findElements(By.xpath("ul/li//span[@class='dataSet-title']/span[@class='dataSet-name ellipsis']"));
+        List<WebElement> rows = dataSetListDiv.findElements(By.xpath("ul/li//span[@class='title-left']/span[@class='name ellipsis']"));
 
         for (int i=0;i<rows.size();i++){
             String text = rows.get(i).getText();

@@ -36,12 +36,12 @@ Feature:Create user,user group,role
 
   Scenario: Create a new Role, UserGroup and User
     Given I access to "Management" module
-    And I select role menuItem
-    And I click create new role button on role page
-    And I input role name is "测试角色_用户"
-    And I grant all function permissions
-    When I create the role
-    Then I should see the role name is "测试角色_用户"
+#    And I select role menuItem
+#    And I click create new role button on role page
+#    And I input role name is "测试角色_用户"
+#    And I grant all function permissions
+#    When I create the role
+#    Then I should see the role name is "测试角色_用户"
 
     When I select group menuItem
     And I click create new group button on group page

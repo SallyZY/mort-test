@@ -15,7 +15,7 @@ Feature: Create And Edit And Delete directory
     And I select the parent directory "根目录"
     And I input directory name is "测试第一级目录1"
     When I save the new directory
-    Then I should see the directory "测试第一级目录1" displayed correctly in directory list
+#    Then I should see the directory "测试第一级目录1" displayed correctly in directory list
 
 
     When I create new directory

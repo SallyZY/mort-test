@@ -6,6 +6,7 @@ import com.bigeyedata.morttest.pages.dataset_pages.*;
 import com.bigeyedata.morttest.pages.datasource_pages.DataSourceDetailPage;
 import com.bigeyedata.morttest.types.DataSetType;
 import cucumber.api.DataTable;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -28,7 +29,7 @@ public class DataSetStepdefs {
 
     List<Map<String, String>> savedFieldAliasList;
     List<Map<String, String>> savedFieldTypeList;
-    String rdbDataSetPreviewSQL ="";
+    String rdbDataSetPreviewSQL = "";
 
     @Given("^I click create new DataSet button on DataSource page$")
     public void iClickCreateNewDataSetButtonOnDatasourcePage() throws Throwable {
@@ -45,7 +46,7 @@ public class DataSetStepdefs {
     @And("^I modify the type of fields for DataSet as following$")
     public void iModifyTheTypeOfFieldsForDataSetAsFollowing(List<Map<String, String>> fieldTypeList) throws Throwable {
         onPage(FieldEditPage.class).setFieldsType(fieldTypeList);
-        savedFieldTypeList =fieldTypeList;
+        savedFieldTypeList = fieldTypeList;
     }
 
     @And("^I click date fields preview table$")
@@ -76,24 +77,24 @@ public class DataSetStepdefs {
 
     @Then("^I should see the (?:DataSource|DataSet|Report) \"([^\"]*)\" displayed in directory$")
     public void iShouldSeeThereSourceFileDisplayedInDirectory(String datasetName) throws Throwable {
-        assertThat(currentPage().resourcePanel.isResourceExisted(datasetName),is(true));
+        assertThat(currentPage().resourcePanel.isResourceExisted(datasetName), is(true));
     }
 
     @And("^I should see the number of DataSet fields is \"([^\"]*)\"$")
     public void iShouldSeeTheNumberOfDatasetFieldsIs(String fieldCount) throws Throwable {
-        assertThat(onPage(DataSetDetailsPage.class).getFieldCountOfDataset(),is(Integer.parseInt(fieldCount)));
+        assertThat(onPage(DataSetDetailsPage.class).getFieldCountOfDataset(), is(Integer.parseInt(fieldCount)));
     }
 
     @And("^I should see the import record displayed as following$")
     public void iShouldSeeTheImportRecordDisplayedAsFollowing(DataTable importTable) throws Throwable {
-        ((DataSetPage)currentPage()).detailPanel.selectTab("IMPORT");
-        ((DataSetPage)currentPage()).detailPanel.specificDetailPanel().verifyDetail(importTable);
+        ((DataSetPage) currentPage()).detailPanel.selectTab("IMPORT");
+        ((DataSetPage) currentPage()).detailPanel.specificDetailPanel().verifyDetail(importTable);
     }
-    
+
     @Then("^I should locate to the DataSource \"([^\"]*)\"$")
     public void iShouldLocateToTheDatasource(String datasourceName) throws Throwable {
 
-        assertThat(currentPage().resourcePanel.isResourceExisted(datasourceName),is(true));
+        assertThat(currentPage().resourcePanel.isResourceExisted(datasourceName), is(true));
     }
 
     @When("^I click \"([^\"]*)\" item from other operation dropdown menu$")
@@ -104,7 +105,7 @@ public class DataSetStepdefs {
     }
 
     @And("^I should see the related DataSet as following$")
-    public void iShouldSeeTheRelatedDataSetAsFollowing(List<Map<String,String>> datasetNameList) throws Throwable {
+    public void iShouldSeeTheRelatedDataSetAsFollowing(List<Map<String, String>> datasetNameList) throws Throwable {
         onPage(DataSourceDetailPage.class).isDataSetNameDisplayed(datasetNameList);
     }
 
@@ -144,17 +145,17 @@ public class DataSetStepdefs {
 
     @And("^I should wait (\\d+) minute$")
     public void iShouldWaitMinute(int arg0) throws Throwable {
-        Thread.sleep(60*1000);
+        Thread.sleep(60 * 1000);
     }
 
     @And("^I can modify the field type of DataSet$")
     public void iCanModifyTheFieldTypeOfDataSet() throws Throwable {
-        assertThat(onPage(RDBPreviewPage.class).isFieldTypeOfDataSetEditable(),is(true));
+        assertThat(onPage(RDBPreviewPage.class).isFieldTypeOfDataSetEditable(), is(true));
     }
 
     @And("^I can NOT modify the field type of DataSet$")
     public void iCanNOTModifyTheFieldTypeOfDataSet() throws Throwable {
-        assertThat(onPage(RDBPreviewPage.class).isFieldTypeSelectDisplayed(),is(true));
+        assertThat(onPage(RDBPreviewPage.class).isFieldTypeSelectDisplayed(), is(true));
     }
 
     @And("^I should NOT see the amount of DataSet records$")
@@ -164,8 +165,8 @@ public class DataSetStepdefs {
 
     @And("^I can't modify the alias and the type of previous data$")
     public void iCanTModifyTheAliasAndTheTypeOfPreviousData() throws Throwable {
-        assertThat(onPage(RDBPreviewPage.class).countDisabledFieldsAlias(),is(2));
-        assertThat(onPage(RDBPreviewPage.class).countDisabledFieldsType(),is(2));
+        assertThat(onPage(RDBPreviewPage.class).countDisabledFieldsAlias(), is(2));
+        assertThat(onPage(RDBPreviewPage.class).countDisabledFieldsType(), is(2));
     }
 
 
@@ -177,8 +178,8 @@ public class DataSetStepdefs {
 
     @And("^I can NOT modify the DataSet name and saved directory$")
     public void iCanTModifyTheDatasetNameAndHeSavedDirectoryOfDataSet() throws Throwable {
-        assertThat(onPage(RDBPreviewPage.class).isDataSetNameEnabled(),is(false));
-        assertThat(onPage(RDBPreviewPage.class).isDataSetSavedDirectoryEnabled(),is(false ));
+        assertThat(onPage(RDBPreviewPage.class).isDataSetNameEnabled(), is(false));
+        assertThat(onPage(RDBPreviewPage.class).isDataSetSavedDirectoryEnabled(), is(false));
     }
 
     @And("^I go to DataSet import preview page$")
@@ -188,7 +189,7 @@ public class DataSetStepdefs {
 
     @Then("^I should see the sql of RDBDataSet$")
     public void iShouldSeeTheSqlOfRDBDataSet() throws Throwable {
-        assertThat(onPage(DataSetDetailsPage.class).getSqlofRDBDataSet(),is(rdbDataSetPreviewSQL));
+        assertThat(onPage(DataSetDetailsPage.class).getSqlofRDBDataSet(), is(rdbDataSetPreviewSQL));
     }
 
     @And("^I go to new report page from DataSet detail page$")
@@ -212,7 +213,7 @@ public class DataSetStepdefs {
     }
 
     @And("^I set the expression of virtual (?:dimension|measure) as following$")
-    public void iSetTheExpressionOfVirtualDimensionIs(List<Map<String,String>> expressionList) throws Throwable {
+    public void iSetTheExpressionOfVirtualDimensionIs(List<Map<String, String>> expressionList) throws Throwable {
         String expression = expressionList.get(0).get("Expression").toString();
         onPage(VirtualFieldPage.class).setExpression(expression);
     }
@@ -224,7 +225,7 @@ public class DataSetStepdefs {
 
     @Then("^I should see the result of validation displayed$")
     public void iShouldSeeTheResultOfValidationContains() throws Throwable {
-        assertThat(onPage(VirtualFieldPage.class).isValidateResultDisplayed(),is(true));
+        assertThat(onPage(VirtualFieldPage.class).isValidateResultDisplayed(), is(true));
     }
 
     @When("^I save the new virtual (?:dimension|measure)$")
@@ -250,7 +251,7 @@ public class DataSetStepdefs {
 
     @Then("^I should see the alias of field for DataSet is \"([^\"]*)\"$")
     public void iShouldSeeTheAliasOfFieldsForDataSetIs(String fieldAlias) throws Throwable {
-        assertThat(onPage(DataSetDetailsPage.class).getFieldAlias(),is(fieldAlias));
+        assertThat(onPage(DataSetDetailsPage.class).getFieldAlias(), is(fieldAlias));
     }
 
     @When("^I want to create a new virtual measure for DataSet \"([^\"]*)\"$")
@@ -287,62 +288,71 @@ public class DataSetStepdefs {
     @Then("^I should see the field detail displayed correctly as following$")
     public void iShouldSeeDataSetFiledDisplayedCorrectlyAsFollowing(DataTable fieldTable) throws Throwable {
         (onPage(DataSetPage.class)).detailPanel.selectTab("FIELD");
-        ((DataSetPage)currentPage()).detailPanel.specificDetailPanel().verifyDetail(fieldTable);
+        ((DataSetPage) currentPage()).detailPanel.specificDetailPanel().verifyDetail(fieldTable);
     }
 
     @And("^I should see the preview data of DataSet displayed correctly as following$")
     public void iShouldSeeTheDataSetOfPreviewDataDisplayedCorrectlyAsFollowing(DataTable previewDataTable) throws Throwable {
-        ((DataSetPage)currentPage()).detailPanel.selectTab("PREVIEW");
-        ((DataSetPage)currentPage()).detailPanel.specificDetailPanel().verifyDetail(previewDataTable);
+        ((DataSetPage) currentPage()).detailPanel.selectTab("PREVIEW");
+        ((DataSetPage) currentPage()).detailPanel.specificDetailPanel().verifyDetail(previewDataTable);
     }
 
     @And("^I should see the (?:join|union|extract) source of DataSet displayed correctly as following$")
     public void iShouldSeeSourceOfDataDisplayedCorrectlyAsFollowing(DataTable sourceOfDataTable) throws Throwable {
-        ((DataSetPage)currentPage()).detailPanel.selectTab("SOURCEOFDATA");
-        ((DataSetPage)currentPage()).detailPanel.specificDetailPanel().verifyDetail(sourceOfDataTable);
+        ((DataSetPage) currentPage()).detailPanel.selectTab("SOURCEOFDATA");
+        ((DataSetPage) currentPage()).detailPanel.specificDetailPanel().verifyDetail(sourceOfDataTable);
     }
 
     @When("^I edit join DataSet")
     public void iViewTheDetailOfJoinDataSet() throws Throwable {
-        ((DataSetPage)currentPage()).moreOperationPanel.selectMenu("EDITJOIN");
+        ((DataSetPage) currentPage()).moreOperationPanel.selectMenu("EDITJOIN");
     }
 
     @When("^I edit union DataSet")
     public void iViewTheDetailOfUnionDataSet() throws Throwable {
-        ((DataSetPage)currentPage()).moreOperationPanel.selectMenu("EDITUNION");
+        ((DataSetPage) currentPage()).moreOperationPanel.selectMenu("EDITUNION");
     }
 
-    @And("^I should see the join type displayed correctly$")
-    public void iShouldSeeTheJoinTypeDisplayedCorrectly() throws Throwable {
-        ((DataSetPage)currentPage()).joinEditPanel.verifyJoinType();
+    @And("^I should see the join type displayed correctly as following$")
+    public void iShouldSeeTheJoinTypeDisplayedCorrectly(DataTable data) throws Throwable {
+        ((DataSetPage) currentPage()).joinEditPanel.verifyJoinType(data);
     }
 
     @And("^I should see the selected field of join source dataset displayed correctly as following$")
-    public void iShouldSeeTheCheckedFieldDisplayedCorrectlyAsFollowing(DataTable expectedFieldTable) throws Throwable {
-         Thread.sleep(2000);
-        ((DataSetPage)currentPage()).joinEditPanel.verifySourceDataSet(expectedFieldTable);
+    public void iShouldSeeTheCheckedFieldDisplayedCorrectlyAsFollowing(DataTable expectedFieldTable) throws
+            Throwable {
+        Thread.sleep(2000);
+        ((DataSetPage) currentPage()).joinEditPanel.verifySourceDataSet(expectedFieldTable);
     }
 
     @And("^I should see the selected field of union source dataset displayed correctly as following$")
-    public void iShouldSeeTheSourceDataSetdDisplayedCorrectlyAsFollowing(DataTable expectedFieldTable) throws Throwable {
+    public void iShouldSeeTheSourceDataSetdDisplayedCorrectlyAsFollowing(DataTable expectedFieldTable) throws
+            Throwable {
         Thread.sleep(2000);
-        ((DataSetPage)currentPage()).unionEditPanel.verifySourceDataSet(expectedFieldTable);
+        ((DataSetPage) currentPage()).unionEditPanel.verifySourceDataSet(expectedFieldTable);
     }
 
     @And("^I should see the field of (?:join|union) dataset displayed correctly as following$")
-    public void iShouldSeeThePreviewTableOfHeaderDisplayedCorrectlyAsFollowing(DataTable expectedTable) throws Throwable {
-        ((DataSetPage)currentPage()).validatorPanel.nextStep();
-        ((DataSetPage)currentPage()).validatorPanel.verifyPreviewFiled(expectedTable);
+    public void iShouldSeeThePreviewTableOfHeaderDisplayedCorrectlyAsFollowing(DataTable expectedTable) throws
+            Throwable {
+        ((DataSetPage) currentPage()).validatorPanel.nextStep();
+        ((DataSetPage) currentPage()).validatorPanel.verifyPreviewFiled(expectedTable);
     }
 
     @And("^I should see the basic information of (?:join|union|) dataset as following$")
-    public void iShouldSeeTheBasicInformationOfJoinDataSetAsFollowing(DataTable expectedDetailsTable) throws Throwable {
-        ((DataSetPage)currentPage()).validatorPanel.nextStep();
+    public void iShouldSeeTheBasicInformationOfJoinDataSetAsFollowing(DataTable expectedDetailsTable) throws
+            Throwable {
+        ((DataSetPage) currentPage()).validatorPanel.nextStep();
         onPage(AssociatedDataSetPage.class).checkBaseInfo(expectedDetailsTable);
     }
 
     @When("^I delete the dataSet$")
     public void iDeleteJoinDatasetOfSourceDataSet() throws Throwable {
-        ((DataSetPage)(currentPage())).sourceItemMenuPanel.deleteDataSet();
+        ((DataSetPage) (currentPage())).sourceItemMenuPanel.deleteDataSet();
+    }
+
+    @And("^I should see the link condition displayed as following$")
+    public void iShouldSeeTheLinkConditionDisplayedAsFollowing(DataTable data) throws Throwable {
+        ((DataSetPage) (currentPage())).joinEditPanel.verifyJoinLinField(data);
     }
 }

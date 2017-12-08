@@ -225,7 +225,8 @@ public class ChartSettingPage extends Page {
 
         chartTitle_TextInput.clear();
         chartTitle_TextInput.sendKeys(text);
-        webDriver.findElement(By.xpath("//input[@name='title_align' and @value='"+ align.toLowerCase()+"']")).click();
+//        webDriver.findElement(By.xpath("//input[@name='title_align' and @value='"+ align.toLowerCase()+"']")).click();
+        webDriver.findElement(By.xpath("//*[@id=\"presentationTitle\"]//div//span[2]/i[@class='iconfont icon-viz-align-"+align+" ']")).click();
 
         selectByVisibleText(chartTitle_TextSizeSelect,size);
     }

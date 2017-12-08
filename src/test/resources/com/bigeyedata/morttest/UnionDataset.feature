@@ -80,14 +80,14 @@ Feature: Verify detail of union DataSet
     And I select DataSet directory "测试原始数据集目录"
     When I select the DataSet "Cost_2016-直连"
     And I delete the dataSet
-    Then I should see the notice message "无法删除数据集,含有关联的数据联合数据集"
+    Then I should see the notice message "无法删除数据集,含有关联的数据集"
     When I refresh current page
     And I select the DataSet "Income_2016-导入"
     And I delete the dataSet
-    Then I should see the notice message "无法删除数据集,含有关联的数据联合数据集"
+    Then I should see the notice message "无法删除数据集,含有关联的数据集"
     When I refresh current page
     And I expand the DataSet directory
     And I select DataSet directory "测试关联数据集目录"
     And I select the DataSet "三表关联-导入"
     And I delete the dataSet
-    Then I should see the notice message "无法删除数据集,含有关联的数据联合数据集"
+    Then I should see the notice message "无法删除数据集,含有关联的数据集"
