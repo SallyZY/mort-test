@@ -87,21 +87,21 @@ Feature: Create And Edit And Delete directory
     And I select DataSource directory "测试第一级目录2"
     And I go to rename of "测试第一级目录2"
     When I rename the directory name "测试第一级目录2_ 重命名"
-    Then I should see the directory "测试第一级目录2_ 重命名" displayed correctly in directory list
+    Then I should see the directory "测试第一级目录2_ 重命名" displayed correctly in directory Container
 
 
   Scenario: Delete directory
     Given I access to "DataSource" module
     And I expand the DataSource directory
-    And I create new directory
+    And I want to create a new directory
     And I select the parent directory "根目录"
     And I input directory name is "测试目录_删除"
     And I save the new directory
     And I select DataSource directory "测试目录_删除"
     When I delete the directory name "测试目录_删除"
-    Then I should NOT see the directory "测试目录_删除" displayed in directory list
+    Then I should NOT see the directory "测试目录_删除" displayed in directory Container
 
-    When I create new directory
+    When I want to create a new directory
     And I select the parent directory "根目录"
     And I input directory name is "测试目录_删除"
     And I save the new directory
@@ -120,15 +120,15 @@ Feature: Create And Edit And Delete directory
     And I delete the directory name "测试目录_删除"
     Then I should NOT see the directory "测试目录_删除" displayed in directory list
 
-    When I create new directory
+    When I want to create a new directory
     And I select the parent directory "根目录"
     And I input directory name is "测试第一级目录_删除"
     And I save the new directory
-    Then I should see the directory "测试第一级目录_删除" displayed correctly in directory list
-    When I create new directory
+    Then I should see the directory "测试第一级目录_删除" displayed correctly in directory Container
+    When I want to create a new directory
     And I input directory name is "测试第二级目录_删除"
     And I save the new directory
-    Then I should see the directory "测试第二级目录_删除" displayed correctly in directory list
+    Then I should see the directory "测试第二级目录_删除" displayed correctly in directory Container
 
     When I move the mouse to DataSource directory "测试第一级目录_删除"
     And I delete the multi-level directory name "测试第一级目录_删除"
