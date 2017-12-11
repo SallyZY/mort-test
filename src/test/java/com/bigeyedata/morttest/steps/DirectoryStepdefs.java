@@ -1,6 +1,5 @@
 package com.bigeyedata.morttest.steps;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -13,7 +12,7 @@ public class DirectoryStepdefs {
 
     @And("^I want to create a new directory$")
     public void iCreateNewDirectory() throws Throwable {
-        Thread.sleep(5000);
+        Thread.sleep(2000);
          currentPage().dirEditorPanel.createDir();
     }
 
@@ -30,52 +29,45 @@ public class DirectoryStepdefs {
     @When("^I save the new directory$")
     public void iSaveTheNewDirectory() throws Throwable {
         currentPage().dirEditorPanel.confirmCreatDir();
+        Thread.sleep(2000);
     }
 
     @Then("^I should see the directory \"([^\"]*)\" displayed correctly in directory Container")
     public void iShouldSeeTheDirectoryDisplayedCorrectlyInDirectoryList(String directoryName) throws Throwable {
-        Thread.sleep(2000);
         assertThat(currentPage().dirContainerPanel.isDirNameDisplayed(directoryName),is(true));
     }
 
 
-    @When("^I select DataSource Multi-Level Directory \"([^\"]*)\"$")
-    public void iSelectDataSourceMultiLevelDirectory(String directoryName) throws Throwable {
-        currentPage().dirContainerPanel.clickMultiLevelDirectoryByName(directoryName);
+    @When("^I select directory \"([^\"]*)\"$")
+    public void iSelectDirectory(String directoryName) throws Throwable {
+        currentPage().dirContainerPanel.selectDirByName(directoryName);
     }
 
-    @And("^I select DataSource subdirectories \"([^\"]*)\"$")
+    @And("^I select sub-directory \"([^\"]*)\"$")
     public void iSelectDataSourceSubdirectories(String directoryName) throws Throwable {
-        currentPage().dirContainerPanel.clicsubDirectoryByName(directoryName);
+        currentPage().dirContainerPanel.selectSubDirByName(directoryName);
     }
 
-    @When("^I rename the directory name \"([^\"]*)\"$")
-    public void iRenameTheDirectoryName(String directoryName) throws Throwable {
-        currentPage().dirContainerPanel.rename(directoryName);
+    @When("^I rename the directory name from \"([^\"]*)\" to \"([^\"]*)\"$")
+    public void iRenameTheDirectoryName(String originName, String targetName) throws Throwable {
+        currentPage().dirContainerPanel.renameDir(originName,targetName);
     }
 
 
-    @When("^I delete the directory name \"([^\"]*)\"$")
-    public void iDeleteTheDirectoryName(String directoryName) throws Throwable {
-        currentPage().dirContainerPanel.openDropdownMenu(directoryName);
-        currentPage().dirContainerPanel.deleteDirectory();
+    @When("^I delete the directory \"([^\"]*)\"$")
+    public void iDeleteTheDirectory(String directoryName) throws Throwable {
+        Thread.sleep(2000);
+        currentPage().dirContainerPanel.deleteDirectoryByName(directoryName);
     }
 
     @When("^I delete the multi-level directory name \"([^\"]*)\"$")
     public void iDeleteTheMultiLevelDirectoryName(String directoryName) throws Throwable {
-        currentPage().dirContainerPanel.openMultiLevelDropdownMenu(directoryName);
-        currentPage().dirContainerPanel.deleteDirectory();
+//        currentPage().dirContainerPanel.deleteDirectoryByName();
     }
 
-    @Then("^I should NOT see the directory \"([^\"]*)\" displayed in directory list$")
-    public void iShouldNOTSeeTheDirectoryDisplayedInDirectoryList(String directoryName) throws Throwable {
+    @Then("^I should NOT see the directory \"([^\"]*)\" displayed in directory Container")
+    public void iShouldNOTSeeTheDirectoryDisplayedInDirectoryContainer(String directoryName) throws Throwable {
         assertThat(currentPage().dirContainerPanel.isDirNameDisplayed(directoryName),is(false));
-    }
-
-    @And("^I go to rename of \"([^\"]*)\"$")
-    public void iGoToRenameOf(String directoryName) throws Throwable {
-        currentPage().dirContainerPanel.openDropdownMenu(directoryName);
-        currentPage().dirContainerPanel.goToRnamePage();
     }
 
     @When("^I move the mouse to DataSource directory \"([^\"]*)\"$")
@@ -85,7 +77,7 @@ public class DirectoryStepdefs {
 
     @Then("^I should NOT see the directory \"([^\"]*)\" displayed in resource list$")
     public void iShouldNOTSeeTheDirectoryDisplayedInResourceList(String directoryName) throws Throwable {
-        assertThat(currentPage().dirContainerPanel.getDrectoryName().equals(directoryName),is(true));
+        assertThat(currentPage().dirContainerPanel.getDirName().equals(directoryName),is(true));
 
     }
 

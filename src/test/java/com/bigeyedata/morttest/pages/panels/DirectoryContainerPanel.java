@@ -11,9 +11,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-import static com.bigeyedata.morttest.CommonFunctions.findByXpath;
-import static com.bigeyedata.morttest.CommonFunctions.waitForElementClickable;
-import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
+import static com.bigeyedata.morttest.CommonFunctions.*;
 
 /**
  * Created by yingzhang on 10/05/2017.
@@ -47,7 +45,7 @@ public class DirectoryContainerPanel implements Panel {
     @FindBy(xpath = "//div//span[text()='根目录']")
     WebElement rootDirectorySpan;
 
-    @FindBy(xpath = "//div/button[2]/span")
+    @FindBy(xpath = "//div[@class='ant-confirm-btns']/button[2]")
     WebElement confirmButton;
 
     @FindBy(xpath = "//div/ul/li/ul")
@@ -86,35 +84,30 @@ public class DirectoryContainerPanel implements Panel {
 
     public Boolean isDirNameDisplayed(String dirName) {
         waitForElementVisible(mainDirectoryContainerUl);
-        return findByXpath("//ul[@id='directoriesMenu']/li//span[@title='"+dirName+"']").isDisplayed();
-//        List<WebElement> directoryList = mainDirectoryContainerUl.findElements(By.tagName("li")) ;
-////        System.out.println(directoryList.size());
-//        boolean flg = false;
-//        for (int i=0;i<directoryList.size();i++){
-//            String directory = directoryList.get(i).getText();
-////            System.out.println(directory);
-//            if(directory.equals(directoryName)){
-//                flg = true;
-//                break;
-//            }else{
-//                System.out.println("false");
-//            }
-//        }
-//        return flg;
+        List<WebElement> directoryList = mainDirectoryContainerUl.findElements(By.tagName("li")) ;
+
+        for (int i=0;i<directoryList.size();i++) {
+            String actualName = directoryList.get(i).getText();
+            System.out.println("actualName "+actualName);
+            if (actualName.equals(dirName)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void clickFavoriteDir(){
         favoriteDir.click();
     }
 
-    public void clickMultiLevelDirectoryByName(String directoryName) throws InterruptedException {
-        WebDriverManager.getDriver().findElement(By.xpath("//ul[@id='directoriesMenu']/li/div/span/span[text()='" + directoryName + "']")).click();
+    public void selectDirByName(String directoryName) throws InterruptedException {
+//        findByXpath("//ul[@id='directoriesMenu']/li/div/span/span[text()='" + directoryName + "']").click();
+        findByXpath("//ul[@id='directoriesMenu']/li//span/span[text()='" + directoryName + "']").click();
     }
 
-    public void clicsubDirectoryByName(String directoryName) throws InterruptedException {
-        waitForElementVisible(WebDriverManager.getDriver().findElement(By.xpath("//ul[@id='directoriesMenu']/li/ul/li/span/span[@title='" + directoryName + "']")));
-
-        WebDriverManager.getDriver().findElement(By.xpath("//ul[@id='directoriesMenu']/li/ul/li/span/span[@title='" + directoryName + "']")).click();
+    public void selectSubDirByName(String directoryName) throws InterruptedException {
+        waitForElementVisible(findByXpath("//ul[@id='directoriesMenu']/li/ul/li/span/span[@title='" + directoryName + "']"));
+        findByXpath("//ul[@id='directoriesMenu']/li/ul/li/span/span[@title='" + directoryName + "']").click();
     }
 
     public void openDropdownMenu(String directoryName) throws InterruptedException {
@@ -124,10 +117,8 @@ public class DirectoryContainerPanel implements Panel {
             String directory = directoryList.get(i).getText();
             if(directory.equals(directoryName)){
                 int n = i+1;
-                WebDriverManager.getDriver().findElement(By.xpath("//*[@id='directoriesMenu']/li[" + n + "]/span/i")).click();
+                findByXpath("//*[@id='directoriesMenu']/li[" + n + "]/span/i").click();
                 break;
-            }else{
-                System.out.println("false");
             }
         }
     }
@@ -138,29 +129,49 @@ public class DirectoryContainerPanel implements Panel {
         List<WebElement> directoryList = mainDirectoryContainerUl.findElements(By.tagName("li")) ;
         for (int i=0;i<directoryList.size();i++){
             String directory = directoryList.get(i).getText();
-            if(directory.contains(directoryName)){
-                int n = i+1;
-                WebDriverManager.getDriver().findElement(By.xpath("//*[@id='directoriesMenu']/li[" + n + "]/div/span/i")).click();
+            if(directory.contains(directoryName)) {
+                int n = i + 1;
+                WebDriverManager.getDriver().findElement(By.xpath("//ul[@id='directoriesMenu']/li[" + n + "]//span")).click();
                 break;
-            }else{
-                System.out.println("false");
             }
         }
     }
 
+    public void renameDir(String originName, String targetName){
+        waitForElementVisible(mainDirectoryContainerUl);
+        List<WebElement> directoryList = mainDirectoryContainerUl.findElements(By.tagName("li")) ;
+        for (int i=0;i<directoryList.size();i++) {
+            String directory = directoryList.get(i).getText();
+            if (directory.equals(originName)) {
+                int n = i + 1;
+                mouseOverAtCoordinates(findByXpath("//ul[@id='directoriesMenu']/li[" + n + "]//span"), 5, 3);
+                findByXpath("//ul[@id='directoriesMenu']/li[" + n + "]/span//i").click();
+                break;
+            }
+        }
 
-    public void goToRnamePage() throws InterruptedException{
         waitForElementVisible(renameItemLi);
         renameItemLi.click();
-    }
 
-    public void rename(String directoryName){
         renameInput.clear();
-        renameInput.sendKeys(directoryName);
+        renameInput.sendKeys(targetName);
         renameInput.sendKeys(Keys.ENTER);
     }
 
-    public void deleteDirectory() throws InterruptedException {
+    public void deleteDirectoryByName(String dirName) throws InterruptedException {
+        waitForElementVisible(mainDirectoryContainerUl);
+        List<WebElement> directoryList = mainDirectoryContainerUl.findElements(By.tagName("li")) ;
+        for (int i=0;i<directoryList.size();i++) {
+            String directory = directoryList.get(i).getText();
+            if (directory.equals(dirName)) {
+                int n = i + 1;
+                mouseOverAtCoordinates(findByXpath("//ul[@id='directoriesMenu']/li[" + n + "]//span"), 5, 3);
+                findByXpath("//ul[@id='directoriesMenu']/li[" + n + "]//span//i").click();
+                System.out.println("clicked");
+                break;
+            }
+        }
+
         waitForElementVisible(deleteItemLi);
         deleteItemLi.click();
         waitForElementVisible(confirmButton);
@@ -170,11 +181,10 @@ public class DirectoryContainerPanel implements Panel {
     public void moveToDirectory(String directoryName) throws InterruptedException {
         waitForElementVisible(mainDirectoryContainerUl);
         Actions actions = new Actions(WebDriverManager.getDriver());
-        actions.moveToElement(WebDriverManager.getDriver().findElement(By.xpath("//ul[@id='directoriesMenu']/li/div/span/span[text()='" + directoryName + "']"))).moveByOffset(10,3).build().perform();
-
+        actions.moveToElement(findByXpath("//ul[@id='directoriesMenu']/li/div/span/span[text()='" + directoryName + "']")).moveByOffset(10,3).build().perform();
     }
 
-    public String getDrectoryName(){
+    public String getDirName(){
         return directoryNameSpan.getText();
     }
 

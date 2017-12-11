@@ -56,11 +56,6 @@ public class CommonStepdefs {
         assertThat(currentPage().resourcePanel.isResourceExisted(fileName),is(false));
     }
 
-    @And("^I select (?:DataSource|DataSet|Report) directory \"([^\"]*)\"$")
-    public void iSelectDirectory(String directoryName) throws Throwable {
-        currentPage().dirContainerPanel.clickDirectoryByName(directoryName);
-    }
-
     @And("^I select the directory \"([^\"]*)\"$")
     public void iSelectTheDirectory(String dicName) throws Throwable {
         currentPage().dirContainerPanel.clickDirectoryByName(dicName);
@@ -78,8 +73,8 @@ public class CommonStepdefs {
 
     @Then("^I should see the notice message \"([^\"]*)\"$")
     public void iShouldSeeTheErrorMessage(String msg) throws Throwable {
-        System.out.println("notice: "+ msg);
-        assertThat(((DataSetPage)(currentPage())).noticePanel.getNoticeMessage(),is(msg));
+        System.out.println("notice: " + msg);
+        assertThat(currentPage().noticePanel.getNoticeMessage(), is(msg));
     }
 
     @And("^I refresh current page$")

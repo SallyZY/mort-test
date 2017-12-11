@@ -13,9 +13,7 @@ import static com.bigeyedata.morttest.SeeThruUtils.initPanel;
  * Created by yingzhang on 09/11/2017.
  */
 public class DataSetPage extends Page {
-
     public DataSetDetailPanel detailPanel = initPanel(DataSetDetailPanel.class);
-    public NoticeMessagePanel noticePanel = initPanel(NoticeMessagePanel.class);
     public SourceItemMenuPanel sourceItemMenuPanel = initPanel(SourceItemMenuPanel.class);
     public MoreOperationPanel moreOperationPanel = initPanel(MoreOperationPanel.class);
     public JoinDataSetEditPanel joinEditPanel = initPanel(JoinDataSetEditPanel.class);

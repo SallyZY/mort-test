@@ -9,7 +9,7 @@ Feature: Create,view DataSet
   Scenario:  Verify the result of join dataset
     Given I access to "DataSet" module
     And I expand the DataSet directory
-    And I select DataSet directory "测试关联数据集目录"
+    And I select directory "测试关联数据集目录"
 
     When I select the DataSet "三表关联-导入"
     Then I should see the field detail displayed correctly as following
@@ -44,7 +44,7 @@ Feature: Create,view DataSet
   Scenario:  Verify join detail
     Given I access to "DataSet" module
     And I expand the DataSet directory
-    And I select DataSet directory "测试关联数据集目录"
+    And I select directory "测试关联数据集目录"
     And I select the DataSet "三表关联-导入"
 
     When I edit join DataSet
@@ -82,7 +82,7 @@ Feature: Create,view DataSet
   Scenario:  delete the join source of DataSet
     Given I access to "DataSet" module
     And I expand the DataSet directory
-    And I select DataSet directory "测试原始数据集目录"
+    And I select directory "测试原始数据集目录"
     When I select the DataSet "ActualCost-直连"
     And I delete the dataSet
     Then I should see the notice message "无法删除数据集,含有关联的数据集"

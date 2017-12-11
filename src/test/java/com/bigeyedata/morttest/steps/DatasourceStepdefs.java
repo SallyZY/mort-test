@@ -41,7 +41,6 @@ public class DatasourceStepdefs {
 
     @And("^I create a HDFS DataSource with configuration as following$")
     public void iCreateAHDFSDatasourceWithConfigurationAsFollowing(List<Map<String,String>> hdfsConfigList) throws Throwable {
-
         DataSourceEditorPanel editorPanel =((DataSourcePage)currentPage()).editorPanel;
         editorPanel.createNewDataResource();
         editorPanel.selectDataSourceType(DataSourceType.HDFS);
