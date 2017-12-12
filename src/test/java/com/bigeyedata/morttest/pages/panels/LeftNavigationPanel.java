@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
 import static com.bigeyedata.morttest.SeeThruUtils.onPage;
 
-public class LeftNavigationPanel extends Panel{
+public class LeftNavigationPanel implements Panel{
     @FindBy(xpath = "//*[@id='app']//div//span[text()='用户管理']")
     WebElement userMenu;
 

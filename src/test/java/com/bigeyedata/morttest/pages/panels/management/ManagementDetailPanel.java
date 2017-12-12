@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 import static com.bigeyedata.morttest.CommonFunctions.waitForElementVisible;
 
-public class ManagementDetailPanel extends Panel{
+public class ManagementDetailPanel implements Panel{
 
     @FindBy(tagName = "tbody")
     WebElement infoTab;

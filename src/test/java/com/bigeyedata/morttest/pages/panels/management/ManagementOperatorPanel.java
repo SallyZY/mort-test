@@ -5,7 +5,7 @@ import com.bigeyedata.morttest.pages.Panel;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class ManagementOperatorPanel extends Panel{
+public class ManagementOperatorPanel implements Panel{
 
     @FindBy( xpath = "//*[@id='app']//div/button/span[text()='创建用户']")
     WebElement createUserButton;

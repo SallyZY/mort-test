@@ -2,5 +2,5 @@ package com.bigeyedata.morttest.pages.panels.management;
 
 import com.bigeyedata.morttest.pages.Panel;
 
-public class ManagementItemOperatorPanel extends Panel {
+public class ManagementItemOperatorPanel implements Panel {
 }
