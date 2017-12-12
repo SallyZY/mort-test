@@ -36,20 +36,21 @@ Feature:Create user,user group,role
 
   Scenario: Create a new Role, UserGroup and User
     Given I access to "Management" module
-#    And I select role menuItem
-#    And I click create new role button on role page
-#    And I input role name is "测试角色_用户"
-#    And I grant all function permissions
-#    When I create the role
-#    Then I should see the role name is "测试角色_用户"
 
-    When I select group menuItem
+    And I select "Role" menuItem
+    And I click create new role button on role page
+    And I input role name is "测试角色_用户"
+    And I grant all function permissions
+    When I create the role
+    Then I should see the role name is "测试角色_用户"
+
+    When I select "UserGroup" menuItem
     And I click create new group button on group page
     And I input group name is "测试用户组_用户"
     And I create the group
     Then I should see the group name "测试用户组_用户" in group list
 
-    When I select user menuItem
+    When I select "User" menuItem
     And I click create new user button on user page
     And I input users basic information as following
       | UserName | Email                 | Phone      |
@@ -59,12 +60,12 @@ Feature:Create user,user group,role
     When I create the user
     Then I should see the email "email@bigeyedata.com" in user list
 
-    When I input the keyword "test" to user search box
-    When I click search button
-    Then I should see the user name "test" in search result
-    And I input the keyword "email@bigeyedata.com" to user search box
-    When I click search button
-    Then I should see the Email "email@bigeyedata.com" in search result
+#    When I input the keyword "test" to user search box
+#    When I click search button
+#    Then I should see the user name "test" in search result
+#    And I input the keyword "email@bigeyedata.com" to user search box
+#    When I click search button
+#    Then I should see the Email "email@bigeyedata.com" in search result
 
 
   Scenario: Edit a user information and password

@@ -1,8 +1,10 @@
 package com.bigeyedata.morttest.steps.management_steps;
 
 import com.bigeyedata.morttest.CommonFunctions;
+import com.bigeyedata.morttest.pages.ManagementPage;
 import com.bigeyedata.morttest.pages.management_pages.UserConfigPage;
 import com.bigeyedata.morttest.pages.management_pages.UserDetailPage;
+import com.google.common.base.Verify;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
@@ -11,6 +13,7 @@ import cucumber.api.java.en.When;
 import java.util.List;
 import java.util.Map;
 
+import static com.bigeyedata.morttest.SeeThruUtils.currentPage;
 import static com.bigeyedata.morttest.SeeThruUtils.onPage;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -29,15 +32,18 @@ public class UserManagementStepdefs {
 
     @And("^I click create new user button on user page$")
     public void iClickCreateNewUserButtonOnUserPage() throws Throwable {
-        onPage(UserDetailPage.class).createUser();
+//        onPage(UserDetailPage.class).createUser();
+        ((ManagementPage)currentPage()).managementOperatorPanel.createUser();
     }
 
     @And("^I input users basic information as following$")
     public void iInputUsersBasicInformationAsFollowing(List<Map<String, String>> userBasicInfoList) throws Throwable {
-        String userName = userBasicInfoList.get(0).get("UserName").toString();
-        String  email = userBasicInfoList.get(0).get("Email").toString();
-        String phone = userBasicInfoList.get(0).get("Phone").toString();
-        onPage(UserConfigPage.class).setUsersBasicInformation(userName,email,phone);
+//        String userName = userBasicInfoList.get(0).get("UserName").toString();
+//        String  email = userBasicInfoList.get(0).get("Email").toString();
+//        String phone = userBasicInfoList.get(0).get("Phone").toString();
+//        onPage(UserConfigPage.class).setUsersBasicInformation(userName,email,phone);
+
+        ((ManagementPage)currentPage()).managementEditorPanel.createUser(userBasicInfoList.get(0));
     }
 
 
@@ -70,47 +76,48 @@ public class UserManagementStepdefs {
     @And("^I click create new group button on group page$")
     public void iClickCreateNewGroupButtonOnGroupPage() throws Throwable {
 
-        onPage(UserDetailPage.class).createGroup();
+//        onPage(UserDetailPage.class).createGroup();
+        ((ManagementPage)currentPage()).managementOperatorPanel.createGroup();
 
     }
 
     @And("^I input group name is \"([^\"]*)\"$")
     public void iInputGroupNameIs(String groupName) throws Throwable {
 
-        onPage(UserConfigPage.class).setGroupName(groupName);
+//        onPage(UserConfigPage.class).setGroupName(groupName);
+        ((ManagementPage)currentPage()).managementEditorPanel.setGroupName(groupName);
 
     }
 
     @When("^I create the (?:group|role|user)$")
     public void iCreateTheGroup() throws Throwable {
-        onPage(UserConfigPage.class).clickConfirmButton();
+//        onPage(UserConfigPage.class).clickConfirmButton();
+        ((ManagementPage)currentPage()).managementEditorPanel.clickConfirmButton();
      }
-
-
-    @And("^I select role menuItem$")
-    public void iSelectRoleMenuItem() throws Throwable {
-        onPage(UserDetailPage.class).selectRoleMenuItem();
-    }
 
     @And("^I click create new role button on role page$")
     public void iClickCreateNewRoleButtonOnRolePage() throws Throwable {
-        onPage(UserDetailPage.class).createRole();
+//        onPage(UserDetailPage.class).createRole();
+        ((ManagementPage)currentPage()).managementOperatorPanel.createRole();
     }
 
     @And("^I input role name is \"([^\"]*)\"$")
     public void iInputRoleNameIs(String roleName) throws Throwable {
-        onPage(UserConfigPage.class).setRoleName(roleName);
+//        onPage(UserConfigPage.class).setRoleName(roleName);
+        ((ManagementPage)currentPage()).managementEditorPanel.setRoleName(roleName);
     }
 
     @And("^I grant all function permissions$")
     public void iGrantAllFunctionPermissions() throws Throwable {
-        onPage(UserConfigPage.class).allocateResourcePermissions();
+//        onPage(UserConfigPage.class).allocateResourcePermissions();
+        ((ManagementPage)currentPage()).managementEditorPanel.allocateResourcePermissions();
     }
 
 
     @Then("^I should see the role name is \"([^\"]*)\"$$")
     public void iShouldSeeTheRoleDisplayedCorrectly(String roleName) throws Throwable {
-        assertTrue(onPage(UserDetailPage.class).getRoleInfo().contains(roleName));
+//        assertTrue(onPage(UserDetailPage.class).getRoleInfo().contains(roleName));
+        assertTrue(((ManagementPage)currentPage()).managementDetailPanel.getInformation().contains(roleName));
     }
 
     @And("^I access to edit page of group name \"([^\"]*)\"$")
@@ -126,7 +133,8 @@ public class UserManagementStepdefs {
 
     @Then("^I should see the group name \"([^\"]*)\" in group list$")
     public void iShouldSeeTheGroupNameIs(String groupName) throws Throwable {
-        assertTrue(onPage(UserDetailPage.class).getRoleInfo().contains(groupName));
+//        assertTrue(onPage(UserDetailPage.class).getRoleInfo().contains(groupName));
+        assertTrue(((ManagementPage)currentPage()).managementDetailPanel.getInformation().contains(groupName));
     }
 
 
@@ -180,7 +188,8 @@ public class UserManagementStepdefs {
 
     @Then("^I should see the email \"([^\"]*)\" in user list$")
     public void iShouldSeeTheEmailIs(String email) throws Throwable {
-        assertTrue(onPage(UserDetailPage.class).getUserBaseInfo().contains(email));
+//        assertTrue(onPage(UserDetailPage.class).getUserBaseInfo().contains(email));
+        assertTrue(((ManagementPage)currentPage()).managementDetailPanel.getInformation().contains(email));
     }
 
     @Then("^I should see the prompt message is \"([^\"]*)\"$")
@@ -234,12 +243,14 @@ public class UserManagementStepdefs {
 
     @And("^I set role is \"([^\"]*)\"$")
     public void iSetRoleIs(String roleTitle) throws Throwable {
-        onPage(UserConfigPage.class).setRole(roleTitle);
+//        onPage(UserConfigPage.class).setRole(roleTitle);
+        ((ManagementPage)currentPage()).managementEditorPanel.setRole(roleTitle);
     }
 
     @And("^I set group is \"([^\"]*)\"$")
     public void iSetGroupIs(String groupTitle) throws Throwable {
-        onPage(UserConfigPage.class).setGroup(groupTitle);
+//        onPage(UserConfigPage.class).setGroup(groupTitle);
+        ((ManagementPage)currentPage()).managementEditorPanel.setGroup(groupTitle);
     }
 
     @When("^I access to view page of role name is \"([^\"]*)\"$")
@@ -261,5 +272,10 @@ public class UserManagementStepdefs {
     @And("^I Delete users from (?:group|role) as following$")
     public void iDeleteUsersFromRoleAsFollowing(List<Map<String, String>> userInfo) throws Throwable {
         onPage(UserConfigPage.class).deleteUserFromGroupOrRole(userInfo);
+    }
+
+    @And("^I select \"([^\"]*)\" menuItem$")
+    public void iSelectMenuItem(String item) throws Throwable {
+        currentPage().leftNavigationPanel.accessToMenuItem(item);
     }
 }

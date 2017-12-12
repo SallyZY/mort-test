@@ -2,6 +2,7 @@ package com.bigeyedata.morttest.pages.panels;
 
 import com.bigeyedata.morttest.pages.DataSetPage;
 import com.bigeyedata.morttest.pages.DataSourcePage;
+import com.bigeyedata.morttest.pages.ManagementPage;
 import com.bigeyedata.morttest.pages.Panel;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -53,6 +54,7 @@ public class NavigationPanel implements Panel {
                 break;
             case "Management":
                 managementModuleLink.click();
+                onPage(ManagementPage.class);
                 break;
         }
     }
