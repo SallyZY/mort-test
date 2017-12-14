@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -113,21 +114,21 @@ public class CommonFunctions {
     }
 
 
-    public static void logout() throws InterruptedException {
-
-        WebDriver driver = WebDriverManager.getDriver();
-        WebElement userIcon = driver.findElement(By.cssSelector("#app > div > div.DefaultLayout > div.header > ul.rightBar.pull-right > li.user > a > i"));
-        WebElement logoutLink = driver.findElement(By.linkText("退出"));
-
-        Actions actions = new Actions(driver);
-        CommonFunctions.waitForElementVisible(userIcon);
-        actions.moveToElement(userIcon).clickAndHold().perform();
-//        focusElement(logoutLink);
-        CommonFunctions.waitForElementVisible(logoutLink);
-        actions.moveToElement(logoutLink);
-        logoutLink.click();
-
-    }
+//    public static void logout() throws InterruptedException {
+//
+//        WebDriver driver = WebDriverManager.getDriver();
+//        WebElement userIcon = driver.findElement(By.cssSelector("#app > div > div.DefaultLayout > div.header > ul.rightBar.pull-right > li.user > a > i"));
+//        WebElement logoutLink = driver.findElement(By.linkText("退出"));
+//
+//        Actions actions = new Actions(driver);
+//        CommonFunctions.waitForElementVisible(userIcon);
+//        actions.moveToElement(userIcon).clickAndHold().perform();
+////        focusElement(logoutLink);
+//        CommonFunctions.waitForElementVisible(logoutLink);
+//        actions.moveToElement(logoutLink);
+//        logoutLink.click();
+//
+//    }
 
     public static String getTestResourceFilePath(String fileName) {
         String classPath = currentPage().getClass().getResource("/").getPath();
@@ -140,6 +141,11 @@ public class CommonFunctions {
     public static WebElement findByXpath(String xpath) {
         WebDriver driver = WebDriverManager.getDriver();
         return driver.findElement(By.xpath(xpath));
+    }
+
+    public static WebElement findByLinkText(String linkText) {
+        WebDriver driver = WebDriverManager.getDriver();
+        return driver.findElement(By.linkText(linkText));
     }
 
     public static List<WebElement> findListByXpath(String xpath) {
@@ -236,5 +242,19 @@ public class CommonFunctions {
         System.out.println(actualTableCols.size());
         System.out.println(expectedTable.raw());
         expectedTable.diff(actualLists);
+    }
+
+    public static void logout() throws InterruptedException {
+        WebElement logoutLink =findByLinkText("退出");
+        WebElement userIcon = findByXpath("//*[@id='app']//div/ul[@class='rightBar pull-right']/li[@class='user']/a/div/i");
+
+        Actions actions = new Actions(WebDriverManager.getDriver());
+        CommonFunctions.waitForElementVisible(userIcon);
+        actions.moveToElement(userIcon).clickAndHold().perform();
+//        focusElement(logoutLink);
+        CommonFunctions.waitForElementVisible(logoutLink);
+        actions.moveToElement(logoutLink);
+        logoutLink.click();
+
     }
 }

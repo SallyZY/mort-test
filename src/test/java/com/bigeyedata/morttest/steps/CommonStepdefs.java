@@ -4,6 +4,7 @@ import com.bigeyedata.morttest.CommonFunctions;
 import com.bigeyedata.morttest.Hooks;
 import com.bigeyedata.morttest.pages.DataSetPage;
 import com.bigeyedata.morttest.pages.panels.LoginPage;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -80,5 +81,15 @@ public class CommonStepdefs {
     @And("^I refresh current page$")
     public void iRefreshCurrentPage() throws Throwable {
         CommonFunctions.refresh();
+    }
+
+    @Then("^I logout and login to Mort Web$")
+    public void iLogoutAndLoginToMortWeb(List<Map<String,String>> userLoginInfo) throws Throwable {
+        CommonFunctions.logout();
+
+        String userName = userLoginInfo.get(0).get("UserName").toString();
+        String password = userLoginInfo.get(0).get("Password").toString();
+        LoginPage curPage = onPage(LoginPage.class);
+        curPage.login(userName, password);
     }
 }

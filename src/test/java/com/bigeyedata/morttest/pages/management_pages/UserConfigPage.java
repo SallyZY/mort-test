@@ -198,8 +198,9 @@ public class UserConfigPage extends Page{
 
     }
 
-    public void saveNewPassword(){
+    public void saveNewPassword() throws InterruptedException {
         passwordModifyConfirmButton.click();
+        CommonFunctions.waitForShortTime();
     }
 
     public void addUserToGroup() throws InterruptedException {

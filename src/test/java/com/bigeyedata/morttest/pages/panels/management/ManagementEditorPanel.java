@@ -11,10 +11,10 @@ import org.openqa.selenium.internal.FindsByXPath;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import static com.bigeyedata.morttest.CommonFunctions.fillData;
-import static com.bigeyedata.morttest.CommonFunctions.findByXpath;
+import static com.bigeyedata.morttest.CommonFunctions.*;
 
 public class ManagementEditorPanel extends ManagementSpecificEditorPanel {
 
@@ -72,6 +72,35 @@ public class ManagementEditorPanel extends ManagementSpecificEditorPanel {
     @FindBy(css = "table > tbody > tr:nth-child(5) > td:nth-child(2) > span")
     WebElement managementPermissions;
 
+    @FindBy(id = "password")
+    WebElement passwordModifyModalNewPasswordInput;
+
+    @FindBy(id = "confirmedPassword")
+    WebElement passwordModifyModalConfirmNewPasswordInput;
+
+    @FindBy(id = "passwordModifyModalOkButton")
+    WebElement passwordModifyConfirmButton;
+
+    @FindBy(css = "div.ant-select-selection__placeholder")
+    WebElement userSelectorDiv;
+
+    @FindBy(css = "div.add-user-toolbar > button > span")
+    WebElement addUserButton;
+
+    @FindBy(css = "div.clearBoth > div > div > div > div > div > div > table > tbody")
+    WebElement userOfGroupTab;
+
+    @FindBy(css = "div.ant-modal-content > div.ant-modal-footer > button > span")
+    WebElement closeViewUserGroupButton;
+
+    @FindBy(css = "div.ant-table-placeholder")
+    WebElement tablePlaceholderDiv;
+
+    @FindBy(xpath = "//div//button[2]")
+    WebElement deleteConfirmButton;
+
+//    @FindBy(css = "div.ant-confirmCreatDir-btns > button.ant-btn.ant-btn-primary.ant-btn-lg")
+//    WebElement deleteConfirmButton;
 
 
     private Map<String,WebElement> keysMap() {
@@ -121,9 +150,11 @@ public class ManagementEditorPanel extends ManagementSpecificEditorPanel {
     public void clickConfirmButton() throws InterruptedException {
         CommonFunctions.waitForElementVisible(confirmButton);
         confirmButton.click();
+        waitForShortTime();
     }
 
     public void setRoleName(String roleName){
+        roleNameInput.clear();
         roleNameInput.sendKeys(roleName);
     }
 
@@ -150,14 +181,65 @@ public class ManagementEditorPanel extends ManagementSpecificEditorPanel {
     }
 
 
+    public void setNewPassword(String password) throws InterruptedException {
+        CommonFunctions.waitForElementVisible(passwordModifyModalNewPasswordInput);
+        passwordModifyModalNewPasswordInput.sendKeys(password);
+        CommonFunctions.waitForElementVisible(passwordModifyModalConfirmNewPasswordInput);
+        passwordModifyModalConfirmNewPasswordInput.sendKeys(password);
+        CommonFunctions.waitForShortTime();
+
+    }
 
 
+    public void saveNewPassword(){
+        passwordModifyConfirmButton.click();
+    }
 
 
+    public void addUserToRole(List<Map<String, String>> userList) throws InterruptedException {
+        CommonFunctions.waitForElementVisible(userSelectorDiv);
+        userSelectorDiv.click();
+        String userName= userList.get(0).get("UserName").toString();
+        String email = userList.get(0).get("Email").toString();
+        WebDriver driver =WebDriverManager.getDriver();
+        WebElement user = driver.findElement(By.xpath("//div/ul/li[@title='"+ userName +" "+ email +"']"));
+        CommonFunctions.waitForElementVisible(user);
+        user.click();
+        addUserButton.click();
 
+    }
 
+    public String getUserOfGroup() throws InterruptedException {
+        CommonFunctions.waitForElementVisible(userOfGroupTab);
+        return userOfGroupTab.getText();
+    }
 
+    public void closeViewUserGroupModalContent(){
+        closeViewUserGroupButton.click();
+    }
 
+    public void deleteUserFromGroupOrRole(List<Map<String, String>> userInfo) throws InterruptedException {
+        waitForElementVisible(userOfGroupTab);
+        List<WebElement> rows = userOfGroupTab.findElements(By.tagName("tr"));
+        for (int i=0;i<rows.size();i++){
+            String text = rows.get(i).getText();
+            if (text.contains(userInfo.get(0).get("Email").toString())) {
+                int n = i + 1;
+                userOfGroupTab.findElement(By.cssSelector( "tr:nth-child("+n+") > td:nth-child(3) > a")).click();
+                break;
+            }else {
+                System.out.println("false");
+            }
 
+        }
+    }
 
+    public String getPlaceholderMessage(){
+        return tablePlaceholderDiv.getText();
+    }
+
+    public void deleteConfirm(){
+        waitForElementVisible(deleteConfirmButton);
+        deleteConfirmButton.click();
+    }
 }

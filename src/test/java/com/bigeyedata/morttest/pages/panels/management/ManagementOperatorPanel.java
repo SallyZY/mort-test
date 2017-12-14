@@ -16,6 +16,12 @@ public class ManagementOperatorPanel implements Panel{
     @FindBy(xpath = "//*[@id='app']//div/button/span[text()='创建角色']")
     WebElement createRoleButton;
 
+    @FindBy(xpath = "//*[@id='app']//div[2]//span/input")
+    WebElement searchInput;
+
+    @FindBy(css = "div.action-section > div > span > span > i")
+    WebElement searchicon;
+
     public void createUser() throws InterruptedException {
         CommonFunctions.waitForElementVisible(createUserButton);
         createUserButton.click();
@@ -28,8 +34,18 @@ public class ManagementOperatorPanel implements Panel{
 
     public void createGroup() throws InterruptedException {
         CommonFunctions.waitForElementVisible(createGroupButton);
+        CommonFunctions.waitForShortTime();
         createGroupButton.click();
     }
+
+    public void  searchUserAndUserGroup(String keyWord) throws InterruptedException {
+        searchInput.clear();
+        searchInput.sendKeys(keyWord);
+        searchicon.click();
+//        CommonFunctions.waitForShortTime();
+
+    }
+
 
 
 

@@ -49,7 +49,8 @@ public class UserManagementStepdefs {
 
     @Then("^I should see the Email \"([^\"]*)\" in search result$")
     public void iShouldSeeTheUserDisplayedCorrectly(String email) throws Throwable {
-        assertTrue(onPage(UserDetailPage.class).getUserBaseInfo().contains(email));
+//        assertTrue(onPage(UserDetailPage.class).getUserBaseInfo().contains(email));
+        assertTrue(((ManagementPage)currentPage()).managementDetailPanel.getInformation().contains(email));
     }
 
     @And("^I access to set password page of email is \"([^\"]*)\"$")
@@ -59,19 +60,22 @@ public class UserManagementStepdefs {
 
     @And("^I set a new password \"([^\"]*)\"$")
     public void iSetANewPassword(String password) throws Throwable {
-        onPage(UserConfigPage.class).setNewPassword(password);
+//        onPage(UserConfigPage.class).setNewPassword(password);
+        ((ManagementPage)currentPage()).managementEditorPanel.setNewPassword(password);
     }
 
     @When("^I save the new password$")
     public void iSaveTheNewPassword() throws Throwable {
-        onPage(UserConfigPage.class).saveNewPassword();
+//        onPage(UserConfigPage.class).saveNewPassword();
+        ((ManagementPage)currentPage()).managementEditorPanel.saveNewPassword();
     }
 
-    @Then("^I should use the new password successful login as following$")
-    public void iShouldUseTheNewPasswordSuccessfulLoginAsFollowing(List<Map<String, String>> userLoginInfoList) throws Throwable {
-        onPage(UserDetailPage.class).logout();
-        onPage(UserDetailPage.class).login(userLoginInfoList);
-    }
+//    @Then("^I should use the new password successful login as following$")
+//    public void iShouldUseTheNewPasswordSuccessfulLoginAsFollowing(List<Map<String, String>> userLoginInfoList) throws Throwable {
+//        onPage(UserDetailPage.class).logout();
+//        onPage(UserDetailPage.class).login(userLoginInfoList);
+//
+//    }
 
     @And("^I click create new group button on group page$")
     public void iClickCreateNewGroupButtonOnGroupPage() throws Throwable {
@@ -81,8 +85,8 @@ public class UserManagementStepdefs {
 
     }
 
-    @And("^I input group name is \"([^\"]*)\"$")
-    public void iInputGroupNameIs(String groupName) throws Throwable {
+    @And("^I set group name is \"([^\"]*)\"$")
+    public void iSetGroupNameIs(String groupName) throws Throwable {
 
 //        onPage(UserConfigPage.class).setGroupName(groupName);
         ((ManagementPage)currentPage()).managementEditorPanel.setGroupName(groupName);
@@ -101,7 +105,7 @@ public class UserManagementStepdefs {
         ((ManagementPage)currentPage()).managementOperatorPanel.createRole();
     }
 
-    @And("^I input role name is \"([^\"]*)\"$")
+    @And("^I set role name is \"([^\"]*)\"$")
     public void iInputRoleNameIs(String roleName) throws Throwable {
 //        onPage(UserConfigPage.class).setRoleName(roleName);
         ((ManagementPage)currentPage()).managementEditorPanel.setRoleName(roleName);
@@ -123,12 +127,15 @@ public class UserManagementStepdefs {
     @And("^I access to edit page of group name \"([^\"]*)\"$")
     public void iAccessToEditPageOfGroupNameIs(String groupName) throws Throwable {
         onPage(UserDetailPage.class).gotoEditGroupPage(groupName);
+
     }
 
-    @And("^And I modify the group name to \"([^\"]*)\"$")
-    public void andIModifyTheGroupNameTo(String groupName) throws Throwable {
-        onPage(UserConfigPage.class).renameGroupName(groupName);
+    @And("^I modify the group name to \"([^\"]*)\"$")
+    public void iModifyTheGroupNameTo(String groupName) throws Throwable {
+//        onPage(UserConfigPage.class).renameGroupName(groupName);
+        ((ManagementPage)currentPage()).managementEditorPanel.setGroupName(groupName);
     }
+
 
 
     @Then("^I should see the group name \"([^\"]*)\" in group list$")
@@ -145,18 +152,23 @@ public class UserManagementStepdefs {
 
     @And("^I modify the role name to \"([^\"]*)\"$")
     public void IModifyTheRoleNameTo(String rolrName) throws Throwable {
-        onPage(UserConfigPage.class).renameRoleName(rolrName);
+//        onPage(UserConfigPage.class).renameRoleName(rolrName);
+        ((ManagementPage)currentPage()).managementEditorPanel.setRoleName(rolrName);
     }
 
 
-    @When("^I delete the group named \"([^\"]*)\"$")
-    public void iDeleteTheGroupNamed(String groupName) throws Throwable {
-        onPage(UserDetailPage.class).deleteGroup(groupName);
+    @When("^I \"([^\"]*)\" the group named \"([^\"]*)\"$")
+    public void iDeleteTheGroupNamed(String itemMenu,String groupName) throws Throwable {
+//        onPage(UserDetailPage.class).deleteGroup(groupName);
+        ((ManagementPage)currentPage()).managementItemOperatorPanel.localteGroupAndRoleItem(groupName);
+        ((ManagementPage)currentPage()).managementItemsPanel.selectMenuItem(itemMenu);
+
     }
 
     @Then("^I should NOT see the group name \"([^\"]*)\" in group list$")
     public void iShouldnTSeeTheGroupNameIs(String groupName) throws Throwable {
-        assertFalse(onPage(UserDetailPage.class).getGroupInfo().contains(groupName));
+//        assertFalse(onPage(UserDetailPage.class).getGroupInfo().contains(groupName));
+        assertFalse((((ManagementPage)currentPage()).managementDetailPanel.getInformation().contains(groupName)));
     }
 
     @When("^I delete the role named \"([^\"]*)\"$")
@@ -166,24 +178,30 @@ public class UserManagementStepdefs {
 
     @Then("^I should NOT see the role name is \"([^\"]*)\"$")
     public void iShouldnTSeeTheRoleNameIs(String roleName) throws Throwable {
-        assertFalse(onPage(UserDetailPage.class).getRoleInfo().contains(roleName));
+//        assertFalse(onPage(UserDetailPage.class).getRoleInfo().contains(roleName));
+        assertFalse(((ManagementPage)currentPage()).managementDetailPanel.getInformation().contains(roleName));
+
     }
 
-    @And("^I access to edit page of email \"([^\"]*)\"$")
-    public void iAccessToEditPageOfEmailIs(String email) throws Throwable {
-        onPage(UserDetailPage.class).goToEditUserPage(email);
+    @And("^I \"([^\"]*)\" user's email \"([^\"]*)\"$")
+    public void iUserSEmail(String menuItemName, String email) throws Throwable {
+//        onPage(UserDetailPage.class).goToEditUserPage(email);
+        ((ManagementPage)currentPage()).managementItemOperatorPanel.locateUserItem(email);
+        ((ManagementPage)currentPage()).managementItemsPanel.selectMenuItem(menuItemName);
     }
 
     @And("^I modify the user basic information as following$")
     public void iModifyTheUserBasicInformationAsFollowing(List<Map<String, String>> userBasicInfoList) throws Throwable {
-        String userName = userBasicInfoList.get(0).get("UserName").toString();
-        String  email = userBasicInfoList.get(0).get("Email").toString();
-        onPage(UserConfigPage.class).reSetUsersBasicInformation(userName,email);
+//        String userName = userBasicInfoList.get(0).get("UserName").toString();
+//        String  email = userBasicInfoList.get(0).get("Email").toString();
+//        onPage(UserConfigPage.class).reSetUsersBasicInformation(userName,email);
+        ((ManagementPage)currentPage()).managementEditorPanel.modifyUser(userBasicInfoList.get(0));
     }
 
     @When("^I save the (?:user|group|role)$")
     public void iSaveTheUser() throws Throwable {
-        onPage(UserConfigPage.class).saveEditPage();
+//        onPage(UserConfigPage.class).saveEditPage();
+        ((ManagementPage)currentPage()).managementEditorPanel.clickConfirmButton();
     }
 
     @Then("^I should see the email \"([^\"]*)\" in user list$")
@@ -207,28 +225,38 @@ public class UserManagementStepdefs {
 
     @Then("^I should see no data in the list$")
     public void iShouldSeeNoDataInTheList() throws Throwable {
-        assertTrue(onPage(UserConfigPage.class).getPlaceholderMessage().contains("暂无数据"));
-        onPage(UserConfigPage.class).closeViewUserGroupModalContent();
+//        assertTrue(onPage(UserConfigPage.class).getPlaceholderMessage().contains("暂无数据"));
+//        onPage(UserConfigPage.class).closeViewUserGroupModalContent();
+
+        ((ManagementPage)currentPage()).managementEditorPanel.getPlaceholderMessage().contains("暂无数据");
+        ((ManagementPage)currentPage()).managementEditorPanel.closeViewUserGroupModalContent();
+
     }
 
-    @And("^I input the keyword \"([^\"]*)\" to user search box")
-    public void iInputUserNameIsToSearchInput(String keyWord) throws Throwable {
-       onPage(UserDetailPage.class).searchByUserOrEmail(keyWord);
+//    @And("^I input the keyword \"([^\"]*)\" to user search box")
+//    public void iInputUserNameIsToSearchInput(String keyWord) throws Throwable {
+    @When("^I search the user \"([^\"]*)\"$")
+    public void iSearchTheUser(String keyWord) throws Throwable {
+//       onPage(UserDetailPage.class).searchByUserOrEmail(keyWord);
+        ((ManagementPage)currentPage()).managementOperatorPanel.searchUserAndUserGroup(keyWord);
     }
 
-    @When("^I click search button$")
-    public void iClickSearchButton() throws Throwable {
-        onPage(UserDetailPage.class).search();
-    }
+
 
     @Then("^I should see the user name \"([^\"]*)\" in search result$")
     public void iShouldSeeTheUserNameIs(String userName) throws Throwable {
-        assertTrue(onPage(UserDetailPage.class).getUserBaseInfo().contains(userName));
+//        assertTrue(onPage(UserDetailPage.class).getUserBaseInfo().contains(userName));
+        assertTrue(((ManagementPage)currentPage()).managementDetailPanel.getInformation().contains(userName));
     }
 
     @And("^I input group name is \"([^\"]*)\" to searchInput$")
     public void iInputGroupNameIsToSearchInput(String groupName) throws Throwable {
         onPage(UserDetailPage.class).searchByGroupName(groupName);
+    }
+
+    @When("^I search the group name \"([^\"]*)\"$")
+    public void iSearchTheGroupName(String groupName) throws Throwable {
+        ((ManagementPage)currentPage()).managementOperatorPanel.searchUserAndUserGroup(groupName);
     }
 
     @When("^I select user menuItem$")
@@ -238,7 +266,8 @@ public class UserManagementStepdefs {
 
     @And("^I should see the user name \"([^\"]*)\" in user list$")
     public void iShouldSeeTheUserNameInUserList(String userName) throws Throwable {
-        assertTrue(onPage(UserDetailPage.class).getUserBaseInfo().contains(userName));
+//        assertTrue(onPage(UserDetailPage.class).getUserBaseInfo().contains(userName));
+        assertTrue(((ManagementPage)currentPage()).managementDetailPanel.getInformation().contains(userName));
     }
 
     @And("^I set role is \"([^\"]*)\"$")
@@ -260,22 +289,53 @@ public class UserManagementStepdefs {
 
     @And("^I add users to (?:group|role) as following$")
     public void iAddUsersToRoleAsFollowing(List<Map<String, String>> userList) throws Throwable {
-        onPage(UserConfigPage.class).addUserToRole(userList);
+//        onPage(UserConfigPage.class).addUserToRole(userList);
+        ((ManagementPage)currentPage()).managementEditorPanel.addUserToRole(userList);
     }
 
     @Then("^I should see users displayed correctly as following$")
     public void iShouldSeeUsersDisplayedCorrectlyAsFollowing(List<Map<String, String>> userInfo) throws Throwable {
-        assertTrue(onPage(UserConfigPage.class).getUserOfGroup().contains(userInfo.get(0).get("Email").toString()));
-        onPage(UserConfigPage.class).closeViewUserGroupModalContent();
+//        assertTrue(onPage(UserConfigPage.class).getUserOfGroup().contains(userInfo.get(0).get("Email").toString()));
+//        onPage(UserConfigPage.class).closeViewUserGroupModalContent();
+
+        assertTrue(((ManagementPage)currentPage()).managementEditorPanel.getUserOfGroup().contains(userInfo.get(0).get("Email").toString()));
+        ((ManagementPage)currentPage()).managementEditorPanel.closeViewUserGroupModalContent();
     }
 
     @And("^I Delete users from (?:group|role) as following$")
     public void iDeleteUsersFromRoleAsFollowing(List<Map<String, String>> userInfo) throws Throwable {
-        onPage(UserConfigPage.class).deleteUserFromGroupOrRole(userInfo);
+//        onPage(UserConfigPage.class).deleteUserFromGroupOrRole(userInfo);
+        ((ManagementPage)currentPage()).managementEditorPanel.deleteUserFromGroupOrRole(userInfo);
     }
 
     @And("^I select \"([^\"]*)\" menuItem$")
     public void iSelectMenuItem(String item) throws Throwable {
         currentPage().leftNavigationPanel.accessToMenuItem(item);
     }
+
+    @When("^I search the email \"([^\"]*)\"$")
+    public void iSearchTheEmail(String email) throws Throwable {
+        ((ManagementPage)currentPage()).managementOperatorPanel.searchUserAndUserGroup(email);
+    }
+
+    @Then("^I should see the email \"([^\"]*)\" in search result$")
+    public void iShouldSeeTheEmailInSearchResult(String email) throws Throwable {
+        assertTrue(((ManagementPage)currentPage()).managementDetailPanel.getInformation().contains(email));
+    }
+
+
+    @When("^I \"([^\"]*)\" the group name \"([^\"]*)\"$")
+    public void iTheGroupName(String menuItemName, String name) throws Throwable {
+        ((ManagementPage)currentPage()).managementItemOperatorPanel.localteGroupAndRoleItem(name);
+        ((ManagementPage)currentPage()).managementItemsPanel.selectMenuItem(menuItemName);
+    }
+
+
+    @When("^I \"([^\"]*)\" the role name \"([^\"]*)\"$")
+    public void iTheRoleName(String menuItemName, String name) throws Throwable {
+        ((ManagementPage)currentPage()).managementItemOperatorPanel.localteGroupAndRoleItem(name);
+        ((ManagementPage)currentPage()).managementItemsPanel.selectMenuItem(menuItemName);
+    }
+
+
 }

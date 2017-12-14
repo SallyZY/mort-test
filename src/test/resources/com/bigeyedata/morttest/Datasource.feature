@@ -9,7 +9,7 @@ Feature: Create DataSource
   Scenario: Create a new RDB dataSource AND Edit RDB dataSource
     Given I access to "DataSource" module
     And I expand the DataSource directory
-    And I select DataSource directory "测试数据源目录"
+    And I select directory "测试数据源目录"
     And I create a RDB dataSource with configuration as following
       | DataSourceType  | Host        | Port     | User      | Password  | Database         | DataSourceName  |
       | MySQL           |127.0.0.1    | 1234     | haha      | 1234      | customerdata_dev | 测试MySQL数据源_test  |
@@ -32,7 +32,7 @@ Feature: Create DataSource
   Scenario: Create a new HDFS dataSource
     Given I access to "DataSource" module
     And I expand the DataSource directory
-    And I select DataSource directory "测试数据源目录"
+    And I select directory "测试数据源目录"
     And I create a HDFS DataSource with configuration as following
       | DataSourceName       | DataSourceType   | FileName       |
       | 测试HDFS_parquet数据源| Parquet           |bigeye_parquet |
@@ -49,7 +49,7 @@ Feature: Create DataSource
   Scenario: Create a new ES dataSource
     Given I access to "DataSource" module
     And I expand the DataSource directory
-    And I select DataSource directory "测试数据源目录"
+    And I select directory "测试数据源目录"
     And I create a ES DataSource with configuration as following
       | DataSourceName  | Nodes      | Index    | Type         | Port  | Wan     |
       | 测试ES数据源      |localhost  | pa5000   | pa5000_type  |  9200 | false   |
@@ -63,7 +63,7 @@ Feature: Create DataSource
   Scenario: Delete dataSource
     Given I access to "DataSource" module
     And I expand the DataSource directory
-    And I select DataSource directory "测试数据源目录"
+    And I select directory "测试数据源目录"
     And I create a HDFS DataSource with configuration as following
       | DataSourceName       | DataSourceType   | FileName       |
       | 测试H数据源_Delete    | Parquet           |bigeye_parquet |
